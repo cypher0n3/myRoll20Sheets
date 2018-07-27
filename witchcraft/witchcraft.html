@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<div class="sheet-block">
+  <div name="character information" class="sheet-characterblock" >
+    <input type="text" class="sheet-header1" name="attr_charname" >
+    <input type="text" class="sheet-header1" name="attr_charassociation" style="position:relative; top:1px;">
+    <input type="text" class="sheet-header1" name="attr_charconcept" style="position:relative; top:2px;">
+  </div>
+  <div name="extrabits" style="position:relative;">
+    <div><input type="number" class="sheet-value1" name="attr_cptotal" style="position:absolute; top:-80px;left:73px;"></div>
+    <div><input type="number" class="sheet-value1" name="attr_cpspent" style="position:absolute; top:-13px;left:73px;"></div>
+    <div><input type="number" class="sheet-value1" name="attr_channel" style="position:absolute; top:-13px;left:195px;"></div>
+  </div>
+  <div style="position:relative; top:70px;">
+    <div name="Primary Attributes" class="sheet-col">
+      <table class="sheet-primary">
+        <tr>
+          <td><input type="number" class="sheet-value1" maxlength="2" style="width:45px;" name="attr_strength" value="0"></td>
+          <td><div class="sheet-attrselect"><input type="radio" class="sheet-hidden" value="Strength" name="attr_getattr"><label for="getattr">Strength</label></div></td>
+          <td style="width:70px;"><span></span></td>
+          <td><div class="sheet-attrselect"><input type="radio" class="sheet-hidden" value="Intelligence" name="attr_getattr"><label for="getattr">Intelligence</label></div></td>
+          <td><input type="number" class="sheet-value1" maxlength="2" style="width:45px;" name="attr_intelligence" value="0"></td>
+        </tr>
+        <tr>
+          <td><input type="number" class="sheet-value1" maxlength="2" style="width:45px;" name="attr_dexterity" value="0"></td>
+          <td><div class="sheet-attrselect"><input type="radio" class="sheet-hidden" value="Dexterity" name="attr_getattr"><label for="getattr">Dexterity</label></div></td>
+          <td><span></span></td>
+          <td><div class="sheet-attrselect"><input type="radio" class="sheet-hidden" value="Perception" name="attr_getattr"><label for="getattr">Perception</label></div></td>
+          <td><input type="number" class="sheet-value1" maxlength="2" style="width:45px;" name="attr_perception" value="0"></td>
+        </tr>
+        <tr>
+          <td><input type="number" class="sheet-value1" maxlength="2" style="width:45px;" name="attr_constitution" value="0"></td>
+          <td><div class="sheet-attrselect"><input type="radio" class="sheet-hidden" value="Constitution" name="attr_getattr"><label for="getattr">Constitution</label></div></td>
+          <td><span></span></td>
+          <td><div class="sheet-attrselect"><input type="radio" class="sheet-hidden" value="Willpower" name="attr_getattr"><label for="getattr">Willpower</label></div></td>
+          <td><input type="number" class="sheet-value1" maxlength="2" style="width:45px;" name="attr_willpower" value="0"></td>
+        </tr>
+      </table>
+    </div>
+
+    <div name="Secondary Attributes" class="sheet-col">
+      <table class="sheet-secondary">
+        <tr>
+          <td><input type="number" maxlength="3" class="sheet-value2" name="attr_life-current"></td>
+          <td><input type="number" maxlength="3" class="sheet-value3" name="attr_life-max"></td>
+        </tr>
+        <tr>
+          <td><input type="number" maxlength="3" class="sheet-value2" name="attr_endurance-current"></td>
+          <td><input type="number" maxlength="3" class="sheet-value3" name="attr_endurance-max"></td>
+        </tr>
+        <tr>
+          <td><input type="number" maxlength="3" class="sheet-value2" name="attr_essence-current"></td>
+          <td><input type="number" maxlength="3" class="sheet-value3" name="attr_essence-max"></td>
+        </tr>
+        <tr>
+          <td><input type="number" maxlength="3" class="sheet-value2" name="attr_speed"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div name="Top spanner" style="height:105px;"></div>
+
+
+  <div class="sheet-columns" style="margin-top:10px;">
+    <div class="sheet-col sheet-left">
+    <table name="skilltable" class="sheet-table1" style="width:330px;">
+      <tr>
+        <th colspan="3" class="sheet-left">Skills</th>
+      </tr>
+    </table>
+    <fieldset class="repeating_skill">
+      <table name="skilltable1" class="sheet-table1" >
+        <tr>
+          <td><button type="roll" class="sheet-button" value="&{template:skill} {{label0=@{skill-name}}} {{result0=[[1d10 + @{attrvalue} + @{skill-points} + [[?{Modifier|0}]] ]]}} {{label1=@{getattr}}} {{result1=[[@{attrvalue}]]}}"></button></td>
+          <td><input type="text" class="sheet-input2" name="attr_skill-name"></td>
+        <td class="sheet-border"><input type="number" name="attr_skill-points" class="sheet-points"></td>
+      </tr>
+      </table>
+    </fieldset>
+
+    </div>
+
+    <div class="sheet-col2 sheet-right2">
+      <table name="powertable" class="sheet-table1" style="width:330px;">
+      <tr>
+        <th colspan="3" class="sheet-right">Powers</th>
+      </tr>
+      </table>
+      <fieldset class="repeating_powers">
+        <table class="sheet-table1">
+          <tr>
+            <td><button type="roll" class="sheet-button" value="&{template:skill} {{label0=@{power-name}}} {{result0=[[1d10 + @{attrvalue} + @{power-points} + ?{Modifiers|0}]] }} {{label1=@{getattr}}} {{result1=@{attrvalue}}}"></button></td>
+            <td><input type="text" class="sheet-input2" name="attr_power-name"></td>
+            <td class="sheet-border"><input type="number" name="attr_power-points" class="sheet-points"></td>
+          </tr>
+        </table>
+      </fieldset>
+
+    <table name="itemtable" class="sheet-table1 sheet-tablelonger" style="margin-top:10px;">
+      <tr>
+        <th colspan="6" class="sheet-right">Equipment</th>
+      </tr>
+      <tr>
+        <td colspan="6"><input type="text" class="sheet-input1" name="attr_equip1-name" style="width:330px;"></td>
+      </tr>
+      <tr class="sheet-subheader">
+        <td style="text-align:left; padding-left:20px">Properties</td>
+        <td>D(n)</td>
+        <td>(X)</td>
+        <td>Range</td>
+        <td>Cap</td>
+      </tr>
+      <tr>
+        <td><input type="text" class="sheet-inputlong" name="attr_equip1-properties" placeholder="Properties"></td>
+        <td><input type="text" class="sheet-inputshort" name="attr_equip1-dice" placeholder="Dice"></td>
+        <td><input type="number" class="sheet-inputshort" name="attr_equip1-multipliers" placeholder="Mult."></td>
+        <td><input type=" type="number"" class="sheet-inputmed" name="attr_equip1-range" placeholder="Range"></td>
+        <td><input type="number" class="sheet-inputshort" name="attr_equip1-cap" placeholder="Cap"></td>
+      </tr>
+
+      <tr>
+        <td colspan="6"><input type="text" class="sheet-input1" name="attr_equip2-name" style="width:330px;"></td>
+      </tr>
+      <tr class="sheet-subheader">
+        <td style="text-align:left; padding-left:20px">Properties</td>
+        <td>D(n)</td>
+        <td>(X)</td>
+        <td>Range</td>
+        <td>Cap</td>
+      </tr>
+      <tr>
+        <td><input type="text" class="sheet-inputlong" name="attr_equip2-properties" placeholder="Properties"></td>
+        <td><input type="text" class="sheet-inputshort" name="attr_equip2-dice" placeholder="Dice"></td>
+        <td><input type="number" class="sheet-inputshort" name="attr_equip2-multipliers" placeholder="Mult."></td>
+        <td><input type="text" class="sheet-inputmed" name="attr_equip2-range" placeholder="Range"></td>
+        <td><input type="number" class="sheet-inputshort" name="attr_equip2-cap" placeholder="Cap"></td>
+      </tr>
+    </table>
+    </div>
+  </div>
+
+  <div class="sheet-columns" style="margin-top:15px">
+    <div class="sheet-col2 sheet-left">
+      <table name="Qualities" class="sheet-table1">
+        <tr>
+          <th colspan="2" class="sheet-left">Qualities</th>
+        </tr>
+      </table>
+      <fieldset class="repeating_Qualities">
+        <table name="Qualitieslist" class="sheet-table1">
+          <tr>
+            <td><input type="text" class="sheet-input1" name="attr_quality-name"></td>
+            <td class="sheet-border"><input type="number" name="attr_quality-points" class="sheet-points"></td>
+          </tr>
+        </table>
+      </fieldset>
+    </div>
+
+    <div class="sheet-col2 sheet-right">
+      <table name="Drawbacks" class="sheet-table1">
+        <tr>
+          <th colspan="2" class="sheet-right">Drawbacks</th>
+        </tr>
+      </table>
+      <fieldset class="repeating_Drawbacks">
+        <table name="Drawbackslist" class="sheet-table1">
+          <tr>
+            <td><input type="text" class="sheet-input1" name="attr_drawback-name"></td>
+            <td class="sheet-border"><input type="number" name="attr_drawback-points" class="sheet-points"></td>
+          </tr>
+        </table>
+      </fieldset>
+    </div>
+  </div>
+</div>
+
+<div class="sheet-invisible">
+  <!-- Roll Templates -->
+  <rolltemplate class="sheet-rolltemplate-skill">
+    <div style="background-image:url(https://i.imgur.com/gIacv0f.jpg);box-shadow: 0px 0px 4px black;">
+      <div style="background-image:url(https://i.imgur.com/q9tcTtR.jpg);width:235px;height:125px"></div>
+        <table>
+          <tr>
+            <td class="sheet-bigresult" colspan="2">{{result0}}</td>
+          </tr>
+          <tr>
+            <th colspan="2"><span>{{label0}}</span></th>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          {{#label1}}
+          <tr>
+            <td class="sheet-label">{{label1}}</td>
+            <td class="sheet-result">{{result1}}</td>
+          </tr>
+          {{/label1}}
+          {{#label2}}
+          <tr>
+            <td class="sheet-label">{{label2}}</td>
+            <td class="sheet-result">{{result2}}</td>
+          </tr>
+          {{/label2}}
+          {{#label3}}
+          <tr>
+            <td class="sheet-label">{{label3}}</td>
+            <td class="sheet-result">{{result3}}</td>
+          </tr>
+          {{/label3}}
+          {{#label4}}
+          <tr>
+            <td class="sheet-label">{{label4}}</td>
+            <td class="sheet-result">{{result4}}</td>
+          </tr>
+          {{/label4}}
+          {{#label5}}
+          <tr>
+            <td class="sheet-label">{{label5}}</td>
+            <td class="sheet-result">{{result5}}</td>
+          </tr>
+          {{/label5}}
+          {{#label6}}
+          <tr>
+            <td class="sheet-label">{{label6}}</td>
+            <td class="sheet-result">{{result6}}</td>
+          </tr>
+          {{/label6}}
+          {{#textlabel}}
+          <tr name="divider">
+            <td colspan="2"><hr style="margin-bottom:0px;"></td>
+          </tr>
+          <tr>
+            <td class="sheet-label" colspan="2">{{textlabel}}</td>
+          </tr>
+          <tr>
+            <td class="sheet-textfield" colspan="2">{{textfield}}</td>
+          </tr>
+          {{/textlabel}}
+        </table>
+      </div>
+    <div style="background-image:url(https://i.imgur.com/DdTHJT1.jpg); width:235px; height:125px; position:relative; top:-50px;"></div>
+  </rolltemplate>
+  <input type="text" name="attr_selected" value="0">
+  <input type="text" name="attr_attrvalue" value="0">
+</div>
+
+<script type="text/worker">
+  //set attribute information
+  on("ready sheet:opened change:getattr", function() {
+      console.log("SCRIPT: CALLING SET ATTRIBUTE")
+      getAttrs(["getattr","strength", "dexterity", "constitution", "intelligence", "perception", "willpower"], function(values) {
+      if (values.getattr == "Strength") {
+        attrvalue: parseInt(values.strength)
+        setAttrs({
+        })
+        console.log("SCRIPT: SETTING STRENGTH")
+      }
+      else if (values.getattr == "Dexterity") {
+        setAttrs({
+        attrvalue: parseInt(values.dexterity)
+        })
+        console.log("SCRIPT: SETTING DEXTERITY")
+      }
+      else if (values.getattr == "Constitution") {
+        setAttrs({
+        attrvalue: parseInt(values.constitution)
+        })
+        console.log("SCRIPT: SETTING DEXTERITY")
+      }
+      else if (values.getattr == "Intelligence") {
+        setAttrs({
+        attrvalue: parseInt(values.intelligence)
+        })
+        console.log("SCRIPT: SETTING Intelligence")
+      }
+      else if (values.getattr == "Perception") {
+        setAttrs({
+        attrvalue: parseInt(values.perception)
+        })
+        console.log("SCRIPT: SETTING Perception")
+      }
+      else if (values.getattr == "Willpower") {
+        setAttrs({
+        attrvalue: parseInt(values.willpower)
+        })
+        console.log("SCRIPT: SETTING Willpower")
+      }
+    })
+  })
+</script>
