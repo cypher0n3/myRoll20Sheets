@@ -1,0 +1,576 @@
+/* === GENERAL === */
+.charsheet {
+    min-width: 850px;
+}
+
+.sheet-header {
+  margin-bottom: 4px;
+  padding: 2px 4px;
+
+  background: black;
+  color: white;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.sheet-section {
+  float: left;
+  width: 100%;
+
+  margin: 4px 0;
+  padding: 1px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.sheet-half {
+  max-width: 50%;
+}
+
+.sheet-quarter {
+  max-width: 25%;
+}
+
+.sheet-3quarter {
+  max-width: 75%;
+}
+
+.sheet-break {
+  clear: both;
+}
+
+label,
+select {
+  margin: 0;
+}
+
+textarea {
+  margin: 0;
+  width: 100%;
+  height: 400px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.sheet-repitem,
+.repitem {
+  margin-bottom: 2px;
+}
+
+/* Override Roll20 Button styling for something less conspicious */
+button {
+  height: 22px;
+  line-height: 16px;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.repitem button {
+  height: 28px;
+  line-height: 20px;
+}
+
+.sheet-table {
+  display: table;
+  width: 100%;
+  border-collapse:separate;
+  border-spacing: 5px;
+  table-layout: fixed;
+}
+
+.sheet-table-row {
+  display: table-row;
+}
+
+.sheet-table-row-outline-black {
+  display: table-row;
+  outline: thin dashed black;
+}
+
+.sheet-table-row-outline-blue {
+  display: table-row;
+  outline: thin dashed blue;
+}
+
+.sheet-table-row-outline-green {
+  display: table-row;
+  outline: thin dashed green;
+}
+
+/* Add `.cell` for the table cells, or columns */
+.sheet-table-cell {
+  display: table-cell;
+}
+
+.sheet-cell-a { width: auto; }
+.sheet-cell-2 { width: 2%; }
+.sheet-cell-5 { width: 5%; }
+.sheet-cell-7 { width: 7%; }
+.sheet-cell-10 { width: 10%; }
+.sheet-cell-15 { width: 15%; }
+.sheet-cell-20 { width: 20%; }
+.sheet-cell-25 { width: 25%; }
+.sheet-cell-41 { width: 41%; }
+.sheet-cell-50 { width: 50%; }
+.sheet-cell-75 { width: 75%; }
+.sheet-cell-30 { width: 30%; }
+.sheet-cell-69 { width: 69%; }
+.sheet-cell-button {width: 23px; }
+
+.sheet-table-2col {
+  display: table-cell;
+  width:50%;
+}
+
+.sheet-table-1third {
+  display: table-cell;
+  width:33%;
+}
+
+.sheet-table-2thirds {
+  display: table-cell;
+  width:67%;
+}
+
+  /* Padded columns */
+.sheet-table-padded {
+  margin-left:  -1rem;
+  margin-right: -1rem;
+}
+
+.sheet-table-padded .sheet-table {
+  border-spacing: 1rem 0;
+}
+
+.sheet-input-border input[type="text"] {
+  min-width: 15px;
+  max-width: 100%;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.sheet-select-border select {
+  min-width: 15px;
+  max-width: 100%;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.sheet-gen-border {
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.sheet-topbot-border {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.sheet-bot-border {
+  border-bottom: 1px solid black;
+}
+
+.sheet-input-border input[type="number"] {
+  min-width: 15px;
+  max-width: 100%;
+  width: 100%;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.sheet-multiline-input {
+  height:46px;
+  border: 1px solid black;
+}
+
+.sheet-multiline-input-padded {
+  height:46px;
+  border: 1px solid black;
+  margin-bottom: 4px;
+}
+
+.sheet-hider-arcana {
+}
+
+.sheet-hider-arcana:checked ~ div.sheet-hide-arcana {
+  display: none;
+}
+
+.sheet-hider-divinity {
+}
+
+.sheet-hider-divinity:checked ~ div.sheet-hide-divinity {
+  display: none;
+}
+
+.sheet-hider-psy {
+}
+
+.sheet-hider-psy:checked ~ div.sheet-hide-psy {
+  display: none;
+}
+
+.sheet-hider-charmod {
+}
+
+.sheet-hider-charmod:checked div.sheet-hide-charmod {
+  display: none;
+}
+
+.sheet-hider {
+}
+
+.sheet-hider:checked ~ div.sheet-hide-section {
+  display: none;
+}
+
+/*this hides the checkbox*/
+.charsheet input.sheet-hider-invis[type="checkbox"] {
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+  display: none;
+}
+
+/* Hide actual checkbox */
+input.sheet-checkbox-whitegear[type="checkbox"] {
+    opacity: 0;
+    width: 14px;
+    height: 14px;
+    position: relative;
+    top: 0px;
+    left: 8px;
+    margin:0px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+    /* Fake checkbox */
+input.sheet-checkbox-whitegear[type="checkbox"] + span::before {
+    font-family:"Pictos";
+    content: "y";
+    color:#ffffff;
+    width: 14px;
+    height: 14px;
+    font-size: 17px;
+
+    position: relative;
+    top: 0px;
+    left: 0px;
+    margin:-10px;
+}
+
+.sheet-text-center {
+  text-align: center;
+}
+
+.sheet-redtext {
+  color: red;
+}
+
+.sheet-bluetext {
+  color: blue;
+}
+
+.sheet-greentext {
+  color: green;
+}
+
+/*-- Hide arrows on number fields --*/
+/* For Firefox */
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+/* Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/*----------- Race Traits Display Setup -------------*/
+/*this hides the contents of each section by default*/
+.charsheet div[class^="sheet-racetraits"] {
+  display: none;
+}
+
+/*this shows the race traits content when the appropriate input field is selected*/
+.charsheet input.sheet-race1:checked ~ div.sheet-racetraits-human,
+.charsheet input.sheet-race2:checked ~ div.sheet-racetraits-arcanan,
+.charsheet input.sheet-race3:checked ~ div.sheet-racetraits-forgeborn,
+.charsheet input.sheet-race4:checked ~ div.sheet-racetraits-shadowling,
+.charsheet input.sheet-race5:checked ~ div.sheet-racetraits-shankai,
+.charsheet input.sheet-race6:checked ~ div.sheet-racetraits-thakoran,
+.charsheet input.sheet-race7:checked ~ div.sheet-racetraits-other {
+  display: block;
+}
+
+/*this hides the radio button*/
+.charsheet input.sheet-race {
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+  display: none;
+}
+/*----------- End Race Traits Display Setup -----------*/
+
+/*----------- Tabs Setup -------------*/
+/*this hides the contents of each tab by default*/
+.charsheet div[class^="sheet-section-tabbed"] {
+  display: none;
+}
+
+/*this shows the tab content when the appropriate input field is selected*/
+.charsheet input.sheet-tab1:checked ~ div.sheet-section-tabbed-core,
+.charsheet input.sheet-tab2:checked ~ div.sheet-section-tabbed-combat,
+.charsheet input.sheet-tab3:checked ~ div.sheet-section-tabbed-pfat,
+.charsheet input.sheet-tab4:checked ~ div.sheet-section-tabbed-gear,
+.charsheet input.sheet-tab5:checked ~ div.sheet-section-tabbed-arcana,
+.charsheet input.sheet-tab6:checked ~ div.sheet-section-tabbed-notes,
+.charsheet input.sheet-tab7:checked ~ div.sheet-section-tabbed-refs {
+  display: block;
+}
+
+.charsheet input.sheet-tab99:checked ~ div[class^="sheet-section-tabbed"] {
+  display: block;
+}
+
+/*this hides the radio button for each tab, makes it 100px wide and 40px tall and makes sure it's above everything else*/
+.charsheet input.sheet-tab {
+    	width: 100px;
+    	height: 40px;
+    	cursor: pointer;
+  position: relative;
+  opacity: 0;
+  z-index: 9999;
+}
+
+/*this styles the span with the tab information and slides to the left, so it appears underneath the radio button*/
+.charsheet span.sheet-tab {
+  text-align: center;
+  display: inline-block;
+  font-size: 13px;
+  background: lightgrey;
+  color: black;
+  font-weight: bold;
+  border-radius: 4px;
+
+  width: 80px;
+  height: 25px;
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+  margin-left: -101px;/*originally 91px*/
+}
+
+/*this modifies the span color once the radio button is selected so you know which tab is selected*/
+.charsheet input.sheet-tab1:checked + span.sheet-tab1,
+.charsheet input.sheet-tab2:checked + span.sheet-tab2,
+.charsheet input.sheet-tab3:checked + span.sheet-tab3,
+.charsheet input.sheet-tab4:checked + span.sheet-tab4,
+.charsheet input.sheet-tab5:checked + span.sheet-tab5,
+.charsheet input.sheet-tab6:checked + span.sheet-tab6,
+.charsheet input.sheet-tab7:checked + span.sheet-tab7,
+.charsheet input.sheet-tab8:checked + span.sheet-tab8,
+.charsheet input.sheet-tab99:checked + span.sheet-tab99 {
+  background: #660202;
+  border-radius: 4px;
+  color: white;
+}
+/*----------- End Tab Setup -----------*/
+
+/*----------- Roll templates -----------*/
+/*------ Skill Roller ------*/
+.sheet-rolltemplate-skillroller table {
+  width: 100%;
+  border: 1px solid;
+  color: black;
+  font-size: 1em;
+}
+
+.sheet-rolltemplate-skillroller th {
+  background-color: #660202;
+  color: #ffffff;
+  padding: 2px;
+  border-bottom: 1px solid black;
+  line-height: 1.6em;
+  font-size: 1.2em;
+}
+
+.sheet-rolltemplate-skillroller .userscript-tcat {
+  font-weight: bold;
+}
+
+.sheet-rolltemplate-skillroller td {
+  padding: 5px;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.sheet-rolltemplate-skillroller td:nth-child(1) {
+  width: 30%;
+  border-right: 1px solid black;
+}
+
+.sheet-rolltemplate-skillroller td:nth-child(2) {
+  width: 70%;
+}
+
+.sheet-rolltemplate-skillroller tr:nth-child(odd) {
+  background-color: #FFFFFF;
+}
+
+.sheet-rolltemplate-skillroller tr:nth-child(even) {
+  background-color: rgba(233, 233, 233,1);
+}
+
+.sheet-rolltemplate-skillroller tr:nth-last-child(1) {
+  background-color: #30a8ff;
+}
+
+.sheet-rolltemplate-skillroller .inlinerollresult  {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid rgba(167, 168, 170,1); /*Cool Gray 6 C*/
+}
+/*------ End Skill Roller ------*/
+
+/*------ Attack Roller ------*/
+.sheet-rolltemplate-atkroller table {
+  width: 100%;
+  border: 1px solid;
+  color: black;
+  font-size: 1em;
+}
+
+.sheet-rolltemplate-atkroller th {
+  background-color: #660202;
+  color: #ffffff;
+  padding: 2px;
+  border-bottom: 1px solid black;
+  line-height: 1.6em;
+  font-size: 1.2em;
+}
+
+.sheet-rolltemplate-atkroller .userscript-tcat {
+  font-weight: bold;
+}
+
+.sheet-rolltemplate-atkroller td {
+  padding: 5px;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.sheet-rolltemplate-atkroller td:nth-child(1) {
+  width: 30%;
+  border-right: 1px solid black;
+}
+
+.sheet-rolltemplate-atkroller td:nth-child(2) {
+  width: 70%;
+}
+
+.sheet-rolltemplate-atkroller tr:nth-child(odd) {
+  background-color: #FFFFFF;
+}
+
+.sheet-rolltemplate-atkroller tr:nth-child(even) {
+  background-color: rgba(233, 233, 233,1);
+}
+
+.sheet-rolltemplate-atkroller tr:nth-last-child(2) {
+  background-color: #30a8ff;
+}
+
+.sheet-rolltemplate-atkroller .inlinerollresult  {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid rgba(167, 168, 170,1); /*Cool Gray 6 C*/
+}
+/*------ End Attack Roller ------*/
+
+/*------ Damage Roller ------*/
+.sheet-rolltemplate-damageroller table {
+  width: 100%;
+  border: 1px solid;
+  color: black;
+  font-size: 1em;
+}
+
+.sheet-rolltemplate-damageroller th {
+  background-color: #660202;
+  color: #ffffff;
+  padding: 2px;
+  border-bottom: 1px solid black;
+  line-height: 1.6em;
+  font-size: 1.2em;
+}
+
+.sheet-rolltemplate-damageroller .userscript-tcat {
+  font-weight: bold;
+}
+
+.sheet-rolltemplate-damageroller td {
+  padding: 5px;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.sheet-rolltemplate-damageroller td:nth-child(1) {
+  width: 30%;
+  border-right: 1px solid black;
+}
+
+.sheet-rolltemplate-damageroller td:nth-child(2) {
+  width: 70%;
+}
+
+.sheet-rolltemplate-damageroller tr:nth-child(odd) {
+  background-color: #FFFFFF;
+}
+
+.sheet-rolltemplate-damageroller tr:nth-child(even) {
+  background-color: rgba(233, 233, 233,1);
+}
+
+.sheet-rolltemplate-damageroller .inlinerollresult  {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid rgba(167, 168, 170,1); /*Cool Gray 6 C*/
+}
+/*------ End Damage Roller ------*/
+/*----------- End Roll templates -----------*/
+
+.sheet-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.sheet-tooltip .sheet-tooltiptext {
+    visibility: hidden;
+    white-space:nowrap;
+    width: auto;
+    max-width: 500px;
+    background-color: black;
+    color: #fff;
+    text-align: left;
+    border-radius: 3px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.sheet-tooltip:hover .sheet-tooltiptext {
+    visibility: visible;
+}
