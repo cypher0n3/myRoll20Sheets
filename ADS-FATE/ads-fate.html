@@ -245,7 +245,7 @@
             <div class="sheet-headerbar">Eclipse Phase Aptitudes</div>
             <div class="sheet-table sheet-input-border">
                 <div class="sheet-table-row" style="text-align:center; font-weight:bold">
-                    <div class="sheet-table-cell sheet-cell-20"></div>
+                    <div class="sheet-table-cell sheet-cell-20"><input type="number" style="border:1px solid transparent; background-color:transparent; color:white" /></div> <!-- Here to keep tables lined up correctly -->
                     <div class="sheet-table-cell sheet-cell-10" title="Cognition"   >COG</div>
                     <div class="sheet-table-cell sheet-cell-10" title="Coordination">COO</div>
                     <div class="sheet-table-cell sheet-cell-10" title="Intuition"   >INT</div>
@@ -303,6 +303,38 @@
         </div>
         <div class="sheet-section sheet-table-2col-30">
             <div class="sheet-headerbar">Eclipse Phase Stats</div>
+            <div class="sheet-table sheet-input-border">
+                <div class="sheet-table-row"><!-- Row 1 -->
+                    <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Moxie">MOX</div>
+                    <div class="sheet-table-cell sheet-cell-15 "><input type="number" name="attr_FatePoints" value="3" /></div>
+                    <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Initiative: (INT+REF)/5 round up">INIT</div>
+                    <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP-INIT" disabled="disabled" value="[[ceil((@{EP-IntTotal}+@{EP-RefTotal})/5)]]" /></div>
+                </div>
+                <div class="sheet-table-row"><!-- Row 2 -->
+                    <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Durability: Determined by morph">DUR</div>
+                    <div class="sheet-table-cell sheet-cell-15 "><input type="number" name="attr_EP-DUR" value="30" /></div>
+                    <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Speed">SPD</div>
+                    <div class="sheet-table-cell sheet-cell-15 "><input type="number" name="attr_EP-SPD" value="1" /></div>
+                </div>
+                <div class="sheet-table-row"><!-- Row 3 -->
+                    <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Wound Threshold: DUR ÷ 5">WT</div>
+                    <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP-WT" disabled="disabled" value="[[ceil(@{EP-DUR}/5)]]" /></div>
+                    <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Trauma Threshold: LUC ÷ 5">TT</div>
+                    <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP-TT" disabled="disabled" value="[[ceil(@{EP-LUC}/5)}]]" /></div>
+                </div>
+                <div class="sheet-table-row"><!-- Row 4 -->
+                    <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Death Rating: Bio=DUR*1.5; Synth=DUR*2">DR</div>
+                    <div class="sheet-table-cell sheet-cell-15 "><input type="number" name="attr_EP-DR" value="[[ceil(@{EP-DUR}*1.5)})]]" /></div>
+                    <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Lucidity: WIL * 2">LUC</div>
+                    <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP-LUC" disabled="disabled" value="[[(@{EP-WilTotal}*2)}]]" /></div>
+                </div>
+                <div class="sheet-table-row"><!-- Row 5 -->
+                    <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Damage Bonus: SOM ÷ 10">DB</div>
+                    <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP-DB" disabled="disabled" value="[[floor(@{EP-SomTotal}/10)}]]" /></div>
+                    <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Insanity Rating: LUC * 2">IR</div>
+                    <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP-LUC" disabled="disabled" value="[[(@{EP-WilTotal}*2})]]" /></div>
+                </div>
+            </div>
         </div>
     </div>
 
