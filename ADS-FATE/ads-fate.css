@@ -62,7 +62,7 @@
 
 .sheet-table-2col {
   display: table-cell;
-  width:50%;
+  width: 50%;
 }
 
 .sheet-table-row {
@@ -106,7 +106,9 @@
 
 .sheet-cell-label {
     background: lightgrey;
+    font-size: 15px;
     font-weight: bold;
+    vertical-align: middle;
 }
 
 .sheet-span-border {
@@ -124,12 +126,12 @@
 }
 
 .sheet-row-settings {
-    height: 25px;
-    line-height: 23px;
     vertical-align: middle;
 }
 
 .sheet-label-settings {
+    font-size: 13px;
+    font-weight: bold;
     height: 23px;
     line-height: 23px;
     vertical-align: middle;
@@ -390,9 +392,9 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
 }
 
 /*this shows the skills section content when the appropriate input field is selected*/
-.charsheet .sheet-skills-list1:checked ~ .sheet-skills-section-core,
-.charsheet .sheet-skills-list2:checked ~ .sheet-skills-section-accelerated,
-.charsheet .sheet-skills-list3:checked ~ .sheet-skills-section-custom {
+.charsheet .sheet-skills-list1:checked ~ .sheet-skills-section-fate_core,
+.charsheet .sheet-skills-list2:checked ~ .sheet-skills-section-fate_accelerated,
+.charsheet .sheet-skills-list99:checked ~ .sheet-skills-section-custom {
     display: block;
 }
 
@@ -404,6 +406,66 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
     width: 0;
 }
 /*----------- End skill-list Traits Display Setup -----------*/
+
+/*----------- Aspects Display Setup -------------*/
+/*this hides the contents of each section by default*/
+.charsheet div[class^="sheet-aspects-section"] {
+    display: none;
+}
+
+/*this shows the Aspects section content when the appropriate input field is selected*/
+.charsheet .sheet-aspects-show:checked ~ .sheet-aspects-section{
+    display: block;
+}
+
+/*this hides the radio button*/
+.charsheet .sheet-aspects-show {
+    display: none;
+    height: 0;
+    opacity: 0;
+    width: 0;
+}
+/*----------- End Aspects Display Setup -----------*/
+
+/*----------- Stunts Display Setup -------------*/
+/*this hides the contents of each section by default*/
+.charsheet div[class^="sheet-stunts-section"] {
+    display: none;
+}
+
+/*this shows the Aspects section content when the appropriate input field is selected*/
+.charsheet .sheet-stunts-show:checked ~ .sheet-stunts-section{
+    display: block;
+}
+
+/*this hides the radio button*/
+.charsheet .sheet-stunts-show {
+    display: none;
+    height: 0;
+    opacity: 0;
+    width: 0;
+}
+/*----------- End Stunts Display Setup -----------*/
+
+/*----------- Lock In Display Setup -------------*/
+/*this hides the contents of each section by default*/
+.charsheet div[class^="sheet-lock-in-section"] {
+    display: none;
+}
+
+/*this shows the Aspects section content when the appropriate input field is selected*/
+.charsheet .sheet-unlocked-checkbox:checked ~ .sheet-lock-in-section{
+    display: block;
+}
+
+/*this hides the radio button*/
+.charsheet .sheet-unlocked-checkbox {
+    display: none;
+    height: 0;
+    opacity: 0;
+    width: 0;
+}
+/*----------- End Lock In Display Setup -----------*/
 
 /*----------- Rep Control -------------*/
 .repcontrol_add {
