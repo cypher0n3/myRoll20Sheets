@@ -57,12 +57,27 @@
 }
 
 .sheet-table-topBorderGray {
-    border-top: 1px solid lightgrey
+    border-top: 1px solid lightgrey;
 }
 
 .sheet-table-2col {
   display: table-cell;
   width: 50%;
+}
+
+.sheet-table-2col-70 {
+  display: table-cell;
+  width: 70%;
+}
+
+.sheet-table-2col-30 {
+  display: table-cell;
+  width: 30%;
+}
+
+.sheet-table-2col-a {
+  display: table-cell;
+  width: auto;
 }
 
 .sheet-table-row {
@@ -96,6 +111,7 @@
 .sheet-cell-18 { width: 18%; }
 .sheet-cell-20 { width: 20%; }
 .sheet-cell-25 { width: 25%; }
+.sheet-cell-30 { width: 30%; }
 .sheet-cell-41 { width: 41%; }
 .sheet-cell-50 { width: 50%; }
 .sheet-cell-75 { width: 75%; }
@@ -201,6 +217,8 @@ input[type="number"] {
     padding: 0;
     padding-left: 3px;
     padding-right: 3px;
+    padding-top: 3px;
+    vertical-align: middle;
 }
 
 /* Hide arrows on number fields -> Webkit browsers like Safari and Chrome */
@@ -223,6 +241,13 @@ input[type="number"]::-webkit-outer-spin-button {
     min-width: 15px;
     text-align: center;
     width: 100%;
+}
+
+.sheet-input-disabled input[type=number] {
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+    font-weight: bold;
 }
 
 .sheet-select-border select {
@@ -394,7 +419,10 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
 /*this shows the skills section content when the appropriate input field is selected*/
 .charsheet .sheet-skills-list1:checked ~ .sheet-skills-section-fate_core,
 .charsheet .sheet-skills-list2:checked ~ .sheet-skills-section-fate_accelerated,
-.charsheet .sheet-skills-list99:checked ~ .sheet-skills-section-custom {
+.charsheet .sheet-skills-list-tesseris:checked ~ .sheet-skills-section-tesseris,
+.charsheet .sheet-skills-list-eclipse_phase:checked ~ .sheet-skills-section-eclipse_phase,
+.charsheet .sheet-skills-list-ep_ads:checked ~ .sheet-skills-section-ep_ads,
+.charsheet .sheet-skills-list-custom:checked ~ .sheet-skills-section-custom {
     display: block;
 }
 
@@ -405,7 +433,31 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
     opacity: 0;
     width: 0;
 }
-/*----------- End skill-list Traits Display Setup -----------*/
+/*----------- End Skills Display Setup -----------*/
+
+/*----------- Characteristcs Display Setup -------------*/
+/*this hides the contents of each section by default*/
+.charsheet div[class^="sheet-characteristcs-section"] {
+    display: none;
+}
+
+/*this shows the skills section content when the appropriate input field is selected*/
+.charsheet .sheet-characteristcs-list-none:checked ~ .sheet-characteristcs-section-none,
+.charsheet .sheet-characteristcs-list-d20:checked ~ .sheet-characteristcs-section-d20,
+.charsheet .sheet-characteristcs-list-ads:checked ~ .sheet-characteristcs-section-ads,
+.charsheet .sheet-characteristcs-list-eclipse_phase:checked ~ .sheet-characteristcs-section-eclipse_phase,
+.charsheet .sheet-characteristcs-list-custom:checked ~ .sheet-characteristcs-section-custom {
+    display: block;
+}
+
+/*this hides the radio button*/
+.charsheet .sheet-characteristcs-selector {
+    display: none;
+    height: 0;
+    opacity: 0;
+    width: 0;
+}
+/*----------- End Characteristcs Display Setup -----------*/
 
 /*----------- Aspects Display Setup -------------*/
 /*this hides the contents of each section by default*/

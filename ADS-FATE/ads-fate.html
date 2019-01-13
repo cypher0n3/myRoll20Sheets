@@ -50,7 +50,6 @@
         </div>
     </div>
 
-
     <input class="sheet-aspects-show" type="checkbox" name="attr_AttributesSelector" value="Yes" checked />
     <div class="sheet-aspects-section">
         <div class="sheet-section sheet-table-2col">
@@ -217,11 +216,101 @@
         </div><!-- End Stunts -->
     </div>
 
+    <!-- ~~~~~~ Characteristcs ~~~~~~ -->
+    <!-- No Characteristcs -->
+    <input class="sheet-characteristcs-selector sheet-characteristcs-list-none" type="checkbox" name="attr_CharSelect" value="None" checked />
+    <div class="sheet-characteristcs-section-none">
+    </div>
+
+    <!-- d20 Ability Scores -->
+    <input class="sheet-characteristcs-selector sheet-characteristcs-list-d20" type="checkbox" name="attr_CharSelect" value="d20" />
+    <div class="sheet-characteristcs-section-d20">
+        <div class="sheet-section">
+            <div class="sheet-headerbar">Ability Scores</div>
+        </div>
+    </div>
+
+    <!-- ADS Characteristcs -->
+    <input class="sheet-characteristcs-selector sheet-characteristcs-list-ads" type="checkbox" name="attr_CharSelect" value="ADS" />
+    <div class="sheet-characteristcs-section-ads">
+        <div class="sheet-section">
+            <div class="sheet-headerbar">ADS Characteristcs</div>
+        </div>
+    </div>
+
+    <!-- Eclipse Phase Aptitudes & Stats -->
+    <input class="sheet-characteristcs-selector sheet-characteristcs-list-eclipse_phase" type="checkbox" name="attr_CharSelect" value="Eclipse_Phase" checked />
+    <div class="sheet-characteristcs-section-eclipse_phase">
+        <div class="sheet-section sheet-table-2col-70">
+            <div class="sheet-headerbar">Eclipse Phase Aptitudes</div>
+            <div class="sheet-table sheet-input-border">
+                <div class="sheet-table-row" style="text-align:center; font-weight:bold">
+                    <div class="sheet-table-cell sheet-cell-20"></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Cognition"   >COG</div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Coordination">COO</div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Intuition"   >INT</div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Reflexes"    >REF</div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Savvy"       >SAV</div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Somatics"    >SOM</div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Willpower"   >WIL</div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell" style="text-align:right; font-weight:bold">Base: </div>
+                    <div class="sheet-table-cell" title="Cognition (COG) base"   ><input type="number" name="attr_EP-CogBase" value="15" /></div>
+                    <div class="sheet-table-cell" title="Coordination (COO) base"><input type="number" name="attr_EP-CooBase" value="15" /></div>
+                    <div class="sheet-table-cell" title="Intuition (INT) base"   ><input type="number" name="attr_EP-IntBase" value="15" /></div>
+                    <div class="sheet-table-cell" title="Reflexes (REF) base"    ><input type="number" name="attr_EP-RefBase" value="15" /></div>
+                    <div class="sheet-table-cell" title="Savvy (SAV) base"       ><input type="number" name="attr_EP-SavBase" value="15" /></div>
+                    <div class="sheet-table-cell" title="Somatics (SOM) base"    ><input type="number" name="attr_EP-SomBase" value="15" /></div>
+                    <div class="sheet-table-cell" title="Willpower (WIL) base"   ><input type="number" name="attr_EP-WilBase" value="15" /></div>
+                    <div class="sheet-table-cell"></div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell" style="text-align:right; font-weight:bold">Morph bonus: </div>
+                    <div class="sheet-table-cell" title="Cognition (COG) morph bonus"   ><input type="number" name="attr_EP-CogMorphBonus" value="0" /></div>
+                    <div class="sheet-table-cell" title="Coordination (COO) morph bonus"><input type="number" name="attr_EP-CooMorphBonus" value="0" /></div>
+                    <div class="sheet-table-cell" title="Intuition (INT) morph bonus"   ><input type="number" name="attr_EP-IntMorphBonus" value="0" /></div>
+                    <div class="sheet-table-cell" title="Reflexes (REF) morph bonus"    ><input type="number" name="attr_EP-RefMorphBonus" value="0" /></div>
+                    <div class="sheet-table-cell" title="Savvy (SAV) morph bonus"       ><input type="number" name="attr_EP-SavMorphBonus" value="0" /></div>
+                    <div class="sheet-table-cell" title="Somatics (SOM) morph bonus"    ><input type="number" name="attr_EP-SomMorphBonus" value="0" /></div>
+                    <div class="sheet-table-cell" title="Willpower (WIL) morph bonus"   ><input type="number" name="attr_EP-WilMorphBonus" value="0" /></div>
+                    <div class="sheet-table-cell"></div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell" style="text-align:right; font-weight:bold">Misc. bonus: </div>
+                    <div class="sheet-table-cell" title="Cognition (COG) misc. bonus"   ><input type="number" name="attr_EP-CogMiscBonus" value="0" /></div>
+                    <div class="sheet-table-cell" title="Coordination (COO) misc. bonus"><input type="number" name="attr_EP-CooMiscBonus" value="0" /></div>
+                    <div class="sheet-table-cell" title="Intuition (INT) misc. bonus"   ><input type="number" name="attr_EP-IntMiscBonus" value="0" /></div>
+                    <div class="sheet-table-cell" title="Reflexes (REF) misc. bonus"    ><input type="number" name="attr_EP-RefMiscBonus" value="0" /></div>
+                    <div class="sheet-table-cell" title="Savvy (SAV) misc. bonus"       ><input type="number" name="attr_EP-SavMiscBonus" value="0" /></div>
+                    <div class="sheet-table-cell" title="Somatics (SOM) misc. bonus"    ><input type="number" name="attr_EP-SomMiscBonus" value="0" /></div>
+                    <div class="sheet-table-cell" title="Willpower (WIL) misc. bonus"   ><input type="number" name="attr_EP-WilMiscBonus" value="0" /></div>
+                    <div class="sheet-table-cell"></div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell" style="text-align:right; font-weight:bold">TOTAL: </div>
+                    <div class="sheet-table-cell sheet-input-disabled" title="Cognition (COG) total"   ><input type="number" disabled="disabled" name="attr_EP-CogTotal" value="[[@{EP-CogBase}+@{EP-CogMorphBonus}+@{EP-CogMiscBonus}]]" /></div>
+                    <div class="sheet-table-cell sheet-input-disabled" title="Coordination (COO) total"><input type="number" disabled="disabled" name="attr_EP-CooTotal" value="[[@{EP-CooBase}+@{EP-CooMorphBonus}+@{EP-CooMiscBonus}]]" /></div>
+                    <div class="sheet-table-cell sheet-input-disabled" title="Intuition (INT) total"   ><input type="number" disabled="disabled" name="attr_EP-IntTotal" value="[[@{EP-IntBase}+@{EP-IntMorphBonus}+@{EP-IntMiscBonus}]]" /></div>
+                    <div class="sheet-table-cell sheet-input-disabled" title="Reflexes (REF) total"    ><input type="number" disabled="disabled" name="attr_EP-RefTotal" value="[[@{EP-RefBase}+@{EP-RefMorphBonus}+@{EP-RefMiscBonus}]]" /></div>
+                    <div class="sheet-table-cell sheet-input-disabled" title="Savvy (SAV) total"       ><input type="number" disabled="disabled" name="attr_EP-SavTotal" value="[[@{EP-SavBase}+@{EP-SavMorphBonus}+@{EP-SavMiscBonus}]]" /></div>
+                    <div class="sheet-table-cell sheet-input-disabled" title="Somatics (SOM) total"    ><input type="number" disabled="disabled" name="attr_EP-SomTotal" value="[[@{EP-SomBase}+@{EP-SomMorphBonus}+@{EP-SomMiscBonus}]]" /></div>
+                    <div class="sheet-table-cell sheet-input-disabled" title="Willpower (WIL) total"   ><input type="number" disabled="disabled" name="attr_EP-WilTotal" value="[[@{EP-WilBase}+@{EP-WilMorphBonus}+@{EP-WilMiscBonus}]]" /></div>
+                    <div class="sheet-table-cell"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sheet-section sheet-table-2col-30">
+            <div class="sheet-headerbar">Eclipse Phase Stats</div>
+        </div>
+    </div>
+
     <div class="sheet-section"><!-- Skills -->
-        <!-- Core Skills -->
+        <!-- FATE Core Skills -->
         <input class="sheet-skills-list-selector sheet-skills-list1" type="checkbox" name="attr_skillListSelect" value="FATE_Core" checked />
         <div class="sheet-skills-section-fate_core">
-            <div class="sheet-headerbar">Skills</div>
+            <div class="sheet-headerbar">FATE Skills</div>
             <div class="sheet-table-2col sheet-border-right">
                 <div class="sheet-table sheet-input-border">
                     <div class="sheet-table-row  sheet-boldCenter">
@@ -331,12 +420,32 @@
                     </div><!-- End Core Skill: Will -->
                 </div>
             </div>
+            <fieldset class="repeating_FATEcoreSkills"> <!-- SkillsRepeating -->
+                <div class="sheet-table-2col sheet-border-right">
+                    <div class="sheet-table sheet-table-repeating sheet-input-border">
+                        <div class="sheet-table-row" style="margin-right: 5px"><!-- Repeating Skill A -->
+                            <div class="sheet-table-cell sheet-cell-button sheet-table-cell-repeating-first"><button type="roll" value=""></button></div>
+                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_skill-RepeatingA" value="" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-table-cell-repeating-last"><input type="number" name="attr_skill-RepeatingA-rank" value="0" /></div>
+                        </div><!-- End Repeating Skill A -->
+                    </div>
+                </div>
+                <div class="sheet-table-2col">
+                    <div class="sheet-table sheet-table-repeating sheet-input-border">
+                        <div class="sheet-table-row"><!-- Repeating Skill B -->
+                            <div class="sheet-table-cell sheet-cell-button sheet-table-cell-repeating-first"><button type="roll" value=""></button></div>
+                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_skill-RepeatingB" value="" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-table-cell-repeating-last"><input type="number" name="attr_skill-RepeatingB-rank" value="0" /></div>
+                        </div><!-- End Repeating Skill B -->
+                    </div>
+                </div>
+            </fieldset>
         </div><!--End Core Skills -->
 
         <!-- Fate Accelerated Skills -->
         <input class="sheet-skills-list-selector sheet-skills-list2" type="checkbox" name="attr_skillListSelect" value="FATE_Accelerated"/>
         <div class="sheet-skills-section-fate_accelerated">
-            <div class="sheet-headerbar">Approaches</div>
+            <div class="sheet-headerbar">FATE Accelerated Approaches</div>
             <div class="sheet-table-2col sheet-border-right">
                 <div class="sheet-table sheet-input-border">
                     <div class="sheet-table-row sheet-boldCenter">
@@ -385,10 +494,36 @@
                     </div><!-- End Accelerated Approach: Sneaky -->
                 </div>
             </div>
+            <fieldset class="repeating_FATEaccelSkills"> <!-- SkillsRepeating -->
+                <div class="sheet-table-2col sheet-border-right">
+                    <div class="sheet-table sheet-table-repeating sheet-input-border">
+                        <div class="sheet-table-row" style="margin-right: 5px"><!-- Repeating Skill A -->
+                            <div class="sheet-table-cell sheet-cell-button sheet-table-cell-repeating-first"><button type="roll" value=""></button></div>
+                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_skill-RepeatingA" value="" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-table-cell-repeating-last"><input type="number" name="attr_skill-RepeatingA-rank" value="0" /></div>
+                        </div><!-- End Repeating Skill A -->
+                    </div>
+                </div>
+                <div class="sheet-table-2col">
+                    <div class="sheet-table sheet-table-repeating sheet-input-border">
+                        <div class="sheet-table-row"><!-- Repeating Skill B -->
+                            <div class="sheet-table-cell sheet-cell-button sheet-table-cell-repeating-first"><button type="roll" value=""></button></div>
+                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_skill-RepeatingB" value="" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-table-cell-repeating-last"><input type="number" name="attr_skill-RepeatingB-rank" value="0" /></div>
+                        </div><!-- End Repeating Skill B -->
+                    </div>
+                </div>
+            </fieldset>
         </div><!--End Accelerated Skills -->
 
+        <!-- Eclipse Phase Characteristcs -->
+        <input class="sheet-skills-list-selector sheet-skills-list-eclipse_phase" type="checkbox" name="attr_skillListSelect" value="Eclipse_Phase" />
+        <div class="sheet-skills-section-eclipse_phase">
+            <div class="sheet-headerbar">Eclipse Phase Skills</div>
+        </div>
+
         <!-- Custom Skills -->
-        <input class="sheet-skills-list-selector sheet-skills-list99" type="checkbox" name="attr_skillListSelect" value="Custom" />
+        <input class="sheet-skills-list-selector sheet-skills-list-custom" type="checkbox" name="attr_skillListSelect" value="Custom" />
         <div class="sheet-skills-section-custom">
             <div class="sheet-headerbar">Skills</div>
             <div class="sheet-table-2col sheet-border-right" style="margin-bottom:0;">
@@ -409,28 +544,28 @@
                     </div>
                 </div>
             </div>
+            <fieldset class="repeating_Skills"> <!-- SkillsRepeating -->
+                <div class="sheet-table-2col sheet-border-right">
+                    <div class="sheet-table sheet-table-repeating sheet-input-border">
+                        <div class="sheet-table-row" style="margin-right: 5px"><!-- Repeating Skill A -->
+                            <div class="sheet-table-cell sheet-cell-button sheet-table-cell-repeating-first"><button type="roll" value=""></button></div>
+                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_skill-RepeatingA" value="" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-table-cell-repeating-last"><input type="number" name="attr_skill-RepeatingA-rank" value="0" /></div>
+                        </div><!-- End Repeating Skill A -->
+                    </div>
+                </div>
+                <div class="sheet-table-2col">
+                    <div class="sheet-table sheet-table-repeating sheet-input-border">
+                        <div class="sheet-table-row"><!-- Repeating Skill B -->
+                            <div class="sheet-table-cell sheet-cell-button sheet-table-cell-repeating-first"><button type="roll" value=""></button></div>
+                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_skill-RepeatingB" value="" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-table-cell-repeating-last"><input type="number" name="attr_skill-RepeatingB-rank" value="0" /></div>
+                        </div><!-- End Repeating Skill B -->
+                    </div>
+                </div>
+            </fieldset>
         </div><!--End Custom Skills -->
 
-        <fieldset class="repeating_Skills"> <!-- SkillsRepeating -->
-            <div class="sheet-table-2col sheet-border-right">
-                <div class="sheet-table sheet-table-repeating sheet-input-border">
-                    <div class="sheet-table-row" style="margin-right: 5px"><!-- Repeating Skill A -->
-                        <div class="sheet-table-cell sheet-cell-button sheet-table-cell-repeating-first"><button type="roll" value=""></button></div>
-                        <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_skill-RepeatingA" value="" placeholder="Skill Name" /></div>
-                        <div class="sheet-table-cell sheet-cell-rank sheet-table-cell-repeating-last"><input type="number" name="attr_skill-RepeatingA-rank" value="0" /></div>
-                    </div><!-- End Repeating Skill A -->
-                </div>
-            </div>
-            <div class="sheet-table-2col">
-                <div class="sheet-table sheet-table-repeating sheet-input-border">
-                    <div class="sheet-table-row"><!-- Repeating Skill B -->
-                        <div class="sheet-table-cell sheet-cell-button sheet-table-cell-repeating-first"><button type="roll" value=""></button></div>
-                        <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_skill-RepeatingB" value="" placeholder="Skill Name" /></div>
-                        <div class="sheet-table-cell sheet-cell-rank sheet-table-cell-repeating-last"><input type="number" name="attr_skill-RepeatingB-rank" value="0" /></div>
-                    </div><!-- End Repeating Skill B -->
-                </div>
-            </div>
-        </fieldset>
     </div><!-- End Skills -->
 </div><!-- End Core Tab -->
 
@@ -494,7 +629,8 @@
                     </span>
                 </div>
             </div><!-- End Quick Settings Selector -->
-            <div class="sheet-table-row sheet-row-settings"><!-- Dice Base Selector -->
+            <!-- Dice Base Selector -->
+            <div class="sheet-table-row sheet-row-settings">
                 <div class="sheet-table-cell sheet-cell-25 sheet-cell-label">Dice Base</div>
                 <div class="sheet-table-cell sheet-cell-a">
                     <span class="sheet-span-border sheet-span-settings">
@@ -514,7 +650,8 @@
                     </span>
                 </div>
             </div><!-- End Dice Base Selector -->
-            <div class="sheet-table-row sheet-row-settings"> <!-- Skills List Selector -->
+            <!-- Skills List Selector -->
+            <div class="sheet-table-row sheet-row-settings">
                 <div class="sheet-table-cell sheet-cell-25 sheet-cell-label" title="List of skills to use.">Skill List</div>
                 <div class="sheet-table-cell sheet-cell-a">
                     <span class="sheet-span-border sheet-span-settings">
@@ -539,18 +676,26 @@
             </div> <!-- End Skills List Selector -->
             <div class="sheet-table-row sheet-row-settings"> <!-- Characteristcs Selector -->
                 <div class="sheet-table-cell sheet-cell-25 sheet-cell-label" title="Characteristcs/Ability Scores list to use.">Characteristcs List</div>
-                <div class="sheet-table-cell sheet-cell-a"><select name="attr_CharSelect" style="width:200px; height:23px">
-                    <option value="None">None</option>
-                    <option value="DnD">DnD/Pathfinder/d20</option>
-                    <option value="ADS">ADS</option>
-                    <option value="Eclipse Phase v1">Eclipse Phase v1</option>
-                </select></div>
+                <div class="sheet-table-cell sheet-cell-a">
+                    <span class="sheet-span-border sheet-span-settings">
+                        <label class="sheet-label-settings"><input type="radio" name="attr_CharSelect" value="None" checked /> None </label>
+                    </span>
+                    <span class="sheet-span-border sheet-span-settings">
+                        <label class="sheet-label-settings"><input type="radio" name="attr_CharSelect" value="d20" /> d20/DnD/Pathfinder </label>
+                    </span>
+                    <span class="sheet-span-border sheet-span-settings">
+                        <label class="sheet-label-settings"><input type="radio" name="attr_CharSelect" value="ADS" /> ADS/Tesseris </label>
+                    </span>
+                    <span class="sheet-span-border sheet-span-settings">
+                        <label class="sheet-label-settings"><input type="radio" name="attr_CharSelect" value="Eclipse_Phase" /> Eclipse Phase </label>
+                    </span>
+                </div>
             </div><!-- End Characteristcs Selector -->
             <div class="sheet-table-row sheet-row-settings"> <!-- Attributes & Stunts Selector -->
                 <div class="sheet-table-cell sheet-cell-25 sheet-cell-label">FATE Attributes & Stunts</div>
                 <div class="sheet-table-cell sheet-cell-a">
                     <span title="Use FATE style Attributes?">
-                        <b>Use Attributes?</b>
+                        <span style="padding-right:8px"><b>Use Attributes?</b></span>
                         <span class="sheet-span-border sheet-span-settings">
                             <label class="sheet-label-settings"><input type="radio" name="attr_AttributesSelector" value="Yes" checked /> Yes </label>
                         </span>
@@ -558,8 +703,8 @@
                             <label class="sheet-label-settings"><input type="radio" name="attr_AttributesSelector" value="No" /> No </label>
                         </span>
                     </span>
-                    <span style="padding-left:50px" <span title="Use FATE style Stunts?">
-                        <b>Use Stunts?</b>
+                    <span style="padding-left:52px" title="Use FATE style Stunts?">
+                        <span style="padding-right:0px"><b>Use Stunts?</b></span>
                         <span class="sheet-span-border sheet-span-settings">
                             <label class="sheet-label-settings"><input type="radio" name="attr_StuntsSelector" value="Yes" checked /> Yes </label>
                         </span>
@@ -581,7 +726,7 @@
                             <label class="sheet-label-settings"><input type="radio" name="attr_UseFatePointsSelector" value="Hidden" /> No </label>
                         </span>
                     </span>
-                    <span style="padding-left:50px" <span title="Use FATE style Refresh?">
+                    <span style="padding-left:42px" title="Use FATE style Refresh?">
                         <b>Use Refresh?</b>
                         <span class="sheet-span-border sheet-span-settings">
                             <label class="sheet-label-settings"><input type="radio" name="attr_UseRefreshSelector" value="Shown" checked /> Yes </label>
