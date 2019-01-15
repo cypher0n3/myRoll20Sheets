@@ -215,6 +215,7 @@ input[type="text"] {
     padding: 0;
     padding-left: 3px;
     padding-right: 3px;
+    padding-top: 3px;
 }
 
 input[type="number"] {
@@ -251,10 +252,8 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .sheet-input-disabled input[type=number] {
-    background-color: black;
-    border: 1px solid black;
-    color: white;
-    font-weight: bold;
+    background-color: lightgray;
+    color: darkblue;
 }
 
 .sheet-select-border select {
@@ -525,6 +524,97 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
     width: 0;
 }
 /*----------- End Lock In Display Setup -----------*/
+
+/*----------- Eclipse Phase Skills Display Setup -------------*/
+/*this hides the contents of each section by default*/
+.charsheet div[class^="sheet-ep-skill-hider-section"] {
+    display: none;
+}
+
+.charsheet div[class^="sheet-ep-skills-display-selection-section"] {
+    display: none;
+}
+
+/*this shows the Eclipse_Phase Skill section content when the appropriate input field is selected*/
+.charsheet .sheet-ep-skill-hider-animal_handling:checked ~ .sheet-ep-skill-hider-section-animal_handling,
+.charsheet .sheet-ep-skill-hider-beam_weapons:checked ~ .sheet-ep-skill-hider-section-beam_weapons,
+.charsheet .sheet-ep-skill-hider-blades:checked ~ .sheet-ep-skill-hider-section-blades,
+.charsheet .sheet-ep-skill-hider-climbing:checked ~ .sheet-ep-skill-hider-section-climbing,
+.charsheet .sheet-ep-skill-hider-clubs:checked ~ .sheet-ep-skill-hider-section-clubs,
+.charsheet .sheet-ep-skill-hider-control:checked ~ .sheet-ep-skill-hider-section-control,
+.charsheet .sheet-ep-skill-hider-deception:checked ~ .sheet-ep-skill-hider-section-deception,
+.charsheet .sheet-ep-skill-hider-demolitions:checked ~ .sheet-ep-skill-hider-section-demolitions,
+.charsheet .sheet-ep-skill-hider-disguise:checked ~ .sheet-ep-skill-hider-section-disguise,
+.charsheet .sheet-ep-skill-hider-exotic_melee_1:checked ~ .sheet-ep-skill-hider-section-exotic_melee_1,
+.charsheet .sheet-ep-skill-hider-exotic_melee_2:checked ~ .sheet-ep-skill-hider-section-exotic_melee_2,
+.charsheet .sheet-ep-skill-hider-exotic_ranged_1:checked ~ .sheet-ep-skill-hider-section-exotic_ranged_1,
+.charsheet .sheet-ep-skill-hider-exotic_ranged_2:checked ~ .sheet-ep-skill-hider-section-exotic_ranged_2,
+.charsheet .sheet-ep-skill-hider-flight:checked ~ .sheet-ep-skill-hider-section-flight,
+.charsheet .sheet-ep-skill-hider-fray:checked ~ .sheet-ep-skill-hider-section-fray,
+.charsheet .sheet-ep-skill-hider-free_fall:checked ~ .sheet-ep-skill-hider-section-free_fall,
+.charsheet .sheet-ep-skill-hider-freerunning:checked ~ .sheet-ep-skill-hider-section-freerunning,
+.charsheet .sheet-ep-skill-hider-gunnery:checked ~ .sheet-ep-skill-hider-section-gunnery,
+.charsheet .sheet-ep-skill-hider-hardware_1:checked ~ .sheet-ep-skill-hider-section-hardware_1,
+.charsheet .sheet-ep-skill-hider-hardware_2:checked ~ .sheet-ep-skill-hider-section-hardware_2,
+.charsheet .sheet-ep-skill-hider-impersonation:checked ~ .sheet-ep-skill-hider-section-impersonation,
+.charsheet .sheet-ep-skill-hider-infiltration:checked ~ .sheet-ep-skill-hider-section-infiltration,
+.charsheet .sheet-ep-skill-hider-infosec:checked ~ .sheet-ep-skill-hider-section-infosec,
+.charsheet .sheet-ep-skill-hider-interfacing:checked ~ .sheet-ep-skill-hider-section-interfacing,
+.charsheet .sheet-ep-skill-hider-intimidation:checked ~ .sheet-ep-skill-hider-section-intimidation,
+.charsheet .sheet-ep-skill-hider-investigation:checked ~ .sheet-ep-skill-hider-section-investigation,
+.charsheet .sheet-ep-skill-hider-kinesics:checked ~ .sheet-ep-skill-hider-section-kinesics,
+.charsheet .sheet-ep-skill-hider-kinetic_weapons:checked ~ .sheet-ep-skill-hider-section-kinetic_weapons,
+.charsheet .sheet-ep-skill-hider-medicine_1:checked ~ .sheet-ep-skill-hider-section-medicine_1,
+.charsheet .sheet-ep-skill-hider-medicine_2:checked ~ .sheet-ep-skill-hider-section-medicine_2,
+.charsheet .sheet-ep-skill-hider-navigation:checked ~ .sheet-ep-skill-hider-section-navigation,
+.charsheet .sheet-ep-skill-hider-networking_1:checked ~ .sheet-ep-skill-hider-section-networking_1,
+.charsheet .sheet-ep-skill-hider-networking_2:checked ~ .sheet-ep-skill-hider-section-networking_2,
+.charsheet .sheet-ep-skill-hider-networking_3:checked ~ .sheet-ep-skill-hider-section-networking_3,
+.charsheet .sheet-ep-skill-hider-networking_4:checked ~ .sheet-ep-skill-hider-section-networking_4,
+.charsheet .sheet-ep-skill-hider-networking_5:checked ~ .sheet-ep-skill-hider-section-networking_5,
+.charsheet .sheet-ep-skill-hider-networking_6:checked ~ .sheet-ep-skill-hider-section-networking_6,
+.charsheet .sheet-ep-skill-hider-palming:checked ~ .sheet-ep-skill-hider-section-palming,
+.charsheet .sheet-ep-skill-hider-perception:checked ~ .sheet-ep-skill-hider-section-perception,
+.charsheet .sheet-ep-skill-hider-persuasion:checked ~ .sheet-ep-skill-hider-section-persuasion,
+.charsheet .sheet-ep-skill-hider-pilot_1:checked ~ .sheet-ep-skill-hider-section-pilot_1,
+.charsheet .sheet-ep-skill-hider-pilot_2:checked ~ .sheet-ep-skill-hider-section-pilot_2,
+.charsheet .sheet-ep-skill-hider-programming:checked ~ .sheet-ep-skill-hider-section-programming,
+.charsheet .sheet-ep-skill-hider-protocol:checked ~ .sheet-ep-skill-hider-section-protocol,
+.charsheet .sheet-ep-skill-hider-psi_assault:checked ~ .sheet-ep-skill-hider-section-psi_assault,
+.charsheet .sheet-ep-skill-hider-psychosurgery:checked ~ .sheet-ep-skill-hider-section-psychosurgery,
+.charsheet .sheet-ep-skill-hider-research:checked ~ .sheet-ep-skill-hider-section-research,
+.charsheet .sheet-ep-skill-hider-scrounging:checked ~ .sheet-ep-skill-hider-section-scrounging,
+.charsheet .sheet-ep-skill-hider-seeker_weapons:checked ~ .sheet-ep-skill-hider-section-seeker_weapons,
+.charsheet .sheet-ep-skill-hider-sense:checked ~ .sheet-ep-skill-hider-section-sense,
+.charsheet .sheet-ep-skill-hider-spray_weapons:checked ~ .sheet-ep-skill-hider-section-spray_weapons,
+.charsheet .sheet-ep-skill-hider-swimming:checked ~ .sheet-ep-skill-hider-section-swimming,
+.charsheet .sheet-ep-skill-hider-throwing_weapons:checked ~ .sheet-ep-skill-hider-section-throwing_weapons,
+.charsheet .sheet-ep-skill-hider-unarmed_combat:checked ~ .sheet-ep-skill-hider-section-unarmed_combat,
+.charsheet .sheet-ep-skill-hider-academics_1:checked ~ .sheet-ep-skill-hider-section-academics_1,
+.charsheet .sheet-ep-skill-hider-academics_2:checked ~ .sheet-ep-skill-hider-section-academics_2,
+.charsheet .sheet-ep-skill-hider-academics_3:checked ~ .sheet-ep-skill-hider-section-academics_3,
+.charsheet .sheet-ep-skill-hider-academics_4:checked ~ .sheet-ep-skill-hider-section-academics_4,
+.charsheet .sheet-ep-skill-hider-art_1:checked ~ .sheet-ep-skill-hider-section-art_1,
+.charsheet .sheet-ep-skill-hider-art_2:checked ~ .sheet-ep-skill-hider-section-art_2,
+.charsheet .sheet-ep-skill-hider-art_3:checked ~ .sheet-ep-skill-hider-section-art_3,
+.charsheet .sheet-ep-skill-hider-art_4:checked ~ .sheet-ep-skill-hider-section-art_4,
+.charsheet .sheet-ep-skill-hider-interest_1:checked ~ .sheet-ep-skill-hider-section-interest_1,
+.charsheet .sheet-ep-skill-hider-interest_2:checked ~ .sheet-ep-skill-hider-section-interest_2,
+.charsheet .sheet-ep-skill-hider-interest_3:checked ~ .sheet-ep-skill-hider-section-interest_3,
+.charsheet .sheet-ep-skill-hider-interest_4:checked ~ .sheet-ep-skill-hider-section-interest_4,
+.charsheet .sheet-ep-skill-hider-language_1:checked ~ .sheet-ep-skill-hider-section-language_1,
+.charsheet .sheet-ep-skill-hider-language_2:checked ~ .sheet-ep-skill-hider-section-language_2,
+.charsheet .sheet-ep-skill-hider-language_3:checked ~ .sheet-ep-skill-hider-section-language_3,
+.charsheet .sheet-ep-skill-hider-language_4:checked ~ .sheet-ep-skill-hider-section-language_4,
+.charsheet .sheet-ep-skill-hider-profession_1:checked ~ .sheet-ep-skill-hider-section-profession_1,
+.charsheet .sheet-ep-skill-hider-profession_2:checked ~ .sheet-ep-skill-hider-section-profession_2,
+.charsheet .sheet-ep-skill-hider-profession_3:checked ~ .sheet-ep-skill-hider-section-profession_3,
+.charsheet .sheet-ep-skill-hider-profession_4:checked ~ .sheet-ep-skill-hider-section-profession_4,
+.charsheet .sheet-ep-skills-display-selection-hider:checked ~ .sheet-ep-skills-display-selection-section {
+    display: block;
+}
+/* Use .sheet-hider-invis to hide checkbox above section */
+/*----------- End Eclipse Phase Skills Display Setup -----------*/
 
 /*----------- Rep Control -------------*/
 .repcontrol_add {
