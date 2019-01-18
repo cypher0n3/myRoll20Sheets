@@ -3127,22 +3127,67 @@
     </div><!-- End Skills -->
 </div><!-- End Core Tab -->
 
-<div class="sheet-section-tabbed-gear sheet-section"><!-- Gear Tab -->
-    <div class="sheet-headerbar">TEST <input type="checkbox" class="sheet-checkbox-graygear" name="attr_TestHider" style="float:right" checked /><span style="position:relative;float:right;margin-right:-10px"/></div>
-    <div class="sheet-table sheet-input-border">
-        <div class="sheet-table-row">
-            <div class="sheet-table-cell sheet-cell-a"><input type="text" value="Cell 1,1" name="attr_testCell-1-1" /></div>
-            <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_TestHider" checked />
-            <div class="sheet-table-cell sheet-cell-a sheet-hide-section"><input type="text" value="Cell 1,2" name="attr_testCell-1-2" /></div>
-            <div class="sheet-table-cell sheet-cell-a"><input type="text" value="Cell 1,3" name="attr_testCell-1-3" /></div>
+<div class="sheet-section-tabbed-gear"><!-- Gear Tab -->
+
+    <!-- Eclipse Phase v1 Morphs Section -->
+    <input type="checkbox" class="sheet-special-gear-epv1_morphs sheet-hider-invis" name="attr_SpecialGear-EPv1_Morphs" value="EPv1_Morphs-Yes" checked />
+    <div class="sheet-special-gear-section-epv1_morphs sheet-section">
+        <div class="sheet-headerbar">Eclipse Phase v1 Morphs</div>
+
+        <input type="radio" class="sheet-epv1_morph-tab sheet-epv1_morphs-select-morph1" name="attr_epv1-morphs-tab" value="Morph_1" title="Morph 1" checked />
+        <span class="sheet-epv1_morph-tab sheet-epv1_morphs-tab-morph1">Morph 1</span>
+
+        <input type="radio" class="sheet-epv1_morph-tab sheet-epv1_morphs-select-morph2" name="attr_epv1-morphs-tab" value="Morph_2" title="Morph 2" />
+        <span class="sheet-epv1_morph-tab sheet-epv1_morphs-tab-morph2">Morph 2</span>
+
+        <input type="radio" class="sheet-epv1_morph-tab sheet-epv1_morphs-select-morph3" name="attr_epv1-morphs-tab" value="Morph_3" title="Morph 3" />
+        <span class="sheet-epv1_morph-tab sheet-epv1_morphs-tab-morph3">Morph 3</span>
+
+        <input type="radio" class="sheet-epv1_morph-tab sheet-epv1_morphs-select-morph4" name="attr_epv1-morphs-tab" value="Morph_4" title="Morph 4" />
+        <span class="sheet-epv1_morph-tab sheet-epv1_morphs-tab-morph4">Morph 4</span>
+
+        <input type="radio" class="sheet-epv1_morph-tab sheet-epv1_morphs-select-morph5" name="attr_epv1-morphs-tab" value="Morph_5" title="Morph 5" />
+        <span class="sheet-epv1_morph-tab sheet-epv1_morphs-tab-morph5">Morph 5</span>
+
+        <div class="sheet-epv1_morphs-section-morph1">
+            <div class="sheet-table-cell sheet-cell-a">Something Something Morph 1</div>
         </div>
-        <div class="sheet-table-row">
-            <div class="sheet-table-cell sheet-cell-a"><input type="text" value="Cell 2,1" name="attr_testCell1" /></div>
-            <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_TestHider" checked />
-            <div class="sheet-table-cell sheet-cell-a sheet-hide-section"><input type="text" value="Cell 2,2" name="attr_testCell-2-2" /></div>
-            <div class="sheet-table-cell sheet-cell-a"><input type="text" value="Cell 2,3" name="attr_testCell2-3" /></div>
+
+        <div class="sheet-epv1_morphs-section-morph2">
+            blah blah blah blah Morph 2
         </div>
-    </div>
+
+        <div class="sheet-epv1_morphs-section-morph3">
+            blah blah blah blah Morph 3
+        </div>
+
+        <div class="sheet-epv1_morphs-section-morph4">
+            blah blah blah blah Morph 4
+        </div>
+
+        <div class="sheet-epv1_morphs-section-morph5">
+            blah blah blah blah Morph 5
+        </div>
+    </div> <!-- End Eclipse Phase v1 Morphs Section -->
+
+    <!-- TEST Section -->
+    <div class="sheet-section">
+        <div class="sheet-headerbar">TEST <input type="checkbox" class="sheet-checkbox-graygear" name="attr_TestHider" style="float:right" checked /><span style="position:relative;float:right;margin-right:-10px"/></div>
+        <div class="sheet-table sheet-input-border">
+            <div class="sheet-table-row">
+                <div class="sheet-table-cell sheet-cell-a"><input type="text" value="Cell 1,1" name="attr_testCell-1-1" /></div>
+                <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_TestHider" checked />
+                <div class="sheet-table-cell sheet-cell-a sheet-hide-section"><input type="text" value="Cell 1,2" name="attr_testCell-1-2" /></div>
+                <div class="sheet-table-cell sheet-cell-a"><input type="text" value="Cell 1,3" name="attr_testCell-1-3" /></div>
+            </div>
+            <div class="sheet-table-row">
+                <div class="sheet-table-cell sheet-cell-a"><input type="text" value="Cell 2,1" name="attr_testCell1" /></div>
+                <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_TestHider" checked />
+                <div class="sheet-table-cell sheet-cell-a sheet-hide-section"><input type="text" value="Cell 2,2" name="attr_testCell-2-2" /></div>
+                <div class="sheet-table-cell sheet-cell-a"><input type="text" value="Cell 2,3" name="attr_testCell2-3" /></div>
+            </div>
+        </div>
+    </div><!-- End TEST Section -->
 </div><!-- End Gear Tab -->
 
 <div class="sheet-section-tabbed-notes sheet-section"><!-- Notes Tab -->
@@ -3223,7 +3268,7 @@
                         <label class="sheet-label-settings"><input type="radio" class="sheets-skills-list2" name="attr_skillListSelect" value="Tesseris" /> Tesseris </label>
                     </span>
                     <span class="sheet-span-border sheet-span-settings">
-                        <label class="sheet-label-settings"><input type="radio" class="sheets-skills-list2" name="attr_skillListSelect" value="Eclipse_Phase" checked /> Eclipse Phase </label>
+                        <label class="sheet-label-settings"><input type="radio" class="sheets-skills-list2" name="attr_skillListSelect" value="Eclipse_Phase" checked /> Eclipse Phase v1 </label>
                     </span>
                     <span class="sheet-span-border sheet-span-settings">
                         <label class="sheet-label-settings" title="Eclipse Phase ADS variant"><input type="radio" class="sheets-skills-list2" name="attr_skillListSelect" value="Eclipse_Phase_ADS" /> EP ADS </label>
@@ -3233,7 +3278,8 @@
                     </span>
                 </div>
             </div> <!-- End Skills List Selector -->
-            <div class="sheet-table-row sheet-table-row-settings"> <!-- Characteristcs Selector -->
+            <!-- Characteristcs Selector -->
+            <div class="sheet-table-row sheet-table-row-settings">
                 <div class="sheet-table-cell sheet-cell-25 sheet-cell-label" title="Characteristcs/Ability Scores list to use.">Characteristcs List</div>
                 <div class="sheet-table-cell sheet-cell-a">
                     <span class="sheet-span-border sheet-span-settings">
@@ -3250,11 +3296,12 @@
                     </span>
                 </div>
             </div><!-- End Characteristcs Selector -->
-            <div class="sheet-table-row sheet-table-row-settings"> <!-- Aspects & Stunts Selector -->
+            <!-- Aspects & Stunts Selector -->
+            <div class="sheet-table-row sheet-table-row-settings">
                 <div class="sheet-table-cell sheet-cell-25 sheet-cell-label">FATE Aspects & Stunts</div>
                 <div class="sheet-table-cell sheet-cell-a">
                     <span title="Use FATE style Aspects?">
-                        <span style="padding-right:8px"><b>Use Aspects?</b></span>
+                        <span style="padding-right:19px"><b>Use Aspects?</b></span>
                         <span class="sheet-span-border sheet-span-settings">
                             <label class="sheet-label-settings"><input type="radio" name="attr_AspectsSelector" value="Yes" /> Yes </label>
                         </span>
@@ -3262,7 +3309,7 @@
                             <label class="sheet-label-settings"><input type="radio" name="attr_AspectsSelector" value="No" checked /> No </label>
                         </span>
                     </span>
-                    <span style="padding-left:53px" title="Use FATE style Stunts?">
+                    <span style="padding-left:42px" title="Use FATE style Stunts?">
                         <span style="padding-right:10px"><b>Use Stunts?</b></span>
                         <span class="sheet-span-border sheet-span-settings">
                             <label class="sheet-label-settings"><input type="radio" name="attr_StuntsSelector" value="Yes" /> Yes </label>
@@ -3273,7 +3320,8 @@
                     </span>
                 </div>
             </div><!-- End Aspects & Stunts Selector -->
-            <div class="sheet-table-row sheet-table-row-settings"> <!-- Fate Points & Refresh Selector -->
+            <!-- Fate Points & Refresh Selector -->
+            <div class="sheet-table-row sheet-table-row-settings">
                 <div class="sheet-table-cell sheet-cell-25 sheet-cell-label">Fate Points & Refresh</div>
                 <div class="sheet-table-cell sheet-cell-a">
                     <span title="Use Fate/Moxie/Action points?">
@@ -3285,8 +3333,8 @@
                             <label class="sheet-label-settings"><input type="radio" name="attr_UseFatePointsSelector" value="No" /> No </label>
                         </span>
                     </span>
-                    <span style="padding-left:42px" title="Use FATE style Refresh?">
-                        <b>Use Refresh?</b>
+                    <span class="sheet-span-settings-label" style="padding-left:42px" title="Use FATE style Refresh?">
+                        Use Refresh?
                         <span class="sheet-span-border sheet-span-settings">
                             <label class="sheet-label-settings"><input type="radio" name="attr_UseRefreshSelector" value="Yes" /> Yes </label>
                         </span>
@@ -3296,11 +3344,21 @@
                     </span>
                 </div>
             </div><!-- End Aspects & Stunts Selector -->
+            <!-- Special Gear Selector -->
+            <div class="sheet-table-row sheet-table-row-settings">
+                <div class="sheet-table-cell sheet-cell-25 sheet-cell-label">Special Gear</div>
+                <div class="sheet-table-cell sheet-cell-a">
+                    <span class="sheet-span-border sheet-span-settings" title="Eclipse Phase v1 Morphs">
+                        <label class="sheet-label-settings"><input type="checkbox" name="attr_SpecialGear-EPv1_Morphs" value="EPv1_Morphs-Yes" checked /> EPv1 Morphs </label>
+                    </span>
+                </div>
+            </div><!-- End Aspects & Stunts Selector -->
         </div>
         <br>
         <div class="sheet-headerbar">Lock In Settings</div>
         <div class="sheet-table sheet-input-border">
-            <div class="sheet-table-row sheet-table-row-settings"> <!-- Lock In Selector -->
+            <!-- Lock In Selector -->
+            <div class="sheet-table-row sheet-table-row-settings">
                 <div class="sheet-table-cell sheet-cell-25 sheet-cell-label" title="WARNING: Changing this will REMOVE abilty to edit options on this tab!">Lock In Settings</div>
                 <div class="sheet-table-cell sheet-cell-a" title="WARNING: Changing this will REMOVE abilty to edit options on this tab!"><b>Lock in settings (hide this section)?</b>
                     <span class="sheet-span-border sheet-span-settings">

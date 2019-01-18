@@ -148,6 +148,10 @@
     vertical-align: middle;
 }
 
+.sheet-span-settings-label {
+    font-weight: bold;
+}
+
 .sheet-row-settings {
     vertical-align: middle;
 }
@@ -369,8 +373,8 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
     display: inline-block;
     font-size: 13px;
     font-weight: bold;
-    height: 25px;
-    line-height: 25px;
+    height: 20px;
+    line-height: 24px;
     margin-left: -115px;/*originally 91px*/
     text-align: center;
     vertical-align: middle;
@@ -485,11 +489,12 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
 }
 /*----------- End Aspects Display Setup -----------*/
 
-/* -- Checkbox hider stuff -- */
+/*----------- Refresh and Fate Points Display Setup -------------*/
 .sheet-hide-refresh:checked ~ .sheet-hide-refresh-section,
 .sheet-hide-fate_points:checked ~ .sheet-hide-fate_points-section {
     display: none;
 }
+/*----------- End Refresh and Fate Points Display Setup -------------*/
 
 /*----------- Stunts Display Setup -------------*/
 /*this hides the contents of each section by default*/
@@ -621,6 +626,73 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
 }
 /* Use .sheet-hider-invis to hide checkbox above section */
 /*----------- End Eclipse Phase Skills Display Setup -----------*/
+
+/*----------- Special Gear Display Setup -------------*/
+/*this hides the contents of each section by default*/
+.charsheet div[class^="sheet-special-gear-section"] {
+    display: none;
+}
+
+/*this shows the selected Special Gear section content when the appropriate input field is selected*/
+.charsheet input.sheet-special-gear-epv1_morphs:checked ~ .sheet-special-gear-section-epv1_morphs {
+    display: block;
+}
+
+/* Use .sheet-hider-invis to hide checkbox above section */
+/*----------- End Special Gear Display Setup -----------*/
+
+/*----------- Eclipse Phase v1 Morph Tabs Setup -------------*/
+/*this hides the contents of each tab by default*/
+.charsheet div[class^="sheet-epv1_morphs-section"] {
+    display: none;
+}
+
+/*this shows the tab content when the appropriate input field is selected*/
+.charsheet input.sheet-epv1_morphs-select-morph1:checked ~ .sheet-epv1_morphs-section-morph1,
+.charsheet input.sheet-epv1_morphs-select-morph2:checked ~ .sheet-epv1_morphs-section-morph2,
+.charsheet input.sheet-epv1_morphs-select-morph3:checked ~ .sheet-epv1_morphs-section-morph3,
+.charsheet input.sheet-epv1_morphs-select-morph4:checked ~ .sheet-epv1_morphs-section-morph4,
+.charsheet input.sheet-epv1_morphs-select-morph5:checked ~ .sheet-epv1_morphs-section-morph5 {
+    display: block;
+}
+
+/*this modifies the span color once the radio button is selected so you know which tab is selected*/
+.charsheet input.sheet-epv1_morphs-select-morph1:checked + span.sheet-epv1_morphs-tab-morph1,
+.charsheet input.sheet-epv1_morphs-select-morph2:checked + span.sheet-epv1_morphs-tab-morph2,
+.charsheet input.sheet-epv1_morphs-select-morph3:checked + span.sheet-epv1_morphs-tab-morph3,
+.charsheet input.sheet-epv1_morphs-select-morph4:checked + span.sheet-epv1_morphs-tab-morph4,
+.charsheet input.sheet-epv1_morphs-select-morph5:checked + span.sheet-epv1_morphs-tab-morph5 {
+  background: #000066;
+  border-radius: 4px;
+  color: white;
+}
+
+.charsheet input.sheet-epv1_morph-tab {
+    cursor: pointer;
+    height: 15px;
+    margin-left: 16px;
+    opacity: 0;
+    position: relative;
+    width: 100px;
+}
+
+/*this styles the span with the tab information and slides to the left, so it appears underneath the radio button*/
+.charsheet span.sheet-epv1_morph-tab {
+    background: lightgrey;
+    border-radius: 4px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    height: 20px;
+    line-height: 24px;
+    margin-left: -115px;/*originally 91px*/
+    text-align: center;
+    vertical-align: middle;
+    width: 80px;
+}
+/*----------- End Eclipse Phase v1 Morph Tabs Setup -------------*/
 
 /*----------- Rep Control -------------*/
 .repcontrol_add {
