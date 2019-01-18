@@ -338,9 +338,9 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
 }
 
 /*this shows the tab content when the appropriate input field is selected*/
-.charsheet input.sheet-tab1:checked ~ .sheet-section-tabbed-core,
-.charsheet input.sheet-tab2:checked ~ .sheet-section-tabbed-gear,
-.charsheet input.sheet-tab3:checked ~ .sheet-section-tabbed-notes,
+.charsheet input.sheet-tab-core:checked ~ .sheet-section-tabbed-core,
+.charsheet input.sheet-tab-gear:checked ~ .sheet-section-tabbed-gear,
+.charsheet input.sheet-tab-notes:checked ~ .sheet-section-tabbed-notes,
 .charsheet input.sheet-tabZ:checked ~ .sheet-section-tabbed-settings {
     display: block;
 }
@@ -406,9 +406,9 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
 }
 
 /*this modifies the span color once the radio button is selected so you know which tab is selected*/
-.charsheet input.sheet-tab1:checked + span.sheet-tab1,
-.charsheet input.sheet-tab2:checked + span.sheet-tab2,
-.charsheet input.sheet-tab3:checked + span.sheet-tab3,
+.charsheet input.sheet-tab-core:checked + span.sheet-tab-core,
+.charsheet input.sheet-tab-gear:checked + span.sheet-tab-gear,
+.charsheet input.sheet-tab-notes:checked + span.sheet-tab-notes,
 .charsheet input.sheet-tabZ:checked + span.sheet-tabZ {
   background: #660202;
   border-radius: 4px;
@@ -484,6 +484,12 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
     width: 0;
 }
 /*----------- End Aspects Display Setup -----------*/
+
+/* -- Checkbox hider stuff -- */
+.sheet-hide-refresh:checked ~ .sheet-hide-refresh-section,
+.sheet-hide-fate_points:checked ~ .sheet-hide-fate_points-section {
+    display: none;
+}
 
 /*----------- Stunts Display Setup -------------*/
 /*this hides the contents of each section by default*/

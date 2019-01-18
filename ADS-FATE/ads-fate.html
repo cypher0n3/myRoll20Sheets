@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <title>FATE character Sheet</title>
 <!-- Tab Setup -->
-<input type="radio" class="sheet-tab sheet-tab1" name="attr_tab-select" value="1" title="Core" />
-<span class="sheet-tab sheet-tab1">CORE</span>
+<input type="radio" class="sheet-tab sheet-tab-core" name="attr_tab-select" value="1" title="Core" />
+<span class="sheet-tab sheet-tab-core">CORE</span>
 
-<input type="radio" class="sheet-tab sheet-tab2" name="attr_tab-select" value="2" title="Gear" />
-<span class="sheet-tab sheet-tab2">GEAR</span>
+<input type="radio" class="sheet-tab sheet-tab-gear" name="attr_tab-select" value="2" title="Gear" />
+<span class="sheet-tab sheet-tab-gear">GEAR</span>
 
-<input type="radio" class="sheet-tab sheet-tab3" name="attr_tab-select" value="3" title="Notes" />
-<span class="sheet-tab sheet-tab3">NOTES</span>
+<input type="radio" class="sheet-tab sheet-tab-notes" name="attr_tab-select" value="3" title="Notes" />
+<span class="sheet-tab sheet-tab-notes">NOTES</span>
 
 <input type="radio" class="sheet-tab sheet-tabZ" name="attr_tab-select" value="Z" title="Sheet Settings" checked />
 <span class="sheet-tab sheet-tabZ">y</span>
@@ -20,18 +20,18 @@
                 <div class="sheet-table-row" style="text-align:center; font-weight:bold; font-size: 14px">
                     <div class="sheet-table-cell sheet-cell-41">Character Name</div>
                     <div class="sheet-table-cell sheet-cell-a">Player Name</div>
-                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_UseRefreshSelector" value="Hidden" />
-                    <div class="sheet-table-cell sheet-cell-15 sheet-hide-section" title="FATE refresh">Refresh</div>
-                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_UseFatePointsSelector"  value="Hidden" />
-                    <div class="sheet-table-cell sheet-cell-15 sheet-hide-section" title="Fate/Moxie/Action Points">Fate Points</div>
+                    <input type="checkbox" class="sheet-hide-refresh sheet-hider-invis" name="attr_UseRefreshSelector" value="Hidden" />
+                    <div class="sheet-table-cell sheet-cell-15 sheet-hide-refresh-section" title="FATE refresh">Refresh</div>
+                    <input type="checkbox" class="sheet-hide-fate_points sheet-hider-invis" name="attr_UseFatePointsSelector"  value="Hidden" />
+                    <div class="sheet-table-cell sheet-cell-15 sheet-hide-fate_points-section" title="Fate/Moxie/Action Points">Fate Points</div>
                 </div>
                 <div class="sheet-table-row">
                     <div class="sheet-table-cell"><input type="text" name="attr_CharName" value="No Name" /></div>
                     <div class="sheet-table-cell"><input type="text" name="attr_PlayerName" /></div>
-                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_UseRefreshSelector"  value="Hidden" />
-                    <div class="sheet-table-cell sheet-cell-15 sheet-hide-section"><input type="number" name="attr_Refresh" value="3" /></div>
-                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_UseFatePointsSelector"  value="Hidden" />
-                    <div class="sheet-table-cell sheet-cell-15 sheet-hide-section"><input type="number" name="attr_FatePoints" value="3" /></div>
+                    <input type="checkbox" class="sheet-hide-refresh sheet-hider-invis" name="attr_UseRefreshSelector"  value="Hidden" />
+                    <div class="sheet-table-cell sheet-cell-15 sheet-hide-refresh-section"><input type="number" name="attr_Refresh" value="3" /></div>
+                    <input type="checkbox" class="sheet-hide-fate_points sheet-hider-invis" name="attr_UseFatePointsSelector"  value="Hidden" />
+                    <div class="sheet-table-cell sheet-cell-15 sheet-hide-fate_points-section"><input type="number" name="attr_FatePoints" value="3" /></div>
                 </div>
             </div>
 
@@ -2874,66 +2874,97 @@
             <!-- Eclipse_Phase skill Profession 3 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-profession_3" name="attr_EP-Skill-Hider-Profession3"  />
             <div class="sheet-ep-skill-hider-section-profession_3">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
-            <div class="sheet-table-row">
-            <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Profession3-Name" value="Profession 3" placeholder="Skill Name" /></div>
-            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP-Skill-Profession3-Apt">
-            <option value="@{EP-CogTotal}">COG</option>
-            <option value="@{EP-CooTotal}">COO</option>
-            <option value="@{EP-IntTotal}">INT</option>
-            <option value="@{EP-RefTotal}">REF</option>
-            <option value="@{EP-SavTotal}">SAV</option>
-            <option value="@{EP-SomTotal}">SOM</option>
-            <option value="@{EP-WilTotal}">WIL</option>
-            <option value="@{EP-Skill-Profession3-CusomtAptVal}">Custom</option></select>
-            </div>
-            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP-Skill-Profession3-Base" value="0" /></div>
-            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP-Skill-Profession3-MorphBonus" value="0" /></div>
-            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP-Skill-Profession3-MiscBonus" value="0" /></div>
-            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP-Skill-Profession3-Total" disabled="disabled" value="[[@{EP-Skill-Profession3-Apt}+@{EP-Skill-Profession3-Base}+@{EP-Skill-Profession3-MorphBonus}+@{EP-Skill-Profession3-MiscBonus}]]" /></div>
-            <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP-Skill-Details-Hider-Profession3" checked /><span/></div>
-            </div>
-            </div>
-            <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP-Skill-Details-Hider-Profession3" checked />
-            <div class="sheet-input-border sheet-hide-section">
-            <div class="sheet-table-cell sheet-cell-a" style="padding-right:5px"><textarea class="sheet-multiline-input" name="attr_EP-Skill-Profession3-Name-Details" placeholder="Profession 3 details"></textarea></div>
-            <div class="sheet-table-cell sheet-cell-7" style="font-weight:bold; min-width:55px" title="Custom Aptitude Value for if 'Custom' is selected in the Aptitude drop-down">Custom Apt Val:</div>
-            <div class="sheet-table-cell sheet-cell-rank" title="Custom Aptitude Value for if 'Custom' is selected in the Aptitude drop-down"><input type="number" name="attr_EP-Skill-Profession3-CusomtAptVal" value="0" /></span></div>
-            </div>
+                <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+                    <div class="sheet-table-row">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Profession3-Name" value="Profession 3" placeholder="Skill Name" /></div>
+                        <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP-Skill-Profession3-Apt">
+                            <option value="@{EP-CogTotal}">COG</option>
+                            <option value="@{EP-CooTotal}">COO</option>
+                            <option value="@{EP-IntTotal}">INT</option>
+                            <option value="@{EP-RefTotal}">REF</option>
+                            <option value="@{EP-SavTotal}">SAV</option>
+                            <option value="@{EP-SomTotal}">SOM</option>
+                            <option value="@{EP-WilTotal}">WIL</option>
+                            <option value="@{EP-Skill-Profession3-CusomtAptVal}">Custom</option></select>
+                        </div>
+                        <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP-Skill-Profession3-Base" value="0" /></div>
+                        <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP-Skill-Profession3-MorphBonus" value="0" /></div>
+                        <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP-Skill-Profession3-MiscBonus" value="0" /></div>
+                        <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP-Skill-Profession3-Total" disabled="disabled" value="[[@{EP-Skill-Profession3-Apt}+@{EP-Skill-Profession3-Base}+@{EP-Skill-Profession3-MorphBonus}+@{EP-Skill-Profession3-MiscBonus}]]" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP-Skill-Details-Hider-Profession3" checked /><span/></div>
+                    </div>
+                </div>
+                <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP-Skill-Details-Hider-Profession3" checked />
+                <div class="sheet-input-border sheet-hide-section">
+                    <div class="sheet-table-cell sheet-cell-a" style="padding-right:5px"><textarea class="sheet-multiline-input" name="attr_EP-Skill-Profession3-Name-Details" placeholder="Profession 3 details"></textarea></div>
+                    <div class="sheet-table-cell sheet-cell-7" style="font-weight:bold; min-width:55px" title="Custom Aptitude Value for if 'Custom' is selected in the Aptitude drop-down">Custom Apt Val:</div>
+                    <div class="sheet-table-cell sheet-cell-rank" title="Custom Aptitude Value for if 'Custom' is selected in the Aptitude drop-down"><input type="number" name="attr_EP-Skill-Profession3-CusomtAptVal" value="0" /></span></div>
+                </div>
             </div> <!-- Eclipse_Phase skill Profession 3 End -->
 
             <!-- Eclipse_Phase skill Profession 4 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-profession_4" name="attr_EP-Skill-Hider-Profession4" />
             <div class="sheet-ep-skill-hider-section-profession_4">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
-            <div class="sheet-table-row">
-            <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Profession4-Name" value="Profession 4" placeholder="Skill Name" /></div>
-            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP-Skill-Profession4-Apt">
-            <option value="@{EP-CogTotal}">COG</option>
-            <option value="@{EP-CooTotal}">COO</option>
-            <option value="@{EP-IntTotal}">INT</option>
-            <option value="@{EP-RefTotal}">REF</option>
-            <option value="@{EP-SavTotal}">SAV</option>
-            <option value="@{EP-SomTotal}">SOM</option>
-            <option value="@{EP-WilTotal}">WIL</option>
-            <option value="@{EP-Skill-Profession4-CusomtAptVal}">Custom</option></select>
-            </div>
-            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP-Skill-Profession4-Base" value="0" /></div>
-            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP-Skill-Profession4-MorphBonus" value="0" /></div>
-            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP-Skill-Profession4-MiscBonus" value="0" /></div>
-            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP-Skill-Profession4-Total" disabled="disabled" value="[[@{EP-Skill-Profession4-Apt}+@{EP-Skill-Profession4-Base}+@{EP-Skill-Profession4-MorphBonus}+@{EP-Skill-Profession4-MiscBonus}]]" /></div>
-            <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP-Skill-Details-Hider-Profession4" checked /><span/></div>
-            </div>
-            </div>
-            <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP-Skill-Details-Hider-Profession4" checked />
-            <div class="sheet-input-border sheet-hide-section">
-            <div class="sheet-table-cell sheet-cell-a" style="padding-right:5px"><textarea class="sheet-multiline-input" name="attr_EP-Skill-Profession4-Name-Details" placeholder="Profession 4 details"></textarea></div>
-            <div class="sheet-table-cell sheet-cell-7" style="font-weight:bold; min-width:55px" title="Custom Aptitude Value for if 'Custom' is selected in the Aptitude drop-down">Custom Apt Val:</div>
-            <div class="sheet-table-cell sheet-cell-rank" title="Custom Aptitude Value for if 'Custom' is selected in the Aptitude drop-down"><input type="number" name="attr_EP-Skill-Profession4-CusomtAptVal" value="0" /></span></div>
-            </div>
+                <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+                    <div class="sheet-table-row">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Profession4-Name" value="Profession 4" placeholder="Skill Name" /></div>
+                        <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP-Skill-Profession4-Apt">
+                            <option value="@{EP-CogTotal}">COG</option>
+                            <option value="@{EP-CooTotal}">COO</option>
+                            <option value="@{EP-IntTotal}">INT</option>
+                            <option value="@{EP-RefTotal}">REF</option>
+                            <option value="@{EP-SavTotal}">SAV</option>
+                            <option value="@{EP-SomTotal}">SOM</option>
+                            <option value="@{EP-WilTotal}">WIL</option>
+                            <option value="@{EP-Skill-Profession4-CusomtAptVal}">Custom</option></select>
+                        </div>
+                        <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP-Skill-Profession4-Base" value="0" /></div>
+                        <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP-Skill-Profession4-MorphBonus" value="0" /></div>
+                        <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP-Skill-Profession4-MiscBonus" value="0" /></div>
+                        <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP-Skill-Profession4-Total" disabled="disabled" value="[[@{EP-Skill-Profession4-Apt}+@{EP-Skill-Profession4-Base}+@{EP-Skill-Profession4-MorphBonus}+@{EP-Skill-Profession4-MiscBonus}]]" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP-Skill-Details-Hider-Profession4" checked /><span/></div>
+                    </div>
+                </div>
+                <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP-Skill-Details-Hider-Profession4" checked />
+                <div class="sheet-input-border sheet-hide-section">
+                    <div class="sheet-table-cell sheet-cell-a" style="padding-right:5px"><textarea class="sheet-multiline-input" name="attr_EP-Skill-Profession4-Name-Details" placeholder="Profession 4 details"></textarea></div>
+                    <div class="sheet-table-cell sheet-cell-7" style="font-weight:bold; min-width:55px" title="Custom Aptitude Value for if 'Custom' is selected in the Aptitude drop-down">Custom Apt Val:</div>
+                    <div class="sheet-table-cell sheet-cell-rank" title="Custom Aptitude Value for if 'Custom' is selected in the Aptitude drop-down"><input type="number" name="attr_EP-Skill-Profession4-CusomtAptVal" value="0" /></span></div>
+                </div>
             </div> <!-- Eclipse_Phase skill Profession 4 End -->
+
+            <!-- Eclipse_Phase Skills repeating -->
+            <fieldset class="repeating_EP-Skills"> <!-- EP Skills Repeating -->
+                <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+                    <div class="sheet-table-row">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Repeating-Name" value="Custom Skill" placeholder="Skill Name" /></div>
+                        <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP-Skill-Repeating-Apt">
+                            <option value="@{EP-CogTotal}">COG</option>
+                            <option value="@{EP-CooTotal}">COO</option>
+                            <option value="@{EP-IntTotal}">INT</option>
+                            <option value="@{EP-RefTotal}">REF</option>
+                            <option value="@{EP-SavTotal}">SAV</option>
+                            <option value="@{EP-SomTotal}">SOM</option>
+                            <option value="@{EP-WilTotal}">WIL</option>
+                            <option value="@{EP-Skill-Repeating-CusomtAptVal}">Custom</option></select>
+                        </div>
+                        <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP-Skill-Repeating-Base" value="0" /></div>
+                        <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP-Skill-Repeating-MorphBonus" value="0" /></div>
+                        <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP-Skill-Repeating-MiscBonus" value="0" /></div>
+                        <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP-Skill-Repeating-Total" disabled="disabled" value="[[@{EP-Skill-Repeating-Apt}+@{EP-Skill-Repeating-Base}+@{EP-Skill-Repeating-MorphBonus}+@{EP-Skill-Repeating-MiscBonus}]]" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP-Skill-Details-Hider-Repeating" checked /><span/></div>
+                    </div>
+                </div>
+                <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP-Skill-Details-Hider-Repeating" checked />
+                <div class="sheet-input-border sheet-hide-section">
+                    <div class="sheet-table-cell sheet-cell-a" style="padding-right:5px"><textarea class="sheet-multiline-input" name="attr_EP-Skill-Repeating-Name-Details" placeholder="Custom skill details"></textarea></div>
+                    <div class="sheet-table-cell sheet-cell-7" style="font-weight:bold; min-width:55px" title="Custom Aptitude Value for if 'Custom' is selected in the Aptitude drop-down">Custom Apt Val:</div>
+                    <div class="sheet-table-cell sheet-cell-rank" title="Custom Aptitude Value for if 'Custom' is selected in the Aptitude drop-down"><input type="number" name="attr_EP-Skill-Repeating-CusomtAptVal" value="0" /></span></div>
+                </div>
+            </fieldset> <!-- End Eclipse_Phase Skills repeating -->
 
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skills-display-selection-hider" name="attr_EP-Skills-Display-Selection-Hider" checked />
             <div class="sheet-ep-skills-display-selection-section">
@@ -3046,7 +3077,6 @@
                 </div>
                 <p style="text-align:center; font-style: italic">Use gear icon in "Eclipse Phase Skills" header to hide</p>
             </div>
-
         </div> <!-- End Eclipse Phase Skills -->
 
 
@@ -3265,6 +3295,10 @@
                     </span>
                 </div>
             </div><!-- End Attributes & Stunts Selector -->
+        </div>
+        <br>
+        <div class="sheet-headerbar">Lock In Settings</div>
+        <div class="sheet-table sheet-input-border">
             <div class="sheet-table-row sheet-table-row-settings"> <!-- Lock In Selector -->
                 <div class="sheet-table-cell sheet-cell-25 sheet-cell-label" title="WARNING: Changing this will REMOVE abilty to edit options on this tab!">Lock In Settings</div>
                 <div class="sheet-table-cell sheet-cell-a" title="WARNING: Changing this will REMOVE abilty to edit options on this tab!"><b>Lock in settings (hide this section)?</b>
