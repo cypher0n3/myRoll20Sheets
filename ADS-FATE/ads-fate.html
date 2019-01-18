@@ -20,22 +20,22 @@
                 <div class="sheet-table-row" style="text-align:center; font-weight:bold; font-size: 14px">
                     <div class="sheet-table-cell sheet-cell-41">Character Name</div>
                     <div class="sheet-table-cell sheet-cell-a">Player Name</div>
-                    <input type="checkbox" class="sheet-hide-refresh sheet-hider-invis" name="attr_UseRefreshSelector" value="Hidden" />
+                    <input type="checkbox" class="sheet-hide-refresh sheet-hider-invis" name="attr_UseRefreshSelector" value="No" checked />
                     <div class="sheet-table-cell sheet-cell-15 sheet-hide-refresh-section" title="FATE refresh">Refresh</div>
-                    <input type="checkbox" class="sheet-hide-fate_points sheet-hider-invis" name="attr_UseFatePointsSelector"  value="Hidden" />
+                    <input type="checkbox" class="sheet-hide-fate_points sheet-hider-invis" name="attr_UseFatePointsSelector" value="No" />
                     <div class="sheet-table-cell sheet-cell-15 sheet-hide-fate_points-section" title="Fate/Moxie/Action Points">Fate Points</div>
                 </div>
                 <div class="sheet-table-row">
                     <div class="sheet-table-cell"><input type="text" name="attr_CharName" value="No Name" /></div>
                     <div class="sheet-table-cell"><input type="text" name="attr_PlayerName" /></div>
-                    <input type="checkbox" class="sheet-hide-refresh sheet-hider-invis" name="attr_UseRefreshSelector"  value="Hidden" />
+                    <input type="checkbox" class="sheet-hide-refresh sheet-hider-invis" name="attr_UseRefreshSelector" value="No" checked />
                     <div class="sheet-table-cell sheet-cell-15 sheet-hide-refresh-section"><input type="number" name="attr_Refresh" value="3" /></div>
-                    <input type="checkbox" class="sheet-hide-fate_points sheet-hider-invis" name="attr_UseFatePointsSelector"  value="Hidden" />
+                    <input type="checkbox" class="sheet-hide-fate_points sheet-hider-invis" name="attr_UseFatePointsSelector" value="No" />
                     <div class="sheet-table-cell sheet-cell-15 sheet-hide-fate_points-section"><input type="number" name="attr_FatePoints" value="3" /></div>
                 </div>
             </div>
 
-        <input class="sheet-aspects-show" type="checkbox" name="attr_AttributesSelector" value="Yes" checked />
+        <input class="sheet-aspects-show" type="checkbox" name="attr_AspectsSelector" value="Yes" />
         <div class="sheet-aspects-section">
             <div class="sheet-table sheet-input-border">
                 <div class="sheet-table-row">
@@ -50,7 +50,7 @@
         </div>
     </div>
 
-    <input class="sheet-aspects-show" type="checkbox" name="attr_AttributesSelector" value="Yes" checked />
+    <input class="sheet-aspects-show" type="checkbox" name="attr_AspectsSelector" value="Yes" />
     <div class="sheet-aspects-section">
         <div class="sheet-section sheet-table-2col">
             <div class="sheet-headerbar">Aspects</div>
@@ -149,7 +149,7 @@
         </div><!-- End Aspects-->
     </div>
 
-    <input class="sheet-stunts-show" type="checkbox" name="attr_StuntsSelector" value="Yes" checked />
+    <input class="sheet-stunts-show" type="checkbox" name="attr_StuntsSelector" value="Yes" />
     <div class="sheet-stunts-section">
         <div class="sheet-section sheet-table-2col">
             <div class="sheet-headerbar">Stunts</div>
@@ -340,7 +340,7 @@
 
     <div class="sheet-section"><!-- Skills -->
         <!-- FATE Core Skills -->
-        <input class="sheet-skills-list-selector sheet-skills-list1" type="checkbox" name="attr_skillListSelect" value="FATE_Core" checked />
+        <input class="sheet-skills-list-selector sheet-skills-list1" type="checkbox" name="attr_skillListSelect" value="FATE_Core" />
         <div class="sheet-skills-section-fate_core">
             <div class="sheet-headerbar">FATE Skills</div>
             <div class="sheet-table-2col sheet-border-right">
@@ -3164,11 +3164,12 @@
     <input class="sheet-unlocked-checkbox" type="checkbox" name="attr_LockInSelect" value="No" checked />
     <div class="sheet-lock-in-section"><!-- Section that will be hidden when set to 'lock in'. -->
         <div class="sheet-table">
-            <div class="sheet-table-row sheet-table-row-settings"><!-- Quick Settings Selector -->
+            <!-- Quick Settings Selector -->
+            <div class="sheet-table-row sheet-table-row-settings">
                 <div class="sheet-table-cell sheet-cell-25 sheet-cell-label" title="Sets multiple settings at once.">Quick Settings</div>
                 <div class="sheet-table-cell sheet-cell-75">
                     <span class="sheet-span-border sheet-span-settings">
-                        <label class="sheet-label-settings"><input type="radio" name="attr_QuickSetting" value="FATE" checked /> FATE Core </label>
+                        <label class="sheet-label-settings"><input type="radio" name="attr_QuickSetting" value="FATE" /> FATE Core </label>
                     </span>
                     <span class="sheet-span-border sheet-span-settings">
                         <label class="sheet-label-settings" title="FATE Accelerated"><input type="radio" name="attr_QuickSetting" value="FATE_Accel" /> FATE Accel </label>
@@ -3180,7 +3181,7 @@
                         <label class="sheet-label-settings"><input type="radio" name="attr_QuickSetting" value="Tesseris" /> Tesseris </label>
                     </span>
                     <span class="sheet-span-border sheet-span-settings">
-                        <label class="sheet-label-settings"><input type="radio" name="attr_QuickSetting" value="Eclipse_Phase" /> Eclipse Phase </label>
+                        <label class="sheet-label-settings"><input type="radio" name="attr_QuickSetting" value="Eclipse_Phase" checked /> Eclipse Phase </label>
                     </span>
                     <span class="sheet-span-border sheet-span-settings">
                         <label class="sheet-label-settings"><input type="radio" name="attr_QuickSetting" value="Custom" /> Custom </label>
@@ -3192,7 +3193,7 @@
                 <div class="sheet-table-cell sheet-cell-25 sheet-cell-label">Dice Base</div>
                 <div class="sheet-table-cell sheet-cell-a">
                     <span class="sheet-span-border sheet-span-settings">
-                        <label class="sheet-label-settings"><input type="radio" name="attr_DiceBase" value="4dF" checked /> FATE/Fudge (4dF)</label>
+                        <label class="sheet-label-settings"><input type="radio" name="attr_DiceBase" value="4dF" /> FATE/Fudge (4dF)</label>
                     </span>
                     <span class="sheet-span-border sheet-span-settings">
                         <label class="sheet-label-settings"><input type="radio" name="attr_DiceBase" value="1d20" /> d20 </label>
@@ -3201,7 +3202,7 @@
                         <label class="sheet-label-settings"><input type="radio" name="attr_DiceBase" value="2d6!" /> ADS (2d6!) </label>
                     </span>
                     <span class="sheet-span-border sheet-span-settings">
-                        <label class="sheet-label-settings" title="1d100 < (Skill+Char+Modifiers)"><input type="radio" name="attr_DiceBase" value="Percentile" /> Percentile (1d100) </label>
+                        <label class="sheet-label-settings" title="1d100 < (Skill+Char+Modifiers)"><input type="radio" name="attr_DiceBase" value="Percentile" checked /> Percentile (1d100) </label>
                     </span>
                     <span class="sheet-span-border sheet-span-settings">
                         <label class="sheet-label-settings" title="Additive only (dice+Skills+Char+mods)"><input type="radio" name="attr_DiceBase" value="@{DiceBaseOther}" /> Other (add): <input type="text" name="attr_DiceBaseOther" style="width:90px; height:23px" value="1d10" /></label>
@@ -3213,7 +3214,7 @@
                 <div class="sheet-table-cell sheet-cell-25 sheet-cell-label" title="List of skills to use.">Skill List</div>
                 <div class="sheet-table-cell sheet-cell-a">
                     <span class="sheet-span-border sheet-span-settings">
-                        <label class="sheet-label-settings"><input type="radio" class="sheet-skills-list1" name="attr_skillListSelect" value="FATE_Core" checked /> FATE Core </label>
+                        <label class="sheet-label-settings"><input type="radio" class="sheet-skills-list1" name="attr_skillListSelect" value="FATE_Core" /> FATE Core </label>
                     </span>
                     <span class="sheet-span-border sheet-span-settings">
                         <label class="sheet-label-settings" title="FATE Accelerated"><input type="radio" class="sheets-skills-list2" name="attr_skillListSelect" value="FATE_Accelerated" /> FATE Accel </label>
@@ -3222,7 +3223,7 @@
                         <label class="sheet-label-settings"><input type="radio" class="sheets-skills-list2" name="attr_skillListSelect" value="Tesseris" /> Tesseris </label>
                     </span>
                     <span class="sheet-span-border sheet-span-settings">
-                        <label class="sheet-label-settings"><input type="radio" class="sheets-skills-list2" name="attr_skillListSelect" value="Eclipse_Phase" /> Eclipse Phase </label>
+                        <label class="sheet-label-settings"><input type="radio" class="sheets-skills-list2" name="attr_skillListSelect" value="Eclipse_Phase" checked /> Eclipse Phase </label>
                     </span>
                     <span class="sheet-span-border sheet-span-settings">
                         <label class="sheet-label-settings" title="Eclipse Phase ADS variant"><input type="radio" class="sheets-skills-list2" name="attr_skillListSelect" value="Eclipse_Phase_ADS" /> EP ADS </label>
@@ -3236,7 +3237,7 @@
                 <div class="sheet-table-cell sheet-cell-25 sheet-cell-label" title="Characteristcs/Ability Scores list to use.">Characteristcs List</div>
                 <div class="sheet-table-cell sheet-cell-a">
                     <span class="sheet-span-border sheet-span-settings">
-                        <label class="sheet-label-settings"><input type="radio" name="attr_CharSelect" value="None" checked /> None </label>
+                        <label class="sheet-label-settings"><input type="radio" name="attr_CharSelect" value="None" /> None </label>
                     </span>
                     <span class="sheet-span-border sheet-span-settings">
                         <label class="sheet-label-settings"><input type="radio" name="attr_CharSelect" value="d20" /> d20/DnD/Pathfinder </label>
@@ -3245,56 +3246,56 @@
                         <label class="sheet-label-settings"><input type="radio" name="attr_CharSelect" value="ADS" /> ADS/Tesseris </label>
                     </span>
                     <span class="sheet-span-border sheet-span-settings">
-                        <label class="sheet-label-settings"><input type="radio" name="attr_CharSelect" value="Eclipse_Phase" /> Eclipse Phase </label>
+                        <label class="sheet-label-settings"><input type="radio" name="attr_CharSelect" value="Eclipse_Phase" checked /> Eclipse Phase </label>
                     </span>
                 </div>
             </div><!-- End Characteristcs Selector -->
-            <div class="sheet-table-row sheet-table-row-settings"> <!-- Attributes & Stunts Selector -->
-                <div class="sheet-table-cell sheet-cell-25 sheet-cell-label">FATE Attributes & Stunts</div>
+            <div class="sheet-table-row sheet-table-row-settings"> <!-- Aspects & Stunts Selector -->
+                <div class="sheet-table-cell sheet-cell-25 sheet-cell-label">FATE Aspects & Stunts</div>
                 <div class="sheet-table-cell sheet-cell-a">
-                    <span title="Use FATE style Attributes?">
-                        <span style="padding-right:8px"><b>Use Attributes?</b></span>
+                    <span title="Use FATE style Aspects?">
+                        <span style="padding-right:8px"><b>Use Aspects?</b></span>
                         <span class="sheet-span-border sheet-span-settings">
-                            <label class="sheet-label-settings"><input type="radio" name="attr_AttributesSelector" value="Yes" checked /> Yes </label>
+                            <label class="sheet-label-settings"><input type="radio" name="attr_AspectsSelector" value="Yes" /> Yes </label>
                         </span>
                         <span class="sheet-span-border sheet-span-settings">
-                            <label class="sheet-label-settings"><input type="radio" name="attr_AttributesSelector" value="No" /> No </label>
+                            <label class="sheet-label-settings"><input type="radio" name="attr_AspectsSelector" value="No" checked /> No </label>
                         </span>
                     </span>
-                    <span style="padding-left:52px" title="Use FATE style Stunts?">
-                        <span style="padding-right:0px"><b>Use Stunts?</b></span>
+                    <span style="padding-left:53px" title="Use FATE style Stunts?">
+                        <span style="padding-right:10px"><b>Use Stunts?</b></span>
                         <span class="sheet-span-border sheet-span-settings">
-                            <label class="sheet-label-settings"><input type="radio" name="attr_StuntsSelector" value="Yes" checked /> Yes </label>
+                            <label class="sheet-label-settings"><input type="radio" name="attr_StuntsSelector" value="Yes" /> Yes </label>
                         </span>
                         <span class="sheet-span-border sheet-span-settings">
-                            <label class="sheet-label-settings"><input type="radio" name="attr_StuntsSelector" value="No" /> No </label>
+                            <label class="sheet-label-settings"><input type="radio" name="attr_StuntsSelector" value="No" checked /> No </label>
                         </span>
                     </span>
                 </div>
-            </div><!-- End Attributes & Stunts Selector -->
+            </div><!-- End Aspects & Stunts Selector -->
             <div class="sheet-table-row sheet-table-row-settings"> <!-- Fate Points & Refresh Selector -->
                 <div class="sheet-table-cell sheet-cell-25 sheet-cell-label">Fate Points & Refresh</div>
                 <div class="sheet-table-cell sheet-cell-a">
                     <span title="Use Fate/Moxie/Action points?">
                         <b>Use Fate points?</b>
                         <span class="sheet-span-border sheet-span-settings">
-                            <label class="sheet-label-settings"><input type="radio" name="attr_UseFatePointsSelector" value="Shown" checked /> Yes </label>
+                            <label class="sheet-label-settings"><input type="radio" name="attr_UseFatePointsSelector" value="Yes" checked /> Yes </label>
                         </span>
                         <span class="sheet-span-border sheet-span-settings">
-                            <label class="sheet-label-settings"><input type="radio" name="attr_UseFatePointsSelector" value="Hidden" /> No </label>
+                            <label class="sheet-label-settings"><input type="radio" name="attr_UseFatePointsSelector" value="No" /> No </label>
                         </span>
                     </span>
                     <span style="padding-left:42px" title="Use FATE style Refresh?">
                         <b>Use Refresh?</b>
                         <span class="sheet-span-border sheet-span-settings">
-                            <label class="sheet-label-settings"><input type="radio" name="attr_UseRefreshSelector" value="Shown" checked /> Yes </label>
+                            <label class="sheet-label-settings"><input type="radio" name="attr_UseRefreshSelector" value="Yes" /> Yes </label>
                         </span>
                         <span class="sheet-span-border sheet-span-settings">
-                            <label class="sheet-label-settings"><input type="radio" name="attr_UseRefreshSelector" value="Hidden" /> No </label>
+                            <label class="sheet-label-settings"><input type="radio" name="attr_UseRefreshSelector" value="No" checked /> No </label>
                         </span>
                     </span>
                 </div>
-            </div><!-- End Attributes & Stunts Selector -->
+            </div><!-- End Aspects & Stunts Selector -->
         </div>
         <br>
         <div class="sheet-headerbar">Lock In Settings</div>
