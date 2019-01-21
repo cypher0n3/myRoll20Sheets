@@ -14,6 +14,7 @@
 <span class="sheet-tab sheet-tabZ">y</span>
 
 <div class="sheet-section-tabbed-core"><!-- Core Tab -->
+    <!-- General Section -->
     <div class="sheet-section">
         <div class="sheet-headerbar">General</div>
             <div class="sheet-table sheet-input-border">
@@ -48,7 +49,23 @@
                 </div>
             </div>
         </div>
-    </div>
+        <input type="checkbox" class="sheet-special-gear-epv1_morphs sheet-hider-invis" name="attr_SpecialGear-EPv1_Morphs" value="EPv1_Morphs-Yes" checked />
+        <div class="sheet-special-gear-section-epv1_morphs">
+            <div class="sheet-table">
+                <div class="sheet-table-row sheet-input-border sheet-select-border">
+                    <div class="sheet-table-cell" style="font-weight:bold; width:95px">Current Morph: </div>
+                    <div class="sheet-table-cell sheet-cell-15"><select name="attr_EPv1-Current-Selected-Morph">
+                        <option value="EPv1-Morph1" selected>Morph 1</option>
+                        <option value="EPv1-Morph2">Morph 2</option>
+                        <option value="EPv1-Morph3">Morph 3</option>
+                        <option value="EPv1-Morph4">Morph 4</option>
+                        <option value="EPv1-Morph5">Morph 5</option></select>
+                    </div>
+                    <div class="sheet-table-cell sheet-cell-a sheet-input-disabled"><input type="text" name="attr_EPv1-Morphs-Current-Morph-Name" placeholder="Morph name/type" /></div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End General Section -->
 
     <input class="sheet-aspects-show" type="checkbox" name="attr_AspectsSelector" value="Yes" />
     <div class="sheet-aspects-section">
@@ -70,7 +87,7 @@
             </div>
             <!--End Aspect1 -->
             <!-- Aspect2 -->
-            <div class="sheet-table sheet-table-topBorderGray">
+            <div class="sheet-table sheet-topBorderGray">
                 <div class="sheet-table-row sheet-input-border">
                     <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
                     <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_Aspect2" placeholder="Trouble Aspect" /></div>
@@ -85,7 +102,7 @@
             </div>
             <!--End Aspect2 -->
             <!-- Aspect3 -->
-            <div class="sheet-table sheet-table-topBorderGray">
+            <div class="sheet-table sheet-topBorderGray">
                 <div class="sheet-table-row sheet-input-border">
                     <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
                     <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_Aspect3" placeholder="Your Adventure" /></div>
@@ -100,7 +117,7 @@
             </div>
             <!--End Aspect3 -->
             <!-- Aspect4 -->
-            <div class="sheet-table sheet-table-topBorderGray">
+            <div class="sheet-table sheet-topBorderGray">
                 <div class="sheet-table-row sheet-input-border">
                     <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
                     <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_Aspect4" placeholder="Crossing Paths" /></div>
@@ -115,7 +132,7 @@
             </div>
             <!--End Aspect4 -->
             <!-- Aspect5 -->
-            <div class="sheet-table sheet-table-topBorderGray">
+            <div class="sheet-table sheet-topBorderGray">
                 <div class="sheet-table-row sheet-input-border">
                     <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
                     <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_Aspect5" placeholder="Crossing Paths Again" /></div>
@@ -131,7 +148,7 @@
             <!--End Aspect5 -->
             <!-- AspectRepeating -->
             <fieldset class="repeating_Aspects">
-                <div class="sheet-table sheet-table-topBorderGray">
+                <div class="sheet-table sheet-topBorderGray">
                     <div class="sheet-table-row sheet-input-border">
                         <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
                         <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_AspectRepeating" placeholder="Aspect" /></div>
@@ -169,7 +186,7 @@
             </div>
             <!--End Stunt1 -->
             <!-- Stunt2 -->
-            <div class="sheet-table sheet-table-topBorderGray">
+            <div class="sheet-table sheet-topBorderGray">
                 <div class="sheet-table-row sheet-input-border">
                     <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
                     <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_Stunt2" placeholder="Stunt" /></div>
@@ -184,7 +201,7 @@
             </div>
             <!--End Stunt2 -->
             <!-- Stunt3 -->
-            <div class="sheet-table sheet-table-topBorderGray">
+            <div class="sheet-table sheet-topBorderGray">
                 <div class="sheet-table-row sheet-input-border">
                     <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
                     <div class="sheet-table-cell sheet-cell-a sheet-boldCenter"><input type="text" class="sheet-boldCenter" name="attr_Stunt3" placeholder="Stunt" /></div>
@@ -199,7 +216,7 @@
             </div>
             <!--End Stunt3 -->
             <fieldset class="repeating_Stunts"> <!-- StuntRepeating -->
-                <div class="sheet-table sheet-table-topBorderGray">
+                <div class="sheet-table sheet-topBorderGray">
                     <div class="sheet-table-row sheet-input-border">
                         <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
                         <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_StuntRepeating" placeholder="Stunt" /></div>
@@ -244,7 +261,7 @@
         <div class="sheet-section sheet-table-2col-70">
             <div class="sheet-headerbar">Eclipse Phase Aptitudes</div>
             <div class="sheet-table sheet-input-border">
-                <div class="sheet-table-row" style="text-align:center; font-weight:bold">
+                <div class="sheet-table-row sheet-boldCenter">
                     <div class="sheet-table-cell sheet-cell-20"><input type="number" style="border:1px solid transparent; background-color:transparent; color:white" /></div> <!-- Here to keep tables lined up correctly -->
                     <div class="sheet-table-cell sheet-cell-10" title="Cognition"   >COG</div>
                     <div class="sheet-table-cell sheet-cell-10" title="Coordination">COO</div>
@@ -570,19 +587,19 @@
             <!-- Eclipse_Phase skill Animal Handling -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-animal_handling" name="attr_EP-Skill-Hider-AnimalHandling" checked />
             <div class="sheet-ep-skill-hider-section-animal_handling">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-AnimalHandling-Name" value="Animal Handling" placeholder="Skill Name" /></div>
             <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP-Skill-AnimalHandling-Apt">
-            <option value="@{EP-CogTotal}">COG</option>
-            <option value="@{EP-CooTotal}">COO</option>
-            <option value="@{EP-IntTotal}">INT</option>
-            <option value="@{EP-RefTotal}">REF</option>
-            <option value="@{EP-SavTotal}">SAV</option>
-            <option value="@{EP-SomTotal}">SOM</option>
-            <option value="@{EP-WilTotal}">WIL</option>
-            <option value="@{EP-Skill-AnimalHandling-CusomtAptVal}">Custom</option></select>
+                <option value="@{EP-CogTotal}">COG</option>
+                <option value="@{EP-CooTotal}">COO</option>
+                <option value="@{EP-IntTotal}">INT</option>
+                <option value="@{EP-RefTotal}">REF</option>
+                <option value="@{EP-SavTotal}">SAV</option>
+                <option value="@{EP-SomTotal}">SOM</option>
+                <option value="@{EP-WilTotal}">WIL</option>
+                <option value="@{EP-Skill-AnimalHandling-CusomtAptVal}">Custom</option></select>
             </div>
             <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP-Skill-AnimalHandling-Base" value="0" /></div>
             <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP-Skill-AnimalHandling-MorphBonus" value="0" /></div>
@@ -602,7 +619,7 @@
             <!-- Eclipse_Phase skill Beam Weapons -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-beam_weapons" name="attr_EP-Skill-Hider-BeamWeapons" />
             <div class="sheet-ep-skill-hider-section-beam_weapons">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-BeamWeapons-Name" value="Beam Weapons" placeholder="Skill Name" /></div>
@@ -634,7 +651,7 @@
             <!-- Eclipse_Phase skill Blades -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-blades" name="attr_EP-Skill-Hider-Blades" />
             <div class="sheet-ep-skill-hider-section-blades">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Blades-Name" value="Blades" placeholder="Skill Name" /></div>
@@ -666,7 +683,7 @@
             <!-- Eclipse_Phase skill Climbing -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-climbing" name="attr_EP-Skill-Hider-Climbing" />
             <div class="sheet-ep-skill-hider-section-climbing">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Climbing-Name" value="Climbing" placeholder="Skill Name" /></div>
@@ -698,7 +715,7 @@
             <!-- Eclipse_Phase skill Clubs -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-clubs" name="attr_EP-Skill-Hider-Clubs" />
             <div class="sheet-ep-skill-hider-section-clubs">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Clubs-Name" value="Clubs" placeholder="Skill Name" /></div>
@@ -730,7 +747,7 @@
             <!-- Eclipse_Phase skill Control -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-control" name="attr_EP-Skill-Hider-Control" />
             <div class="sheet-ep-skill-hider-section-control">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Control-Name" value="Control" placeholder="Skill Name" /></div>
@@ -762,7 +779,7 @@
             <!-- Eclipse_Phase skill Deception -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-deception" name="attr_EP-Skill-Hider-Deception" />
             <div class="sheet-ep-skill-hider-section-deception">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Deception-Name" value="Deception" placeholder="Skill Name" /></div>
@@ -794,7 +811,7 @@
             <!-- Eclipse_Phase skill Demolitions -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-demolitions" name="attr_EP-Skill-Hider-Demolitions" />
             <div class="sheet-ep-skill-hider-section-demolitions">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Demolitions-Name" value="Demolitions" placeholder="Skill Name" /></div>
@@ -826,7 +843,7 @@
             <!-- Eclipse_Phase skill Disguise -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-disguise" name="attr_EP-Skill-Hider-Disguise" />
             <div class="sheet-ep-skill-hider-section-disguise">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Disguise-Name" value="Disguise" placeholder="Skill Name" /></div>
@@ -858,7 +875,7 @@
             <!-- Eclipse_Phase skill Exotic Melee 1 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-exotic_melee_1" name="attr_EP-Skill-Hider-ExoticMelee1" />
             <div class="sheet-ep-skill-hider-section-exotic_melee_1">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-ExoticMelee1-Name" value="Exotic Melee 1" placeholder="Skill Name" /></div>
@@ -890,7 +907,7 @@
             <!-- Eclipse_Phase skill Exotic Melee 2 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-exotic_melee_2" name="attr_EP-Skill-Hider-ExoticMelee2" />
             <div class="sheet-ep-skill-hider-section-exotic_melee_2">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-ExoticMelee2-Name" value="Exotic Melee 2" placeholder="Skill Name" /></div>
@@ -922,7 +939,7 @@
             <!-- Eclipse_Phase skill Exotic Ranged 1 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-exotic_ranged_1" name="attr_EP-Skill-Hider-ExoticRanged1" />
             <div class="sheet-ep-skill-hider-section-exotic_ranged_1">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-ExoticRanged1-Name" value="Exotic Ranged 1" placeholder="Skill Name" /></div>
@@ -954,7 +971,7 @@
             <!-- Eclipse_Phase skill Exotic Ranged 2 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-exotic_ranged_2" name="attr_EP-Skill-Hider-ExoticRanged2" />
             <div class="sheet-ep-skill-hider-section-exotic_ranged_2">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-ExoticRanged2-Name" value="Exotic Ranged 2" placeholder="Skill Name" /></div>
@@ -986,7 +1003,7 @@
             <!-- Eclipse_Phase skill Flight -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-flight" name="attr_EP-Skill-Hider-Flight" />
             <div class="sheet-ep-skill-hider-section-flight">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Flight-Name" value="Flight" placeholder="Skill Name" /></div>
@@ -1018,7 +1035,7 @@
             <!-- Eclipse_Phase skill Fray -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-fray" name="attr_EP-Skill-Hider-Fray" />
             <div class="sheet-ep-skill-hider-section-fray">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Fray-Name" value="Fray" placeholder="Skill Name" /></div>
@@ -1050,7 +1067,7 @@
             <!-- Eclipse_Phase skill Free Fall -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-free_fall" name="attr_EP-Skill-Hider-FreeFall" />
             <div class="sheet-ep-skill-hider-section-free_fall">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-FreeFall-Name" value="Free Fall" placeholder="Skill Name" /></div>
@@ -1082,7 +1099,7 @@
             <!-- Eclipse_Phase skill Freerunning -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-freerunning" name="attr_EP-Skill-Hider-Freerunning" />
             <div class="sheet-ep-skill-hider-section-freerunning">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Freerunning-Name" value="Freerunning" placeholder="Skill Name" /></div>
@@ -1114,7 +1131,7 @@
             <!-- Eclipse_Phase skill Gunnery -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-gunnery" name="attr_EP-Skill-Hider-Gunnery" />
             <div class="sheet-ep-skill-hider-section-gunnery">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Gunnery-Name" value="Gunnery" placeholder="Skill Name" /></div>
@@ -1146,7 +1163,7 @@
             <!-- Eclipse_Phase skill Hardware 1 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-hardware_1" name="attr_EP-Skill-Hider-Hardware1" />
             <div class="sheet-ep-skill-hider-section-hardware_1">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Hardware1-Name" value="Hardware 1" placeholder="Skill Name" /></div>
@@ -1178,7 +1195,7 @@
             <!-- Eclipse_Phase skill Hardware 2 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-hardware_2" name="attr_EP-Skill-Hider-Hardware2" />
             <div class="sheet-ep-skill-hider-section-hardware_2">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Hardware2-Name" value="Hardware 2" placeholder="Skill Name" /></div>
@@ -1210,7 +1227,7 @@
             <!-- Eclipse_Phase skill Impersonation -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-impersonation" name="attr_EP-Skill-Hider-Impersonation" />
             <div class="sheet-ep-skill-hider-section-impersonation">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Impersonation-Name" value="Impersonation" placeholder="Skill Name" /></div>
@@ -1242,7 +1259,7 @@
             <!-- Eclipse_Phase skill Infiltration -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-infiltration" name="attr_EP-Skill-Hider-Infiltration" />
             <div class="sheet-ep-skill-hider-section-infiltration">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Infiltration-Name" value="Infiltration" placeholder="Skill Name" /></div>
@@ -1274,7 +1291,7 @@
             <!-- Eclipse_Phase skill Infosec -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-infosec" name="attr_EP-Skill-Hider-Infosec" />
             <div class="sheet-ep-skill-hider-section-infosec">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Infosec-Name" value="Infosec" placeholder="Skill Name" /></div>
@@ -1306,7 +1323,7 @@
             <!-- Eclipse_Phase skill Interfacing -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-interfacing" name="attr_EP-Skill-Hider-Interfacing" />
             <div class="sheet-ep-skill-hider-section-interfacing">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Interfacing-Name" value="Interfacing" placeholder="Skill Name" /></div>
@@ -1338,7 +1355,7 @@
             <!-- Eclipse_Phase skill Intimidation -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-intimidation" name="attr_EP-Skill-Hider-Intimidation" />
             <div class="sheet-ep-skill-hider-section-intimidation">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Intimidation-Name" value="Intimidation" placeholder="Skill Name" /></div>
@@ -1370,7 +1387,7 @@
             <!-- Eclipse_Phase skill Investigation -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-investigation" name="attr_EP-Skill-Hider-Investigation" />
             <div class="sheet-ep-skill-hider-section-investigation">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Investigation-Name" value="Investigation" placeholder="Skill Name" /></div>
@@ -1402,7 +1419,7 @@
             <!-- Eclipse_Phase skill Kinesics -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-kinesics" name="attr_EP-Skill-Hider-Kinesics" />
             <div class="sheet-ep-skill-hider-section-kinesics">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Kinesics-Name" value="Kinesics" placeholder="Skill Name" /></div>
@@ -1434,7 +1451,7 @@
             <!-- Eclipse_Phase skill Kinetic Weapons -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-kinetic_weapons" name="attr_EP-Skill-Hider-KineticWeapons" />
             <div class="sheet-ep-skill-hider-section-kinetic_weapons">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-KineticWeapons-Name" value="Kinetic Weapons" placeholder="Skill Name" /></div>
@@ -1466,7 +1483,7 @@
             <!-- Eclipse_Phase skill Medicine 1 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-medicine_1" name="attr_EP-Skill-Hider-Medicine1" />
             <div class="sheet-ep-skill-hider-section-medicine_1">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Medicine1-Name" value="Medicine 1" placeholder="Skill Name" /></div>
@@ -1498,7 +1515,7 @@
             <!-- Eclipse_Phase skill Medicine 2 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-medicine_2" name="attr_EP-Skill-Hider-Medicine2" />
             <div class="sheet-ep-skill-hider-section-medicine_2">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Medicine2-Name" value="Medicine 2" placeholder="Skill Name" /></div>
@@ -1530,7 +1547,7 @@
             <!-- Eclipse_Phase skill Navigation -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-navigation" name="attr_EP-Skill-Hider-Navigation" />
             <div class="sheet-ep-skill-hider-section-navigation">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Navigation-Name" value="Navigation" placeholder="Skill Name" /></div>
@@ -1562,7 +1579,7 @@
             <!-- Eclipse_Phase skill Networking 1 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-networking_1" name="attr_EP-Skill-Hider-Networking1" />
             <div class="sheet-ep-skill-hider-section-networking_1">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Networking1-Name" value="Networking 1" placeholder="Skill Name" /></div>
@@ -1594,7 +1611,7 @@
             <!-- Eclipse_Phase skill Networking 2 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-networking_2" name="attr_EP-Skill-Hider-Networking2" />
             <div class="sheet-ep-skill-hider-section-networking_2">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Networking2-Name" value="Networking 2" placeholder="Skill Name" /></div>
@@ -1626,7 +1643,7 @@
             <!-- Eclipse_Phase skill Networking 3 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-networking_3" name="attr_EP-Skill-Hider-Networking3" />
             <div class="sheet-ep-skill-hider-section-networking_3">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Networking3-Name" value="Networking 3" placeholder="Skill Name" /></div>
@@ -1658,7 +1675,7 @@
             <!-- Eclipse_Phase skill Networking 4 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-networking_4" name="attr_EP-Skill-Hider-Networking4" />
             <div class="sheet-ep-skill-hider-section-networking_4">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Networking4-Name" value="Networking 4" placeholder="Skill Name" /></div>
@@ -1690,7 +1707,7 @@
             <!-- Eclipse_Phase skill Networking 5 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-networking_5" name="attr_EP-Skill-Hider-Networking5" />
             <div class="sheet-ep-skill-hider-section-networking_5">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Networking5-Name" value="Networking 5" placeholder="Skill Name" /></div>
@@ -1722,7 +1739,7 @@
             <!-- Eclipse_Phase skill Networking 6 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-networking_6" name="attr_EP-Skill-Hider-Networking6" />
             <div class="sheet-ep-skill-hider-section-networking_6">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Networking6-Name" value="Networking 6" placeholder="Skill Name" /></div>
@@ -1754,7 +1771,7 @@
             <!-- Eclipse_Phase skill Palming -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-palming" name="attr_EP-Skill-Hider-Palming" />
             <div class="sheet-ep-skill-hider-section-palming">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Palming-Name" value="Palming" placeholder="Skill Name" /></div>
@@ -1786,7 +1803,7 @@
             <!-- Eclipse_Phase skill Perception -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-perception" name="attr_EP-Skill-Hider-Perception" />
             <div class="sheet-ep-skill-hider-section-perception">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Perception-Name" value="Perception" placeholder="Skill Name" /></div>
@@ -1818,7 +1835,7 @@
             <!-- Eclipse_Phase skill Persuasion -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-persuasion" name="attr_EP-Skill-Hider-Persuasion" />
             <div class="sheet-ep-skill-hider-section-persuasion">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Persuasion-Name" value="Persuasion" placeholder="Skill Name" /></div>
@@ -1850,7 +1867,7 @@
             <!-- Eclipse_Phase skill Pilot 1 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-pilot_1" name="attr_EP-Skill-Hider-Pilot1" />
             <div class="sheet-ep-skill-hider-section-pilot_1">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Pilot1-Name" value="Pilot 1" placeholder="Skill Name" /></div>
@@ -1882,7 +1899,7 @@
             <!-- Eclipse_Phase skill Pilot 2 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-pilot_2" name="attr_EP-Skill-Hider-Pilot2" />
             <div class="sheet-ep-skill-hider-section-pilot_2">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Pilot2-Name" value="Pilot 2" placeholder="Skill Name" /></div>
@@ -1914,7 +1931,7 @@
             <!-- Eclipse_Phase skill Programming -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-programming" name="attr_EP-Skill-Hider-Programming" />
             <div class="sheet-ep-skill-hider-section-programming">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Programming-Name" value="Programming" placeholder="Skill Name" /></div>
@@ -1946,7 +1963,7 @@
             <!-- Eclipse_Phase skill Protocol -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-protocol" name="attr_EP-Skill-Hider-Protocol" />
             <div class="sheet-ep-skill-hider-section-protocol">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Protocol-Name" value="Protocol" placeholder="Skill Name" /></div>
@@ -1978,7 +1995,7 @@
             <!-- Eclipse_Phase skill Psi Assault -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-psi_assault" name="attr_EP-Skill-Hider-PsiAssault" />
             <div class="sheet-ep-skill-hider-section-psi_assault">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-PsiAssault-Name" value="Psi Assault" placeholder="Skill Name" /></div>
@@ -2010,7 +2027,7 @@
             <!-- Eclipse_Phase skill Psychosurgery -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-psychosurgery" name="attr_EP-Skill-Hider-Psychosurgery" />
             <div class="sheet-ep-skill-hider-section-psychosurgery">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Psychosurgery-Name" value="Psychosurgery" placeholder="Skill Name" /></div>
@@ -2042,7 +2059,7 @@
             <!-- Eclipse_Phase skill Research -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-research" name="attr_EP-Skill-Hider-Research" />
             <div class="sheet-ep-skill-hider-section-research">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Research-Name" value="Research" placeholder="Skill Name" /></div>
@@ -2074,7 +2091,7 @@
             <!-- Eclipse_Phase skill Scrounging -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-scrounging" name="attr_EP-Skill-Hider-Scrounging" />
             <div class="sheet-ep-skill-hider-section-scrounging">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Scrounging-Name" value="Scrounging" placeholder="Skill Name" /></div>
@@ -2106,7 +2123,7 @@
             <!-- Eclipse_Phase skill Seeker Weapons -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-seeker_weapons" name="attr_EP-Skill-Hider-SeekerWeapons" />
             <div class="sheet-ep-skill-hider-section-seeker_weapons">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-SeekerWeapons-Name" value="Seeker Weapons" placeholder="Skill Name" /></div>
@@ -2138,7 +2155,7 @@
             <!-- Eclipse_Phase skill Sense -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-sense" name="attr_EP-Skill-Hider-Sense" />
             <div class="sheet-ep-skill-hider-section-sense">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Sense-Name" value="Sense" placeholder="Skill Name" /></div>
@@ -2170,7 +2187,7 @@
             <!-- Eclipse_Phase skill Spray Weapons -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-spray_weapons" name="attr_EP-Skill-Hider-SprayWeapons" />
             <div class="sheet-ep-skill-hider-section-spray_weapons">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-SprayWeapons-Name" value="Spray Weapons" placeholder="Skill Name" /></div>
@@ -2202,7 +2219,7 @@
             <!-- Eclipse_Phase skill Swimming -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-swimming" name="attr_EP-Skill-Hider-Swimming" />
             <div class="sheet-ep-skill-hider-section-swimming">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Swimming-Name" value="Swimming" placeholder="Skill Name" /></div>
@@ -2234,7 +2251,7 @@
             <!-- Eclipse_Phase skill Throwing Weapons -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-throwing_weapons" name="attr_EP-Skill-Hider-ThrowingWeapons" />
             <div class="sheet-ep-skill-hider-section-throwing_weapons">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-ThrowingWeapons-Name" value="Throwing Weapons" placeholder="Skill Name" /></div>
@@ -2266,7 +2283,7 @@
             <!-- Eclipse_Phase skill Unarmed Combat -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-unarmed_combat" name="attr_EP-Skill-Hider-UnarmedCombat" />
             <div class="sheet-ep-skill-hider-section-unarmed_combat">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-UnarmedCombat-Name" value="Unarmed Combat" placeholder="Skill Name" /></div>
@@ -2298,7 +2315,7 @@
             <!-- Eclipse_Phase skill Academics 1 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-academics_1" name="attr_EP-Skill-Hider-Academics1" />
             <div class="sheet-ep-skill-hider-section-academics_1">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Academics1-Name" value="Academics 1" placeholder="Skill Name" /></div>
@@ -2330,7 +2347,7 @@
             <!-- Eclipse_Phase skill Academics 2 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-academics_2" name="attr_EP-Skill-Hider-Academics2" />
             <div class="sheet-ep-skill-hider-section-academics_2">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Academics2-Name" value="Academics 2" placeholder="Skill Name" /></div>
@@ -2362,7 +2379,7 @@
             <!-- Eclipse_Phase skill Academics 3 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-academics_3" name="attr_EP-Skill-Hider-Academics3" />
             <div class="sheet-ep-skill-hider-section-academics_3">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Academics3-Name" value="Academics 3" placeholder="Skill Name" /></div>
@@ -2394,7 +2411,7 @@
             <!-- Eclipse_Phase skill Academics 4 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-academics_4" name="attr_EP-Skill-Hider-Academics4" />
             <div class="sheet-ep-skill-hider-section-academics_4">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Academics4-Name" value="Academics 4" placeholder="Skill Name" /></div>
@@ -2426,7 +2443,7 @@
             <!-- Eclipse_Phase skill Art 1 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-art_1" name="attr_EP-Skill-Hider-Art1" />
             <div class="sheet-ep-skill-hider-section-art_1">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Art1-Name" value="Art 1" placeholder="Skill Name" /></div>
@@ -2458,7 +2475,7 @@
             <!-- Eclipse_Phase skill Art 2 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-art_2" name="attr_EP-Skill-Hider-Art2" />
             <div class="sheet-ep-skill-hider-section-art_2">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Art2-Name" value="Art 2" placeholder="Skill Name" /></div>
@@ -2490,7 +2507,7 @@
             <!-- Eclipse_Phase skill Art 3 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-art_3" name="attr_EP-Skill-Hider-Art3" />
             <div class="sheet-ep-skill-hider-section-art_3">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Art3-Name" value="Art 3" placeholder="Skill Name" /></div>
@@ -2522,7 +2539,7 @@
             <!-- Eclipse_Phase skill Art 4 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-art_4" name="attr_EP-Skill-Hider-Art4" />
             <div class="sheet-ep-skill-hider-section-art_4">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Art4-Name" value="Art 4" placeholder="Skill Name" /></div>
@@ -2554,7 +2571,7 @@
             <!-- Eclipse_Phase skill Interest 1 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-interest_1" name="attr_EP-Skill-Hider-Interest1" />
             <div class="sheet-ep-skill-hider-section-interest_1">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Interest1-Name" value="Interest 1" placeholder="Skill Name" /></div>
@@ -2586,7 +2603,7 @@
             <!-- Eclipse_Phase skill Interest 2 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-interest_2" name="attr_EP-Skill-Hider-Interest2" />
             <div class="sheet-ep-skill-hider-section-interest_2">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Interest2-Name" value="Interest 2" placeholder="Skill Name" /></div>
@@ -2618,7 +2635,7 @@
             <!-- Eclipse_Phase skill Interest 3 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-interest_3" name="attr_EP-Skill-Hider-Interest3" />
             <div class="sheet-ep-skill-hider-section-interest_3">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Interest3-Name" value="Interest 3" placeholder="Skill Name" /></div>
@@ -2650,7 +2667,7 @@
             <!-- Eclipse_Phase skill Interest 4 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-interest_4" name="attr_EP-Skill-Hider-Interest4" />
             <div class="sheet-ep-skill-hider-section-interest_4">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Interest4-Name" value="Interest 4" placeholder="Skill Name" /></div>
@@ -2682,7 +2699,7 @@
             <!-- Eclipse_Phase skill Language 1 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-language_1" name="attr_EP-Skill-Hider-Language1" />
             <div class="sheet-ep-skill-hider-section-language_1">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Language1-Name" value="Language 1" placeholder="Skill Name" /></div>
@@ -2714,7 +2731,7 @@
             <!-- Eclipse_Phase skill Language 2 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-language_2" name="attr_EP-Skill-Hider-Language2" />
             <div class="sheet-ep-skill-hider-section-language_2">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Language2-Name" value="Language 2" placeholder="Skill Name" /></div>
@@ -2746,7 +2763,7 @@
             <!-- Eclipse_Phase skill Language 3 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-language_3" name="attr_EP-Skill-Hider-Language3" />
             <div class="sheet-ep-skill-hider-section-language_3">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Language3-Name" value="Language 3" placeholder="Skill Name" /></div>
@@ -2778,7 +2795,7 @@
             <!-- Eclipse_Phase skill Language 4 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-language_4" name="attr_EP-Skill-Hider-Language4" />
             <div class="sheet-ep-skill-hider-section-language_4">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Language4-Name" value="Language 4" placeholder="Skill Name" /></div>
@@ -2810,7 +2827,7 @@
             <!-- Eclipse_Phase skill Profession 1 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-profession_1" name="attr_EP-Skill-Hider-Profession1" />
             <div class="sheet-ep-skill-hider-section-profession_1">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Profession1-Name" value="Profession 1" placeholder="Skill Name" /></div>
@@ -2842,7 +2859,7 @@
             <!-- Eclipse_Phase skill Profession 2 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-profession_2" name="attr_EP-Skill-Hider-Profession2" />
             <div class="sheet-ep-skill-hider-section-profession_2">
-            <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+            <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
             <div class="sheet-table-row">
             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
             <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Profession2-Name" value="Profession 2" placeholder="Skill Name" /></div>
@@ -2874,7 +2891,7 @@
             <!-- Eclipse_Phase skill Profession 3 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-profession_3" name="attr_EP-Skill-Hider-Profession3"  />
             <div class="sheet-ep-skill-hider-section-profession_3">
-                <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+                <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                     <div class="sheet-table-row">
                         <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
                         <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Profession3-Name" value="Profession 3" placeholder="Skill Name" /></div>
@@ -2906,7 +2923,7 @@
             <!-- Eclipse_Phase skill Profession 4 -->
             <input type="checkbox" class="sheet-hider-invis sheet-ep-skill-hider-profession_4" name="attr_EP-Skill-Hider-Profession4" />
             <div class="sheet-ep-skill-hider-section-profession_4">
-                <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+                <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                     <div class="sheet-table-row">
                         <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
                         <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Profession4-Name" value="Profession 4" placeholder="Skill Name" /></div>
@@ -2937,7 +2954,7 @@
 
             <!-- Eclipse_Phase Skills repeating -->
             <fieldset class="repeating_EP-Skills"> <!-- EP Skills Repeating -->
-                <div class="sheet-table sheet-table-topBorderGray sheet-input-border sheet-select-border">
+                <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                     <div class="sheet-table-row">
                         <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
                         <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Skill-Repeating-Name" value="Custom Skill" placeholder="Skill Name" /></div>
@@ -3149,24 +3166,759 @@
         <input type="radio" class="sheet-epv1_morph-tab sheet-epv1_morphs-select-morph5" name="attr_epv1-morphs-tab" value="Morph_5" title="Morph 5" />
         <span class="sheet-epv1_morph-tab sheet-epv1_morphs-tab-morph5">Morph 5</span>
 
-        <div class="sheet-epv1_morphs-section-morph1">
-            <div class="sheet-table-cell sheet-cell-a">Something Something Morph 1</div>
+        <div class="sheet-epv1_morphs-section-morph1 sheet-topBorderGray">
+            <div class="sheet-table">
+                <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left">Morph 1 Name/Type:</div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Morph1-Name" placeholder="Morph 1 name/type" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 Sex">Sex:</div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 1 Sex"><input type="text" name="attr_EP-Morph1-Sex" placeholder="Morph 1 sex" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 apparent age">Age:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 apparent age"><input type="number" name="attr_EP-Morph1-Age" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 1 aptitude maximum">Apt Max:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 aptitude maximum"><input type="number" name="attr_EP-Morph1-AptMax" value="30" /></div>
+                </div>
+            </div>
+            <div class="sheet-table">
+                <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left" title="Click me to show/hide appearance details">Appearance/Desc <input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP-Morph1-Appearance-Hider" checked /><span/></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 1 durability">Durability:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 durability"><input type="number" name="attr_EP-Morph1-Dur" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 Wound Threshold">WT:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 Wound Threshold"><input type="number" name="attr_EP-Morph1-WT" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 1 speed modifier">Speed Mod:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 speed modifier"><input type="number" name="attr_EP-Morph1-SpdMod" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-15" title="Morph 1 Movement rate/mobility system">Mov Rate/Type:</div>
+                    <div class="sheet-table-cell sheet-cell-a" title="Morph 1 Movement rate/mobility system"><input type="text" name="attr_EP-Morph1-MovType" /></div>
+                </div>
+            </div>
+            <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP-Morph1-Appearance-Hider" checked />
+            <div class="sheet-hide-section">
+                <textarea class="sheet-multiline-input sheet-input-border" name="attr_attr_EP-Morph1-Appearance-Details" placeholder="Morph 1 Appearance/Description"></textarea>
+            </div>
+            <br>
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 1 Aptitude Bonuses</div>
+            <div class="sheet-table sheet-input-border">
+                <div class="sheet-table-row sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition - morph total bonus"   >COG:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Cognition"   >
+                        <input type="number" name="attr_EP-Morph1-CogBonusTotal" value="[[@{EP-Morph1-CogBonusBase}+@{EP-Morph1-CogBonusMisc}]]" disabled /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Coordination - morph total bonus">COO:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Coordination">
+                        <input type="number" name="attr_EP-Morph1-CooBonusTotal" value="[[@{EP-Morph1-CooBonusBase}+@{EP-Morph1-CooBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition - morph total bonus"   >INT:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Intuition"   >
+                        <input type="number" name="attr_EP-Morph1-IntBonusTotal" value="[[@{EP-Morph1-IntBonusBase}+@{EP-Morph1-IntBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes - morph total bonus"    >REF:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Reflexes"    >
+                        <input type="number" name="attr_EP-Morph1-RefBonusTotal" value="[[@{EP-Morph1-RefBonusBase}+@{EP-Morph1-RefBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy - morph total bonus"       >SAV:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Savvy"       >
+                        <input type="number" name="attr_EP-Morph1-SavBonusTotal" value="[[@{EP-Morph1-SavBonusBase}+@{EP-Morph1-SavBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics - morph total bonus"    >SOM:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Somatics"    >
+                        <input type="number" name="attr_EP-Morph1-SomBonusTotal" value="[[@{EP-Morph1-SomBonusBase}+@{EP-Morph1-SomBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower - morph total bonus"   >WIL:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Willpower"   >
+                        <input type="number" name="attr_EP-Morph1-WilBonusTotal" value="[[@{EP-Morph1-WilBonusBase}+@{EP-Morph1-WilBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-button" title="Click me to show/hide input cells"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP-Morph1-Apt-Bonus-Hider" checked /><span/></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                </div>
+                <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP-Morph1-Apt-Bonus-Hider" checked />
+                <div class="sheet-table-row sheet-hide-section" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition base Aptitude bonus from Morph"   >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Cognition base Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph1-CogBonusBase" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Coordination base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Coordination base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EP-Morph1-CooBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition base Aptitude bonus from Morph"   >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Intuition base Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph1-IntBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes base Aptitude bonus from Morph"    >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Reflexes base Aptitude bonus from Morph"    >
+                        <input type="number" name="attr_EP-Morph1-RefBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy base Aptitude bonus from Morph"       >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Savvy base Aptitude bonus from Morph"       >
+                        <input type="number" name="attr_EP-Morph1-SavBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics base Aptitude bonus from Morph"    >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Somatics base Aptitude bonus from Morph"    >
+                        <input type="number" name="attr_EP-Morph1-SomBonusBase" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower base Aptitude bonus from Morph"   >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Willpower base Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph1-WilBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                </div>
+                <div class="sheet-table-row sheet-hide-section" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition misc. Aptitude bonus from Morph"   >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Cognition misc. Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph1-CogBonusMisc" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Coordination misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Coordination misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EP-Morph1-CooBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition misc. Aptitude bonus from Morph"   >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Intuition misc. Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph1-IntBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes misc. Aptitude bonus from Morph"    >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Reflexes misc. Aptitude bonus from Morph"    >
+                        <input type="number" name="attr_EP-Morph1-RefBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy misc. Aptitude bonus from Morph"       >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Savvy misc. Aptitude bonus from Morph"       >
+                        <input type="number" name="attr_EP-Morph1-SavBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics misc. Aptitude bonus from Morph"    >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Somatics misc. Aptitude bonus from Morph"    >
+                        <input type="number" name="attr_EP-Morph1-SomBonusMisc" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower misc. Aptitude bonus from Morph"   >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Willpower misc. Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph1-WilBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                </div>
+            </div>
+            <br>
+            <!-- Eclipse Phase v1 Morph 1 Traits Repeating -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 1 Pos & Neg Traits / Advantages/Disadvantages</div>
+            <fieldset class="repeating_Morph1-Traits">
+                <div class="sheet-table">
+                    <div class="sheet-table-row sheet-input-border">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
+                        <div class="sheet-table-cell sheet-cell-5 sheet-span-settings-label">Trait:</div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_Morph1-Trait-Name-Repeating" placeholder="Morph 1 Trait" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_Morph1-Trait-Details-Hider" checked /><span/></div>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_Morph1-Trait-Details-Hider" checked />
+                    <div class="sheet-hide-section">
+                        <textarea class="sheet-multiline-input" name="attr_Morph1-Trait-Details" placeholder="Morph 1 Trait Details"></textarea>
+                    </div>
+                </div>
+            </fieldset><!-- End Eclipse Phase v1 Morph 1 Traits Repeating -->
+            <br>
+
+            <!-- Eclipse Phase v1 Morph 1 Enhancements Repeating -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 1 Implants / Enhancements / Customizations</div>
+            <fieldset class="repeating_Morph1-Enhancements">
+                <div class="sheet-table">
+                    <div class="sheet-table-row sheet-input-border">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
+                        <div class="sheet-table-cell sheet-cell-12 sheet-span-settings-label">Enhancement:</div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_Morph1-Enhancement-Name-Repeating" placeholder="Morph 1 Enhancement" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_Morph1-Enhancement-Details-Hider" checked /><span/></div>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_Morph1-Enhancement-Details-Hider" checked />
+                    <div class="sheet-hide-section">
+                        <textarea class="sheet-multiline-input" name="attr_Morph1-Enhancement-Details" placeholder="Morph 1 Enhancement Details"></textarea>
+                    </div>
+                </div>
+            </fieldset><!-- End Eclipse Phase v1 Morph 1 Enhancements Repeating -->
         </div>
 
-        <div class="sheet-epv1_morphs-section-morph2">
-            blah blah blah blah Morph 2
+        <div class="sheet-epv1_morphs-section-morph2 sheet-topBorderGray">
+            <div class="sheet-table">
+                <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left">Morph 2 Name/Type:</div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Morph2-Name" placeholder="Morph 2 name/type" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 Sex">Sex:</div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 2 Sex"><input type="text" name="attr_EP-Morph2-Sex" placeholder="Morph 2 sex" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 apparent age">Age:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 apparent age"><input type="number" name="attr_EP-Morph2-Age" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 2 aptitude maximum">Apt Max:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 aptitude maximum"><input type="number" name="attr_EP-Morph2-AptMax" value="30" /></div>
+                </div>
+            </div>
+            <div class="sheet-table">
+                <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left" title="Click me to show/hide appearance details">Appearance/Desc <input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP-Morph2-Appearance-Hider" checked /><span/></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 2 durability">Durability:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 durability"><input type="number" name="attr_EP-Morph2-Dur" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 Wound Threshold">WT:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 Wound Threshold"><input type="number" name="attr_EP-Morph2-WT" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 2 speed modifier">Speed Mod:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 speed modifier"><input type="number" name="attr_EP-Morph2-SpdMod" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-15" title="Morph 2 Movement rate/mobility system">Mov Rate/Type:</div>
+                    <div class="sheet-table-cell sheet-cell-a" title="Morph 2 Movement rate/mobility system"><input type="text" name="attr_EP-Morph2-MovType" /></div>
+                </div>
+            </div>
+            <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP-Morph2-Appearance-Hider" checked />
+            <div class="sheet-hide-section">
+                <textarea class="sheet-multiline-input sheet-input-border" name="attr_attr_EP-Morph2-Appearance-Details" placeholder="Morph 2 Appearance/Description"></textarea>
+            </div>
+            <br>
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 2 Aptitude Bonuses</div>
+            <div class="sheet-table sheet-input-border">
+                <div class="sheet-table-row sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition - morph total bonus"   >COG:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Cognition"   >
+                        <input type="number" name="attr_EP-Morph2-CogBonusTotal" value="[[@{EP-Morph2-CogBonusBase}+@{EP-Morph2-CogBonusMisc}]]" disabled /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Coordination - morph total bonus">COO:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Coordination">
+                        <input type="number" name="attr_EP-Morph2-CooBonusTotal" value="[[@{EP-Morph2-CooBonusBase}+@{EP-Morph2-CooBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition - morph total bonus"   >INT:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Intuition"   >
+                        <input type="number" name="attr_EP-Morph2-IntBonusTotal" value="[[@{EP-Morph2-IntBonusBase}+@{EP-Morph2-IntBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes - morph total bonus"    >REF:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Reflexes"    >
+                        <input type="number" name="attr_EP-Morph2-RefBonusTotal" value="[[@{EP-Morph2-RefBonusBase}+@{EP-Morph2-RefBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy - morph total bonus"       >SAV:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Savvy"       >
+                        <input type="number" name="attr_EP-Morph2-SavBonusTotal" value="[[@{EP-Morph2-SavBonusBase}+@{EP-Morph2-SavBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics - morph total bonus"    >SOM:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Somatics"    >
+                        <input type="number" name="attr_EP-Morph2-SomBonusTotal" value="[[@{EP-Morph2-SomBonusBase}+@{EP-Morph2-SomBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower - morph total bonus"   >WIL:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Willpower"   >
+                        <input type="number" name="attr_EP-Morph2-WilBonusTotal" value="[[@{EP-Morph2-WilBonusBase}+@{EP-Morph2-WilBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-button" title="Click me to show/hide input cells"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP-Morph2-Apt-Bonus-Hider" checked /><span/></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                </div>
+                <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP-Morph2-Apt-Bonus-Hider" checked />
+                <div class="sheet-table-row sheet-hide-section" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition base Aptitude bonus from Morph"   >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Cognition base Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph2-CogBonusBase" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Coordination base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Coordination base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EP-Morph2-CooBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition base Aptitude bonus from Morph"   >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Intuition base Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph2-IntBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes base Aptitude bonus from Morph"    >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Reflexes base Aptitude bonus from Morph"    >
+                        <input type="number" name="attr_EP-Morph2-RefBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy base Aptitude bonus from Morph"       >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Savvy base Aptitude bonus from Morph"       >
+                        <input type="number" name="attr_EP-Morph2-SavBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics base Aptitude bonus from Morph"    >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Somatics base Aptitude bonus from Morph"    >
+                        <input type="number" name="attr_EP-Morph2-SomBonusBase" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower base Aptitude bonus from Morph"   >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Willpower base Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph2-WilBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                </div>
+                <div class="sheet-table-row sheet-hide-section" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition misc. Aptitude bonus from Morph"   >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Cognition misc. Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph2-CogBonusMisc" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Coordination misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Coordination misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EP-Morph2-CooBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition misc. Aptitude bonus from Morph"   >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Intuition misc. Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph2-IntBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes misc. Aptitude bonus from Morph"    >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Reflexes misc. Aptitude bonus from Morph"    >
+                        <input type="number" name="attr_EP-Morph2-RefBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy misc. Aptitude bonus from Morph"       >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Savvy misc. Aptitude bonus from Morph"       >
+                        <input type="number" name="attr_EP-Morph2-SavBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics misc. Aptitude bonus from Morph"    >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Somatics misc. Aptitude bonus from Morph"    >
+                        <input type="number" name="attr_EP-Morph2-SomBonusMisc" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower misc. Aptitude bonus from Morph"   >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Willpower misc. Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph2-WilBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                </div>
+            </div>
+            <br>
+            <!-- Eclipse Phase v1 Morph 2 Traits Repeating -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 2 Pos & Neg Traits / Advantages/Disadvantages</div>
+            <fieldset class="repeating_Morph2-Traits">
+                <div class="sheet-table">
+                    <div class="sheet-table-row sheet-input-border">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
+                        <div class="sheet-table-cell sheet-cell-5 sheet-span-settings-label">Trait:</div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_Morph2-Trait-Name-Repeating" placeholder="Morph 2 Trait" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_Morph2-Trait-Details-Hider" checked /><span/></div>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_Morph2-Trait-Details-Hider" checked />
+                    <div class="sheet-hide-section">
+                        <textarea class="sheet-multiline-input" name="attr_Morph2-Trait-Details" placeholder="Morph 2 Trait Details"></textarea>
+                    </div>
+                </div>
+            </fieldset><!-- End Eclipse Phase v1 Morph 2 Traits Repeating -->
+            <br>
+
+            <!-- Eclipse Phase v1 Morph 2 Enhancements Repeating -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 2 Implants / Enhancements / Customizations</div>
+            <fieldset class="repeating_Morph2-Enhancements">
+                <div class="sheet-table">
+                    <div class="sheet-table-row sheet-input-border">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
+                        <div class="sheet-table-cell sheet-cell-12 sheet-span-settings-label">Enhancement:</div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_Morph2-Enhancement-Name-Repeating" placeholder="Morph 2 Enhancement" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_Morph2-Enhancement-Details-Hider" checked /><span/></div>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_Morph2-Enhancement-Details-Hider" checked />
+                    <div class="sheet-hide-section">
+                        <textarea class="sheet-multiline-input" name="attr_Morph2-Enhancement-Details" placeholder="Morph 2 Enhancement Details"></textarea>
+                    </div>
+                </div>
+            </fieldset><!-- End Eclipse Phase v1 Morph 2 Enhancements Repeating -->
         </div>
 
-        <div class="sheet-epv1_morphs-section-morph3">
-            blah blah blah blah Morph 3
+        <div class="sheet-epv1_morphs-section-morph3 sheet-topBorderGray">
+            <div class="sheet-table">
+                <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left">Morph 3 Name/Type:</div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Morph3-Name" placeholder="Morph 3 name/type" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 Sex">Sex:</div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 3 Sex"><input type="text" name="attr_EP-Morph3-Sex" placeholder="Morph 3 sex" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 apparent age">Age:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 apparent age"><input type="number" name="attr_EP-Morph3-Age" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 3 aptitude maximum">Apt Max:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 aptitude maximum"><input type="number" name="attr_EP-Morph3-AptMax" value="30" /></div>
+                </div>
+            </div>
+            <div class="sheet-table">
+                <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left" title="Click me to show/hide appearance details">Appearance/Desc <input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP-Morph3-Appearance-Hider" checked /><span/></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 3 durability">Durability:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 durability"><input type="number" name="attr_EP-Morph3-Dur" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 Wound Threshold">WT:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 Wound Threshold"><input type="number" name="attr_EP-Morph3-WT" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 3 speed modifier">Speed Mod:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 speed modifier"><input type="number" name="attr_EP-Morph3-SpdMod" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-15" title="Morph 3 Movement rate/mobility system">Mov Rate/Type:</div>
+                    <div class="sheet-table-cell sheet-cell-a" title="Morph 3 Movement rate/mobility system"><input type="text" name="attr_EP-Morph3-MovType" /></div>
+                </div>
+            </div>
+            <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP-Morph3-Appearance-Hider" checked />
+            <div class="sheet-hide-section">
+                <textarea class="sheet-multiline-input sheet-input-border" name="attr_attr_EP-Morph3-Appearance-Details" placeholder="Morph 3 Appearance/Description"></textarea>
+            </div>
+            <br>
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 3 Aptitude Bonuses</div>
+            <div class="sheet-table sheet-input-border">
+                <div class="sheet-table-row sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition - morph total bonus"   >COG:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Cognition"   >
+                        <input type="number" name="attr_EP-Morph3-CogBonusTotal" value="[[@{EP-Morph3-CogBonusBase}+@{EP-Morph3-CogBonusMisc}]]" disabled /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Coordination - morph total bonus">COO:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Coordination">
+                        <input type="number" name="attr_EP-Morph3-CooBonusTotal" value="[[@{EP-Morph3-CooBonusBase}+@{EP-Morph3-CooBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition - morph total bonus"   >INT:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Intuition"   >
+                        <input type="number" name="attr_EP-Morph3-IntBonusTotal" value="[[@{EP-Morph3-IntBonusBase}+@{EP-Morph3-IntBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes - morph total bonus"    >REF:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Reflexes"    >
+                        <input type="number" name="attr_EP-Morph3-RefBonusTotal" value="[[@{EP-Morph3-RefBonusBase}+@{EP-Morph3-RefBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy - morph total bonus"       >SAV:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Savvy"       >
+                        <input type="number" name="attr_EP-Morph3-SavBonusTotal" value="[[@{EP-Morph3-SavBonusBase}+@{EP-Morph3-SavBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics - morph total bonus"    >SOM:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Somatics"    >
+                        <input type="number" name="attr_EP-Morph3-SomBonusTotal" value="[[@{EP-Morph3-SomBonusBase}+@{EP-Morph3-SomBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower - morph total bonus"   >WIL:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Willpower"   >
+                        <input type="number" name="attr_EP-Morph3-WilBonusTotal" value="[[@{EP-Morph3-WilBonusBase}+@{EP-Morph3-WilBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-button" title="Click me to show/hide input cells"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP-Morph3-Apt-Bonus-Hider" checked /><span/></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                </div>
+                <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP-Morph3-Apt-Bonus-Hider" checked />
+                <div class="sheet-table-row sheet-hide-section" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition base Aptitude bonus from Morph"   >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Cognition base Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph3-CogBonusBase" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Coordination base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Coordination base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EP-Morph3-CooBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition base Aptitude bonus from Morph"   >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Intuition base Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph3-IntBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes base Aptitude bonus from Morph"    >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Reflexes base Aptitude bonus from Morph"    >
+                        <input type="number" name="attr_EP-Morph3-RefBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy base Aptitude bonus from Morph"       >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Savvy base Aptitude bonus from Morph"       >
+                        <input type="number" name="attr_EP-Morph3-SavBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics base Aptitude bonus from Morph"    >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Somatics base Aptitude bonus from Morph"    >
+                        <input type="number" name="attr_EP-Morph3-SomBonusBase" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower base Aptitude bonus from Morph"   >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Willpower base Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph3-WilBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                </div>
+                <div class="sheet-table-row sheet-hide-section" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition misc. Aptitude bonus from Morph"   >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Cognition misc. Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph3-CogBonusMisc" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Coordination misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Coordination misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EP-Morph3-CooBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition misc. Aptitude bonus from Morph"   >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Intuition misc. Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph3-IntBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes misc. Aptitude bonus from Morph"    >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Reflexes misc. Aptitude bonus from Morph"    >
+                        <input type="number" name="attr_EP-Morph3-RefBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy misc. Aptitude bonus from Morph"       >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Savvy misc. Aptitude bonus from Morph"       >
+                        <input type="number" name="attr_EP-Morph3-SavBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics misc. Aptitude bonus from Morph"    >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Somatics misc. Aptitude bonus from Morph"    >
+                        <input type="number" name="attr_EP-Morph3-SomBonusMisc" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower misc. Aptitude bonus from Morph"   >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Willpower misc. Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph3-WilBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                </div>
+            </div>
+            <br>
+            <!-- Eclipse Phase v1 Morph 3 Traits Repeating -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 3 Pos & Neg Traits / Advantages/Disadvantages</div>
+            <fieldset class="repeating_Morph3-Traits">
+                <div class="sheet-table">
+                    <div class="sheet-table-row sheet-input-border">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
+                        <div class="sheet-table-cell sheet-cell-5 sheet-span-settings-label">Trait:</div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_Morph3-Trait-Name-Repeating" placeholder="Morph 3 Trait" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_Morph3-Trait-Details-Hider" checked /><span/></div>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_Morph3-Trait-Details-Hider" checked />
+                    <div class="sheet-hide-section">
+                        <textarea class="sheet-multiline-input" name="attr_Morph3-Trait-Details" placeholder="Morph 3 Trait Details"></textarea>
+                    </div>
+                </div>
+            </fieldset><!-- End Eclipse Phase v1 Morph 3 Traits Repeating -->
+            <br>
+
+            <!-- Eclipse Phase v1 Morph 3 Enhancements Repeating -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 3 Implants / Enhancements / Customizations</div>
+            <fieldset class="repeating_Morph3-Enhancements">
+                <div class="sheet-table">
+                    <div class="sheet-table-row sheet-input-border">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
+                        <div class="sheet-table-cell sheet-cell-12 sheet-span-settings-label">Enhancement:</div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_Morph3-Enhancement-Name-Repeating" placeholder="Morph 3 Enhancement" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_Morph3-Enhancement-Details-Hider" checked /><span/></div>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_Morph3-Enhancement-Details-Hider" checked />
+                    <div class="sheet-hide-section">
+                        <textarea class="sheet-multiline-input" name="attr_Morph3-Enhancement-Details" placeholder="Morph 3 Enhancement Details"></textarea>
+                    </div>
+                </div>
+            </fieldset><!-- End Eclipse Phase v1 Morph 3 Enhancements Repeating -->
         </div>
 
-        <div class="sheet-epv1_morphs-section-morph4">
-            blah blah blah blah Morph 4
+        <div class="sheet-epv1_morphs-section-morph4 sheet-topBorderGray">
+            <div class="sheet-table">
+                <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left">Morph 4 Name/Type:</div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Morph4-Name" placeholder="Morph 4 name/type" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 Sex">Sex:</div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 4 Sex"><input type="text" name="attr_EP-Morph4-Sex" placeholder="Morph 4 sex" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 apparent age">Age:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 apparent age"><input type="number" name="attr_EP-Morph4-Age" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 4 aptitude maximum">Apt Max:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 aptitude maximum"><input type="number" name="attr_EP-Morph4-AptMax" value="30" /></div>
+                </div>
+            </div>
+            <div class="sheet-table">
+                <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left" title="Click me to show/hide appearance details">Appearance/Desc <input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP-Morph4-Appearance-Hider" checked /><span/></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 4 durability">Durability:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 durability"><input type="number" name="attr_EP-Morph4-Dur" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 Wound Threshold">WT:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 Wound Threshold"><input type="number" name="attr_EP-Morph4-WT" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 4 speed modifier">Speed Mod:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 speed modifier"><input type="number" name="attr_EP-Morph4-SpdMod" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-15" title="Morph 4 Movement rate/mobility system">Mov Rate/Type:</div>
+                    <div class="sheet-table-cell sheet-cell-a" title="Morph 4 Movement rate/mobility system"><input type="text" name="attr_EP-Morph4-MovType" /></div>
+                </div>
+            </div>
+            <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP-Morph4-Appearance-Hider" checked />
+            <div class="sheet-hide-section">
+                <textarea class="sheet-multiline-input sheet-input-border" name="attr_attr_EP-Morph4-Appearance-Details" placeholder="Morph 4 Appearance/Description"></textarea>
+            </div>
+            <br>
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 4 Aptitude Bonuses</div>
+            <div class="sheet-table sheet-input-border">
+                <div class="sheet-table-row sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition - morph total bonus"   >COG:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Cognition"   >
+                        <input type="number" name="attr_EP-Morph4-CogBonusTotal" value="[[@{EP-Morph4-CogBonusBase}+@{EP-Morph4-CogBonusMisc}]]" disabled /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Coordination - morph total bonus">COO:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Coordination">
+                        <input type="number" name="attr_EP-Morph4-CooBonusTotal" value="[[@{EP-Morph4-CooBonusBase}+@{EP-Morph4-CooBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition - morph total bonus"   >INT:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Intuition"   >
+                        <input type="number" name="attr_EP-Morph4-IntBonusTotal" value="[[@{EP-Morph4-IntBonusBase}+@{EP-Morph4-IntBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes - morph total bonus"    >REF:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Reflexes"    >
+                        <input type="number" name="attr_EP-Morph4-RefBonusTotal" value="[[@{EP-Morph4-RefBonusBase}+@{EP-Morph4-RefBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy - morph total bonus"       >SAV:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Savvy"       >
+                        <input type="number" name="attr_EP-Morph4-SavBonusTotal" value="[[@{EP-Morph4-SavBonusBase}+@{EP-Morph4-SavBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics - morph total bonus"    >SOM:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Somatics"    >
+                        <input type="number" name="attr_EP-Morph4-SomBonusTotal" value="[[@{EP-Morph4-SomBonusBase}+@{EP-Morph4-SomBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower - morph total bonus"   >WIL:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Willpower"   >
+                        <input type="number" name="attr_EP-Morph4-WilBonusTotal" value="[[@{EP-Morph4-WilBonusBase}+@{EP-Morph4-WilBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-button" title="Click me to show/hide input cells"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP-Morph4-Apt-Bonus-Hider" checked /><span/></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                </div>
+                <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP-Morph4-Apt-Bonus-Hider" checked />
+                <div class="sheet-table-row sheet-hide-section" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition base Aptitude bonus from Morph"   >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Cognition base Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph4-CogBonusBase" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Coordination base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Coordination base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EP-Morph4-CooBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition base Aptitude bonus from Morph"   >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Intuition base Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph4-IntBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes base Aptitude bonus from Morph"    >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Reflexes base Aptitude bonus from Morph"    >
+                        <input type="number" name="attr_EP-Morph4-RefBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy base Aptitude bonus from Morph"       >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Savvy base Aptitude bonus from Morph"       >
+                        <input type="number" name="attr_EP-Morph4-SavBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics base Aptitude bonus from Morph"    >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Somatics base Aptitude bonus from Morph"    >
+                        <input type="number" name="attr_EP-Morph4-SomBonusBase" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower base Aptitude bonus from Morph"   >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Willpower base Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph4-WilBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                </div>
+                <div class="sheet-table-row sheet-hide-section" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition misc. Aptitude bonus from Morph"   >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Cognition misc. Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph4-CogBonusMisc" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Coordination misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Coordination misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EP-Morph4-CooBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition misc. Aptitude bonus from Morph"   >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Intuition misc. Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph4-IntBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes misc. Aptitude bonus from Morph"    >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Reflexes misc. Aptitude bonus from Morph"    >
+                        <input type="number" name="attr_EP-Morph4-RefBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy misc. Aptitude bonus from Morph"       >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Savvy misc. Aptitude bonus from Morph"       >
+                        <input type="number" name="attr_EP-Morph4-SavBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics misc. Aptitude bonus from Morph"    >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Somatics misc. Aptitude bonus from Morph"    >
+                        <input type="number" name="attr_EP-Morph4-SomBonusMisc" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower misc. Aptitude bonus from Morph"   >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Willpower misc. Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph4-WilBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                </div>
+            </div>
+            <br>
+            <!-- Eclipse Phase v1 Morph 4 Traits Repeating -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 4 Pos & Neg Traits / Advantages/Disadvantages</div>
+            <fieldset class="repeating_Morph4-Traits">
+                <div class="sheet-table">
+                    <div class="sheet-table-row sheet-input-border">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
+                        <div class="sheet-table-cell sheet-cell-5 sheet-span-settings-label">Trait:</div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_Morph4-Trait-Name-Repeating" placeholder="Morph 4 Trait" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_Morph4-Trait-Details-Hider" checked /><span/></div>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_Morph4-Trait-Details-Hider" checked />
+                    <div class="sheet-hide-section">
+                        <textarea class="sheet-multiline-input" name="attr_Morph4-Trait-Details" placeholder="Morph 4 Trait Details"></textarea>
+                    </div>
+                </div>
+            </fieldset><!-- End Eclipse Phase v1 Morph 4 Traits Repeating -->
+            <br>
+
+            <!-- Eclipse Phase v1 Morph 4 Enhancements Repeating -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 4 Implants / Enhancements / Customizations</div>
+            <fieldset class="repeating_Morph4-Enhancements">
+                <div class="sheet-table">
+                    <div class="sheet-table-row sheet-input-border">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
+                        <div class="sheet-table-cell sheet-cell-12 sheet-span-settings-label">Enhancement:</div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_Morph4-Enhancement-Name-Repeating" placeholder="Morph 4 Enhancement" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_Morph4-Enhancement-Details-Hider" checked /><span/></div>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_Morph4-Enhancement-Details-Hider" checked />
+                    <div class="sheet-hide-section">
+                        <textarea class="sheet-multiline-input" name="attr_Morph4-Enhancement-Details" placeholder="Morph 4 Enhancement Details"></textarea>
+                    </div>
+                </div>
+            </fieldset><!-- End Eclipse Phase v1 Morph 4 Enhancements Repeating -->
         </div>
 
-        <div class="sheet-epv1_morphs-section-morph5">
-            blah blah blah blah Morph 5
+        <div class="sheet-epv1_morphs-section-morph5 sheet-topBorderGray">
+            <div class="sheet-table">
+                <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left">Morph 5 Name/Type:</div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP-Morph5-Name" placeholder="Morph 5 name/type" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 Sex">Sex:</div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 5 Sex"><input type="text" name="attr_EP-Morph5-Sex" placeholder="Morph 5 sex" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 apparent age">Age:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 apparent age"><input type="number" name="attr_EP-Morph5-Age" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 5 aptitude maximum">Apt Max:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 aptitude maximum"><input type="number" name="attr_EP-Morph5-AptMax" value="30" /></div>
+                </div>
+            </div>
+            <div class="sheet-table">
+                <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left" title="Click me to show/hide appearance details">Appearance/Desc <input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP-Morph5-Appearance-Hider" checked /><span/></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 5 durability">Durability:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 durability"><input type="number" name="attr_EP-Morph5-Dur" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 Wound Threshold">WT:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 Wound Threshold"><input type="number" name="attr_EP-Morph5-WT" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 5 speed modifier">Speed Mod:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 speed modifier"><input type="number" name="attr_EP-Morph5-SpdMod" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-15" title="Morph 5 Movement rate/mobility system">Mov Rate/Type:</div>
+                    <div class="sheet-table-cell sheet-cell-a" title="Morph 5 Movement rate/mobility system"><input type="text" name="attr_EP-Morph5-MovType" /></div>
+                </div>
+            </div>
+            <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP-Morph5-Appearance-Hider" checked />
+            <div class="sheet-hide-section">
+                <textarea class="sheet-multiline-input sheet-input-border" name="attr_attr_EP-Morph5-Appearance-Details" placeholder="Morph 5 Appearance/Description"></textarea>
+            </div>
+            <br>
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 5 Aptitude Bonuses</div>
+            <div class="sheet-table sheet-input-border">
+                <div class="sheet-table-row sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition - morph total bonus"   >COG:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Cognition"   >
+                        <input type="number" name="attr_EP-Morph5-CogBonusTotal" value="[[@{EP-Morph5-CogBonusBase}+@{EP-Morph5-CogBonusMisc}]]" disabled /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Coordination - morph total bonus">COO:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Coordination">
+                        <input type="number" name="attr_EP-Morph5-CooBonusTotal" value="[[@{EP-Morph5-CooBonusBase}+@{EP-Morph5-CooBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition - morph total bonus"   >INT:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Intuition"   >
+                        <input type="number" name="attr_EP-Morph5-IntBonusTotal" value="[[@{EP-Morph5-IntBonusBase}+@{EP-Morph5-IntBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes - morph total bonus"    >REF:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Reflexes"    >
+                        <input type="number" name="attr_EP-Morph5-RefBonusTotal" value="[[@{EP-Morph5-RefBonusBase}+@{EP-Morph5-RefBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy - morph total bonus"       >SAV:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Savvy"       >
+                        <input type="number" name="attr_EP-Morph5-SavBonusTotal" value="[[@{EP-Morph5-SavBonusBase}+@{EP-Morph5-SavBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics - morph total bonus"    >SOM:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Somatics"    >
+                        <input type="number" name="attr_EP-Morph5-SomBonusTotal" value="[[@{EP-Morph5-SomBonusBase}+@{EP-Morph5-SomBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower - morph total bonus"   >WIL:</div>
+                    <div class="sheet-table-cell sheet-cell-7 sheet-input-disabled" title="Willpower"   >
+                        <input type="number" name="attr_EP-Morph5-WilBonusTotal" value="[[@{EP-Morph5-WilBonusBase}+@{EP-Morph5-WilBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-button" title="Click me to show/hide input cells"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP-Morph5-Apt-Bonus-Hider" checked /><span/></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                </div>
+                <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP-Morph5-Apt-Bonus-Hider" checked />
+                <div class="sheet-table-row sheet-hide-section" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition base Aptitude bonus from Morph"   >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Cognition base Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph5-CogBonusBase" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Coordination base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Coordination base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EP-Morph5-CooBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition base Aptitude bonus from Morph"   >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Intuition base Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph5-IntBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes base Aptitude bonus from Morph"    >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Reflexes base Aptitude bonus from Morph"    >
+                        <input type="number" name="attr_EP-Morph5-RefBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy base Aptitude bonus from Morph"       >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Savvy base Aptitude bonus from Morph"       >
+                        <input type="number" name="attr_EP-Morph5-SavBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics base Aptitude bonus from Morph"    >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Somatics base Aptitude bonus from Morph"    >
+                        <input type="number" name="attr_EP-Morph5-SomBonusBase" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower base Aptitude bonus from Morph"   >Base:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Willpower base Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph5-WilBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                </div>
+                <div class="sheet-table-row sheet-hide-section" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition misc. Aptitude bonus from Morph"   >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Cognition misc. Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph5-CogBonusMisc" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Coordination misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Coordination misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EP-Morph5-CooBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition misc. Aptitude bonus from Morph"   >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Intuition misc. Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph5-IntBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes misc. Aptitude bonus from Morph"    >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Reflexes misc. Aptitude bonus from Morph"    >
+                        <input type="number" name="attr_EP-Morph5-RefBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy misc. Aptitude bonus from Morph"       >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Savvy misc. Aptitude bonus from Morph"       >
+                        <input type="number" name="attr_EP-Morph5-SavBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics misc. Aptitude bonus from Morph"    >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Somatics misc. Aptitude bonus from Morph"    >
+                        <input type="number" name="attr_EP-Morph5-SomBonusMisc" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower misc. Aptitude bonus from Morph"   >Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Willpower misc. Aptitude bonus from Morph"   >
+                        <input type="number" name="attr_EP-Morph5-WilBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                </div>
+            </div>
+            <br>
+            <!-- Eclipse Phase v1 Morph 5 Traits Repeating -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 5 Pos & Neg Traits / Advantages/Disadvantages</div>
+            <fieldset class="repeating_Morph5-Traits">
+                <div class="sheet-table">
+                    <div class="sheet-table-row sheet-input-border">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
+                        <div class="sheet-table-cell sheet-cell-5 sheet-span-settings-label">Trait:</div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_Morph5-Trait-Name-Repeating" placeholder="Morph 5 Trait" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_Morph5-Trait-Details-Hider" checked /><span/></div>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_Morph5-Trait-Details-Hider" checked />
+                    <div class="sheet-hide-section">
+                        <textarea class="sheet-multiline-input" name="attr_Morph5-Trait-Details" placeholder="Morph 5 Trait Details"></textarea>
+                    </div>
+                </div>
+            </fieldset><!-- End Eclipse Phase v1 Morph 5 Traits Repeating -->
+            <br>
+
+            <!-- Eclipse Phase v1 Morph 5 Enhancements Repeating -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 5 Implants / Enhancements / Customizations</div>
+            <fieldset class="repeating_Morph5-Enhancements">
+                <div class="sheet-table">
+                    <div class="sheet-table-row sheet-input-border">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
+                        <div class="sheet-table-cell sheet-cell-12 sheet-span-settings-label">Enhancement:</div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_Morph5-Enhancement-Name-Repeating" placeholder="Morph 5 Enhancement" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_Morph5-Enhancement-Details-Hider" checked /><span/></div>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_Morph5-Enhancement-Details-Hider" checked />
+                    <div class="sheet-hide-section">
+                        <textarea class="sheet-multiline-input" name="attr_Morph5-Enhancement-Details" placeholder="Morph 5 Enhancement Details"></textarea>
+                    </div>
+                </div>
+            </fieldset><!-- End Eclipse Phase v1 Morph 5 Enhancements Repeating -->
         </div>
     </div> <!-- End Eclipse Phase v1 Morphs Section -->
 
