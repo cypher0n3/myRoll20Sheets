@@ -349,8 +349,10 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
 
 /*this shows the tab content when the appropriate input field is selected*/
 .charsheet input.sheet-tab-core:checked ~ .sheet-section-tabbed-core,
+.charsheet input.sheet-tab-combat:checked ~ .sheet-section-tabbed-combat,
 .charsheet input.sheet-tab-gear:checked ~ .sheet-section-tabbed-gear,
 .charsheet input.sheet-tab-notes:checked ~ .sheet-section-tabbed-notes,
+.charsheet input.sheet-tab-special:checked ~ .sheet-section-tabbed-special,
 .charsheet input.sheet-tabZ:checked ~ .sheet-section-tabbed-settings {
     display: block;
 }
@@ -417,8 +419,10 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
 
 /*this modifies the span color once the radio button is selected so you know which tab is selected*/
 .charsheet input.sheet-tab-core:checked + span.sheet-tab-core,
+.charsheet input.sheet-tab-combat:checked + span.sheet-tab-combat,
 .charsheet input.sheet-tab-gear:checked + span.sheet-tab-gear,
 .charsheet input.sheet-tab-notes:checked + span.sheet-tab-notes,
+.charsheet input.sheet-tab-special:checked + span.sheet-tab-special,
 .charsheet input.sheet-tabZ:checked + span.sheet-tabZ {
   background: #660202;
   border-radius: 4px;
