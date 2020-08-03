@@ -27,6 +27,7 @@
                 <div class="sheet-table-row" style="text-align:center; font-weight:bold; font-size: 14px">
                     <div class="sheet-table-cell sheet-cell-41">Character Name</div>
                     <div class="sheet-table-cell sheet-cell-a">Player Name</div>
+                    <div class="sheet-table-cell sheet-cell-10">Gender</div>
                     <input type="checkbox" class="sheet-hide-refresh sheet-hider-invis" name="attr_UseRefreshSelector" value="No" checked />
                     <div class="sheet-table-cell sheet-cell-15 sheet-hide-refresh-section" title="FATE refresh">Refresh</div>
                     <input type="checkbox" class="sheet-hide-fate_points sheet-hider-invis" name="attr_UseFatePointsSelector" value="No" />
@@ -35,6 +36,7 @@
                 <div class="sheet-table-row">
                     <div class="sheet-table-cell"><input type="text" name="attr_CharName" value="No Name" /></div>
                     <div class="sheet-table-cell"><input type="text" name="attr_PlayerName" /></div>
+                    <div class="sheet-table-cell"><input type="text" name="attr_Gender" /></div>
                     <input type="checkbox" class="sheet-hide-refresh sheet-hider-invis" name="attr_UseRefreshSelector" value="No" checked />
                     <div class="sheet-table-cell sheet-cell-15 sheet-hide-refresh-section"><input type="number" name="attr_Refresh" value="3" /></div>
                     <input type="checkbox" class="sheet-hide-fate_points sheet-hider-invis" name="attr_UseFatePointsSelector" value="No" />
@@ -240,126 +242,223 @@
     </div>
 
     <!-- ~~~~~~ Characteristcs ~~~~~~ -->
-    <!-- No Characteristcs -->
-    <input class="sheet-characteristcs-selector sheet-characteristcs-list-none" type="checkbox" name="attr_CharSelect" value="None" checked />
-    <div class="sheet-characteristcs-section-none">
-    </div>
-
-    <!-- d20 Ability Scores -->
-    <input class="sheet-characteristcs-selector sheet-characteristcs-list-d20" type="checkbox" name="attr_CharSelect" value="d20" />
-    <div class="sheet-characteristcs-section-d20">
-        <div class="sheet-section">
-            <div class="sheet-headerbar">Ability Scores</div>
+    <div>
+        <!-- No Characteristcs -->
+        <input class="sheet-characteristcs-selector sheet-characteristcs-list-none" type="checkbox" name="attr_CharSelect" value="None" checked />
+        <div class="sheet-characteristcs-section-none">
         </div>
-    </div>
 
-    <!-- ADS Characteristcs -->
-    <input class="sheet-characteristcs-selector sheet-characteristcs-list-ads" type="checkbox" name="attr_CharSelect" value="ADS" />
-    <div class="sheet-characteristcs-section-ads">
-        <div class="sheet-section">
-            <div class="sheet-headerbar">ADS Characteristcs</div>
-        </div>
-    </div>
-
-    <!-- Eclipse Phase Aptitudes & Stats -->
-    <input class="sheet-characteristcs-selector sheet-characteristcs-list-eclipse_phase" type="checkbox" name="attr_CharSelect" value="Eclipse_Phase" checked />
-    <div class="sheet-characteristcs-section-eclipse_phase">
-        <div class="sheet-section sheet-table-2col-70">
-            <div class="sheet-headerbar">Eclipse Phase Aptitudes</div>
-            <div class="sheet-table sheet-input-border">
-                <div class="sheet-table-row sheet-boldCenter">
-                    <div class="sheet-table-cell sheet-cell-20"><input type="number" style="border:1px solid transparent; background-color:transparent; color:white" /></div> <!-- Here to keep tables lined up correctly -->
-                    <div class="sheet-table-cell sheet-cell-10" title="Cognition"   >COG</div>
-                    <div class="sheet-table-cell sheet-cell-10" title="Coordination">COO</div>
-                    <div class="sheet-table-cell sheet-cell-10" title="Intuition"   >INT</div>
-                    <div class="sheet-table-cell sheet-cell-10" title="Reflexes"    >REF</div>
-                    <div class="sheet-table-cell sheet-cell-10" title="Savvy"       >SAV</div>
-                    <div class="sheet-table-cell sheet-cell-10" title="Somatics"    >SOM</div>
-                    <div class="sheet-table-cell sheet-cell-10" title="Willpower"   >WIL</div>
-                    <div class="sheet-table-cell sheet-cell-a"></div>
-                </div>
-                <div class="sheet-table-row">
-                    <div class="sheet-table-cell" style="text-align:right; font-weight:bold">Base: </div>
-                    <div class="sheet-table-cell" title="Cognition (COG) base"   ><input type="number" name="attr_EP-CogBase" value="15" /></div>
-                    <div class="sheet-table-cell" title="Coordination (COO) base"><input type="number" name="attr_EP-CooBase" value="15" /></div>
-                    <div class="sheet-table-cell" title="Intuition (INT) base"   ><input type="number" name="attr_EP-IntBase" value="15" /></div>
-                    <div class="sheet-table-cell" title="Reflexes (REF) base"    ><input type="number" name="attr_EP-RefBase" value="15" /></div>
-                    <div class="sheet-table-cell" title="Savvy (SAV) base"       ><input type="number" name="attr_EP-SavBase" value="15" /></div>
-                    <div class="sheet-table-cell" title="Somatics (SOM) base"    ><input type="number" name="attr_EP-SomBase" value="15" /></div>
-                    <div class="sheet-table-cell" title="Willpower (WIL) base"   ><input type="number" name="attr_EP-WilBase" value="15" /></div>
-                    <div class="sheet-table-cell"></div>
-                </div>
-                <div class="sheet-table-row">
-                    <div class="sheet-table-cell" style="text-align:right; font-weight:bold">Morph bonus: </div>
-                    <div class="sheet-table-cell" title="Cognition (COG) morph bonus"   ><input type="number" name="attr_EP-CogMorphBonus" value="0" /></div>
-                    <div class="sheet-table-cell" title="Coordination (COO) morph bonus"><input type="number" name="attr_EP-CooMorphBonus" value="0" /></div>
-                    <div class="sheet-table-cell" title="Intuition (INT) morph bonus"   ><input type="number" name="attr_EP-IntMorphBonus" value="0" /></div>
-                    <div class="sheet-table-cell" title="Reflexes (REF) morph bonus"    ><input type="number" name="attr_EP-RefMorphBonus" value="0" /></div>
-                    <div class="sheet-table-cell" title="Savvy (SAV) morph bonus"       ><input type="number" name="attr_EP-SavMorphBonus" value="0" /></div>
-                    <div class="sheet-table-cell" title="Somatics (SOM) morph bonus"    ><input type="number" name="attr_EP-SomMorphBonus" value="0" /></div>
-                    <div class="sheet-table-cell" title="Willpower (WIL) morph bonus"   ><input type="number" name="attr_EP-WilMorphBonus" value="0" /></div>
-                    <div class="sheet-table-cell"></div>
-                </div>
-                <div class="sheet-table-row">
-                    <div class="sheet-table-cell" style="text-align:right; font-weight:bold">Misc. bonus: </div>
-                    <div class="sheet-table-cell" title="Cognition (COG) misc. bonus"   ><input type="number" name="attr_EP-CogMiscBonus" value="0" /></div>
-                    <div class="sheet-table-cell" title="Coordination (COO) misc. bonus"><input type="number" name="attr_EP-CooMiscBonus" value="0" /></div>
-                    <div class="sheet-table-cell" title="Intuition (INT) misc. bonus"   ><input type="number" name="attr_EP-IntMiscBonus" value="0" /></div>
-                    <div class="sheet-table-cell" title="Reflexes (REF) misc. bonus"    ><input type="number" name="attr_EP-RefMiscBonus" value="0" /></div>
-                    <div class="sheet-table-cell" title="Savvy (SAV) misc. bonus"       ><input type="number" name="attr_EP-SavMiscBonus" value="0" /></div>
-                    <div class="sheet-table-cell" title="Somatics (SOM) misc. bonus"    ><input type="number" name="attr_EP-SomMiscBonus" value="0" /></div>
-                    <div class="sheet-table-cell" title="Willpower (WIL) misc. bonus"   ><input type="number" name="attr_EP-WilMiscBonus" value="0" /></div>
-                    <div class="sheet-table-cell"></div>
-                </div>
-                <div class="sheet-table-row">
-                    <div class="sheet-table-cell" style="text-align:right; font-weight:bold">TOTAL: </div>
-                    <div class="sheet-table-cell sheet-input-disabled" title="Cognition (COG) total"   ><input type="number" disabled="disabled" name="attr_EP-CogTotal" value="[[@{EP-CogBase}+@{EP-CogMorphBonus}+@{EP-CogMiscBonus}]]" /></div>
-                    <div class="sheet-table-cell sheet-input-disabled" title="Coordination (COO) total"><input type="number" disabled="disabled" name="attr_EP-CooTotal" value="[[@{EP-CooBase}+@{EP-CooMorphBonus}+@{EP-CooMiscBonus}]]" /></div>
-                    <div class="sheet-table-cell sheet-input-disabled" title="Intuition (INT) total"   ><input type="number" disabled="disabled" name="attr_EP-IntTotal" value="[[@{EP-IntBase}+@{EP-IntMorphBonus}+@{EP-IntMiscBonus}]]" /></div>
-                    <div class="sheet-table-cell sheet-input-disabled" title="Reflexes (REF) total"    ><input type="number" disabled="disabled" name="attr_EP-RefTotal" value="[[@{EP-RefBase}+@{EP-RefMorphBonus}+@{EP-RefMiscBonus}]]" /></div>
-                    <div class="sheet-table-cell sheet-input-disabled" title="Savvy (SAV) total"       ><input type="number" disabled="disabled" name="attr_EP-SavTotal" value="[[@{EP-SavBase}+@{EP-SavMorphBonus}+@{EP-SavMiscBonus}]]" /></div>
-                    <div class="sheet-table-cell sheet-input-disabled" title="Somatics (SOM) total"    ><input type="number" disabled="disabled" name="attr_EP-SomTotal" value="[[@{EP-SomBase}+@{EP-SomMorphBonus}+@{EP-SomMiscBonus}]]" /></div>
-                    <div class="sheet-table-cell sheet-input-disabled" title="Willpower (WIL) total"   ><input type="number" disabled="disabled" name="attr_EP-WilTotal" value="[[@{EP-WilBase}+@{EP-WilMorphBonus}+@{EP-WilMiscBonus}]]" /></div>
-                    <div class="sheet-table-cell"></div>
-                </div>
+        <!-- d20 Ability Scores -->
+        <input class="sheet-characteristcs-selector sheet-characteristcs-list-d20" type="checkbox" name="attr_CharSelect" value="d20" />
+        <div class="sheet-characteristcs-section-d20">
+            <div class="sheet-section">
+                <div class="sheet-headerbar">Ability Scores</div>
             </div>
         </div>
-        <div class="sheet-section sheet-table-2col-30">
-            <div class="sheet-headerbar">Eclipse Phase Stats</div>
-            <div class="sheet-table sheet-input-border">
-                <div class="sheet-table-row"><!-- Row 1 -->
-                    <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Moxie">MOX</div>
-                    <div class="sheet-table-cell sheet-cell-15 "><input type="number" name="attr_FatePoints" value="3" /></div>
-                    <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Initiative: (INT+REF)/5 round up">INIT</div>
-                    <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP-INIT" disabled="disabled" value="[[ceil((@{EP-IntTotal}+@{EP-RefTotal})/5)]]" /></div>
-                </div>
-                <div class="sheet-table-row"><!-- Row 2 -->
-                    <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Durability: Determined by morph">DUR</div>
-                    <div class="sheet-table-cell sheet-cell-15 "><input type="number" name="attr_EP-DUR" value="30" /></div>
-                    <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Speed">SPD</div>
-                    <div class="sheet-table-cell sheet-cell-15 "><input type="number" name="attr_EP-SPD" value="1" /></div>
-                </div>
-                <div class="sheet-table-row"><!-- Row 3 -->
-                    <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Wound Threshold: DUR ÷ 5">WT</div>
-                    <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP-WT" disabled="disabled" value="[[ceil(@{EP-DUR}/5)]]" /></div>
-                    <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Trauma Threshold: LUC ÷ 5">TT</div>
-                    <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP-TT" disabled="disabled" value="[[ceil(@{EP-LUC}/5)}]]" /></div>
-                </div>
-                <div class="sheet-table-row"><!-- Row 4 -->
-                    <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Death Rating: Bio=DUR*1.5; Synth=DUR*2">DR</div>
-                    <div class="sheet-table-cell sheet-cell-15 "><input type="number" name="attr_EP-DR" value="[[ceil(@{EP-DUR}*1.5)})]]" /></div>
-                    <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Lucidity: WIL * 2">LUC</div>
-                    <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP-LUC" disabled="disabled" value="[[(@{EP-WilTotal}*2)}]]" /></div>
-                </div>
-                <div class="sheet-table-row"><!-- Row 5 -->
-                    <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Damage Bonus: SOM ÷ 10">DB</div>
-                    <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP-DB" disabled="disabled" value="[[floor(@{EP-SomTotal}/10)}]]" /></div>
-                    <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Insanity Rating: LUC * 2">IR</div>
-                    <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP-LUC" disabled="disabled" value="[[(@{EP-WilTotal}*2})]]" /></div>
-                </div>
+
+        <!-- ADS Characteristcs -->
+        <input class="sheet-characteristcs-selector sheet-characteristcs-list-ads" type="checkbox" name="attr_CharSelect" value="ADS" />
+        <div class="sheet-characteristcs-section-ads">
+            <div class="sheet-section">
+                <div class="sheet-headerbar">ADS Characteristcs</div>
             </div>
         </div>
-    </div>
+
+        <!-- Eclipse Phase v1 Aptitudes & Stats -->
+        <input class="sheet-characteristcs-selector sheet-characteristcs-list-eclipse_phase" type="checkbox" name="attr_CharSelect" value="Eclipse_Phase" />
+        <div class="sheet-characteristcs-section-eclipse_phase">
+            <div class="sheet-section sheet-table-2col-70">
+                <div class="sheet-headerbar">Eclipse Phase v1 Aptitudes</div>
+                <div class="sheet-table sheet-input-border">
+                    <div class="sheet-table-row sheet-boldCenter">
+                        <div class="sheet-table-cell sheet-cell-20"><input type="number" style="border:1px solid transparent; background-color:transparent; color:white" /></div> <!-- Here to keep tables lined up correctly -->
+                        <div class="sheet-table-cell sheet-cell-10" title="Cognition"   >COG</div>
+                        <div class="sheet-table-cell sheet-cell-10" title="Coordination">COO</div>
+                        <div class="sheet-table-cell sheet-cell-10" title="Intuition"   >INT</div>
+                        <div class="sheet-table-cell sheet-cell-10" title="Reflexes"    >REF</div>
+                        <div class="sheet-table-cell sheet-cell-10" title="Savvy"       >SAV</div>
+                        <div class="sheet-table-cell sheet-cell-10" title="Somatics"    >SOM</div>
+                        <div class="sheet-table-cell sheet-cell-10" title="Willpower"   >WIL</div>
+                        <div class="sheet-table-cell sheet-cell-a"></div>
+                    </div>
+                    <div class="sheet-table-row">
+                        <div class="sheet-table-cell" style="text-align:right; font-weight:bold">Base: </div>
+                        <div class="sheet-table-cell" title="Cognition (COG) base"   ><input type="number" name="attr_EP-CogBase" value="15" /></div>
+                        <div class="sheet-table-cell" title="Coordination (COO) base"><input type="number" name="attr_EP-CooBase" value="15" /></div>
+                        <div class="sheet-table-cell" title="Intuition (INT) base"   ><input type="number" name="attr_EP-IntBase" value="15" /></div>
+                        <div class="sheet-table-cell" title="Reflexes (REF) base"    ><input type="number" name="attr_EP-RefBase" value="15" /></div>
+                        <div class="sheet-table-cell" title="Savvy (SAV) base"       ><input type="number" name="attr_EP-SavBase" value="15" /></div>
+                        <div class="sheet-table-cell" title="Somatics (SOM) base"    ><input type="number" name="attr_EP-SomBase" value="15" /></div>
+                        <div class="sheet-table-cell" title="Willpower (WIL) base"   ><input type="number" name="attr_EP-WilBase" value="15" /></div>
+                        <div class="sheet-table-cell"></div>
+                    </div>
+                    <div class="sheet-table-row">
+                        <div class="sheet-table-cell" style="text-align:right; font-weight:bold">Morph bonus: </div>
+                        <div class="sheet-table-cell" title="Cognition (COG) morph bonus"   ><input type="number" name="attr_EP-CogMorphBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Coordination (COO) morph bonus"><input type="number" name="attr_EP-CooMorphBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Intuition (INT) morph bonus"   ><input type="number" name="attr_EP-IntMorphBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Reflexes (REF) morph bonus"    ><input type="number" name="attr_EP-RefMorphBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Savvy (SAV) morph bonus"       ><input type="number" name="attr_EP-SavMorphBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Somatics (SOM) morph bonus"    ><input type="number" name="attr_EP-SomMorphBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Willpower (WIL) morph bonus"   ><input type="number" name="attr_EP-WilMorphBonus" value="0" /></div>
+                        <div class="sheet-table-cell"></div>
+                    </div>
+                    <div class="sheet-table-row">
+                        <div class="sheet-table-cell" style="text-align:right; font-weight:bold">Misc. bonus: </div>
+                        <div class="sheet-table-cell" title="Cognition (COG) misc. bonus"   ><input type="number" name="attr_EP-CogMiscBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Coordination (COO) misc. bonus"><input type="number" name="attr_EP-CooMiscBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Intuition (INT) misc. bonus"   ><input type="number" name="attr_EP-IntMiscBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Reflexes (REF) misc. bonus"    ><input type="number" name="attr_EP-RefMiscBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Savvy (SAV) misc. bonus"       ><input type="number" name="attr_EP-SavMiscBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Somatics (SOM) misc. bonus"    ><input type="number" name="attr_EP-SomMiscBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Willpower (WIL) misc. bonus"   ><input type="number" name="attr_EP-WilMiscBonus" value="0" /></div>
+                        <div class="sheet-table-cell"></div>
+                    </div>
+                    <div class="sheet-table-row">
+                        <div class="sheet-table-cell" style="text-align:right; font-weight:bold">TOTAL: </div>
+                        <div class="sheet-table-cell sheet-input-disabled" title="Cognition (COG) total"   ><input type="number" disabled="disabled" name="attr_EP-CogTotal" value="[[@{EP-CogBase}+@{EP-CogMorphBonus}+@{EP-CogMiscBonus}]]" /></div>
+                        <div class="sheet-table-cell sheet-input-disabled" title="Coordination (COO) total"><input type="number" disabled="disabled" name="attr_EP-CooTotal" value="[[@{EP-CooBase}+@{EP-CooMorphBonus}+@{EP-CooMiscBonus}]]" /></div>
+                        <div class="sheet-table-cell sheet-input-disabled" title="Intuition (INT) total"   ><input type="number" disabled="disabled" name="attr_EP-IntTotal" value="[[@{EP-IntBase}+@{EP-IntMorphBonus}+@{EP-IntMiscBonus}]]" /></div>
+                        <div class="sheet-table-cell sheet-input-disabled" title="Reflexes (REF) total"    ><input type="number" disabled="disabled" name="attr_EP-RefTotal" value="[[@{EP-RefBase}+@{EP-RefMorphBonus}+@{EP-RefMiscBonus}]]" /></div>
+                        <div class="sheet-table-cell sheet-input-disabled" title="Savvy (SAV) total"       ><input type="number" disabled="disabled" name="attr_EP-SavTotal" value="[[@{EP-SavBase}+@{EP-SavMorphBonus}+@{EP-SavMiscBonus}]]" /></div>
+                        <div class="sheet-table-cell sheet-input-disabled" title="Somatics (SOM) total"    ><input type="number" disabled="disabled" name="attr_EP-SomTotal" value="[[@{EP-SomBase}+@{EP-SomMorphBonus}+@{EP-SomMiscBonus}]]" /></div>
+                        <div class="sheet-table-cell sheet-input-disabled" title="Willpower (WIL) total"   ><input type="number" disabled="disabled" name="attr_EP-WilTotal" value="[[@{EP-WilBase}+@{EP-WilMorphBonus}+@{EP-WilMiscBonus}]]" /></div>
+                        <div class="sheet-table-cell"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sheet-section sheet-table-2col-30">
+                <div class="sheet-headerbar">Eclipse Phase v1 Stats</div>
+                <div class="sheet-table sheet-input-border">
+                    <div class="sheet-table-row"><!-- Row 1 -->
+                        <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Moxie">MOX</div>
+                        <div class="sheet-table-cell sheet-cell-15 "><input type="number" name="attr_FatePoints" value="3" /></div>
+                        <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Initiative: (INT+REF)/5 round up">INIT</div>
+                        <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP-INIT" disabled="disabled" value="[[ceil((@{EP-IntTotal}+@{EP-RefTotal})/5)]]" /></div>
+                    </div>
+                    <div class="sheet-table-row"><!-- Row 2 -->
+                        <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Durability: Determined by morph">DUR</div>
+                        <div class="sheet-table-cell sheet-cell-15 "><input type="number" name="attr_EP-DUR" value="30" /></div>
+                        <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Speed">SPD</div>
+                        <div class="sheet-table-cell sheet-cell-15 "><input type="number" name="attr_EP-SPD" value="1" /></div>
+                    </div>
+                    <div class="sheet-table-row"><!-- Row 3 -->
+                        <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Wound Threshold: DUR ÷ 5">WT</div>
+                        <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP-WT" disabled="disabled" value="[[ceil(@{EP-DUR}/5)]]" /></div>
+                        <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Trauma Threshold: LUC ÷ 5">TT</div>
+                        <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP-TT" disabled="disabled" value="[[ceil(@{EP-LUC}/5)}]]" /></div>
+                    </div>
+                    <div class="sheet-table-row"><!-- Row 4 -->
+                        <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Death Rating: Bio=DUR*1.5; Synth=DUR*2">DR</div>
+                        <div class="sheet-table-cell sheet-cell-15 "><input type="number" name="attr_EP-DR" value="[[ceil(@{EP-DUR}*1.5)})]]" /></div>
+                        <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Lucidity: WIL * 2">LUC</div>
+                        <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP-LUC" disabled="disabled" value="[[(@{EP-WilTotal}*2)}]]" /></div>
+                    </div>
+                    <div class="sheet-table-row"><!-- Row 5 -->
+                        <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Damage Bonus: SOM ÷ 10">DB</div>
+                        <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP-DB" disabled="disabled" value="[[floor(@{EP-SomTotal}/10)}]]" /></div>
+                        <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Insanity Rating: LUC * 2">IR</div>
+                        <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP-LUC" disabled="disabled" value="[[(@{EP-WilTotal}*2})]]" /></div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- END Eclipse Phase v1 Aptitudes & Stats -->
+
+        <!-- Eclipse Phase v2 Aptitudes & Stats -->
+        <input class="sheet-characteristcs-selector sheet-characteristcs-list-eclipse_phase2" type="checkbox" name="attr_CharSelect" value="Eclipse_Phase2" checked />
+        <div class="sheet-characteristcs-section-eclipse_phase2">
+            <div class="sheet-section sheet-table-2col-70">
+                <div class="sheet-headerbar">Eclipse Phase v2 Aptitudes</div>
+                <div class="sheet-table sheet-input-border">
+                    <div class="sheet-table-row sheet-boldCenter">
+                        <div class="sheet-table-cell sheet-cell-20"><input type="number" style="border:1px solid transparent; background-color:transparent; color:white" /></div> <!-- Here to keep tables lined up correctly -->
+                        <div class="sheet-table-cell sheet-cell-10" title="Cognition"   >COG</div>
+                        <div class="sheet-table-cell sheet-cell-10" title="Intuition"   >INT</div>
+                        <div class="sheet-table-cell sheet-cell-10" title="Reflexes"    >REF</div>
+                        <div class="sheet-table-cell sheet-cell-10" title="Savvy"       >SAV</div>
+                        <div class="sheet-table-cell sheet-cell-10" title="Somatics"    >SOM</div>
+                        <div class="sheet-table-cell sheet-cell-10" title="Willpower"   >WIL</div>
+                        <div class="sheet-table-cell sheet-cell-a"></div>
+                    </div>
+                    <div class="sheet-table-row">
+                        <div class="sheet-table-cell" style="text-align:right; font-weight:bold">Base: </div>
+                        <div class="sheet-table-cell" title="Cognition (COG) base"   ><input type="number" name="attr_EP2-CogBase" value="15" /></div>
+                        <div class="sheet-table-cell" title="Intuition (INT) base"   ><input type="number" name="attr_EP2-IntBase" value="15" /></div>
+                        <div class="sheet-table-cell" title="Reflexes (REF) base"    ><input type="number" name="attr_EP2-RefBase" value="15" /></div>
+                        <div class="sheet-table-cell" title="Savvy (SAV) base"       ><input type="number" name="attr_EP2-SavBase" value="15" /></div>
+                        <div class="sheet-table-cell" title="Somatics (SOM) base"    ><input type="number" name="attr_EP2-SomBase" value="15" /></div>
+                        <div class="sheet-table-cell" title="Willpower (WIL) base"   ><input type="number" name="attr_EP2-WilBase" value="15" /></div>
+                        <div class="sheet-table-cell"></div>
+                    </div>
+                    <div class="sheet-table-row">
+                        <div class="sheet-table-cell" style="text-align:right; font-weight:bold">Morph bonus: </div>
+                        <div class="sheet-table-cell" title="Cognition (COG) morph bonus"   ><input type="number" name="attr_EP2-CogMorphBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Intuition (INT) morph bonus"   ><input type="number" name="attr_EP2-IntMorphBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Reflexes (REF) morph bonus"    ><input type="number" name="attr_EP2-RefMorphBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Savvy (SAV) morph bonus"       ><input type="number" name="attr_EP2-SavMorphBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Somatics (SOM) morph bonus"    ><input type="number" name="attr_EP2-SomMorphBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Willpower (WIL) morph bonus"   ><input type="number" name="attr_EP2-WilMorphBonus" value="0" /></div>
+                        <div class="sheet-table-cell"></div>
+                    </div>
+                    <div class="sheet-table-row">
+                        <div class="sheet-table-cell" style="text-align:right; font-weight:bold">Misc. bonus: </div>
+                        <div class="sheet-table-cell" title="Cognition (COG) misc. bonus"   ><input type="number" name="attr_EP2-CogMiscBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Intuition (INT) misc. bonus"   ><input type="number" name="attr_EP2-IntMiscBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Reflexes (REF) misc. bonus"    ><input type="number" name="attr_EP2-RefMiscBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Savvy (SAV) misc. bonus"       ><input type="number" name="attr_EP2-SavMiscBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Somatics (SOM) misc. bonus"    ><input type="number" name="attr_EP2-SomMiscBonus" value="0" /></div>
+                        <div class="sheet-table-cell" title="Willpower (WIL) misc. bonus"   ><input type="number" name="attr_EP2-WilMiscBonus" value="0" /></div>
+                        <div class="sheet-table-cell"></div>
+                    </div>
+                    <div class="sheet-table-row">
+                        <div class="sheet-table-cell" style="text-align:right; font-weight:bold">TOTAL: </div>
+                        <div class="sheet-table-cell sheet-input-disabled" title="Cognition (COG) total"   ><input type="number" disabled="disabled" name="attr_EP2-CogTotal" value="[[@{EP2-CogBase}+@{EP2-CogMorphBonus}+@{EP2-CogMiscBonus}]]" /></div>
+                        <div class="sheet-table-cell sheet-input-disabled" title="Intuition (INT) total"   ><input type="number" disabled="disabled" name="attr_EP2-IntTotal" value="[[@{EP2-IntBase}+@{EP2-IntMorphBonus}+@{EP2-IntMiscBonus}]]" /></div>
+                        <div class="sheet-table-cell sheet-input-disabled" title="Reflexes (REF) total"    ><input type="number" disabled="disabled" name="attr_EP2-RefTotal" value="[[@{EP2-RefBase}+@{EP2-RefMorphBonus}+@{EP2-RefMiscBonus}]]" /></div>
+                        <div class="sheet-table-cell sheet-input-disabled" title="Savvy (SAV) total"       ><input type="number" disabled="disabled" name="attr_EP2-SavTotal" value="[[@{EP2-SavBase}+@{EP2-SavMorphBonus}+@{EP2-SavMiscBonus}]]" /></div>
+                        <div class="sheet-table-cell sheet-input-disabled" title="Somatics (SOM) total"    ><input type="number" disabled="disabled" name="attr_EP2-SomTotal" value="[[@{EP2-SomBase}+@{EP2-SomMorphBonus}+@{EP2-SomMiscBonus}]]" /></div>
+                        <div class="sheet-table-cell sheet-input-disabled" title="Willpower (WIL) total"   ><input type="number" disabled="disabled" name="attr_EP2-WilTotal" value="[[@{EP2-WilBase}+@{EP2-WilMorphBonus}+@{EP2-WilMiscBonus}]]" /></div>
+                        <div class="sheet-table-cell"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sheet-section sheet-table-2col-30">
+                <div class="sheet-headerbar">Eclipse Phase v2 Stats</div>
+                <div class="sheet-table sheet-input-border">
+                    <div class="sheet-table-row"><!-- Row 1 -->
+                        <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Moxie">MOX</div>
+                        <div class="sheet-table-cell sheet-cell-15 "><input type="number" name="attr_FatePoints" value="3" /></div>
+                        <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Initiative: (INT+REF)/5 round up">INIT</div>
+                        <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP2-INIT" disabled="disabled" value="[[ceil((@{EP2-IntTotal}+@{EP2-RefTotal})/5)]]" /></div>
+                    </div>
+                    <div class="sheet-table-row"><!-- Row 2 -->
+                        <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Durability: Determined by morph">DUR</div>
+                        <div class="sheet-table-cell sheet-cell-15 "><input type="number" name="attr_EP2-DUR" value="30" /></div>
+                        <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Speed">SPD</div>
+                        <div class="sheet-table-cell sheet-cell-15 "><input type="number" name="attr_EP2-SPD" value="1" /></div>
+                    </div>
+                    <div class="sheet-table-row"><!-- Row 3 -->
+                        <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Wound Threshold: DUR ÷ 5">WT</div>
+                        <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP2-WT" disabled="disabled" value="[[ceil(@{EP2-DUR}/5)]]" /></div>
+                        <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Trauma Threshold: LUC ÷ 5">TT</div>
+                        <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP2-TT" disabled="disabled" value="[[ceil(@{EP2-LUC}/5)}]]" /></div>
+                    </div>
+                    <div class="sheet-table-row"><!-- Row 4 -->
+                        <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Death Rating: Bio=DUR*1.5; Synth=DUR*2">DR</div>
+                        <div class="sheet-table-cell sheet-cell-15 "><input type="number" name="attr_EP2-DR" value="[[ceil(@{EP2-DUR}*1.5)})]]" /></div>
+                        <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Lucidity: WIL * 2">LUC</div>
+                        <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP2-LUC" disabled="disabled" value="[[(@{EP2-WilTotal}*2)}]]" /></div>
+                    </div>
+                    <div class="sheet-table-row"><!-- Row 5 -->
+                        <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Damage Bonus: SOM ÷ 10">DB</div>
+                        <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP2-DB" disabled="disabled" value="[[floor(@{EP2-SomTotal}/10)}]]" /></div>
+                        <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Insanity Rating: LUC * 2">IR</div>
+                        <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled"><input type="number" name="attr_EP2-LUC" disabled="disabled" value="[[(@{EP2-WilTotal}*2})]]" /></div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- END Eclipse Phase v2 Aptitudes & Stats -->
+    </div><!-- ~~~~~~ END Characteristcs ~~~~~~ -->
 
     <div class="sheet-section"><!-- Skills -->
         <!-- FATE Core Skills -->
@@ -578,7 +677,7 @@
         <input class="sheet-skills-list-selector sheet-skills-list-eclipse_phase" type="checkbox" name="attr_skillListSelect" value="Eclipse_Phase" />
         <div class="sheet-skills-section-eclipse_phase">
             <div class="sheet-headerbar">Eclipse Phase v1 Skills
-                <input type="checkbox" class="sheet-checkbox-graygear sheet-ep-skills-display-selection-hider" name="attr_EP-Skills-Display-Selection-Hider" style="float:right" /><span style="vertical-align:middle; position:relative; float:right; margin-right:-10px; margin-top:-2px"/>
+                <input type="checkbox" class="sheet-checkbox-graygear sheet-ep-skills-display-selection-hider" name="attr_EP-Skills-Display-Selection-Hider" style="float:right" checked /><span style="vertical-align:middle; position:relative; float:right; margin-right:-10px; margin-top:-2px"/>
             </div>
             <div class="sheet-table sheet-input-border">
                 <div class="sheet-table-row sheet-boldCenter">
@@ -2991,7 +3090,7 @@
                 </div>
             </fieldset> <!-- End Eclipse_Phase Skills repeating -->
 
-            <input type="checkbox" class="sheet-hider-invis sheet-ep-skills-display-selection-hider" name="attr_EP-Skills-Display-Selection-Hider" />
+            <input type="checkbox" class="sheet-hider-invis sheet-ep-skills-display-selection-hider" name="attr_EP-Skills-Display-Selection-Hider" checked />
             <div class="sheet-ep-skills-display-selection-section">
                 <div class="sheet-headerbar">EP v1 Skills to Display</div>
                 <div class="sheet-table">
@@ -3100,7 +3199,7 @@
                         <div class="sheet-table-cell sheet-cell-a"><input type="checkbox" class="sheet-ep-skill-hider-art_2" name="attr_EP-Skill-Hider-Art2" /> Art 2 </div>
                     </div>
                 </div>
-                <p style="text-align:center; font-style: italic">Use gear icon in "Eclipse Phase Skills" header to hide</p>
+                <p style="text-align:center; font-style: italic">Use gear icon in "Eclipse Phase v1 Skills" header to hide</p>
             </div>
         </div> <!-- End Eclipse Phase Skills -->
 
@@ -4389,7 +4488,7 @@
                         <div class="sheet-table-cell sheet-cell-a"><input type="checkbox" class="sheet-ep2-skill-profession_4" name="attr_EP2-Skill-Hider-Profession4" /> Profession 4 </div>
                     </div>
                 </div>
-                <p style="text-align:center; font-style: italic">Use gear icon in "Eclipse Phase Skills" header to hide</p>
+                <p style="text-align:center; font-style: italic">Use gear icon in "Eclipse Phase v2 Skills" header to hide</p>
             </div>
         </div><!-- End Eclipse Phase v2 Skills -->
 
@@ -5309,6 +5408,29 @@
                     </span>
                 </div>
             </div><!-- End Dice Base Selector -->
+
+            <!-- Characteristcs Selector -->
+            <div class="sheet-table-row sheet-table-row-settings">
+                <div class="sheet-table-cell sheet-cell-25 sheet-cell-label" title="Characteristcs/Ability Scores list to use.">Characteristcs List</div>
+                <div class="sheet-table-cell sheet-cell-a">
+                    <span class="sheet-span-border sheet-span-settings">
+                        <label class="sheet-label-settings"><input type="radio" name="attr_CharSelect" value="None" /> None </label>
+                    </span>
+                    <span class="sheet-span-border sheet-span-settings">
+                        <label class="sheet-label-settings"><input type="radio" name="attr_CharSelect" value="d20" /> d20/DnD/Pathfinder </label>
+                    </span>
+                    <span class="sheet-span-border sheet-span-settings">
+                        <label class="sheet-label-settings"><input type="radio" name="attr_CharSelect" value="ADS" /> ADS/Tesseris </label>
+                    </span>
+                    <span class="sheet-span-border sheet-span-settings">
+                        <label class="sheet-label-settings"><input type="radio" name="attr_CharSelect" value="Eclipse_Phase" /> Eclipse Phase v1 </label>
+                    </span>
+                    <span class="sheet-span-border sheet-span-settings">
+                        <label class="sheet-label-settings"><input type="radio" name="attr_CharSelect" value="Eclipse_Phase2" checked /> Eclipse Phase v2 </label>
+                    </span>
+                </div>
+            </div><!-- End Characteristcs Selector -->
+
             <!-- Skills List Selector -->
             <div class="sheet-table-row sheet-table-row-settings">
                 <div class="sheet-table-cell sheet-cell-25 sheet-cell-label" title="List of skills to use.">Skill List</div>
@@ -5336,24 +5458,6 @@
                     </span>
                 </div>
             </div> <!-- End Skills List Selector -->
-            <!-- Characteristcs Selector -->
-            <div class="sheet-table-row sheet-table-row-settings">
-                <div class="sheet-table-cell sheet-cell-25 sheet-cell-label" title="Characteristcs/Ability Scores list to use.">Characteristcs List</div>
-                <div class="sheet-table-cell sheet-cell-a">
-                    <span class="sheet-span-border sheet-span-settings">
-                        <label class="sheet-label-settings"><input type="radio" name="attr_CharSelect" value="None" /> None </label>
-                    </span>
-                    <span class="sheet-span-border sheet-span-settings">
-                        <label class="sheet-label-settings"><input type="radio" name="attr_CharSelect" value="d20" /> d20/DnD/Pathfinder </label>
-                    </span>
-                    <span class="sheet-span-border sheet-span-settings">
-                        <label class="sheet-label-settings"><input type="radio" name="attr_CharSelect" value="ADS" /> ADS/Tesseris </label>
-                    </span>
-                    <span class="sheet-span-border sheet-span-settings">
-                        <label class="sheet-label-settings"><input type="radio" name="attr_CharSelect" value="Eclipse_Phase" checked /> Eclipse Phase </label>
-                    </span>
-                </div>
-            </div><!-- End Characteristcs Selector -->
             <!-- Aspects & Stunts Selector -->
             <div class="sheet-table-row sheet-table-row-settings">
                 <div class="sheet-table-cell sheet-cell-25 sheet-cell-label">FATE Aspects & Stunts</div>

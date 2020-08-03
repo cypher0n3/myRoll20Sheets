@@ -462,11 +462,12 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
     display: none;
 }
 
-/*this shows the skills section content when the appropriate input field is selected*/
+/*this shows the characteristcs section content when the appropriate input field is selected*/
 .charsheet .sheet-characteristcs-list-none:checked ~ .sheet-characteristcs-section-none,
 .charsheet .sheet-characteristcs-list-d20:checked ~ .sheet-characteristcs-section-d20,
 .charsheet .sheet-characteristcs-list-ads:checked ~ .sheet-characteristcs-section-ads,
 .charsheet .sheet-characteristcs-list-eclipse_phase:checked ~ .sheet-characteristcs-section-eclipse_phase,
+.charsheet .sheet-characteristcs-list-eclipse_phase2:checked ~ .sheet-characteristcs-section-eclipse_phase2,
 .charsheet .sheet-characteristcs-list-custom:checked ~ .sheet-characteristcs-section-custom {
     display: block;
 }
