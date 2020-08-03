@@ -1,0 +1,39 @@
+Athletics:SOM
+Deceive:SAV
+Fray:REF
+Free Fall:SOM
+Guns:REF
+Hardware 1:COG
+Hardware 2:COG
+Infiltrate:REF
+Infosec:COG
+Interface:COG
+Kinesics:SAV
+Medicine 1:COG
+Medicine 2:COG
+Melee:SOM
+Perceive:INT
+Persuade:SAV
+Pilot 1:REF
+Pilot 2:REF
+Program:COG
+Provoke:SAV
+Psi:WIL
+Research:INT
+Survival:INT
+Academics 1:COG
+Academics 2:COG
+Academics 3:COG
+Academics 4:COG
+Art 1:INT
+Art 2:INT
+Art 3:INT
+Art 4:INT
+Interest 1:COG
+Interest 2:COG
+Interest 3:COG
+Interest 4:COG
+Profession 1:COG
+Profession 2:COG
+Profession 3:COG
+Profession 4:COG

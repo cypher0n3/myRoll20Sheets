@@ -1,0 +1,40 @@
+Athletics
+Infosec
+Pilot 1
+Academics 1
+Interest 1
+Deceive
+Interface
+Pilot 2
+Academics 2
+Interest 2
+Fray
+Kinesics
+Program
+Academics 3
+Interest 3
+Free Fall
+Medicine 1
+Provoke
+Academics 4
+Interest 4
+Guns
+Medicine 2
+Psi
+Art 1
+Profession 1
+Hardware 1
+Melee
+Research
+Art 2
+Profession 2
+Hardware 2
+Perceive
+Survival
+Art 3
+Profession 3
+Infiltrate
+Persuade
+BLANK
+Art 4
+Profession 4
