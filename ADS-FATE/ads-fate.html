@@ -677,7 +677,7 @@
         <input class="sheet-skills-list-selector sheet-skills-list-eclipse_phase" type="checkbox" name="attr_skillListSelect" value="Eclipse_Phase" />
         <div class="sheet-skills-section-eclipse_phase">
             <div class="sheet-headerbar">Eclipse Phase v1 Skills
-                <input type="checkbox" class="sheet-checkbox-graygear sheet-ep-skills-display-selection-hider" name="attr_EP-Skills-Display-Selection-Hider" style="float:right" checked /><span style="vertical-align:middle; position:relative; float:right; margin-right:-10px; margin-top:-2px"/>
+                <input type="checkbox" class="sheet-checkbox-graygear sheet-ep-skills-display-selection-hider" name="attr_EP-Skills-Display-Selection-Hider" style="float:right" checked /><span style="vertical-align:middle; position:relative; float:right; margin-right:-20px; margin-top:-2px"/>
             </div>
             <div class="sheet-table sheet-input-border">
                 <div class="sheet-table-row sheet-boldCenter">
@@ -3207,7 +3207,7 @@
         <input class="sheet-skills-list-selector sheet-skills-list-eclipse_phase2" type="checkbox" name="attr_skillListSelect" value="Eclipse_Phase2" checked />
         <div class="sheet-skills-section-eclipse_phase2">
             <div class="sheet-headerbar">Eclipse Phase v2 Skills
-                <input type="checkbox" class="sheet-checkbox-graygear sheet-ep2-skills-display-selection-hider" name="attr_EP2-Skills-Display-Selection-Hider" style="float:right" checked /><span style="vertical-align:middle; position:relative; float:right; margin-right:-10px; margin-top:-2px"/>
+                <input type="checkbox" class="sheet-checkbox-graygear sheet-ep2-skills-display-selection-hider" name="attr_EP2-Skills-Display-Selection-Hider" style="float:right" checked /><span style="vertical-align:middle; position:relative; float:right; margin-right:-20px; margin-top:-2px"/>
             </div>
             <div class="sheet-table sheet-input-border">
                 <div class="sheet-table-row sheet-boldCenter">
@@ -4545,7 +4545,7 @@
 <div class="sheet-section-tabbed-gear"><!-- Gear Tab -->
     <!-- TEST Section -->
     <div class="sheet-section">
-        <div class="sheet-headerbar">TEST <input type="checkbox" class="sheet-checkbox-graygear" name="attr_TestHider" style="float:right" checked /><span style="position:relative;float:right;margin-right:-10px"/></div>
+        <div class="sheet-headerbar">TEST <input type="checkbox" class="sheet-checkbox-graygear" name="attr_TestHider" style="float:right" checked /><span style="position:relative;float:right;margin-right:-20px"/></div>
         <div class="sheet-table sheet-input-border">
             <div class="sheet-table-row">
                 <div class="sheet-table-cell sheet-cell-a"><input type="text" value="Cell 1,1" name="attr_testCell-1-1" /></div>
@@ -4565,7 +4565,7 @@
 
 <div class="sheet-section-tabbed-special"><!-- Special Gear Tab -->
     <!-- Eclipse Phase v1 Morphs Section -->
-    <input type="checkbox" class="sheet-special-gear-epv1_morphs sheet-hider-invis" name="attr_SpecialGear-EPv1_Morphs" value="EPv1_Morphs-Yes" checked />
+    <input type="checkbox" class="sheet-special-gear-epv1_morphs sheet-hider-invis" name="attr_SpecialGear-EPv1_Morphs" value="EPv1_Morphs-Yes" />
     <div class="sheet-special-gear-section-epv1_morphs sheet-section">
         <div class="sheet-headerbar">Eclipse Phase v1 Morphs</div>
 
@@ -5339,6 +5339,956 @@
             </fieldset><!-- End Eclipse Phase v1 Morph 5 Enhancements Repeating -->
         </div>
     </div> <!-- End Eclipse Phase v1 Morphs Section -->
+
+    <input type="checkbox" class="sheet-special-gear-epv2_morphs sheet-hider-invis" name="attr_SpecialGear-EPv2_Morphs" value="EPv2_Morphs-Yes" checked />
+    <div class="sheet-special-gear-section-epv2_morphs sheet-section">
+        <div class="sheet-headerbar">Eclipse Phase v2 Morphs</div>
+
+        <input type="radio" class="sheet-epv2_morph-tab sheet-epv2_morphs-select-morph1" name="attr_EPv2v2-morphs-tab" value="Morph_1" title="Morph 1" checked />
+        <span class="sheet-epv2_morph-tab sheet-epv2_morphs-tab-morph1">Morph 1</span>
+
+        <input type="radio" class="sheet-epv2_morph-tab sheet-epv2_morphs-select-morph2" name="attr_EPv2v2-morphs-tab" value="Morph_2" title="Morph 2" />
+        <span class="sheet-epv2_morph-tab sheet-epv2_morphs-tab-morph2">Morph 2</span>
+
+        <input type="radio" class="sheet-epv2_morph-tab sheet-epv2_morphs-select-morph3" name="attr_EPv2v2-morphs-tab" value="Morph_3" title="Morph 3" />
+        <span class="sheet-epv2_morph-tab sheet-epv2_morphs-tab-morph3">Morph 3</span>
+
+        <input type="radio" class="sheet-epv2_morph-tab sheet-epv2_morphs-select-morph4" name="attr_EPv2v2-morphs-tab" value="Morph_4" title="Morph 4" />
+        <span class="sheet-epv2_morph-tab sheet-epv2_morphs-tab-morph4">Morph 4</span>
+
+        <input type="radio" class="sheet-epv2_morph-tab sheet-epv2_morphs-select-morph5" name="attr_EPv2v2-morphs-tab" value="Morph_5" title="Morph 5" />
+        <span class="sheet-epv2_morph-tab sheet-epv2_morphs-tab-morph5">Morph 5</span>
+
+        <div class="sheet-epv2_morphs-section-morph1 sheet-topBorderGray">
+            <div class="sheet-table">
+                <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left">Morph 1 Name/Type:</div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EPv2-Morph1-Name" placeholder="Morph 1 name/type" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 Sex">Sex:</div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 1 Sex"><input type="text" name="attr_EPv2-Morph1-Sex" placeholder="Morph 1 sex" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 apparent age">Age:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 apparent age"><input type="number" name="attr_EPv2-Morph1-Age" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 1 aptitude maximum">Apt Max:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 aptitude maximum"><input type="number" name="attr_EPv2-Morph1-AptMax" value="30" /></div>
+                </div>
+            </div>
+            <div class="sheet-table">
+                <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left" title="Click me to show/hide appearance details">Appearance/Desc <input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2-Morph1-Appearance-Hider" checked /><span/></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 1 durability">Durability:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 durability"><input type="number" name="attr_EPv2-Morph1-Dur" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 Wound Threshold">WT:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 Wound Threshold"><input type="number" name="attr_EPv2-Morph1-WT" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 1 speed modifier">Speed Mod:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 speed modifier"><input type="number" name="attr_EPv2-Morph1-SpdMod" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-15" title="Morph 1 Movement rate/mobility system">Mov Rate/Type:</div>
+                    <div class="sheet-table-cell sheet-cell-a" title="Morph 1 Movement rate/mobility system"><input type="text" name="attr_EPv2-Morph1-MovType" /></div>
+                </div>
+            </div>
+            <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2-Morph1-Appearance-Hider" checked />
+            <div class="sheet-hide-section">
+                <textarea class="sheet-multiline-input sheet-input-border" name="attr_attr_EPv2-Morph1-Appearance-Details" placeholder="Morph 1 Appearance/Description"></textarea>
+            </div>
+            <br>
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 1 Aptitude and Pool Bonuses</div>
+            <div class="sheet-table sheet-input-border">
+                <div class="sheet-table-row sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition - morph total bonus">COG:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Cognition">
+                        <input type="number" name="attr_EPv2-Morph1-CogBonusTotal" value="[[@{EPv2-Morph1-CogBonusBase}+@{EPv2-Morph1-CogBonusMisc}]]" disabled /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition - morph total bonus">INT:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Intuition">
+                        <input type="number" name="attr_EPv2-Morph1-IntBonusTotal" value="[[@{EPv2-Morph1-IntBonusBase}+@{EPv2-Morph1-IntBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes - morph total bonus">REF:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Reflexes">
+                        <input type="number" name="attr_EPv2-Morph1-RefBonusTotal" value="[[@{EPv2-Morph1-RefBonusBase}+@{EPv2-Morph1-RefBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy - morph total bonus">SAV:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Savvy">
+                        <input type="number" name="attr_EPv2-Morph1-SavBonusTotal" value="[[@{EPv2-Morph1-SavBonusBase}+@{EPv2-Morph1-SavBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics - morph total bonus">SOM:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Somatics">
+                        <input type="number" name="attr_EPv2-Morph1-SomBonusTotal" value="[[@{EPv2-Morph1-SomBonusBase}+@{EPv2-Morph1-SomBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower - morph total bonus">WIL:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Willpower">
+                        <input type="number" name="attr_EPv2-Morph1-WilBonusTotal" value="[[@{EPv2-Morph1-WilBonusBase}+@{EPv2-Morph1-WilBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Insight - morph total bonus">Insight:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Insight">
+                        <input type="number" name="attr_EPv2-Morph1-InsightBonusTotal" value="[[@{EPv2-Morph1-InsightBonusBase}+@{EPv2-Morph1-InsightBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Moxie - morph total bonus">Moxie:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Moxie">
+                        <input type="number" name="attr_EPv2-Morph1-MoxieBonusTotal" value="[[@{EPv2-Morph1-MoxieBonusBase}+@{EPv2-Morph1-MoxieBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Vigor - morph total bonus">Vigor:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Vigor">
+                        <input type="number" name="attr_EPv2-Morph1-VigorBonusTotal" value="[[@{EPv2-Morph1-VigorBonusBase}+@{EPv2-Morph1-VigorBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Flex - morph total bonus">Flex:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Flex">
+                        <input type="number" name="attr_EPv2-Morph1-FlexBonusTotal" value="[[@{EPv2-Morph1-FlexBonusBase}+@{EPv2-Morph1-FlexBonusMisc}]]" disabled /></div>
+
+                    <div class="sheet-table-cell sheet-cell-button" title="Click me to show/hide input cells"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2-Morph1-Apt-Bonus-Hider" checked /><span/></div>
+                </div>
+                <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2-Morph1-Apt-Bonus-Hider" checked />
+                <div class="sheet-table-row sheet-hide-section" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Cognition base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph1-CogBonusBase" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Intuition base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph1-IntBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Reflexes base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph1-RefBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Savvy base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph1-SavBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Somatics base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph1-SomBonusBase" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Willpower base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph1-WilBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Insight pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Insight pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph1-InsightBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Moxie pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Moxie pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph1-MoxieBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Vigor pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Vigor pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph1-VigorBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Flex pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Flex pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph1-FlexBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                </div>
+                <div class="sheet-table-row sheet-hide-section" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Cognition misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph1-CogBonusMisc" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Intuition misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph1-IntBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Reflexes misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph1-RefBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Savvy misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph1-SavBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Somatics misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph1-SomBonusMisc" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Willpower misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph1-WilBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Insight pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Insight pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph1-InsightBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Moxie pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Moxie pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph1-MoxieBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Vigor pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Vigor pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph1-VigorBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Flex pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Flex pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph1-FlexBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                </div>
+            </div>
+            <br>
+            <!-- Eclipse Phase v2 Morph 1 Traits Repeating -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 1 Pos & Neg Traits / Advantages/Disadvantages</div>
+            <fieldset class="repeating_Morph1-Traits">
+                <div class="sheet-table">
+                    <div class="sheet-table-row sheet-input-border">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
+                        <div class="sheet-table-cell sheet-cell-5 sheet-span-settings-label">Trait:</div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_EPv2-Morph1-Trait-Name-Repeating" placeholder="Morph 1 Trait" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2-Morph1-Trait-Details-Hider" checked /><span/></div>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2-Morph1-Trait-Details-Hider" checked />
+                    <div class="sheet-hide-section">
+                        <textarea class="sheet-multiline-input" name="attr_EPv2-Morph1-Trait-Details" placeholder="Morph 1 Trait Details"></textarea>
+                    </div>
+                </div>
+            </fieldset><!-- End Eclipse Phase v2 Morph 1 Traits Repeating -->
+            <br>
+
+            <!-- Eclipse Phase v2 Morph 1 Enhancements Repeating -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 1 Implants / Enhancements / Customizations</div>
+            <fieldset class="repeating_Morph1-Enhancements">
+                <div class="sheet-table">
+                    <div class="sheet-table-row sheet-input-border">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
+                        <div class="sheet-table-cell sheet-cell-12 sheet-span-settings-label">Enhancement:</div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_EPv2-Morph1-Enhancement-Name-Repeating" placeholder="Morph 1 Enhancement" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2-Morph1-Enhancement-Details-Hider" checked /><span/></div>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2-Morph1-Enhancement-Details-Hider" checked />
+                    <div class="sheet-hide-section">
+                        <textarea class="sheet-multiline-input" name="attr_EPv2-Morph1-Enhancement-Details" placeholder="Morph 1 Enhancement Details"></textarea>
+                    </div>
+                </div>
+            </fieldset><!-- End Eclipse Phase v2 Morph 1 Enhancements Repeating -->
+        </div>
+
+        <div class="sheet-epv2_morphs-section-morph2 sheet-topBorderGray">
+            <div class="sheet-table">
+                <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left">Morph 2 Name/Type:</div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EPv2-Morph2-Name" placeholder="Morph 2 name/type" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 Sex">Sex:</div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 2 Sex"><input type="text" name="attr_EPv2-Morph2-Sex" placeholder="Morph 2 sex" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 apparent age">Age:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 apparent age"><input type="number" name="attr_EPv2-Morph2-Age" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 2 aptitude maximum">Apt Max:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 aptitude maximum"><input type="number" name="attr_EPv2-Morph2-AptMax" value="30" /></div>
+                </div>
+            </div>
+            <div class="sheet-table">
+                <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left" title="Click me to show/hide appearance details">Appearance/Desc <input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2-Morph2-Appearance-Hider" checked /><span/></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 2 durability">Durability:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 durability"><input type="number" name="attr_EPv2-Morph2-Dur" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 Wound Threshold">WT:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 Wound Threshold"><input type="number" name="attr_EPv2-Morph2-WT" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 2 speed modifier">Speed Mod:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 speed modifier"><input type="number" name="attr_EPv2-Morph2-SpdMod" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-15" title="Morph 2 Movement rate/mobility system">Mov Rate/Type:</div>
+                    <div class="sheet-table-cell sheet-cell-a" title="Morph 2 Movement rate/mobility system"><input type="text" name="attr_EPv2-Morph2-MovType" /></div>
+                </div>
+            </div>
+            <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2-Morph2-Appearance-Hider" checked />
+            <div class="sheet-hide-section">
+                <textarea class="sheet-multiline-input sheet-input-border" name="attr_attr_EPv2-Morph2-Appearance-Details" placeholder="Morph 2 Appearance/Description"></textarea>
+            </div>
+            <br>
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 2 Aptitude and Pool Bonuses</div>
+            <div class="sheet-table sheet-input-border">
+                <div class="sheet-table-row sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition - morph total bonus">COG:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Cognition">
+                        <input type="number" name="attr_EPv2-Morph2-CogBonusTotal" value="[[@{EPv2-Morph2-CogBonusBase}+@{EPv2-Morph2-CogBonusMisc}]]" disabled /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition - morph total bonus">INT:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Intuition">
+                        <input type="number" name="attr_EPv2-Morph2-IntBonusTotal" value="[[@{EPv2-Morph2-IntBonusBase}+@{EPv2-Morph2-IntBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes - morph total bonus">REF:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Reflexes">
+                        <input type="number" name="attr_EPv2-Morph2-RefBonusTotal" value="[[@{EPv2-Morph2-RefBonusBase}+@{EPv2-Morph2-RefBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy - morph total bonus">SAV:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Savvy">
+                        <input type="number" name="attr_EPv2-Morph2-SavBonusTotal" value="[[@{EPv2-Morph2-SavBonusBase}+@{EPv2-Morph2-SavBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics - morph total bonus">SOM:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Somatics">
+                        <input type="number" name="attr_EPv2-Morph2-SomBonusTotal" value="[[@{EPv2-Morph2-SomBonusBase}+@{EPv2-Morph2-SomBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower - morph total bonus">WIL:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Willpower">
+                        <input type="number" name="attr_EPv2-Morph2-WilBonusTotal" value="[[@{EPv2-Morph2-WilBonusBase}+@{EPv2-Morph2-WilBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Insight - morph total bonus">Insight:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Insight">
+                        <input type="number" name="attr_EPv2-Morph2-InsightBonusTotal" value="[[@{EPv2-Morph2-InsightBonusBase}+@{EPv2-Morph2-InsightBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Moxie - morph total bonus">Moxie:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Moxie">
+                        <input type="number" name="attr_EPv2-Morph2-MoxieBonusTotal" value="[[@{EPv2-Morph2-MoxieBonusBase}+@{EPv2-Morph2-MoxieBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Vigor - morph total bonus">Vigor:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Vigor">
+                        <input type="number" name="attr_EPv2-Morph2-VigorBonusTotal" value="[[@{EPv2-Morph2-VigorBonusBase}+@{EPv2-Morph2-VigorBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Flex - morph total bonus">Flex:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Flex">
+                        <input type="number" name="attr_EPv2-Morph2-FlexBonusTotal" value="[[@{EPv2-Morph2-FlexBonusBase}+@{EPv2-Morph2-FlexBonusMisc}]]" disabled /></div>
+
+                    <div class="sheet-table-cell sheet-cell-button" title="Click me to show/hide input cells"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2-Morph2-Apt-Bonus-Hider" checked /><span/></div>
+                </div>
+                <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2-Morph2-Apt-Bonus-Hider" checked />
+                <div class="sheet-table-row sheet-hide-section" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Cognition base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph2-CogBonusBase" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Intuition base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph2-IntBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Reflexes base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph2-RefBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Savvy base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph2-SavBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Somatics base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph2-SomBonusBase" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Willpower base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph2-WilBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Insight pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Insight pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph2-InsightBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Moxie pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Moxie pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph2-MoxieBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Vigor pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Vigor pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph2-VigorBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Flex pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Flex pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph2-FlexBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                </div>
+                <div class="sheet-table-row sheet-hide-section" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Cognition misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph2-CogBonusMisc" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Intuition misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph2-IntBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Reflexes misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph2-RefBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Savvy misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph2-SavBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Somatics misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph2-SomBonusMisc" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Willpower misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph2-WilBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Insight pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Insight pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph2-InsightBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Moxie pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Moxie pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph2-MoxieBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Vigor pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Vigor pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph2-VigorBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Flex pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Flex pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph2-FlexBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                </div>
+            </div>
+            <br>
+            <!-- Eclipse Phase v2 Morph 2 Traits Repeating -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 2 Pos & Neg Traits / Advantages/Disadvantages</div>
+            <fieldset class="repeating_Morph2-Traits">
+                <div class="sheet-table">
+                    <div class="sheet-table-row sheet-input-border">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
+                        <div class="sheet-table-cell sheet-cell-5 sheet-span-settings-label">Trait:</div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_EPv2-Morph2-Trait-Name-Repeating" placeholder="Morph 2 Trait" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2-Morph2-Trait-Details-Hider" checked /><span/></div>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2-Morph2-Trait-Details-Hider" checked />
+                    <div class="sheet-hide-section">
+                        <textarea class="sheet-multiline-input" name="attr_EPv2-Morph2-Trait-Details" placeholder="Morph 2 Trait Details"></textarea>
+                    </div>
+                </div>
+            </fieldset><!-- End Eclipse Phase v2 Morph 2 Traits Repeating -->
+            <br>
+
+            <!-- Eclipse Phase v2 Morph 2 Enhancements Repeating -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 2 Implants / Enhancements / Customizations</div>
+            <fieldset class="repeating_Morph2-Enhancements">
+                <div class="sheet-table">
+                    <div class="sheet-table-row sheet-input-border">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
+                        <div class="sheet-table-cell sheet-cell-12 sheet-span-settings-label">Enhancement:</div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_EPv2-Morph2-Enhancement-Name-Repeating" placeholder="Morph 2 Enhancement" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2-Morph2-Enhancement-Details-Hider" checked /><span/></div>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2-Morph2-Enhancement-Details-Hider" checked />
+                    <div class="sheet-hide-section">
+                        <textarea class="sheet-multiline-input" name="attr_EPv2-Morph2-Enhancement-Details" placeholder="Morph 2 Enhancement Details"></textarea>
+                    </div>
+                </div>
+            </fieldset><!-- End Eclipse Phase v2 Morph 2 Enhancements Repeating -->
+        </div>
+
+        <div class="sheet-epv2_morphs-section-morph3 sheet-topBorderGray">
+            <div class="sheet-table">
+                <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left">Morph 3 Name/Type:</div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EPv2-Morph3-Name" placeholder="Morph 3 name/type" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 Sex">Sex:</div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 3 Sex"><input type="text" name="attr_EPv2-Morph3-Sex" placeholder="Morph 3 sex" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 apparent age">Age:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 apparent age"><input type="number" name="attr_EPv2-Morph3-Age" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 3 aptitude maximum">Apt Max:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 aptitude maximum"><input type="number" name="attr_EPv2-Morph3-AptMax" value="30" /></div>
+                </div>
+            </div>
+            <div class="sheet-table">
+                <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left" title="Click me to show/hide appearance details">Appearance/Desc <input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2-Morph3-Appearance-Hider" checked /><span/></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 3 durability">Durability:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 durability"><input type="number" name="attr_EPv2-Morph3-Dur" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 Wound Threshold">WT:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 Wound Threshold"><input type="number" name="attr_EPv2-Morph3-WT" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 3 speed modifier">Speed Mod:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 speed modifier"><input type="number" name="attr_EPv2-Morph3-SpdMod" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-15" title="Morph 3 Movement rate/mobility system">Mov Rate/Type:</div>
+                    <div class="sheet-table-cell sheet-cell-a" title="Morph 3 Movement rate/mobility system"><input type="text" name="attr_EPv2-Morph3-MovType" /></div>
+                </div>
+            </div>
+            <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2-Morph3-Appearance-Hider" checked />
+            <div class="sheet-hide-section">
+                <textarea class="sheet-multiline-input sheet-input-border" name="attr_attr_EPv2-Morph3-Appearance-Details" placeholder="Morph 3 Appearance/Description"></textarea>
+            </div>
+            <br>
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 3 Aptitude and Pool Bonuses</div>
+            <div class="sheet-table sheet-input-border">
+                <div class="sheet-table-row sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition - morph total bonus">COG:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Cognition">
+                        <input type="number" name="attr_EPv2-Morph3-CogBonusTotal" value="[[@{EPv2-Morph3-CogBonusBase}+@{EPv2-Morph3-CogBonusMisc}]]" disabled /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition - morph total bonus">INT:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Intuition">
+                        <input type="number" name="attr_EPv2-Morph3-IntBonusTotal" value="[[@{EPv2-Morph3-IntBonusBase}+@{EPv2-Morph3-IntBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes - morph total bonus">REF:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Reflexes">
+                        <input type="number" name="attr_EPv2-Morph3-RefBonusTotal" value="[[@{EPv2-Morph3-RefBonusBase}+@{EPv2-Morph3-RefBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy - morph total bonus">SAV:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Savvy">
+                        <input type="number" name="attr_EPv2-Morph3-SavBonusTotal" value="[[@{EPv2-Morph3-SavBonusBase}+@{EPv2-Morph3-SavBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics - morph total bonus">SOM:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Somatics">
+                        <input type="number" name="attr_EPv2-Morph3-SomBonusTotal" value="[[@{EPv2-Morph3-SomBonusBase}+@{EPv2-Morph3-SomBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower - morph total bonus">WIL:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Willpower">
+                        <input type="number" name="attr_EPv2-Morph3-WilBonusTotal" value="[[@{EPv2-Morph3-WilBonusBase}+@{EPv2-Morph3-WilBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Insight - morph total bonus">Insight:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Insight">
+                        <input type="number" name="attr_EPv2-Morph3-InsightBonusTotal" value="[[@{EPv2-Morph3-InsightBonusBase}+@{EPv2-Morph3-InsightBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Moxie - morph total bonus">Moxie:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Moxie">
+                        <input type="number" name="attr_EPv2-Morph3-MoxieBonusTotal" value="[[@{EPv2-Morph3-MoxieBonusBase}+@{EPv2-Morph3-MoxieBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Vigor - morph total bonus">Vigor:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Vigor">
+                        <input type="number" name="attr_EPv2-Morph3-VigorBonusTotal" value="[[@{EPv2-Morph3-VigorBonusBase}+@{EPv2-Morph3-VigorBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Flex - morph total bonus">Flex:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Flex">
+                        <input type="number" name="attr_EPv2-Morph3-FlexBonusTotal" value="[[@{EPv2-Morph3-FlexBonusBase}+@{EPv2-Morph3-FlexBonusMisc}]]" disabled /></div>
+
+                    <div class="sheet-table-cell sheet-cell-button" title="Click me to show/hide input cells"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2-Morph3-Apt-Bonus-Hider" checked /><span/></div>
+                </div>
+                <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2-Morph3-Apt-Bonus-Hider" checked />
+                <div class="sheet-table-row sheet-hide-section" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Cognition base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph3-CogBonusBase" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Intuition base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph3-IntBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Reflexes base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph3-RefBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Savvy base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph3-SavBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Somatics base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph3-SomBonusBase" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Willpower base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph3-WilBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Insight pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Insight pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph3-InsightBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Moxie pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Moxie pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph3-MoxieBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Vigor pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Vigor pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph3-VigorBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Flex pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Flex pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph3-FlexBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                </div>
+                <div class="sheet-table-row sheet-hide-section" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Cognition misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph3-CogBonusMisc" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Intuition misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph3-IntBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Reflexes misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph3-RefBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Savvy misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph3-SavBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Somatics misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph3-SomBonusMisc" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Willpower misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph3-WilBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Insight pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Insight pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph3-InsightBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Moxie pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Moxie pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph3-MoxieBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Vigor pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Vigor pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph3-VigorBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Flex pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Flex pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph3-FlexBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                </div>
+            </div>
+            <br>
+            <!-- Eclipse Phase v2 Morph 3 Traits Repeating -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 3 Pos & Neg Traits / Advantages/Disadvantages</div>
+            <fieldset class="repeating_Morph3-Traits">
+                <div class="sheet-table">
+                    <div class="sheet-table-row sheet-input-border">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
+                        <div class="sheet-table-cell sheet-cell-5 sheet-span-settings-label">Trait:</div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_EPv2-Morph3-Trait-Name-Repeating" placeholder="Morph 3 Trait" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2-Morph3-Trait-Details-Hider" checked /><span/></div>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2-Morph3-Trait-Details-Hider" checked />
+                    <div class="sheet-hide-section">
+                        <textarea class="sheet-multiline-input" name="attr_EPv2-Morph3-Trait-Details" placeholder="Morph 3 Trait Details"></textarea>
+                    </div>
+                </div>
+            </fieldset><!-- End Eclipse Phase v2 Morph 3 Traits Repeating -->
+            <br>
+
+            <!-- Eclipse Phase v2 Morph 3 Enhancements Repeating -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 3 Implants / Enhancements / Customizations</div>
+            <fieldset class="repeating_Morph3-Enhancements">
+                <div class="sheet-table">
+                    <div class="sheet-table-row sheet-input-border">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
+                        <div class="sheet-table-cell sheet-cell-12 sheet-span-settings-label">Enhancement:</div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_EPv2-Morph3-Enhancement-Name-Repeating" placeholder="Morph 3 Enhancement" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2-Morph3-Enhancement-Details-Hider" checked /><span/></div>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2-Morph3-Enhancement-Details-Hider" checked />
+                    <div class="sheet-hide-section">
+                        <textarea class="sheet-multiline-input" name="attr_EPv2-Morph3-Enhancement-Details" placeholder="Morph 3 Enhancement Details"></textarea>
+                    </div>
+                </div>
+            </fieldset><!-- End Eclipse Phase v2 Morph 3 Enhancements Repeating -->
+        </div>
+
+        <div class="sheet-epv2_morphs-section-morph4 sheet-topBorderGray">
+            <div class="sheet-table">
+                <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left">Morph 4 Name/Type:</div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EPv2-Morph4-Name" placeholder="Morph 4 name/type" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 Sex">Sex:</div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 4 Sex"><input type="text" name="attr_EPv2-Morph4-Sex" placeholder="Morph 4 sex" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 apparent age">Age:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 apparent age"><input type="number" name="attr_EPv2-Morph4-Age" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 4 aptitude maximum">Apt Max:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 aptitude maximum"><input type="number" name="attr_EPv2-Morph4-AptMax" value="30" /></div>
+                </div>
+            </div>
+            <div class="sheet-table">
+                <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left" title="Click me to show/hide appearance details">Appearance/Desc <input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2-Morph4-Appearance-Hider" checked /><span/></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 4 durability">Durability:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 durability"><input type="number" name="attr_EPv2-Morph4-Dur" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 Wound Threshold">WT:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 Wound Threshold"><input type="number" name="attr_EPv2-Morph4-WT" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 4 speed modifier">Speed Mod:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 speed modifier"><input type="number" name="attr_EPv2-Morph4-SpdMod" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-15" title="Morph 4 Movement rate/mobility system">Mov Rate/Type:</div>
+                    <div class="sheet-table-cell sheet-cell-a" title="Morph 4 Movement rate/mobility system"><input type="text" name="attr_EPv2-Morph4-MovType" /></div>
+                </div>
+            </div>
+            <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2-Morph4-Appearance-Hider" checked />
+            <div class="sheet-hide-section">
+                <textarea class="sheet-multiline-input sheet-input-border" name="attr_attr_EPv2-Morph4-Appearance-Details" placeholder="Morph 4 Appearance/Description"></textarea>
+            </div>
+            <br>
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 4 Aptitude and Pool Bonuses</div>
+            <div class="sheet-table sheet-input-border">
+                <div class="sheet-table-row sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition - morph total bonus">COG:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Cognition">
+                        <input type="number" name="attr_EPv2-Morph4-CogBonusTotal" value="[[@{EPv2-Morph4-CogBonusBase}+@{EPv2-Morph4-CogBonusMisc}]]" disabled /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition - morph total bonus">INT:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Intuition">
+                        <input type="number" name="attr_EPv2-Morph4-IntBonusTotal" value="[[@{EPv2-Morph4-IntBonusBase}+@{EPv2-Morph4-IntBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes - morph total bonus">REF:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Reflexes">
+                        <input type="number" name="attr_EPv2-Morph4-RefBonusTotal" value="[[@{EPv2-Morph4-RefBonusBase}+@{EPv2-Morph4-RefBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy - morph total bonus">SAV:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Savvy">
+                        <input type="number" name="attr_EPv2-Morph4-SavBonusTotal" value="[[@{EPv2-Morph4-SavBonusBase}+@{EPv2-Morph4-SavBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics - morph total bonus">SOM:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Somatics">
+                        <input type="number" name="attr_EPv2-Morph4-SomBonusTotal" value="[[@{EPv2-Morph4-SomBonusBase}+@{EPv2-Morph4-SomBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower - morph total bonus">WIL:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Willpower">
+                        <input type="number" name="attr_EPv2-Morph4-WilBonusTotal" value="[[@{EPv2-Morph4-WilBonusBase}+@{EPv2-Morph4-WilBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Insight - morph total bonus">Insight:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Insight">
+                        <input type="number" name="attr_EPv2-Morph4-InsightBonusTotal" value="[[@{EPv2-Morph4-InsightBonusBase}+@{EPv2-Morph4-InsightBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Moxie - morph total bonus">Moxie:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Moxie">
+                        <input type="number" name="attr_EPv2-Morph4-MoxieBonusTotal" value="[[@{EPv2-Morph4-MoxieBonusBase}+@{EPv2-Morph4-MoxieBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Vigor - morph total bonus">Vigor:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Vigor">
+                        <input type="number" name="attr_EPv2-Morph4-VigorBonusTotal" value="[[@{EPv2-Morph4-VigorBonusBase}+@{EPv2-Morph4-VigorBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Flex - morph total bonus">Flex:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Flex">
+                        <input type="number" name="attr_EPv2-Morph4-FlexBonusTotal" value="[[@{EPv2-Morph4-FlexBonusBase}+@{EPv2-Morph4-FlexBonusMisc}]]" disabled /></div>
+
+                    <div class="sheet-table-cell sheet-cell-button" title="Click me to show/hide input cells"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2-Morph4-Apt-Bonus-Hider" checked /><span/></div>
+                </div>
+                <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2-Morph4-Apt-Bonus-Hider" checked />
+                <div class="sheet-table-row sheet-hide-section" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Cognition base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph4-CogBonusBase" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Intuition base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph4-IntBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Reflexes base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph4-RefBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Savvy base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph4-SavBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Somatics base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph4-SomBonusBase" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Willpower base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph4-WilBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Insight pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Insight pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph4-InsightBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Moxie pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Moxie pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph4-MoxieBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Vigor pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Vigor pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph4-VigorBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Flex pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Flex pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph4-FlexBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                </div>
+                <div class="sheet-table-row sheet-hide-section" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Cognition misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph4-CogBonusMisc" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Intuition misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph4-IntBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Reflexes misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph4-RefBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Savvy misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph4-SavBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Somatics misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph4-SomBonusMisc" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Willpower misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph4-WilBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Insight pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Insight pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph4-InsightBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Moxie pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Moxie pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph4-MoxieBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Vigor pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Vigor pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph4-VigorBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Flex pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Flex pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph4-FlexBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                </div>
+            </div>
+            <br>
+            <!-- Eclipse Phase v2 Morph 4 Traits Repeating -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 4 Pos & Neg Traits / Advantages/Disadvantages</div>
+            <fieldset class="repeating_Morph4-Traits">
+                <div class="sheet-table">
+                    <div class="sheet-table-row sheet-input-border">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
+                        <div class="sheet-table-cell sheet-cell-5 sheet-span-settings-label">Trait:</div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_EPv2-Morph4-Trait-Name-Repeating" placeholder="Morph 4 Trait" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2-Morph4-Trait-Details-Hider" checked /><span/></div>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2-Morph4-Trait-Details-Hider" checked />
+                    <div class="sheet-hide-section">
+                        <textarea class="sheet-multiline-input" name="attr_EPv2-Morph4-Trait-Details" placeholder="Morph 4 Trait Details"></textarea>
+                    </div>
+                </div>
+            </fieldset><!-- End Eclipse Phase v2 Morph 4 Traits Repeating -->
+            <br>
+
+            <!-- Eclipse Phase v2 Morph 4 Enhancements Repeating -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 4 Implants / Enhancements / Customizations</div>
+            <fieldset class="repeating_Morph4-Enhancements">
+                <div class="sheet-table">
+                    <div class="sheet-table-row sheet-input-border">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
+                        <div class="sheet-table-cell sheet-cell-12 sheet-span-settings-label">Enhancement:</div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_EPv2-Morph4-Enhancement-Name-Repeating" placeholder="Morph 4 Enhancement" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2-Morph4-Enhancement-Details-Hider" checked /><span/></div>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2-Morph4-Enhancement-Details-Hider" checked />
+                    <div class="sheet-hide-section">
+                        <textarea class="sheet-multiline-input" name="attr_EPv2-Morph4-Enhancement-Details" placeholder="Morph 4 Enhancement Details"></textarea>
+                    </div>
+                </div>
+            </fieldset><!-- End Eclipse Phase v2 Morph 4 Enhancements Repeating -->
+        </div>
+
+        <div class="sheet-epv2_morphs-section-morph5 sheet-topBorderGray">
+            <div class="sheet-table">
+                <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left">Morph 5 Name/Type:</div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EPv2-Morph5-Name" placeholder="Morph 5 name/type" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 Sex">Sex:</div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 5 Sex"><input type="text" name="attr_EPv2-Morph5-Sex" placeholder="Morph 5 sex" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 apparent age">Age:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 apparent age"><input type="number" name="attr_EPv2-Morph5-Age" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 5 aptitude maximum">Apt Max:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 aptitude maximum"><input type="number" name="attr_EPv2-Morph5-AptMax" value="30" /></div>
+                </div>
+            </div>
+            <div class="sheet-table">
+                <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left" title="Click me to show/hide appearance details">Appearance/Desc <input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2-Morph5-Appearance-Hider" checked /><span/></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 5 durability">Durability:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 durability"><input type="number" name="attr_EPv2-Morph5-Dur" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 Wound Threshold">WT:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 Wound Threshold"><input type="number" name="attr_EPv2-Morph5-WT" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 5 speed modifier">Speed Mod:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 speed modifier"><input type="number" name="attr_EPv2-Morph5-SpdMod" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-15" title="Morph 5 Movement rate/mobility system">Mov Rate/Type:</div>
+                    <div class="sheet-table-cell sheet-cell-a" title="Morph 5 Movement rate/mobility system"><input type="text" name="attr_EPv2-Morph5-MovType" /></div>
+                </div>
+            </div>
+            <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2-Morph5-Appearance-Hider" checked />
+            <div class="sheet-hide-section">
+                <textarea class="sheet-multiline-input sheet-input-border" name="attr_attr_EPv2-Morph5-Appearance-Details" placeholder="Morph 5 Appearance/Description"></textarea>
+            </div>
+            <br>
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 5 Aptitude and Pool Bonuses</div>
+            <div class="sheet-table sheet-input-border">
+                <div class="sheet-table-row sheet-cell-boldRight">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition - morph total bonus">COG:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Cognition">
+                        <input type="number" name="attr_EPv2-Morph5-CogBonusTotal" value="[[@{EPv2-Morph5-CogBonusBase}+@{EPv2-Morph5-CogBonusMisc}]]" disabled /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition - morph total bonus">INT:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Intuition">
+                        <input type="number" name="attr_EPv2-Morph5-IntBonusTotal" value="[[@{EPv2-Morph5-IntBonusBase}+@{EPv2-Morph5-IntBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes - morph total bonus">REF:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Reflexes">
+                        <input type="number" name="attr_EPv2-Morph5-RefBonusTotal" value="[[@{EPv2-Morph5-RefBonusBase}+@{EPv2-Morph5-RefBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy - morph total bonus">SAV:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Savvy">
+                        <input type="number" name="attr_EPv2-Morph5-SavBonusTotal" value="[[@{EPv2-Morph5-SavBonusBase}+@{EPv2-Morph5-SavBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics - morph total bonus">SOM:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Somatics">
+                        <input type="number" name="attr_EPv2-Morph5-SomBonusTotal" value="[[@{EPv2-Morph5-SomBonusBase}+@{EPv2-Morph5-SomBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower - morph total bonus">WIL:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Willpower">
+                        <input type="number" name="attr_EPv2-Morph5-WilBonusTotal" value="[[@{EPv2-Morph5-WilBonusBase}+@{EPv2-Morph5-WilBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Insight - morph total bonus">Insight:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Insight">
+                        <input type="number" name="attr_EPv2-Morph5-InsightBonusTotal" value="[[@{EPv2-Morph5-InsightBonusBase}+@{EPv2-Morph5-InsightBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Moxie - morph total bonus">Moxie:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Moxie">
+                        <input type="number" name="attr_EPv2-Morph5-MoxieBonusTotal" value="[[@{EPv2-Morph5-MoxieBonusBase}+@{EPv2-Morph5-MoxieBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Vigor - morph total bonus">Vigor:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Vigor">
+                        <input type="number" name="attr_EPv2-Morph5-VigorBonusTotal" value="[[@{EPv2-Morph5-VigorBonusBase}+@{EPv2-Morph5-VigorBonusMisc}]]" disabled /></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Flex - morph total bonus">Flex:</div>
+                    <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Flex">
+                        <input type="number" name="attr_EPv2-Morph5-FlexBonusTotal" value="[[@{EPv2-Morph5-FlexBonusBase}+@{EPv2-Morph5-FlexBonusMisc}]]" disabled /></div>
+
+                    <div class="sheet-table-cell sheet-cell-button" title="Click me to show/hide input cells"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2-Morph5-Apt-Bonus-Hider" checked /><span/></div>
+                </div>
+                <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2-Morph5-Apt-Bonus-Hider" checked />
+                <div class="sheet-table-row sheet-hide-section" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Cognition base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph5-CogBonusBase" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Intuition base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph5-IntBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Reflexes base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph5-RefBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Savvy base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph5-SavBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Somatics base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph5-SomBonusBase" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Willpower base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph5-WilBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Insight pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Insight pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph5-InsightBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Moxie pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Moxie pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph5-MoxieBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Vigor pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Vigor pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph5-VigorBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Flex pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Flex pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph5-FlexBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                </div>
+                <div class="sheet-table-row sheet-hide-section" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Cognition misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph5-CogBonusMisc" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Intuition misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph5-IntBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Reflexes misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph5-RefBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Savvy misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph5-SavBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Somatics misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph5-SomBonusMisc" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Willpower misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph5-WilBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Insight pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Insight pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph5-InsightBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Moxie pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Moxie pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph5-MoxieBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Vigor pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Vigor pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph5-VigorBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-7" title="Flex pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Flex pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2-Morph5-FlexBonusMisc" value="0" /></div>
+
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                </div>
+            </div>
+            <br>
+            <!-- Eclipse Phase v2 Morph 5 Traits Repeating -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 5 Pos & Neg Traits / Advantages/Disadvantages</div>
+            <fieldset class="repeating_Morph5-Traits">
+                <div class="sheet-table">
+                    <div class="sheet-table-row sheet-input-border">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
+                        <div class="sheet-table-cell sheet-cell-5 sheet-span-settings-label">Trait:</div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_EPv2-Morph5-Trait-Name-Repeating" placeholder="Morph 5 Trait" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2-Morph5-Trait-Details-Hider" checked /><span/></div>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2-Morph5-Trait-Details-Hider" checked />
+                    <div class="sheet-hide-section">
+                        <textarea class="sheet-multiline-input" name="attr_EPv2-Morph5-Trait-Details" placeholder="Morph 5 Trait Details"></textarea>
+                    </div>
+                </div>
+            </fieldset><!-- End Eclipse Phase v2 Morph 5 Traits Repeating -->
+            <br>
+
+            <!-- Eclipse Phase v2 Morph 5 Enhancements Repeating -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 5 Implants / Enhancements / Customizations</div>
+            <fieldset class="repeating_Morph5-Enhancements">
+                <div class="sheet-table">
+                    <div class="sheet-table-row sheet-input-border">
+                        <div class="sheet-table-cell sheet-cell-button"><button type="roll"></button></div>
+                        <div class="sheet-table-cell sheet-cell-12 sheet-span-settings-label">Enhancement:</div>
+                        <div class="sheet-table-cell sheet-cell-a"><input type="text" class="sheet-boldCenter" name="attr_EPv2-Morph5-Enhancement-Name-Repeating" placeholder="Morph 5 Enhancement" /></div>
+                        <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2-Morph5-Enhancement-Details-Hider" checked /><span/></div>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2-Morph5-Enhancement-Details-Hider" checked />
+                    <div class="sheet-hide-section">
+                        <textarea class="sheet-multiline-input" name="attr_EPv2-Morph5-Enhancement-Details" placeholder="Morph 5 Enhancement Details"></textarea>
+                    </div>
+                </div>
+            </fieldset><!-- End Eclipse Phase v2 Morph 5 Enhancements Repeating -->
+        </div>
+    </div> <!-- End Eclipse Phase v2 Morphs Section -->
 </div>
 
 <div class="sheet-section-tabbed-notes sheet-section"><!-- Notes Tab -->
