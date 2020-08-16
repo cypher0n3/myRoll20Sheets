@@ -16,7 +16,8 @@ echo '<!-- Eclipse Phase v2 Skills -->
         <div class="sheet-table-row sheet-boldCenter">
             <div class="sheet-table-cell sheet-cell-button" title="Skill roller"></div>
             <div class="sheet-table-cell sheet-cell-a"    title="Skill name">Name</div>
-            <div class="sheet-table-cell sheet-cell-10"   title="Total base Aptitude">Aptitude</div>
+            <div class="sheet-table-cell sheet-cell-10"   title="Associated aptitude for skill">Aptitude</div>
+            <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude">Apt</div>
             <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill">Rank</div>
             <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">Morph</div>
             <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source">Misc.</div>
@@ -69,7 +70,7 @@ while read line; do
                 <div class="sheet-table-row">
                     <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
                     <div class="sheet-table-cell sheet-cell-a" title="'"${line_ary[0]}"' ('"${line_ary[1]}"')"><input type="text" name="attr_EP2-Skill-'"${line_nospaces}"'-Name" value="'"${line_ary[0]}"' ('"${line_ary[1]}"')" placeholder="Skill Name" '"${name_disabled}"'/></div>
-                    <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-'"${line_nospaces}"'-Apt">
+                    <div class="sheet-table-cell sheet-cell-10" title="Associated aptitude for skill"><select name="attr_EP2-Skill-'"${line_nospaces}"'-Apt">
                         <option value="@{EP2-CogTotal}"'"${cog_selected}"'>COG</option>
                         <option value="@{EP2-IntTotal}"'"${int_selected}"'>INT</option>
                         <option value="@{EP2-RefTotal}"'"${ref_selected}"'>REF</option>
@@ -78,6 +79,7 @@ while read line; do
                         <option value="@{EP2-WilTotal}"'"${wil_selected}"'>WIL</option>
                         <option value="@{EP2-Skill-'"${line_nospaces}"'-CusomtAptVal}">Custom</option></select>
                     </div>
+                    <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2-Skill-'"${line_nospaces}"'-Apt-display" value="@{EP2-Skill-'"${line_nospaces}"'-Apt}" disabled="disabled" /></div>
                     <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-'"${line_nospaces}"'-Base" value="0" /></div>
                     <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-'"${line_nospaces}"'-MorphBonus" value="0" /></div>
                     <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-'"${line_nospaces}"'-MiscBonus" value="0" /></div>
@@ -104,7 +106,7 @@ echo '
                 <div class="sheet-table-row">
                     <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
                     <div class="sheet-table-cell sheet-cell-a" title="Custom skill"><input type="text" name="attr_EP2-Skill-Repeating-Name" value="Custom Skill" placeholder="Skill Name" /></div>
-                    <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Repeating-Apt">
+                    <div class="sheet-table-cell sheet-cell-10" title="Associated aptitude for skill"><select name="attr_EP2-Skill-Repeating-Apt">
                         <option value="@{EP2-CogTotal}" selected>COG</option>
                         <option value="@{EP2-IntTotal}">INT</option>
                         <option value="@{EP2-RefTotal}">REF</option>
@@ -113,6 +115,7 @@ echo '
                         <option value="@{EP2-WilTotal}">WIL</option>
                         <option value="@{EP2-Skill-Repeating-CusomtAptVal}">Custom</option></select>
                     </div>
+                    <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2-Skill-Repeating-Apt-display" value="@{EP2-Skill-Repeating-Apt}" disabled="disabled" /></div>
                     <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Repeating-Base" value="0" /></div>
                     <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Repeating-MorphBonus" value="0" /></div>
                     <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Repeating-MiscBonus" value="0" /></div>
