@@ -14,13 +14,13 @@ echo '<!-- Eclipse Phase v2 Skills -->
     </div>
     <div class="sheet-table sheet-input-border">
         <div class="sheet-table-row sheet-boldCenter">
-            <div class="sheet-table-cell sheet-cell-button"></div>
-            <div class="sheet-table-cell sheet-cell-a">Name</div>
-            <div class="sheet-table-cell sheet-cell-10">Aptitude</div>
-            <div class="sheet-table-cell sheet-cell-rank">Ego</div>
-            <div class="sheet-table-cell sheet-cell-15">Morph Bonus</div>
-            <div class="sheet-table-cell sheet-cell-15">Misc. Bonus</div>
-            <div class="sheet-table-cell sheet-cell-rank">Total</div>
+            <div class="sheet-table-cell sheet-cell-button" title="Skill roller"></div>
+            <div class="sheet-table-cell sheet-cell-a"    title="Skill name">Name</div>
+            <div class="sheet-table-cell sheet-cell-10"   title="Total base Aptitude">Aptitude</div>
+            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill">Rank</div>
+            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">Morph</div>
+            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source">Misc.</div>
+            <div class="sheet-table-cell sheet-cell-rank" title="Skill total from all sources">Total</div>
             <div class="sheet-table-cell sheet-cell-button"></div>
         </div>
     </div>
@@ -53,14 +53,23 @@ while read line; do
         elif [[ "${line_ary[1]}" == "WIL" ]]; then
             wil_selected=" selected"
         fi
+
+        case "${line_ary[0]}" in
+            *1|*2|*3|*4)
+                name_disabled=''
+            ;;
+            *)
+                name_disabled='disabled="disabled"'
+            ;;
+        esac
         echo '        <!-- Eclipse_Phase2 skill '"${line_ary[0]}"' -->
         <input type="checkbox" class="sheet-hider-invis sheet-ep2-skill-hider-'"${line_underscore}"'" name="attr_EP2-Skill-Hider-'"${line_nospaces}"'" />
         <div class="sheet-ep2-skill-hider-section-'"${line_underscore}"'">
             <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                 <div class="sheet-table-row">
                     <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                    <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-'"${line_nospaces}"'-Name" value="'"${line_ary[0]}"'" placeholder="Skill Name" /></div>
-                    <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-'"${line_nospaces}"'-Apt" disabled="disabled">
+                    <div class="sheet-table-cell sheet-cell-a" title="'"${line_ary[0]}"' ('"${line_ary[1]}"')"><input type="text" name="attr_EP2-Skill-'"${line_nospaces}"'-Name" value="'"${line_ary[0]}"' ('"${line_ary[1]}"')" placeholder="Skill Name" '"${name_disabled}"'/></div>
+                    <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-'"${line_nospaces}"'-Apt">
                         <option value="@{EP2-CogTotal}"'"${cog_selected}"'>COG</option>
                         <option value="@{EP2-IntTotal}"'"${int_selected}"'>INT</option>
                         <option value="@{EP2-RefTotal}"'"${ref_selected}"'>REF</option>
@@ -69,10 +78,10 @@ while read line; do
                         <option value="@{EP2-WilTotal}"'"${wil_selected}"'>WIL</option>
                         <option value="@{EP2-Skill-'"${line_nospaces}"'-CusomtAptVal}">Custom</option></select>
                     </div>
-                    <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-'"${line_nospaces}"'-Base" value="0" /></div>
-                    <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-'"${line_nospaces}"'-MorphBonus" value="0" /></div>
-                    <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-'"${line_nospaces}"'-MiscBonus" value="0" /></div>
-                    <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-'"${line_nospaces}"'-Total" disabled="disabled" value="[[@{EP2-Skill-'"${line_nospaces}"'-Apt}+@{EP2-Skill-'"${line_nospaces}"'-Base}+@{EP2-Skill-'"${line_nospaces}"'-MorphBonus}+@{EP2-Skill-'"${line_nospaces}"'-MiscBonus}]]" /></div>
+                    <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-'"${line_nospaces}"'-Base" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-'"${line_nospaces}"'-MorphBonus" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-'"${line_nospaces}"'-MiscBonus" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-'"${line_nospaces}"'-Total" disabled="disabled" value="[[@{EP2-Skill-'"${line_nospaces}"'-Apt}+@{EP2-Skill-'"${line_nospaces}"'-Base}+@{EP2-Skill-'"${line_nospaces}"'-MorphBonus}+@{EP2-Skill-'"${line_nospaces}"'-MiscBonus}]]" /></div>
                     <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-'"${line_nospaces}"'" checked /><span/></div>
                 </div>
             </div>
@@ -94,7 +103,7 @@ echo '
             <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                 <div class="sheet-table-row">
                     <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                    <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Repeating-Name" value="Custom Skill" placeholder="Skill Name" /></div>
+                    <div class="sheet-table-cell sheet-cell-a" title="Custom skill"><input type="text" name="attr_EP2-Skill-Repeating-Name" value="Custom Skill" placeholder="Skill Name" /></div>
                     <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Repeating-Apt">
                         <option value="@{EP2-CogTotal}" selected>COG</option>
                         <option value="@{EP2-IntTotal}">INT</option>
@@ -104,10 +113,10 @@ echo '
                         <option value="@{EP2-WilTotal}">WIL</option>
                         <option value="@{EP2-Skill-Repeating-CusomtAptVal}">Custom</option></select>
                     </div>
-                    <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Repeating-Base" value="0" /></div>
-                    <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Repeating-MorphBonus" value="0" /></div>
-                    <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Repeating-MiscBonus" value="0" /></div>
-                    <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Repeating-Total" disabled="disabled" value="[[@{EP2-Skill-Repeating-Apt}+@{EP2-Skill-Repeating-Base}+@{EP2-Skill-Repeating-MorphBonus}+@{EP2-Skill-Repeating-MiscBonus}]]" /></div>
+                    <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Repeating-Base" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Repeating-MorphBonus" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Repeating-MiscBonus" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Repeating-Total" disabled="disabled" value="[[@{EP2-Skill-Repeating-Apt}+@{EP2-Skill-Repeating-Base}+@{EP2-Skill-Repeating-MorphBonus}+@{EP2-Skill-Repeating-MiscBonus}]]" /></div>
                     <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Repeating" checked /><span/></div>
                 </div>
             </div>

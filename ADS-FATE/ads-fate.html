@@ -3268,13 +3268,13 @@
             </div>
             <div class="sheet-table sheet-input-border">
                 <div class="sheet-table-row sheet-boldCenter">
-                    <div class="sheet-table-cell sheet-cell-button"></div>
-                    <div class="sheet-table-cell sheet-cell-a">Name</div>
-                    <div class="sheet-table-cell sheet-cell-10">Aptitude</div>
-                    <div class="sheet-table-cell sheet-cell-rank">Ego</div>
-                    <div class="sheet-table-cell sheet-cell-15">Morph Bonus</div>
-                    <div class="sheet-table-cell sheet-cell-15">Misc. Bonus</div>
-                    <div class="sheet-table-cell sheet-cell-rank">Total</div>
+                    <div class="sheet-table-cell sheet-cell-button" title="Skill roller"></div>
+                    <div class="sheet-table-cell sheet-cell-a"    title="Skill name">Name</div>
+                    <div class="sheet-table-cell sheet-cell-10"   title="Total aptitude bonus">Aptitude</div>
+                    <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill">Rank</div>
+                    <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">Morph</div>
+                    <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source">Misc.</div>
+                    <div class="sheet-table-cell sheet-cell-rank" title="Skill total from all sources">Total</div>
                     <div class="sheet-table-cell sheet-cell-button"></div>
                 </div>
             </div>
@@ -3286,8 +3286,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Athletics-Name" value="Athletics" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Athletics-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Athletics (SOM)"><input type="text" name="attr_EP2-Skill-Athletics-Name" value="Athletics (SOM)" placeholder="Skill Name" disabled="disabled"/></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Athletics-Apt">
                                 <option value="@{EP2-CogTotal}">COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -3296,10 +3296,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Athletics-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Athletics-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Athletics-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Athletics-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Athletics-Total" disabled="disabled" value="[[@{EP2-Skill-Athletics-Apt}+@{EP2-Skill-Athletics-Base}+@{EP2-Skill-Athletics-MorphBonus}+@{EP2-Skill-Athletics-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Athletics-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Athletics-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Athletics-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Athletics-Total" disabled="disabled" value="[[@{EP2-Skill-Athletics-Apt}+@{EP2-Skill-Athletics-Base}+@{EP2-Skill-Athletics-MorphBonus}+@{EP2-Skill-Athletics-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Athletics" checked /><span/></div>
                         </div>
                     </div>
@@ -3316,8 +3316,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Deceive-Name" value="Deceive" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Deceive-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Deceive (SAV)"><input type="text" name="attr_EP2-Skill-Deceive-Name" value="Deceive (SAV)" placeholder="Skill Name" disabled="disabled"/></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Deceive-Apt">
                                 <option value="@{EP2-CogTotal}">COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -3326,10 +3326,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Deceive-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Deceive-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Deceive-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Deceive-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Deceive-Total" disabled="disabled" value="[[@{EP2-Skill-Deceive-Apt}+@{EP2-Skill-Deceive-Base}+@{EP2-Skill-Deceive-MorphBonus}+@{EP2-Skill-Deceive-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Deceive-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Deceive-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Deceive-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Deceive-Total" disabled="disabled" value="[[@{EP2-Skill-Deceive-Apt}+@{EP2-Skill-Deceive-Base}+@{EP2-Skill-Deceive-MorphBonus}+@{EP2-Skill-Deceive-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Deceive" checked /><span/></div>
                         </div>
                     </div>
@@ -3346,8 +3346,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Fray-Name" value="Fray" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Fray-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Fray (REF)"><input type="text" name="attr_EP2-Skill-Fray-Name" value="Fray (REF)" placeholder="Skill Name" disabled="disabled"/></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Fray-Apt">
                                 <option value="@{EP2-CogTotal}">COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}" selected>REF</option>
@@ -3356,10 +3356,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Fray-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Fray-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Fray-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Fray-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Fray-Total" disabled="disabled" value="[[@{EP2-Skill-Fray-Apt}+@{EP2-Skill-Fray-Base}+@{EP2-Skill-Fray-MorphBonus}+@{EP2-Skill-Fray-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Fray-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Fray-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Fray-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Fray-Total" disabled="disabled" value="[[@{EP2-Skill-Fray-Apt}+@{EP2-Skill-Fray-Base}+@{EP2-Skill-Fray-MorphBonus}+@{EP2-Skill-Fray-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Fray" checked /><span/></div>
                         </div>
                     </div>
@@ -3376,8 +3376,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-FreeFall-Name" value="Free Fall" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-FreeFall-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Free Fall (SOM)"><input type="text" name="attr_EP2-Skill-FreeFall-Name" value="Free Fall (SOM)" placeholder="Skill Name" disabled="disabled"/></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-FreeFall-Apt">
                                 <option value="@{EP2-CogTotal}">COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -3386,10 +3386,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-FreeFall-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-FreeFall-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-FreeFall-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-FreeFall-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-FreeFall-Total" disabled="disabled" value="[[@{EP2-Skill-FreeFall-Apt}+@{EP2-Skill-FreeFall-Base}+@{EP2-Skill-FreeFall-MorphBonus}+@{EP2-Skill-FreeFall-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-FreeFall-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-FreeFall-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-FreeFall-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-FreeFall-Total" disabled="disabled" value="[[@{EP2-Skill-FreeFall-Apt}+@{EP2-Skill-FreeFall-Base}+@{EP2-Skill-FreeFall-MorphBonus}+@{EP2-Skill-FreeFall-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-FreeFall" checked /><span/></div>
                         </div>
                     </div>
@@ -3406,8 +3406,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Guns-Name" value="Guns" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Guns-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Guns (REF)"><input type="text" name="attr_EP2-Skill-Guns-Name" value="Guns (REF)" placeholder="Skill Name" disabled="disabled"/></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Guns-Apt">
                                 <option value="@{EP2-CogTotal}">COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}" selected>REF</option>
@@ -3416,10 +3416,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Guns-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Guns-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Guns-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Guns-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Guns-Total" disabled="disabled" value="[[@{EP2-Skill-Guns-Apt}+@{EP2-Skill-Guns-Base}+@{EP2-Skill-Guns-MorphBonus}+@{EP2-Skill-Guns-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Guns-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Guns-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Guns-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Guns-Total" disabled="disabled" value="[[@{EP2-Skill-Guns-Apt}+@{EP2-Skill-Guns-Base}+@{EP2-Skill-Guns-MorphBonus}+@{EP2-Skill-Guns-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Guns" checked /><span/></div>
                         </div>
                     </div>
@@ -3436,8 +3436,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Hardware1-Name" value="Hardware 1" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Hardware1-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Hardware 1 (COG)"><input type="text" name="attr_EP2-Skill-Hardware1-Name" value="Hardware 1 (COG)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Hardware1-Apt">
                                 <option value="@{EP2-CogTotal}" selected>COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -3446,10 +3446,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Hardware1-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Hardware1-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Hardware1-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Hardware1-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Hardware1-Total" disabled="disabled" value="[[@{EP2-Skill-Hardware1-Apt}+@{EP2-Skill-Hardware1-Base}+@{EP2-Skill-Hardware1-MorphBonus}+@{EP2-Skill-Hardware1-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Hardware1-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Hardware1-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Hardware1-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Hardware1-Total" disabled="disabled" value="[[@{EP2-Skill-Hardware1-Apt}+@{EP2-Skill-Hardware1-Base}+@{EP2-Skill-Hardware1-MorphBonus}+@{EP2-Skill-Hardware1-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Hardware1" checked /><span/></div>
                         </div>
                     </div>
@@ -3466,8 +3466,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Hardware2-Name" value="Hardware 2" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Hardware2-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Hardware 2 (COG)"><input type="text" name="attr_EP2-Skill-Hardware2-Name" value="Hardware 2 (COG)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Hardware2-Apt">
                                 <option value="@{EP2-CogTotal}" selected>COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -3476,10 +3476,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Hardware2-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Hardware2-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Hardware2-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Hardware2-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Hardware2-Total" disabled="disabled" value="[[@{EP2-Skill-Hardware2-Apt}+@{EP2-Skill-Hardware2-Base}+@{EP2-Skill-Hardware2-MorphBonus}+@{EP2-Skill-Hardware2-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Hardware2-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Hardware2-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Hardware2-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Hardware2-Total" disabled="disabled" value="[[@{EP2-Skill-Hardware2-Apt}+@{EP2-Skill-Hardware2-Base}+@{EP2-Skill-Hardware2-MorphBonus}+@{EP2-Skill-Hardware2-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Hardware2" checked /><span/></div>
                         </div>
                     </div>
@@ -3496,8 +3496,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Infiltrate-Name" value="Infiltrate" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Infiltrate-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Infiltrate (REF)"><input type="text" name="attr_EP2-Skill-Infiltrate-Name" value="Infiltrate (REF)" placeholder="Skill Name" disabled="disabled"/></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Infiltrate-Apt">
                                 <option value="@{EP2-CogTotal}">COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}" selected>REF</option>
@@ -3506,10 +3506,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Infiltrate-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Infiltrate-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Infiltrate-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Infiltrate-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Infiltrate-Total" disabled="disabled" value="[[@{EP2-Skill-Infiltrate-Apt}+@{EP2-Skill-Infiltrate-Base}+@{EP2-Skill-Infiltrate-MorphBonus}+@{EP2-Skill-Infiltrate-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Infiltrate-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Infiltrate-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Infiltrate-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Infiltrate-Total" disabled="disabled" value="[[@{EP2-Skill-Infiltrate-Apt}+@{EP2-Skill-Infiltrate-Base}+@{EP2-Skill-Infiltrate-MorphBonus}+@{EP2-Skill-Infiltrate-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Infiltrate" checked /><span/></div>
                         </div>
                     </div>
@@ -3526,8 +3526,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Infosec-Name" value="Infosec" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Infosec-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Infosec (COG)"><input type="text" name="attr_EP2-Skill-Infosec-Name" value="Infosec (COG)" placeholder="Skill Name" disabled="disabled"/></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Infosec-Apt">
                                 <option value="@{EP2-CogTotal}" selected>COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -3536,10 +3536,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Infosec-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Infosec-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Infosec-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Infosec-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Infosec-Total" disabled="disabled" value="[[@{EP2-Skill-Infosec-Apt}+@{EP2-Skill-Infosec-Base}+@{EP2-Skill-Infosec-MorphBonus}+@{EP2-Skill-Infosec-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Infosec-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Infosec-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Infosec-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Infosec-Total" disabled="disabled" value="[[@{EP2-Skill-Infosec-Apt}+@{EP2-Skill-Infosec-Base}+@{EP2-Skill-Infosec-MorphBonus}+@{EP2-Skill-Infosec-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Infosec" checked /><span/></div>
                         </div>
                     </div>
@@ -3556,8 +3556,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Interface-Name" value="Interface" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Interface-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Interface (COG)"><input type="text" name="attr_EP2-Skill-Interface-Name" value="Interface (COG)" placeholder="Skill Name" disabled="disabled"/></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Interface-Apt">
                                 <option value="@{EP2-CogTotal}" selected>COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -3566,10 +3566,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Interface-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Interface-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Interface-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Interface-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Interface-Total" disabled="disabled" value="[[@{EP2-Skill-Interface-Apt}+@{EP2-Skill-Interface-Base}+@{EP2-Skill-Interface-MorphBonus}+@{EP2-Skill-Interface-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Interface-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Interface-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Interface-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Interface-Total" disabled="disabled" value="[[@{EP2-Skill-Interface-Apt}+@{EP2-Skill-Interface-Base}+@{EP2-Skill-Interface-MorphBonus}+@{EP2-Skill-Interface-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Interface" checked /><span/></div>
                         </div>
                     </div>
@@ -3586,8 +3586,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Kinesics-Name" value="Kinesics" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Kinesics-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Kinesics (SAV)"><input type="text" name="attr_EP2-Skill-Kinesics-Name" value="Kinesics (SAV)" placeholder="Skill Name" disabled="disabled"/></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Kinesics-Apt">
                                 <option value="@{EP2-CogTotal}">COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -3596,10 +3596,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Kinesics-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Kinesics-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Kinesics-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Kinesics-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Kinesics-Total" disabled="disabled" value="[[@{EP2-Skill-Kinesics-Apt}+@{EP2-Skill-Kinesics-Base}+@{EP2-Skill-Kinesics-MorphBonus}+@{EP2-Skill-Kinesics-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Kinesics-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Kinesics-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Kinesics-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Kinesics-Total" disabled="disabled" value="[[@{EP2-Skill-Kinesics-Apt}+@{EP2-Skill-Kinesics-Base}+@{EP2-Skill-Kinesics-MorphBonus}+@{EP2-Skill-Kinesics-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Kinesics" checked /><span/></div>
                         </div>
                     </div>
@@ -3616,8 +3616,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Medicine1-Name" value="Medicine 1" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Medicine1-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Medicine 1 (COG)"><input type="text" name="attr_EP2-Skill-Medicine1-Name" value="Medicine 1 (COG)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Medicine1-Apt">
                                 <option value="@{EP2-CogTotal}" selected>COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -3626,10 +3626,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Medicine1-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Medicine1-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Medicine1-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Medicine1-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Medicine1-Total" disabled="disabled" value="[[@{EP2-Skill-Medicine1-Apt}+@{EP2-Skill-Medicine1-Base}+@{EP2-Skill-Medicine1-MorphBonus}+@{EP2-Skill-Medicine1-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Medicine1-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Medicine1-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Medicine1-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Medicine1-Total" disabled="disabled" value="[[@{EP2-Skill-Medicine1-Apt}+@{EP2-Skill-Medicine1-Base}+@{EP2-Skill-Medicine1-MorphBonus}+@{EP2-Skill-Medicine1-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Medicine1" checked /><span/></div>
                         </div>
                     </div>
@@ -3646,8 +3646,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Medicine2-Name" value="Medicine 2" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Medicine2-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Medicine 2 (COG)"><input type="text" name="attr_EP2-Skill-Medicine2-Name" value="Medicine 2 (COG)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Medicine2-Apt">
                                 <option value="@{EP2-CogTotal}" selected>COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -3656,10 +3656,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Medicine2-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Medicine2-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Medicine2-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Medicine2-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Medicine2-Total" disabled="disabled" value="[[@{EP2-Skill-Medicine2-Apt}+@{EP2-Skill-Medicine2-Base}+@{EP2-Skill-Medicine2-MorphBonus}+@{EP2-Skill-Medicine2-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Medicine2-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Medicine2-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Medicine2-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Medicine2-Total" disabled="disabled" value="[[@{EP2-Skill-Medicine2-Apt}+@{EP2-Skill-Medicine2-Base}+@{EP2-Skill-Medicine2-MorphBonus}+@{EP2-Skill-Medicine2-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Medicine2" checked /><span/></div>
                         </div>
                     </div>
@@ -3676,8 +3676,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Melee-Name" value="Melee" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Melee-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Melee (SOM)"><input type="text" name="attr_EP2-Skill-Melee-Name" value="Melee (SOM)" placeholder="Skill Name" disabled="disabled"/></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Melee-Apt">
                                 <option value="@{EP2-CogTotal}">COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -3686,10 +3686,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Melee-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Melee-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Melee-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Melee-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Melee-Total" disabled="disabled" value="[[@{EP2-Skill-Melee-Apt}+@{EP2-Skill-Melee-Base}+@{EP2-Skill-Melee-MorphBonus}+@{EP2-Skill-Melee-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Melee-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Melee-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Melee-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Melee-Total" disabled="disabled" value="[[@{EP2-Skill-Melee-Apt}+@{EP2-Skill-Melee-Base}+@{EP2-Skill-Melee-MorphBonus}+@{EP2-Skill-Melee-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Melee" checked /><span/></div>
                         </div>
                     </div>
@@ -3706,8 +3706,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Perceive-Name" value="Perceive" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Perceive-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Perceive (INT)"><input type="text" name="attr_EP2-Skill-Perceive-Name" value="Perceive (INT)" placeholder="Skill Name" disabled="disabled"/></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Perceive-Apt">
                                 <option value="@{EP2-CogTotal}">COG</option>
                                 <option value="@{EP2-IntTotal}" selected>INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -3716,10 +3716,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Perceive-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Perceive-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Perceive-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Perceive-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Perceive-Total" disabled="disabled" value="[[@{EP2-Skill-Perceive-Apt}+@{EP2-Skill-Perceive-Base}+@{EP2-Skill-Perceive-MorphBonus}+@{EP2-Skill-Perceive-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Perceive-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Perceive-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Perceive-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Perceive-Total" disabled="disabled" value="[[@{EP2-Skill-Perceive-Apt}+@{EP2-Skill-Perceive-Base}+@{EP2-Skill-Perceive-MorphBonus}+@{EP2-Skill-Perceive-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Perceive" checked /><span/></div>
                         </div>
                     </div>
@@ -3736,8 +3736,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Persuade-Name" value="Persuade" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Persuade-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Persuade (SAV)"><input type="text" name="attr_EP2-Skill-Persuade-Name" value="Persuade (SAV)" placeholder="Skill Name" disabled="disabled"/></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Persuade-Apt">
                                 <option value="@{EP2-CogTotal}">COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -3746,10 +3746,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Persuade-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Persuade-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Persuade-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Persuade-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Persuade-Total" disabled="disabled" value="[[@{EP2-Skill-Persuade-Apt}+@{EP2-Skill-Persuade-Base}+@{EP2-Skill-Persuade-MorphBonus}+@{EP2-Skill-Persuade-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Persuade-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Persuade-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Persuade-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Persuade-Total" disabled="disabled" value="[[@{EP2-Skill-Persuade-Apt}+@{EP2-Skill-Persuade-Base}+@{EP2-Skill-Persuade-MorphBonus}+@{EP2-Skill-Persuade-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Persuade" checked /><span/></div>
                         </div>
                     </div>
@@ -3766,8 +3766,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Pilot1-Name" value="Pilot 1" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Pilot1-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Pilot 1 (REF)"><input type="text" name="attr_EP2-Skill-Pilot1-Name" value="Pilot 1 (REF)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Pilot1-Apt">
                                 <option value="@{EP2-CogTotal}">COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}" selected>REF</option>
@@ -3776,10 +3776,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Pilot1-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Pilot1-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Pilot1-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Pilot1-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Pilot1-Total" disabled="disabled" value="[[@{EP2-Skill-Pilot1-Apt}+@{EP2-Skill-Pilot1-Base}+@{EP2-Skill-Pilot1-MorphBonus}+@{EP2-Skill-Pilot1-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Pilot1-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Pilot1-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Pilot1-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Pilot1-Total" disabled="disabled" value="[[@{EP2-Skill-Pilot1-Apt}+@{EP2-Skill-Pilot1-Base}+@{EP2-Skill-Pilot1-MorphBonus}+@{EP2-Skill-Pilot1-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Pilot1" checked /><span/></div>
                         </div>
                     </div>
@@ -3796,8 +3796,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Pilot2-Name" value="Pilot 2" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Pilot2-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Pilot 2 (REF)"><input type="text" name="attr_EP2-Skill-Pilot2-Name" value="Pilot 2 (REF)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Pilot2-Apt">
                                 <option value="@{EP2-CogTotal}">COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}" selected>REF</option>
@@ -3806,10 +3806,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Pilot2-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Pilot2-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Pilot2-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Pilot2-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Pilot2-Total" disabled="disabled" value="[[@{EP2-Skill-Pilot2-Apt}+@{EP2-Skill-Pilot2-Base}+@{EP2-Skill-Pilot2-MorphBonus}+@{EP2-Skill-Pilot2-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Pilot2-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Pilot2-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Pilot2-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Pilot2-Total" disabled="disabled" value="[[@{EP2-Skill-Pilot2-Apt}+@{EP2-Skill-Pilot2-Base}+@{EP2-Skill-Pilot2-MorphBonus}+@{EP2-Skill-Pilot2-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Pilot2" checked /><span/></div>
                         </div>
                     </div>
@@ -3826,8 +3826,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Program-Name" value="Program" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Program-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Program (COG)"><input type="text" name="attr_EP2-Skill-Program-Name" value="Program (COG)" placeholder="Skill Name" disabled="disabled"/></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Program-Apt">
                                 <option value="@{EP2-CogTotal}" selected>COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -3836,10 +3836,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Program-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Program-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Program-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Program-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Program-Total" disabled="disabled" value="[[@{EP2-Skill-Program-Apt}+@{EP2-Skill-Program-Base}+@{EP2-Skill-Program-MorphBonus}+@{EP2-Skill-Program-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Program-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Program-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Program-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Program-Total" disabled="disabled" value="[[@{EP2-Skill-Program-Apt}+@{EP2-Skill-Program-Base}+@{EP2-Skill-Program-MorphBonus}+@{EP2-Skill-Program-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Program" checked /><span/></div>
                         </div>
                     </div>
@@ -3856,8 +3856,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Provoke-Name" value="Provoke" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Provoke-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Provoke (SAV)"><input type="text" name="attr_EP2-Skill-Provoke-Name" value="Provoke (SAV)" placeholder="Skill Name" disabled="disabled"/></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Provoke-Apt">
                                 <option value="@{EP2-CogTotal}">COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -3866,10 +3866,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Provoke-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Provoke-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Provoke-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Provoke-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Provoke-Total" disabled="disabled" value="[[@{EP2-Skill-Provoke-Apt}+@{EP2-Skill-Provoke-Base}+@{EP2-Skill-Provoke-MorphBonus}+@{EP2-Skill-Provoke-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Provoke-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Provoke-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Provoke-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Provoke-Total" disabled="disabled" value="[[@{EP2-Skill-Provoke-Apt}+@{EP2-Skill-Provoke-Base}+@{EP2-Skill-Provoke-MorphBonus}+@{EP2-Skill-Provoke-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Provoke" checked /><span/></div>
                         </div>
                     </div>
@@ -3886,8 +3886,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Psi-Name" value="Psi" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Psi-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Psi (WIL)"><input type="text" name="attr_EP2-Skill-Psi-Name" value="Psi (WIL)" placeholder="Skill Name" disabled="disabled"/></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Psi-Apt">
                                 <option value="@{EP2-CogTotal}">COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -3896,10 +3896,10 @@
                                 <option value="@{EP2-WilTotal}" selected>WIL</option>
                                 <option value="@{EP2-Skill-Psi-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Psi-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Psi-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Psi-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Psi-Total" disabled="disabled" value="[[@{EP2-Skill-Psi-Apt}+@{EP2-Skill-Psi-Base}+@{EP2-Skill-Psi-MorphBonus}+@{EP2-Skill-Psi-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Psi-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Psi-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Psi-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Psi-Total" disabled="disabled" value="[[@{EP2-Skill-Psi-Apt}+@{EP2-Skill-Psi-Base}+@{EP2-Skill-Psi-MorphBonus}+@{EP2-Skill-Psi-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Psi" checked /><span/></div>
                         </div>
                     </div>
@@ -3916,8 +3916,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Research-Name" value="Research" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Research-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Research (INT)"><input type="text" name="attr_EP2-Skill-Research-Name" value="Research (INT)" placeholder="Skill Name" disabled="disabled"/></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Research-Apt">
                                 <option value="@{EP2-CogTotal}">COG</option>
                                 <option value="@{EP2-IntTotal}" selected>INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -3926,10 +3926,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Research-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Research-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Research-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Research-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Research-Total" disabled="disabled" value="[[@{EP2-Skill-Research-Apt}+@{EP2-Skill-Research-Base}+@{EP2-Skill-Research-MorphBonus}+@{EP2-Skill-Research-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Research-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Research-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Research-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Research-Total" disabled="disabled" value="[[@{EP2-Skill-Research-Apt}+@{EP2-Skill-Research-Base}+@{EP2-Skill-Research-MorphBonus}+@{EP2-Skill-Research-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Research" checked /><span/></div>
                         </div>
                     </div>
@@ -3946,8 +3946,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Survival-Name" value="Survival" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Survival-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Survival (INT)"><input type="text" name="attr_EP2-Skill-Survival-Name" value="Survival (INT)" placeholder="Skill Name" disabled="disabled"/></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Survival-Apt">
                                 <option value="@{EP2-CogTotal}">COG</option>
                                 <option value="@{EP2-IntTotal}" selected>INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -3956,10 +3956,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Survival-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Survival-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Survival-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Survival-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Survival-Total" disabled="disabled" value="[[@{EP2-Skill-Survival-Apt}+@{EP2-Skill-Survival-Base}+@{EP2-Skill-Survival-MorphBonus}+@{EP2-Skill-Survival-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Survival-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Survival-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Survival-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Survival-Total" disabled="disabled" value="[[@{EP2-Skill-Survival-Apt}+@{EP2-Skill-Survival-Base}+@{EP2-Skill-Survival-MorphBonus}+@{EP2-Skill-Survival-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Survival" checked /><span/></div>
                         </div>
                     </div>
@@ -3976,8 +3976,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Academics1-Name" value="Academics 1" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Academics1-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Academics 1 (COG)"><input type="text" name="attr_EP2-Skill-Academics1-Name" value="Academics 1 (COG)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Academics1-Apt">
                                 <option value="@{EP2-CogTotal}" selected>COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -3986,10 +3986,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Academics1-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Academics1-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Academics1-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Academics1-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Academics1-Total" disabled="disabled" value="[[@{EP2-Skill-Academics1-Apt}+@{EP2-Skill-Academics1-Base}+@{EP2-Skill-Academics1-MorphBonus}+@{EP2-Skill-Academics1-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Academics1-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Academics1-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Academics1-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Academics1-Total" disabled="disabled" value="[[@{EP2-Skill-Academics1-Apt}+@{EP2-Skill-Academics1-Base}+@{EP2-Skill-Academics1-MorphBonus}+@{EP2-Skill-Academics1-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Academics1" checked /><span/></div>
                         </div>
                     </div>
@@ -4006,8 +4006,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Academics2-Name" value="Academics 2" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Academics2-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Academics 2 (COG)"><input type="text" name="attr_EP2-Skill-Academics2-Name" value="Academics 2 (COG)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Academics2-Apt">
                                 <option value="@{EP2-CogTotal}" selected>COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -4016,10 +4016,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Academics2-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Academics2-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Academics2-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Academics2-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Academics2-Total" disabled="disabled" value="[[@{EP2-Skill-Academics2-Apt}+@{EP2-Skill-Academics2-Base}+@{EP2-Skill-Academics2-MorphBonus}+@{EP2-Skill-Academics2-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Academics2-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Academics2-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Academics2-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Academics2-Total" disabled="disabled" value="[[@{EP2-Skill-Academics2-Apt}+@{EP2-Skill-Academics2-Base}+@{EP2-Skill-Academics2-MorphBonus}+@{EP2-Skill-Academics2-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Academics2" checked /><span/></div>
                         </div>
                     </div>
@@ -4036,8 +4036,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Academics3-Name" value="Academics 3" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Academics3-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Academics 3 (COG)"><input type="text" name="attr_EP2-Skill-Academics3-Name" value="Academics 3 (COG)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Academics3-Apt">
                                 <option value="@{EP2-CogTotal}" selected>COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -4046,10 +4046,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Academics3-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Academics3-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Academics3-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Academics3-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Academics3-Total" disabled="disabled" value="[[@{EP2-Skill-Academics3-Apt}+@{EP2-Skill-Academics3-Base}+@{EP2-Skill-Academics3-MorphBonus}+@{EP2-Skill-Academics3-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Academics3-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Academics3-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Academics3-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Academics3-Total" disabled="disabled" value="[[@{EP2-Skill-Academics3-Apt}+@{EP2-Skill-Academics3-Base}+@{EP2-Skill-Academics3-MorphBonus}+@{EP2-Skill-Academics3-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Academics3" checked /><span/></div>
                         </div>
                     </div>
@@ -4066,8 +4066,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Academics4-Name" value="Academics 4" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Academics4-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Academics 4 (COG)"><input type="text" name="attr_EP2-Skill-Academics4-Name" value="Academics 4 (COG)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Academics4-Apt">
                                 <option value="@{EP2-CogTotal}" selected>COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -4076,10 +4076,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Academics4-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Academics4-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Academics4-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Academics4-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Academics4-Total" disabled="disabled" value="[[@{EP2-Skill-Academics4-Apt}+@{EP2-Skill-Academics4-Base}+@{EP2-Skill-Academics4-MorphBonus}+@{EP2-Skill-Academics4-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Academics4-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Academics4-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Academics4-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Academics4-Total" disabled="disabled" value="[[@{EP2-Skill-Academics4-Apt}+@{EP2-Skill-Academics4-Base}+@{EP2-Skill-Academics4-MorphBonus}+@{EP2-Skill-Academics4-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Academics4" checked /><span/></div>
                         </div>
                     </div>
@@ -4096,8 +4096,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Art1-Name" value="Art 1" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Art1-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Art 1 (INT)"><input type="text" name="attr_EP2-Skill-Art1-Name" value="Art 1 (INT)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Art1-Apt">
                                 <option value="@{EP2-CogTotal}">COG</option>
                                 <option value="@{EP2-IntTotal}" selected>INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -4106,10 +4106,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Art1-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Art1-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Art1-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Art1-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Art1-Total" disabled="disabled" value="[[@{EP2-Skill-Art1-Apt}+@{EP2-Skill-Art1-Base}+@{EP2-Skill-Art1-MorphBonus}+@{EP2-Skill-Art1-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Art1-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Art1-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Art1-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Art1-Total" disabled="disabled" value="[[@{EP2-Skill-Art1-Apt}+@{EP2-Skill-Art1-Base}+@{EP2-Skill-Art1-MorphBonus}+@{EP2-Skill-Art1-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Art1" checked /><span/></div>
                         </div>
                     </div>
@@ -4126,8 +4126,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Art2-Name" value="Art 2" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Art2-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Art 2 (INT)"><input type="text" name="attr_EP2-Skill-Art2-Name" value="Art 2 (INT)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Art2-Apt">
                                 <option value="@{EP2-CogTotal}">COG</option>
                                 <option value="@{EP2-IntTotal}" selected>INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -4136,10 +4136,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Art2-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Art2-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Art2-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Art2-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Art2-Total" disabled="disabled" value="[[@{EP2-Skill-Art2-Apt}+@{EP2-Skill-Art2-Base}+@{EP2-Skill-Art2-MorphBonus}+@{EP2-Skill-Art2-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Art2-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Art2-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Art2-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Art2-Total" disabled="disabled" value="[[@{EP2-Skill-Art2-Apt}+@{EP2-Skill-Art2-Base}+@{EP2-Skill-Art2-MorphBonus}+@{EP2-Skill-Art2-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Art2" checked /><span/></div>
                         </div>
                     </div>
@@ -4156,8 +4156,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Art3-Name" value="Art 3" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Art3-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Art 3 (INT)"><input type="text" name="attr_EP2-Skill-Art3-Name" value="Art 3 (INT)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Art3-Apt">
                                 <option value="@{EP2-CogTotal}">COG</option>
                                 <option value="@{EP2-IntTotal}" selected>INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -4166,10 +4166,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Art3-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Art3-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Art3-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Art3-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Art3-Total" disabled="disabled" value="[[@{EP2-Skill-Art3-Apt}+@{EP2-Skill-Art3-Base}+@{EP2-Skill-Art3-MorphBonus}+@{EP2-Skill-Art3-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Art3-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Art3-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Art3-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Art3-Total" disabled="disabled" value="[[@{EP2-Skill-Art3-Apt}+@{EP2-Skill-Art3-Base}+@{EP2-Skill-Art3-MorphBonus}+@{EP2-Skill-Art3-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Art3" checked /><span/></div>
                         </div>
                     </div>
@@ -4186,8 +4186,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Art4-Name" value="Art 4" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Art4-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Art 4 (INT)"><input type="text" name="attr_EP2-Skill-Art4-Name" value="Art 4 (INT)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Art4-Apt">
                                 <option value="@{EP2-CogTotal}">COG</option>
                                 <option value="@{EP2-IntTotal}" selected>INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -4196,10 +4196,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Art4-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Art4-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Art4-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Art4-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Art4-Total" disabled="disabled" value="[[@{EP2-Skill-Art4-Apt}+@{EP2-Skill-Art4-Base}+@{EP2-Skill-Art4-MorphBonus}+@{EP2-Skill-Art4-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Art4-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Art4-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Art4-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Art4-Total" disabled="disabled" value="[[@{EP2-Skill-Art4-Apt}+@{EP2-Skill-Art4-Base}+@{EP2-Skill-Art4-MorphBonus}+@{EP2-Skill-Art4-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Art4" checked /><span/></div>
                         </div>
                     </div>
@@ -4216,8 +4216,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Interest1-Name" value="Interest 1" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Interest1-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Interest 1 (COG)"><input type="text" name="attr_EP2-Skill-Interest1-Name" value="Interest 1 (COG)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Interest1-Apt">
                                 <option value="@{EP2-CogTotal}" selected>COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -4226,10 +4226,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Interest1-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Interest1-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Interest1-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Interest1-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Interest1-Total" disabled="disabled" value="[[@{EP2-Skill-Interest1-Apt}+@{EP2-Skill-Interest1-Base}+@{EP2-Skill-Interest1-MorphBonus}+@{EP2-Skill-Interest1-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Interest1-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Interest1-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Interest1-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Interest1-Total" disabled="disabled" value="[[@{EP2-Skill-Interest1-Apt}+@{EP2-Skill-Interest1-Base}+@{EP2-Skill-Interest1-MorphBonus}+@{EP2-Skill-Interest1-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Interest1" checked /><span/></div>
                         </div>
                     </div>
@@ -4246,8 +4246,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Interest2-Name" value="Interest 2" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Interest2-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Interest 2 (COG)"><input type="text" name="attr_EP2-Skill-Interest2-Name" value="Interest 2 (COG)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Interest2-Apt">
                                 <option value="@{EP2-CogTotal}" selected>COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -4256,10 +4256,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Interest2-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Interest2-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Interest2-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Interest2-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Interest2-Total" disabled="disabled" value="[[@{EP2-Skill-Interest2-Apt}+@{EP2-Skill-Interest2-Base}+@{EP2-Skill-Interest2-MorphBonus}+@{EP2-Skill-Interest2-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Interest2-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Interest2-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Interest2-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Interest2-Total" disabled="disabled" value="[[@{EP2-Skill-Interest2-Apt}+@{EP2-Skill-Interest2-Base}+@{EP2-Skill-Interest2-MorphBonus}+@{EP2-Skill-Interest2-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Interest2" checked /><span/></div>
                         </div>
                     </div>
@@ -4276,8 +4276,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Interest3-Name" value="Interest 3" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Interest3-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Interest 3 (COG)"><input type="text" name="attr_EP2-Skill-Interest3-Name" value="Interest 3 (COG)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Interest3-Apt">
                                 <option value="@{EP2-CogTotal}" selected>COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -4286,10 +4286,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Interest3-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Interest3-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Interest3-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Interest3-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Interest3-Total" disabled="disabled" value="[[@{EP2-Skill-Interest3-Apt}+@{EP2-Skill-Interest3-Base}+@{EP2-Skill-Interest3-MorphBonus}+@{EP2-Skill-Interest3-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Interest3-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Interest3-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Interest3-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Interest3-Total" disabled="disabled" value="[[@{EP2-Skill-Interest3-Apt}+@{EP2-Skill-Interest3-Base}+@{EP2-Skill-Interest3-MorphBonus}+@{EP2-Skill-Interest3-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Interest3" checked /><span/></div>
                         </div>
                     </div>
@@ -4306,8 +4306,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Interest4-Name" value="Interest 4" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Interest4-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Interest 4 (COG)"><input type="text" name="attr_EP2-Skill-Interest4-Name" value="Interest 4 (COG)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Interest4-Apt">
                                 <option value="@{EP2-CogTotal}" selected>COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -4316,10 +4316,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Interest4-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Interest4-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Interest4-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Interest4-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Interest4-Total" disabled="disabled" value="[[@{EP2-Skill-Interest4-Apt}+@{EP2-Skill-Interest4-Base}+@{EP2-Skill-Interest4-MorphBonus}+@{EP2-Skill-Interest4-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Interest4-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Interest4-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Interest4-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Interest4-Total" disabled="disabled" value="[[@{EP2-Skill-Interest4-Apt}+@{EP2-Skill-Interest4-Base}+@{EP2-Skill-Interest4-MorphBonus}+@{EP2-Skill-Interest4-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Interest4" checked /><span/></div>
                         </div>
                     </div>
@@ -4336,8 +4336,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Profession1-Name" value="Profession 1" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Profession1-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Profession 1 (COG)"><input type="text" name="attr_EP2-Skill-Profession1-Name" value="Profession 1 (COG)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Profession1-Apt">
                                 <option value="@{EP2-CogTotal}" selected>COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -4346,10 +4346,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Profession1-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Profession1-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Profession1-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Profession1-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Profession1-Total" disabled="disabled" value="[[@{EP2-Skill-Profession1-Apt}+@{EP2-Skill-Profession1-Base}+@{EP2-Skill-Profession1-MorphBonus}+@{EP2-Skill-Profession1-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Profession1-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Profession1-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Profession1-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Profession1-Total" disabled="disabled" value="[[@{EP2-Skill-Profession1-Apt}+@{EP2-Skill-Profession1-Base}+@{EP2-Skill-Profession1-MorphBonus}+@{EP2-Skill-Profession1-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Profession1" checked /><span/></div>
                         </div>
                     </div>
@@ -4366,8 +4366,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Profession2-Name" value="Profession 2" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Profession2-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Profession 2 (COG)"><input type="text" name="attr_EP2-Skill-Profession2-Name" value="Profession 2 (COG)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Profession2-Apt">
                                 <option value="@{EP2-CogTotal}" selected>COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -4376,10 +4376,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Profession2-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Profession2-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Profession2-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Profession2-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Profession2-Total" disabled="disabled" value="[[@{EP2-Skill-Profession2-Apt}+@{EP2-Skill-Profession2-Base}+@{EP2-Skill-Profession2-MorphBonus}+@{EP2-Skill-Profession2-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Profession2-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Profession2-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Profession2-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Profession2-Total" disabled="disabled" value="[[@{EP2-Skill-Profession2-Apt}+@{EP2-Skill-Profession2-Base}+@{EP2-Skill-Profession2-MorphBonus}+@{EP2-Skill-Profession2-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Profession2" checked /><span/></div>
                         </div>
                     </div>
@@ -4396,8 +4396,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Profession3-Name" value="Profession 3" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Profession3-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Profession 3 (COG)"><input type="text" name="attr_EP2-Skill-Profession3-Name" value="Profession 3 (COG)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Profession3-Apt">
                                 <option value="@{EP2-CogTotal}" selected>COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -4406,10 +4406,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Profession3-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Profession3-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Profession3-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Profession3-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Profession3-Total" disabled="disabled" value="[[@{EP2-Skill-Profession3-Apt}+@{EP2-Skill-Profession3-Base}+@{EP2-Skill-Profession3-MorphBonus}+@{EP2-Skill-Profession3-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Profession3-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Profession3-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Profession3-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Profession3-Total" disabled="disabled" value="[[@{EP2-Skill-Profession3-Apt}+@{EP2-Skill-Profession3-Base}+@{EP2-Skill-Profession3-MorphBonus}+@{EP2-Skill-Profession3-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Profession3" checked /><span/></div>
                         </div>
                     </div>
@@ -4426,8 +4426,8 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Profession4-Name" value="Profession 4" placeholder="Skill Name" /></div>
-                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Profession4-Apt" disabled="disabled">
+                            <div class="sheet-table-cell sheet-cell-a" title="Profession 4 (COG)"><input type="text" name="attr_EP2-Skill-Profession4-Name" value="Profession 4 (COG)" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Profession4-Apt">
                                 <option value="@{EP2-CogTotal}" selected>COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
                                 <option value="@{EP2-RefTotal}">REF</option>
@@ -4436,10 +4436,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Profession4-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Profession4-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Profession4-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Profession4-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Profession4-Total" disabled="disabled" value="[[@{EP2-Skill-Profession4-Apt}+@{EP2-Skill-Profession4-Base}+@{EP2-Skill-Profession4-MorphBonus}+@{EP2-Skill-Profession4-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Profession4-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Profession4-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Profession4-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Profession4-Total" disabled="disabled" value="[[@{EP2-Skill-Profession4-Apt}+@{EP2-Skill-Profession4-Base}+@{EP2-Skill-Profession4-MorphBonus}+@{EP2-Skill-Profession4-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Profession4" checked /><span/></div>
                         </div>
                     </div>
@@ -4456,7 +4456,7 @@
                     <div class="sheet-table sheet-topBorderGray sheet-input-border sheet-select-border">
                         <div class="sheet-table-row">
                             <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
-                            <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EP2-Skill-Repeating-Name" value="Custom Skill" placeholder="Skill Name" /></div>
+                            <div class="sheet-table-cell sheet-cell-a" title="Custom skill"><input type="text" name="attr_EP2-Skill-Repeating-Name" value="Custom Skill" placeholder="Skill Name" /></div>
                             <div class="sheet-table-cell sheet-cell-10"><select name="attr_EP2-Skill-Repeating-Apt">
                                 <option value="@{EP2-CogTotal}" selected>COG</option>
                                 <option value="@{EP2-IntTotal}">INT</option>
@@ -4466,10 +4466,10 @@
                                 <option value="@{EP2-WilTotal}">WIL</option>
                                 <option value="@{EP2-Skill-Repeating-CusomtAptVal}">Custom</option></select>
                             </div>
-                            <div class="sheet-table-cell sheet-cell-rank"><input type="number" name="attr_EP2-Skill-Repeating-Base" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Repeating-MorphBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-15"><input type="number" name="attr_EP2-Skill-Repeating-MiscBonus" value="0" /></div>
-                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled"><input type="number" name="attr_EP2-Skill-Repeating-Total" disabled="disabled" value="[[@{EP2-Skill-Repeating-Apt}+@{EP2-Skill-Repeating-Base}+@{EP2-Skill-Repeating-MorphBonus}+@{EP2-Skill-Repeating-MiscBonus}]]" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-Repeating-Base" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-Repeating-MorphBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-Repeating-MiscBonus" value="0" /></div>
+                            <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-Repeating-Total" disabled="disabled" value="[[@{EP2-Skill-Repeating-Apt}+@{EP2-Skill-Repeating-Base}+@{EP2-Skill-Repeating-MorphBonus}+@{EP2-Skill-Repeating-MiscBonus}]]" /></div>
                             <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-Repeating" checked /><span/></div>
                         </div>
                     </div>
