@@ -93,24 +93,43 @@
                 </div>
             </div>
             <script type="text/worker">
-                on("ready change:EPv2CurrentSelectedMorph", function(){
-                    const morphProps = ["EPv2CurrentSelectedMorph", "EPv2Morph1Name", "EPv2Morph2Name", "EPv2Morph3Name",
-                    "EPv2Morph4Name", "EPv2Morph5Name", "EPv2Morph1Dur", "EPv2Morph2Dur", "EPv2Morph3Dur",
-                    "EPv2Morph4Dur", "EPv2Morph4Dur", "EPv2MorphsCurrentMorphName"]
-                    getAttrs(morphProps, function(values){
-                        if (values.EPv2CurrentSelectedMorph == 1){
-                            setAttrs({EPv2MorphsCurrentMorphName: values.EPv2Morph1Name});
-                        } else if (values.EPv2CurrentSelectedMorph == 2){
-                            setAttrs({EPv2MorphsCurrentMorphName: values.EPv2Morph2Name});
-                        } else if (values.EPv2CurrentSelectedMorph == 3){
-                            setAttrs({EPv2MorphsCurrentMorphName: values.EPv2Morph3Name});
-                        } else if (values.EPv2CurrentSelectedMorph == 4){
-                            setAttrs({EPv2MorphsCurrentMorphName: values.EPv2Morph4Name});
-                        } else if (values.EPv2CurrentSelectedMorph == 5){
-                            setAttrs({EPv2MorphsCurrentMorphName: values.EPv2Morph5Name});
-                        }
-                    });
-                });
+                on("ready change:EPv2CurrentSelectedMorph change:EPv2Morph1Name change:EPv2Morph2Name change:EPv2Morph3Name change:EPv2Morph4Name change:EPv2Morph5Name change:EPv2Morph1Dur change:EPv2Morph2Dur change:EPv2Morph3Dur change:EPv2Morph4Dur change:EPv2Morph5Dur",
+                    function(){
+                        const morphProps = [
+                            "EPv2CurrentSelectedMorph", "EPv2MorphsCurrentMorphName",
+                            "EPv2Morph1Name", "EPv2Morph2Name", "EPv2Morph3Name", "EPv2Morph4Name", "EPv2Morph5Name",
+                            "EPv2DUR", "EPv2Morph1Dur", "EPv2Morph2Dur", "EPv2Morph3Dur","EPv2Morph4Dur", "EPv2Morph5Dur"
+                        ]
+                        getAttrs(morphProps, function(values){
+                            if (values.EPv2CurrentSelectedMorph == 1){
+                                setAttrs({
+                                    EPv2MorphsCurrentMorphName: values.EPv2Morph1Name,
+                                    EPv2DUR: values.EPv2Morph1Dur
+                                });
+                            } else if (values.EPv2CurrentSelectedMorph == 2){
+                                setAttrs({
+                                    EPv2MorphsCurrentMorphName: values.EPv2Morph2Name,
+                                    EPv2DUR: values.EPv2Morph2Dur
+                                });
+                            } else if (values.EPv2CurrentSelectedMorph == 3){
+                                setAttrs({
+                                    EPv2MorphsCurrentMorphName: values.EPv2Morph3Name,
+                                    EPv2DUR: values.EPv2Morph3Dur
+                                });
+                            } else if (values.EPv2CurrentSelectedMorph == 4){
+                                setAttrs({
+                                    EPv2MorphsCurrentMorphName: values.EPv2Morph4Name,
+                                    EPv2DUR: values.EPv2Morph4Dur
+                                });
+                            } else if (values.EPv2CurrentSelectedMorph == 5){
+                                setAttrs({
+                                    EPv2MorphsCurrentMorphName: values.EPv2Morph5Name,
+                                    EPv2DUR: values.EPv2Morph5Dur
+                                });
+                            }
+                        });
+                    }
+                );
             </script>
         </div>
     </div> <!-- End General Section -->
@@ -506,19 +525,22 @@
                     </div>
                     <div class="sheet-table-row"><!-- Row 2 -->
                         <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Durability: Determined by morph">DUR</div>
-                        <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled" title="Durability: Determined by morph"><input type="number" name="attr_EP2-DUR" value="30" /></div>
+                        <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled" title="Durability: Determined by morph">
+                            <input type="hidden" name="attr_EPv2DUR" value="0"/>
+                            <input type="number" name="attr_EPv2-DUR-Display" value="@{EPv2DUR}" disabled="disabled" />
+                        </div>
                         <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Speed">SPD</div>
                         <div class="sheet-table-cell sheet-cell-15" title="Speed"><input type="number" name="attr_EP2-SPD" value="1" /></div>
                     </div>
                     <div class="sheet-table-row"><!-- Row 3 -->
                         <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Wound Threshold: DUR ÷ 5">WT</div>
-                        <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled" title="Wound Threshold: DUR ÷ 5"><input type="number" name="attr_EP2-WT" disabled="disabled" value="[[ceil(@{EP2-DUR}/5)]]" /></div>
+                        <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled" title="Wound Threshold: DUR ÷ 5"><input type="number" name="attr_EP2-WT" disabled="disabled" value="[[ceil(@{EPv2DUR}/5)]]" /></div>
                         <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Lucidity: WIL * 2">LUC</div>
                         <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled" title="Lucidity: WIL * 2"><input type="number" name="attr_EP2-LUC" disabled="disabled" value="[[(@{EP2-WilTotal}*2)}]]" /></div>
                     </div>
                     <div class="sheet-table-row"><!-- Row 4 -->
                         <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Death Rating: Bio=DUR*1.5; Synth=DUR*2">DR</div>
-                        <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled" title="Death Rating: Bio=DUR*1.5; Synth=DUR*2"><input type="number" name="attr_EP2-DR" value="[[ceil(@{EP2-DUR}*1.5)]]" disabled="disabled"/></div>
+                        <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled" title="Death Rating: Bio=DUR*1.5; Synth=DUR*2"><input type="number" name="attr_EP2-DR" value="[[ceil(@{EPv2DUR}*1.5)]]" disabled="disabled"/></div>
                         <div class="sheet-table-cell sheet-cell-boldRight sheet-cell-10" title="Trauma Threshold: LUC ÷ 5">TT</div>
                         <div class="sheet-table-cell sheet-cell-15 sheet-input-disabled" title="Trauma Threshold: LUC ÷ 5"><input type="number" name="attr_EP2-TT" disabled="disabled" value="[[ceil(@{EP2-LUC}/5)}]]" /></div>
                     </div>
@@ -5482,10 +5504,17 @@
         <div class="sheet-epv2_morphs-section-morph1 sheet-topBorderGray">
             <div class="sheet-table">
                 <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
-                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left">Morph 1 Name/Type:</div>
-                    <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EPv2Morph1Name" placeholder="Morph 1 name/type" value="Morph one"/></div>
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left" title="Morph 1 Name/Model">Morph 1 Name/Model:</div>
+                    <div class="sheet-table-cell sheet-cell-a" title="Morph 1 Name/Model"><input type="text" name="attr_EPv2Morph1Name" placeholder="Morph 1 name/type" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 Type">Type:</div>
+                    <div class="sheet-table-cell sheet-cell-8" title="Morph 1 Type">
+                        <select name="attr_EPv2Morph1Type">
+                            <option value="1.5" selected>Bio</option>
+                            <option value="2">Synth</option>
+                        </select>
+                    </div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 1 Sex">Sex:</div>
-                    <div class="sheet-table-cell sheet-cell-10" title="Morph 1 Sex"><input type="text" name="attr_EPv2Morph1Sex" placeholder="Morph 1 sex" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 1 Sex"><input type="text" name="attr_EPv2Morph1Sex" placeholder="Sex" /></div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 1 apparent age">Age:</div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 1 apparent age"><input type="number" name="attr_EPv2Morph1Age" value="0" /></div>
                     <div class="sheet-table-cell sheet-cell-10" title="Morph 1 aptitude maximum">Apt Max:</div>
@@ -5497,8 +5526,10 @@
                     <div class="sheet-table-cell sheet-cell-18" style="text-align:left" title="Click me to show/hide appearance details">Appearance/Desc <input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2Morph1Appearance-Hider" checked /><span/></div>
                     <div class="sheet-table-cell sheet-cell-10" title="Morph 1 durability">Durability:</div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 1 durability"><input type="number" name="attr_EPv2Morph1Dur" value="0" /></div>
-                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 Wound Threshold">WT:</div>
-                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 Wound Threshold"><input type="number" name="attr_EPv2Morph1WT" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 Wound Threshold (DUR ÷ 5)">WT:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 Wound Threshold (DUR ÷ 5)"><input type="number" name="attr_EPv2Morph1WT" value="[[@{EPv2Morph1Dur}/5]]" disabled="disabled"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 Death Rating: Bio=DUR*1.5; Synth=DUR*2"">DR:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 1 Death Rating: Bio=DUR*1.5; Synth=DUR*2""><input type="number" name="attr_EPv2Morph1WT" value="[[@{EPv2Morph1Dur}*@{EPv2Morph1Type}]]" disabled="disabled"/></div>
                     <div class="sheet-table-cell sheet-cell-10" title="Morph 1 speed modifier">Speed Mod:</div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 1 speed modifier"><input type="number" name="attr_EPv2Morph1SpdMod" value="0" /></div>
                     <div class="sheet-table-cell sheet-cell-15" title="Morph 1 Movement rate/mobility system">Mov Rate/Type:</div>
@@ -5625,6 +5656,68 @@
                 </div>
             </div>
             <br>
+            <!-- Eclipse Phase v2 Morph 1 Skill Bonues -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 1 Skill Bonuses<input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2Morph1Skill-Bonus-Hider" checked /><span/></div>
+            <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2Morph1Skill-Bonus-Hider" checked />
+            <div class="sheet-table sheet-hide-section">
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Athletics" /> Athletics </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Infosec" /> Infosec </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Pilot1" /> Pilot 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Academics1" /> Academics 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Interest1" /> Interest 1 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Deceive" /> Deceive </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Interface" /> Interface </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Pilot2" /> Pilot 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Academics2" /> Academics 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Interest2" /> Interest 2 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Fray" /> Fray </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Kinesics" /> Kinesics </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Program" /> Program </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Academics3" /> Academics 3 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Interest3" /> Interest 3 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_FreeFall" /> Free Fall </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Medicine1" /> Medicine 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Provoke" /> Provoke </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Academics4" /> Academics 4 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Interest4" /> Interest 4 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Guns" /> Guns </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Medicine2" /> Medicine 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Psi" /> Psi </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Art1" /> Art 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Profession1" /> Profession 1 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Hardware1" /> Hardware 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Melee" /> Melee </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Research" /> Research </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Art2" /> Art 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Profession2" /> Profession 2 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Hardware2" /> Hardware 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Perceive" /> Perceive </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Survival" /> Survival </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Art3" /> Art 3 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Profession3" /> Profession 3 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Infiltrate" /> Infiltrate </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Persuade" /> Persuade </div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Art4" /> Art 4 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph1SkillBonus_Profession4" /> Profession 4 </div>
+                </div>
+            </div>
+
             <!-- Eclipse Phase v2 Morph 1 Traits Repeating -->
             <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 1 Pos & Neg Traits / Advantages/Disadvantages</div>
             <fieldset class="repeating_Morph1-Traits">
@@ -5668,10 +5761,17 @@
         <div class="sheet-epv2_morphs-section-morph2 sheet-topBorderGray">
             <div class="sheet-table">
                 <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
-                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left">Morph 2 Name/Type:</div>
-                    <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EPv2Morph2Name" placeholder="Morph 2 name/type"  value="Morph two"/></div>
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left" title="Morph 2 Name/Model">Morph 2 Name/Model:</div>
+                    <div class="sheet-table-cell sheet-cell-a" title="Morph 2 Name/Model"><input type="text" name="attr_EPv2Morph2Name" placeholder="Morph 2 name/type" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 Type">Type:</div>
+                    <div class="sheet-table-cell sheet-cell-8" title="Morph 2 Type">
+                        <select name="attr_EPv2Morph2Type">
+                            <option value="1.5" selected>Bio</option>
+                            <option value="2">Synth</option>
+                        </select>
+                    </div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 2 Sex">Sex:</div>
-                    <div class="sheet-table-cell sheet-cell-10" title="Morph 2 Sex"><input type="text" name="attr_EPv2Morph2Sex" placeholder="Morph 2 sex" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 2 Sex"><input type="text" name="attr_EPv2Morph2Sex" placeholder="Sex" /></div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 2 apparent age">Age:</div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 2 apparent age"><input type="number" name="attr_EPv2Morph2Age" value="0" /></div>
                     <div class="sheet-table-cell sheet-cell-10" title="Morph 2 aptitude maximum">Apt Max:</div>
@@ -5683,8 +5783,10 @@
                     <div class="sheet-table-cell sheet-cell-18" style="text-align:left" title="Click me to show/hide appearance details">Appearance/Desc <input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2Morph2Appearance-Hider" checked /><span/></div>
                     <div class="sheet-table-cell sheet-cell-10" title="Morph 2 durability">Durability:</div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 2 durability"><input type="number" name="attr_EPv2Morph2Dur" value="0" /></div>
-                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 Wound Threshold">WT:</div>
-                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 Wound Threshold"><input type="number" name="attr_EPv2Morph2WT" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 Wound Threshold (DUR ÷ 5)">WT:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 Wound Threshold (DUR ÷ 5)"><input type="number" name="attr_EPv2Morph2WT" value="[[@{EPv2Morph2Dur}/5]]" disabled="disabled"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 Death Rating: Bio=DUR*1.5; Synth=DUR*2"">DR:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 2 Death Rating: Bio=DUR*1.5; Synth=DUR*2""><input type="number" name="attr_EPv2Morph2WT" value="[[@{EPv2Morph2Dur}*@{EPv2Morph2Type}]]" disabled="disabled"/></div>
                     <div class="sheet-table-cell sheet-cell-10" title="Morph 2 speed modifier">Speed Mod:</div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 2 speed modifier"><input type="number" name="attr_EPv2Morph2SpdMod" value="0" /></div>
                     <div class="sheet-table-cell sheet-cell-15" title="Morph 2 Movement rate/mobility system">Mov Rate/Type:</div>
@@ -5811,6 +5913,68 @@
                 </div>
             </div>
             <br>
+            <!-- Eclipse Phase v2 Morph 2 Skill Bonues -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 2 Skill Bonuses<input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2Morph2Skill-Bonus-Hider" checked /><span/></div>
+            <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2Morph2Skill-Bonus-Hider" checked />
+            <div class="sheet-table sheet-hide-section">
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Athletics" /> Athletics </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Infosec" /> Infosec </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Pilot1" /> Pilot 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Academics1" /> Academics 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Interest1" /> Interest 1 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Deceive" /> Deceive </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Interface" /> Interface </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Pilot2" /> Pilot 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Academics2" /> Academics 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Interest2" /> Interest 2 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Fray" /> Fray </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Kinesics" /> Kinesics </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Program" /> Program </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Academics3" /> Academics 3 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Interest3" /> Interest 3 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_FreeFall" /> Free Fall </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Medicine1" /> Medicine 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Provoke" /> Provoke </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Academics4" /> Academics 4 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Interest4" /> Interest 4 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Guns" /> Guns </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Medicine2" /> Medicine 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Psi" /> Psi </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Art1" /> Art 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Profession1" /> Profession 1 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Hardware1" /> Hardware 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Melee" /> Melee </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Research" /> Research </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Art2" /> Art 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Profession2" /> Profession 2 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Hardware2" /> Hardware 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Perceive" /> Perceive </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Survival" /> Survival </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Art3" /> Art 3 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Profession3" /> Profession 3 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Infiltrate" /> Infiltrate </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Persuade" /> Persuade </div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Art4" /> Art 4 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph2SkillBonus_Profession4" /> Profession 4 </div>
+                </div>
+            </div>
+
             <!-- Eclipse Phase v2 Morph 2 Traits Repeating -->
             <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 2 Pos & Neg Traits / Advantages/Disadvantages</div>
             <fieldset class="repeating_Morph2-Traits">
@@ -5854,10 +6018,17 @@
         <div class="sheet-epv2_morphs-section-morph3 sheet-topBorderGray">
             <div class="sheet-table">
                 <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
-                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left">Morph 3 Name/Type:</div>
-                    <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EPv2Morph3Name" placeholder="Morph 3 name/type"  value="Morph three"/></div>
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left" title="Morph 3 Name/Model">Morph 3 Name/Model:</div>
+                    <div class="sheet-table-cell sheet-cell-a" title="Morph 3 Name/Model"><input type="text" name="attr_EPv2Morph3Name" placeholder="Morph 3 name/type" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 Type">Type:</div>
+                    <div class="sheet-table-cell sheet-cell-8" title="Morph 3 Type">
+                        <select name="attr_EPv2Morph3Type">
+                            <option value="1.5" selected>Bio</option>
+                            <option value="2">Synth</option>
+                        </select>
+                    </div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 3 Sex">Sex:</div>
-                    <div class="sheet-table-cell sheet-cell-10" title="Morph 3 Sex"><input type="text" name="attr_EPv2Morph3Sex" placeholder="Morph 3 sex" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 3 Sex"><input type="text" name="attr_EPv2Morph3Sex" placeholder="Sex" /></div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 3 apparent age">Age:</div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 3 apparent age"><input type="number" name="attr_EPv2Morph3Age" value="0" /></div>
                     <div class="sheet-table-cell sheet-cell-10" title="Morph 3 aptitude maximum">Apt Max:</div>
@@ -5869,8 +6040,10 @@
                     <div class="sheet-table-cell sheet-cell-18" style="text-align:left" title="Click me to show/hide appearance details">Appearance/Desc <input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2Morph3Appearance-Hider" checked /><span/></div>
                     <div class="sheet-table-cell sheet-cell-10" title="Morph 3 durability">Durability:</div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 3 durability"><input type="number" name="attr_EPv2Morph3Dur" value="0" /></div>
-                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 Wound Threshold">WT:</div>
-                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 Wound Threshold"><input type="number" name="attr_EPv2Morph3WT" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 Wound Threshold (DUR ÷ 5)">WT:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 Wound Threshold (DUR ÷ 5)"><input type="number" name="attr_EPv2Morph3WT" value="[[@{EPv2Morph3Dur}/5]]" disabled="disabled"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 Death Rating: Bio=DUR*1.5; Synth=DUR*2"">DR:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 3 Death Rating: Bio=DUR*1.5; Synth=DUR*2""><input type="number" name="attr_EPv2Morph3WT" value="[[@{EPv2Morph3Dur}*@{EPv2Morph3Type}]]" disabled="disabled"/></div>
                     <div class="sheet-table-cell sheet-cell-10" title="Morph 3 speed modifier">Speed Mod:</div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 3 speed modifier"><input type="number" name="attr_EPv2Morph3SpdMod" value="0" /></div>
                     <div class="sheet-table-cell sheet-cell-15" title="Morph 3 Movement rate/mobility system">Mov Rate/Type:</div>
@@ -5997,6 +6170,68 @@
                 </div>
             </div>
             <br>
+            <!-- Eclipse Phase v2 Morph 3 Skill Bonues -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 3 Skill Bonuses<input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2Morph3Skill-Bonus-Hider" checked /><span/></div>
+            <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2Morph3Skill-Bonus-Hider" checked />
+            <div class="sheet-table sheet-hide-section">
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Athletics" /> Athletics </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Infosec" /> Infosec </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Pilot1" /> Pilot 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Academics1" /> Academics 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Interest1" /> Interest 1 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Deceive" /> Deceive </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Interface" /> Interface </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Pilot2" /> Pilot 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Academics2" /> Academics 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Interest2" /> Interest 2 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Fray" /> Fray </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Kinesics" /> Kinesics </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Program" /> Program </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Academics3" /> Academics 3 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Interest3" /> Interest 3 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_FreeFall" /> Free Fall </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Medicine1" /> Medicine 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Provoke" /> Provoke </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Academics4" /> Academics 4 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Interest4" /> Interest 4 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Guns" /> Guns </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Medicine2" /> Medicine 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Psi" /> Psi </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Art1" /> Art 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Profession1" /> Profession 1 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Hardware1" /> Hardware 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Melee" /> Melee </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Research" /> Research </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Art2" /> Art 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Profession2" /> Profession 2 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Hardware2" /> Hardware 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Perceive" /> Perceive </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Survival" /> Survival </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Art3" /> Art 3 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Profession3" /> Profession 3 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Infiltrate" /> Infiltrate </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Persuade" /> Persuade </div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Art4" /> Art 4 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph3SkillBonus_Profession4" /> Profession 4 </div>
+                </div>
+            </div>
+
             <!-- Eclipse Phase v2 Morph 3 Traits Repeating -->
             <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 3 Pos & Neg Traits / Advantages/Disadvantages</div>
             <fieldset class="repeating_Morph3-Traits">
@@ -6040,10 +6275,17 @@
         <div class="sheet-epv2_morphs-section-morph4 sheet-topBorderGray">
             <div class="sheet-table">
                 <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
-                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left">Morph 4 Name/Type:</div>
-                    <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EPv2Morph4Name" placeholder="Morph 4 name/type"  value="Morph four"/></div>
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left" title="Morph 4 Name/Model">Morph 4 Name/Model:</div>
+                    <div class="sheet-table-cell sheet-cell-a" title="Morph 4 Name/Model"><input type="text" name="attr_EPv2Morph4Name" placeholder="Morph 4 name/type" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 Type">Type:</div>
+                    <div class="sheet-table-cell sheet-cell-8" title="Morph 4 Type">
+                        <select name="attr_EPv2Morph4Type">
+                            <option value="1.5" selected>Bio</option>
+                            <option value="2">Synth</option>
+                        </select>
+                    </div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 4 Sex">Sex:</div>
-                    <div class="sheet-table-cell sheet-cell-10" title="Morph 4 Sex"><input type="text" name="attr_EPv2Morph4Sex" placeholder="Morph 4 sex" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 4 Sex"><input type="text" name="attr_EPv2Morph4Sex" placeholder="Sex" /></div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 4 apparent age">Age:</div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 4 apparent age"><input type="number" name="attr_EPv2Morph4Age" value="0" /></div>
                     <div class="sheet-table-cell sheet-cell-10" title="Morph 4 aptitude maximum">Apt Max:</div>
@@ -6055,8 +6297,10 @@
                     <div class="sheet-table-cell sheet-cell-18" style="text-align:left" title="Click me to show/hide appearance details">Appearance/Desc <input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2Morph4Appearance-Hider" checked /><span/></div>
                     <div class="sheet-table-cell sheet-cell-10" title="Morph 4 durability">Durability:</div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 4 durability"><input type="number" name="attr_EPv2Morph4Dur" value="0" /></div>
-                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 Wound Threshold">WT:</div>
-                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 Wound Threshold"><input type="number" name="attr_EPv2Morph4WT" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 Wound Threshold (DUR ÷ 5)">WT:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 Wound Threshold (DUR ÷ 5)"><input type="number" name="attr_EPv2Morph4WT" value="[[@{EPv2Morph4Dur}/5]]" disabled="disabled"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 Death Rating: Bio=DUR*1.5; Synth=DUR*2"">DR:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 4 Death Rating: Bio=DUR*1.5; Synth=DUR*2""><input type="number" name="attr_EPv2Morph4WT" value="[[@{EPv2Morph4Dur}*@{EPv2Morph4Type}]]" disabled="disabled"/></div>
                     <div class="sheet-table-cell sheet-cell-10" title="Morph 4 speed modifier">Speed Mod:</div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 4 speed modifier"><input type="number" name="attr_EPv2Morph4SpdMod" value="0" /></div>
                     <div class="sheet-table-cell sheet-cell-15" title="Morph 4 Movement rate/mobility system">Mov Rate/Type:</div>
@@ -6183,6 +6427,68 @@
                 </div>
             </div>
             <br>
+            <!-- Eclipse Phase v2 Morph 4 Skill Bonues -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 4 Skill Bonuses<input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2Morph4Skill-Bonus-Hider" checked /><span/></div>
+            <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2Morph4Skill-Bonus-Hider" checked />
+            <div class="sheet-table sheet-hide-section">
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Athletics" /> Athletics </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Infosec" /> Infosec </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Pilot1" /> Pilot 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Academics1" /> Academics 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Interest1" /> Interest 1 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Deceive" /> Deceive </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Interface" /> Interface </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Pilot2" /> Pilot 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Academics2" /> Academics 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Interest2" /> Interest 2 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Fray" /> Fray </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Kinesics" /> Kinesics </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Program" /> Program </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Academics3" /> Academics 3 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Interest3" /> Interest 3 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_FreeFall" /> Free Fall </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Medicine1" /> Medicine 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Provoke" /> Provoke </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Academics4" /> Academics 4 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Interest4" /> Interest 4 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Guns" /> Guns </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Medicine2" /> Medicine 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Psi" /> Psi </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Art1" /> Art 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Profession1" /> Profession 1 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Hardware1" /> Hardware 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Melee" /> Melee </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Research" /> Research </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Art2" /> Art 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Profession2" /> Profession 2 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Hardware2" /> Hardware 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Perceive" /> Perceive </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Survival" /> Survival </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Art3" /> Art 3 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Profession3" /> Profession 3 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Infiltrate" /> Infiltrate </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Persuade" /> Persuade </div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Art4" /> Art 4 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph4SkillBonus_Profession4" /> Profession 4 </div>
+                </div>
+            </div>
+
             <!-- Eclipse Phase v2 Morph 4 Traits Repeating -->
             <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 4 Pos & Neg Traits / Advantages/Disadvantages</div>
             <fieldset class="repeating_Morph4-Traits">
@@ -6226,10 +6532,17 @@
         <div class="sheet-epv2_morphs-section-morph5 sheet-topBorderGray">
             <div class="sheet-table">
                 <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
-                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left">Morph 5 Name/Type:</div>
-                    <div class="sheet-table-cell sheet-cell-a"><input type="text" name="attr_EPv2Morph5Name" placeholder="Morph 5 name/type"  value="Morph five"/></div>
+                    <div class="sheet-table-cell sheet-cell-18" style="text-align:left" title="Morph 5 Name/Model">Morph 5 Name/Model:</div>
+                    <div class="sheet-table-cell sheet-cell-a" title="Morph 5 Name/Model"><input type="text" name="attr_EPv2Morph5Name" placeholder="Morph 5 name/type" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 Type">Type:</div>
+                    <div class="sheet-table-cell sheet-cell-8" title="Morph 5 Type">
+                        <select name="attr_EPv2Morph5Type">
+                            <option value="1.5" selected>Bio</option>
+                            <option value="2">Synth</option>
+                        </select>
+                    </div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 5 Sex">Sex:</div>
-                    <div class="sheet-table-cell sheet-cell-10" title="Morph 5 Sex"><input type="text" name="attr_EPv2Morph5Sex" placeholder="Morph 5 sex" /></div>
+                    <div class="sheet-table-cell sheet-cell-10" title="Morph 5 Sex"><input type="text" name="attr_EPv2Morph5Sex" placeholder="Sex" /></div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 5 apparent age">Age:</div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 5 apparent age"><input type="number" name="attr_EPv2Morph5Age" value="0" /></div>
                     <div class="sheet-table-cell sheet-cell-10" title="Morph 5 aptitude maximum">Apt Max:</div>
@@ -6241,8 +6554,10 @@
                     <div class="sheet-table-cell sheet-cell-18" style="text-align:left" title="Click me to show/hide appearance details">Appearance/Desc <input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2Morph5Appearance-Hider" checked /><span/></div>
                     <div class="sheet-table-cell sheet-cell-10" title="Morph 5 durability">Durability:</div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 5 durability"><input type="number" name="attr_EPv2Morph5Dur" value="0" /></div>
-                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 Wound Threshold">WT:</div>
-                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 Wound Threshold"><input type="number" name="attr_EPv2Morph5WT" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 Wound Threshold (DUR ÷ 5)">WT:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 Wound Threshold (DUR ÷ 5)"><input type="number" name="attr_EPv2Morph5WT" value="[[@{EPv2Morph5Dur}/5]]" disabled="disabled"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 Death Rating: Bio=DUR*1.5; Synth=DUR*2"">DR:</div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Morph 5 Death Rating: Bio=DUR*1.5; Synth=DUR*2""><input type="number" name="attr_EPv2Morph5WT" value="[[@{EPv2Morph5Dur}*@{EPv2Morph5Type}]]" disabled="disabled"/></div>
                     <div class="sheet-table-cell sheet-cell-10" title="Morph 5 speed modifier">Speed Mod:</div>
                     <div class="sheet-table-cell sheet-cell-5" title="Morph 5 speed modifier"><input type="number" name="attr_EPv2Morph5SpdMod" value="0" /></div>
                     <div class="sheet-table-cell sheet-cell-15" title="Morph 5 Movement rate/mobility system">Mov Rate/Type:</div>
@@ -6369,6 +6684,68 @@
                 </div>
             </div>
             <br>
+            <!-- Eclipse Phase v2 Morph 5 Skill Bonues -->
+            <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 5 Skill Bonuses<input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2Morph5Skill-Bonus-Hider" checked /><span/></div>
+            <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2Morph5Skill-Bonus-Hider" checked />
+            <div class="sheet-table sheet-hide-section">
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Athletics" /> Athletics </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Infosec" /> Infosec </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Pilot1" /> Pilot 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Academics1" /> Academics 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Interest1" /> Interest 1 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Deceive" /> Deceive </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Interface" /> Interface </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Pilot2" /> Pilot 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Academics2" /> Academics 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Interest2" /> Interest 2 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Fray" /> Fray </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Kinesics" /> Kinesics </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Program" /> Program </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Academics3" /> Academics 3 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Interest3" /> Interest 3 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_FreeFall" /> Free Fall </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Medicine1" /> Medicine 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Provoke" /> Provoke </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Academics4" /> Academics 4 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Interest4" /> Interest 4 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Guns" /> Guns </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Medicine2" /> Medicine 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Psi" /> Psi </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Art1" /> Art 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Profession1" /> Profession 1 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Hardware1" /> Hardware 1 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Melee" /> Melee </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Research" /> Research </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Art2" /> Art 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Profession2" /> Profession 2 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Hardware2" /> Hardware 2 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Perceive" /> Perceive </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Survival" /> Survival </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Art3" /> Art 3 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Profession3" /> Profession 3 </div>
+                </div>
+                <div class="sheet-table-row">
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Infiltrate" /> Infiltrate </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Persuade" /> Persuade </div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Art4" /> Art 4 </div>
+                    <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph5SkillBonus_Profession4" /> Profession 4 </div>
+                </div>
+            </div>
+
             <!-- Eclipse Phase v2 Morph 5 Traits Repeating -->
             <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 5 Pos & Neg Traits / Advantages/Disadvantages</div>
             <fieldset class="repeating_Morph5-Traits">

@@ -107,6 +107,7 @@
 .sheet-cell-2 { width: 2%; }
 .sheet-cell-5 { width: 5%; }
 .sheet-cell-7 { width: 7%; }
+.sheet-cell-8 { width: 8%; }
 .sheet-cell-10 { width: 10%; }
 .sheet-cell-12 { width: 12%; }
 .sheet-cell-15 { width: 15%; }
@@ -212,6 +213,7 @@ select {
     padding: 0;
     padding-left: 3px;
     padding-right: 3px;
+    width: 100%;
 }
 
 input[type="text"] {
@@ -277,6 +279,10 @@ input[type="number"]::-webkit-outer-spin-button {
 /* -- Checkbox hider stuff -- */
 .sheet-hider:checked ~ .sheet-hide-section {
     display: none;
+}
+
+.sheet-hider:not(:checked) ~ .sheet-hide-section {
+    display: block;
 }
 
 /*this hides the checkbox*/
