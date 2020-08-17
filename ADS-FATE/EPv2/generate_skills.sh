@@ -81,7 +81,7 @@ while read line; do
                     </div>
                     <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2-Skill-'"${line_nospaces}"'-Apt-display" value="@{EP2-Skill-'"${line_nospaces}"'-Apt}" disabled="disabled" /></div>
                     <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2-Skill-'"${line_nospaces}"'-Base" value="0" /></div>
-                    <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-'"${line_nospaces}"'-MorphBonus" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph"><input type="number" name="attr_EP2-Skill-'"${line_nospaces}"'-MorphBonus" value="0" disabled="disabled"/></div>
                     <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2-Skill-'"${line_nospaces}"'-MiscBonus" value="0" /></div>
                     <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Skill total from all sources"><input type="number" name="attr_EP2-Skill-'"${line_nospaces}"'-Total" disabled="disabled" value="[[@{EP2-Skill-'"${line_nospaces}"'-Apt}+@{EP2-Skill-'"${line_nospaces}"'-Base}+@{EP2-Skill-'"${line_nospaces}"'-MorphBonus}+@{EP2-Skill-'"${line_nospaces}"'-MiscBonus}]]" /></div>
                     <div class="sheet-table-cell sheet-cell-button"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EP2-Skill-Details-Hider-'"${line_nospaces}"'" checked /><span/></div>
@@ -89,7 +89,7 @@ while read line; do
             </div>
             <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP2-Skill-Details-Hider-'"${line_nospaces}"'" checked />
             <div class="sheet-input-border sheet-hide-section">
-                <div class="sheet-table-cell sheet-cell-a" style="padding-right:5px"><textarea class="sheet-multiline-input" name="attr_EP2-Skill-'"${line_nospaces}"'-Name-Details" placeholder="'"${line_ary[0]}"' details"></textarea></div>
+                <div class="sheet-table-cell sheet-cell-a" style="padding-right:5px"><textarea class="sheet-multiline-input" name="attr_EP2-Skill-'"${line_nospaces}"'-Name-Details" placeholder="'"${line_ary[0]}"' specializations and details"></textarea></div>
                 <div class="sheet-table-cell sheet-cell-7" style="font-weight:bold; min-width:55px" title="Custom Aptitude Value for if '"'Custom'"' is selected in the Aptitude drop-down">Custom Apt Val:</div>
                 <div class="sheet-table-cell sheet-cell-rank" title="Custom Aptitude Value for if '"'Custom'"' is selected in the Aptitude drop-down"><input type="number" name="attr_EP2-Skill-'"${line_nospaces}"'-CusomtAptVal" value="0" /></div>
             </div>
@@ -107,7 +107,8 @@ echo '
                     <div class="sheet-table-cell sheet-cell-button"><button type="roll" value=""></button></div>
                     <div class="sheet-table-cell sheet-cell-a" title="Custom skill"><input type="text" name="attr_EP2-Skill-Repeating-Name" value="Custom Skill" placeholder="Skill Name" /></div>
                     <div class="sheet-table-cell sheet-cell-10" title="Associated aptitude for skill"><select name="attr_EP2-Skill-Repeating-Apt">
-                        <option value="@{EP2-CogTotal}" selected>COG</option>
+                        <option value="0" selected></option>
+                        <option value="@{EP2-CogTotal}">COG</option>
                         <option value="@{EP2-IntTotal}">INT</option>
                         <option value="@{EP2-RefTotal}">REF</option>
                         <option value="@{EP2-SavTotal}">SAV</option>
@@ -125,7 +126,7 @@ echo '
             </div>
             <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP2-Skill-Details-Hider-Repeating" checked />
             <div class="sheet-input-border sheet-hide-section">
-                <div class="sheet-table-cell sheet-cell-a" style="padding-right:5px"><textarea class="sheet-multiline-input" name="attr_EP2-Skill-Repeating-Name-Details" placeholder="Custom skill details"></textarea></div>
+                <div class="sheet-table-cell sheet-cell-a" style="padding-right:5px"><textarea class="sheet-multiline-input" name="attr_EP2-Skill-Repeating-Name-Details" placeholder="Custom skill specializations and details"></textarea></div>
                 <div class="sheet-table-cell sheet-cell-7" style="font-weight:bold; min-width:55px" title="Custom Aptitude Value for if '"'Custom'"' is selected in the Aptitude drop-down">Custom Apt Val:</div>
                 <div class="sheet-table-cell sheet-cell-rank" title="Custom Aptitude Value for if '"'Custom'"' is selected in the Aptitude drop-down"><input type="number" name="attr_EP2-Skill-Repeating-CusomtAptVal" value="0" /></div>
             </div>

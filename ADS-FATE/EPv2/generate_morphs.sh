@@ -32,7 +32,7 @@ for i in 1 2 3 4 5; do
         <div class="sheet-table">
             <div class="sheet-table-row sheet-input-border sheet-cell-boldRight">
                 <div class="sheet-table-cell sheet-cell-18" style="text-align:left" title="Morph '"${i}"' Name/Model">Morph '"${i}"' Name/Model:</div>
-                <div class="sheet-table-cell sheet-cell-a" title="Morph '"${i}"' Name/Model"><input type="text" name="attr_EPv2Morph'"${i}"'Name" placeholder="Morph '"${i}"' name/type" /></div>
+                <div class="sheet-table-cell sheet-cell-a" title="Morph '"${i}"' Name/Model"><input type="text" name="attr_EPv2Morph'"${i}"'Name" placeholder="Morph '"${i}"' Name/Model (no numbers!)" value="Morph Name/Model (no numbers!)"/></div>
                 <div class="sheet-table-cell sheet-cell-5" title="Morph '"${i}"' Type">Type:</div>
                 <div class="sheet-table-cell sheet-cell-8" title="Morph '"${i}"' Type">
                     <select name="attr_EPv2Morph'"${i}"'Type">
@@ -103,90 +103,99 @@ for i in 1 2 3 4 5; do
                 <div class="sheet-table-cell sheet-cell-7" title="Flex - morph total bonus">Flex:</div>
                 <div class="sheet-table-cell sheet-cell-3 sheet-input-disabled" title="Flex">
                     <input type="number" name="attr_EPv2Morph'"${i}"'FlexBonusTotal" value="[[@{EPv2Morph'"${i}"'FlexBonusBase}+@{EPv2Morph'"${i}"'FlexBonusMisc}]]" disabled /></div>
-
                 <div class="sheet-table-cell sheet-cell-button" title="Click me to show/hide input cells"><input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2Morph'"${i}"'Apt-Bonus-Hider" checked /><span/></div>
             </div>
-            <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2Morph'"${i}"'Apt-Bonus-Hider" checked />
-            <div class="sheet-table-row sheet-hide-section" style="text-align:right">
-                <div class="sheet-table-cell sheet-cell-5" title="Cognition base Aptitude bonus from Morph">Base:</div>
-                <div class="sheet-table-cell sheet-cell-3" title="Cognition base Aptitude bonus from Morph">
-                    <input type="number" name="attr_EPv2Morph'"${i}"'CogBonusBase" value="0" /> </div>
-                <div class="sheet-table-cell sheet-cell-5" title="Intuition base Aptitude bonus from Morph">Base:</div>
-                <div class="sheet-table-cell sheet-cell-3" title="Intuition base Aptitude bonus from Morph">
-                    <input type="number" name="attr_EPv2Morph'"${i}"'IntBonusBase" value="0" /></div>
-                <div class="sheet-table-cell sheet-cell-5" title="Reflexes base Aptitude bonus from Morph">Base:</div>
-                <div class="sheet-table-cell sheet-cell-3" title="Reflexes base Aptitude bonus from Morph">
-                    <input type="number" name="attr_EPv2Morph'"${i}"'RefBonusBase" value="0" /></div>
-                <div class="sheet-table-cell sheet-cell-5" title="Savvy base Aptitude bonus from Morph">Base:</div>
-                <div class="sheet-table-cell sheet-cell-3" title="Savvy base Aptitude bonus from Morph">
-                    <input type="number" name="attr_EPv2Morph'"${i}"'SavBonusBase" value="0" /></div>
-                <div class="sheet-table-cell sheet-cell-5" title="Somatics base Aptitude bonus from Morph">Base:</div>
-                <div class="sheet-table-cell sheet-cell-3" title="Somatics base Aptitude bonus from Morph">
-                    <input type="number" name="attr_EPv2Morph'"${i}"'SomBonusBase" value="0"/></div>
-                <div class="sheet-table-cell sheet-cell-5" title="Willpower base Aptitude bonus from Morph">Base:</div>
-                <div class="sheet-table-cell sheet-cell-3" title="Willpower base Aptitude bonus from Morph">
-                    <input type="number" name="attr_EPv2Morph'"${i}"'WilBonusBase" value="0" /></div>
-                <div class="sheet-table-cell sheet-cell-a"></div>
-                <div class="sheet-table-cell sheet-cell-5" title="Insight pool base bonus from Morph">Base:</div>
-                <div class="sheet-table-cell sheet-cell-3" title="Insight pool base bonus from Morph">
-                    <input type="number" name="attr_EPv2Morph'"${i}"'InsightBonusBase" value="0" /></div>
-                <div class="sheet-table-cell sheet-cell-5" title="Moxie pool base bonus from Morph">Base:</div>
-                <div class="sheet-table-cell sheet-cell-3" title="Moxie pool base bonus from Morph">
-                    <input type="number" name="attr_EPv2Morph'"${i}"'MoxieBonusBase" value="0" /></div>
-                <div class="sheet-table-cell sheet-cell-5" title="Vigor pool base bonus from Morph">Base:</div>
-                <div class="sheet-table-cell sheet-cell-3" title="Vigor pool base bonus from Morph">
-                    <input type="number" name="attr_EPv2Morph'"${i}"'VigorBonusBase" value="0" /></div>
-                <div class="sheet-table-cell sheet-cell-5" title="Flex pool base bonus from Morph">Base:</div>
-                <div class="sheet-table-cell sheet-cell-3" title="Flex pool base bonus from Morph">
-                    <input type="number" name="attr_EPv2Morph'"${i}"'FlexBonusBase" value="0" /></div>
-                <div class="sheet-table-cell sheet-cell-button"></div>
-            </div>
-            <div class="sheet-table-row sheet-hide-section" style="text-align:right">
-                <div class="sheet-table-cell sheet-cell-5" title="Cognition misc. Aptitude bonus from Morph">Misc:</div>
-                <div class="sheet-table-cell sheet-cell-3" title="Cognition misc. Aptitude bonus from Morph">
-                    <input type="number" name="attr_EPv2Morph'"${i}"'CogBonusMisc" value="0" /> </div>
-                <div class="sheet-table-cell sheet-cell-5" title="Intuition misc. Aptitude bonus from Morph">Misc:</div>
-                <div class="sheet-table-cell sheet-cell-3" title="Intuition misc. Aptitude bonus from Morph">
-                    <input type="number" name="attr_EPv2Morph'"${i}"'IntBonusMisc" value="0" /></div>
-                <div class="sheet-table-cell sheet-cell-5" title="Reflexes misc. Aptitude bonus from Morph">Misc:</div>
-                <div class="sheet-table-cell sheet-cell-3" title="Reflexes misc. Aptitude bonus from Morph">
-                    <input type="number" name="attr_EPv2Morph'"${i}"'RefBonusMisc" value="0" /></div>
-                <div class="sheet-table-cell sheet-cell-5" title="Savvy misc. Aptitude bonus from Morph">Misc:</div>
-                <div class="sheet-table-cell sheet-cell-3" title="Savvy misc. Aptitude bonus from Morph">
-                    <input type="number" name="attr_EPv2Morph'"${i}"'SavBonusMisc" value="0" /></div>
-                <div class="sheet-table-cell sheet-cell-5" title="Somatics misc. Aptitude bonus from Morph">Misc:</div>
-                <div class="sheet-table-cell sheet-cell-3" title="Somatics misc. Aptitude bonus from Morph">
-                    <input type="number" name="attr_EPv2Morph'"${i}"'SomBonusMisc" value="0"/></div>
-                <div class="sheet-table-cell sheet-cell-5" title="Willpower misc. Aptitude bonus from Morph">Misc:</div>
-                <div class="sheet-table-cell sheet-cell-3" title="Willpower misc. Aptitude bonus from Morph">
-                    <input type="number" name="attr_EPv2Morph'"${i}"'WilBonusMisc" value="0" /></div>
-
-                <div class="sheet-table-cell sheet-cell-a"></div>
-
-                <div class="sheet-table-cell sheet-cell-7" title="Insight pool misc. bonus from Morph">Misc:</div>
-                <div class="sheet-table-cell sheet-cell-3" title="Insight pool misc. bonus from Morph">
-                    <input type="number" name="attr_EPv2Morph'"${i}"'InsightBonusMisc" value="0" /></div>
-
-                <div class="sheet-table-cell sheet-cell-7" title="Moxie pool misc. bonus from Morph">Misc:</div>
-                <div class="sheet-table-cell sheet-cell-3" title="Moxie pool misc. bonus from Morph">
-                    <input type="number" name="attr_EPv2Morph'"${i}"'MoxieBonusMisc" value="0" /></div>
-
-                <div class="sheet-table-cell sheet-cell-7" title="Vigor pool misc. bonus from Morph">Misc:</div>
-                <div class="sheet-table-cell sheet-cell-3" title="Vigor pool misc. bonus from Morph">
-                    <input type="number" name="attr_EPv2Morph'"${i}"'VigorBonusMisc" value="0" /></div>
-
-                <div class="sheet-table-cell sheet-cell-7" title="Flex pool misc. bonus from Morph">Misc:</div>
-                <div class="sheet-table-cell sheet-cell-3" title="Flex pool misc. bonus from Morph">
-                    <input type="number" name="attr_EPv2Morph'"${i}"'FlexBonusMisc" value="0" /></div>
-
-                <div class="sheet-table-cell sheet-cell-button"></div>
+        </div>
+        <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2Morph'"${i}"'Apt-Bonus-Hider" checked />
+        <div class="sheet-hide-section">
+            <div class="sheet-table sheet-input-border">
+                <div class="sheet-table-row" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Cognition base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2Morph'"${i}"'CogBonusBase" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Intuition base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2Morph'"${i}"'IntBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Reflexes base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2Morph'"${i}"'RefBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Savvy base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2Morph'"${i}"'SavBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Somatics base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2Morph'"${i}"'SomBonusBase" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower base Aptitude bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Willpower base Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2Morph'"${i}"'WilBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Insight pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Insight pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2Morph'"${i}"'InsightBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Moxie pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Moxie pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2Morph'"${i}"'MoxieBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Vigor pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Vigor pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2Morph'"${i}"'VigorBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Flex pool base bonus from Morph">Base:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Flex pool base bonus from Morph">
+                        <input type="number" name="attr_EPv2Morph'"${i}"'FlexBonusBase" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                </div>
+                <div class="sheet-table-row" style="text-align:right">
+                    <div class="sheet-table-cell sheet-cell-5" title="Cognition misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Cognition misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2Morph'"${i}"'CogBonusMisc" value="0" /> </div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Intuition misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Intuition misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2Morph'"${i}"'IntBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Reflexes misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Reflexes misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2Morph'"${i}"'RefBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Savvy misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Savvy misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2Morph'"${i}"'SavBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Somatics misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Somatics misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2Morph'"${i}"'SomBonusMisc" value="0"/></div>
+                    <div class="sheet-table-cell sheet-cell-5" title="Willpower misc. Aptitude bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Willpower misc. Aptitude bonus from Morph">
+                        <input type="number" name="attr_EPv2Morph'"${i}"'WilBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-a"></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Insight pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Insight pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2Morph'"${i}"'InsightBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Moxie pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Moxie pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2Morph'"${i}"'MoxieBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Vigor pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Vigor pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2Morph'"${i}"'VigorBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-7" title="Flex pool misc. bonus from Morph">Misc:</div>
+                    <div class="sheet-table-cell sheet-cell-3" title="Flex pool misc. bonus from Morph">
+                        <input type="number" name="attr_EPv2Morph'"${i}"'FlexBonusMisc" value="0" /></div>
+                    <div class="sheet-table-cell sheet-cell-button"></div>
+                </div>
             </div>
         </div>
         <br>
         <!-- Eclipse Phase v2 Morph '"${i}"' Skill Bonues -->
         <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph '"${i}"' Skill Bonuses<input type="checkbox" class="sheet-checkbox-graygear" name="attr_EPv2Morph'"${i}"'Skill-Bonus-Hider" checked /><span/></div>
         <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2Morph'"${i}"'Skill-Bonus-Hider" checked />
-        <div class="sheet-table sheet-hide-section">
+        <div class="sheet-table sheet-hide-section sheet-input-border" style="text-align:center">
+            <div class="sheet-table-row sheet-boldCenter">
+                <div class="sheet-table-cell sheet-cell-a">Skill</div>
+                <div class="sheet-table-cell sheet-cell-rank">Bonus</div>
+                <div class="sheet-table-cell sheet-cell-a">Skill</div>
+                <div class="sheet-table-cell sheet-cell-rank">Bonus</div>
+                <div class="sheet-table-cell sheet-cell-a">Skill</div>
+                <div class="sheet-table-cell sheet-cell-rank">Bonus</div>
+                <div class="sheet-table-cell sheet-cell-a">Skill</div>
+                <div class="sheet-table-cell sheet-cell-rank">Bonus</div>
+                <div class="sheet-table-cell sheet-cell-a">Skill</div>
+                <div class="sheet-table-cell sheet-cell-rank">Bonus</div>
+            </div>
             <div class="sheet-table-row">' >> morphs.html
     j=0
     while read line; do
@@ -197,14 +206,17 @@ for i in 1 2 3 4 5; do
             echo '            <div class="sheet-table-row">' >> morphs.html
         fi
         if [[ "${line}" == "BLANK" ]]; then
-            echo '                <div class="sheet-table-cell sheet-cell-a"></div>'>> morphs.html
+            echo '                <div class="sheet-table-cell sheet-cell-a"></div>
+                <div class="sheet-table-cell sheet-cell-a"></div>'>> morphs.html
         else
-            echo '                <div class="sheet-table-cell sheet-cell-a"><input type="number" name="attr_EPv2Morph'"${i}"'SkillBonus_'"${line_nospaces}"'" /> '"${line}"' </div>' >> morphs.html
+            echo '                <div class="sheet-table-cell" title="EPv2 Morph'"${i} ${line}"' bonus">'"${line}"':</div>
+                <div class="sheet-table-cell" title="EPv2 Morph'"${i} ${line}"' bonus"><input type="number" name="attr_EPv2Morph'"${i}"'SkillBonus_'"${line_nospaces}"'" value="0" /></div>' >> morphs.html
         fi
         ((j+=1))
     done < ./skills_list.txt
     echo '            </div>
         </div>
+        <br>
 
         <!-- Eclipse Phase v2 Morph '"${i}"' Traits Repeating -->
         <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph '"${i}"' Pos & Neg Traits / Advantages/Disadvantages</div>
