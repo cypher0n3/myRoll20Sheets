@@ -212,7 +212,7 @@ for i in 1 2 3 4 5; do
                     <div class="sheet-table-cell sheet-cell-a"></div>'>> morphs.html
         else
             echo '                    <div class="sheet-table-cell" title="EPv2 Morph'"${i} ${line}"' bonus">'"${line}"':</div>
-                    <div class="sheet-table-cell" title="EPv2 Morph'"${i} ${line}"' bonus"><input type="number" name="attr_EPv2Morph'"${i}"'SkillBonus_'"${line_nospaces}"'" value="0" /></div>' >> morphs.html
+                    <div class="sheet-table-cell" title="EPv2 Morph'"${i} ${line}"' bonus"><input type="number" name="attr_EPv2Morph'"${i}"'SkillBonus'"${line_nospaces}"'" value="0" /></div>' >> morphs.html
         fi
         ((j+=1))
     done < ./skills_list.txt
