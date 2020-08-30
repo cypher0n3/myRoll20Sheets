@@ -36,11 +36,36 @@ echo '                }
     );
 </script>' >> script_workers.html
 
+for aptitude in "Cog" "Int" "Ref" "Sav" "Som" "Wil" "Insight" "Moxie" "Vigor" "Flex"; do
+    echo '<script type="text/worker">
+    on("ready change:EPv2CurrentSelectedMorph change:EPv2Morph1'"${aptitude}"'BonusTotal change:EPv2Morph2'"${aptitude}"'BonusTotal change:EPv2Morph3'"${aptitude}"'BonusTotal change:EPv2Morph4'"${aptitude}"'BonusTotal change:EPv2Morph5'"${aptitude}"'BonusTotal",
+        function(){
+            const morph'"${aptitude}"'Props = [
+                "EPv2CurrentSelectedMorph", "EPv2'"${aptitude}"'MorphBonus",
+                "EPv2Morph1'"${aptitude}"'BonusTotal", "EPv2Morph2'"${aptitude}"'BonusTotal", "EPv2Morph3'"${aptitude}"'BonusTotal", "EPv2Morph4'"${aptitude}"'BonusTotal", "EPv2Morph5'"${aptitude}"'BonusTotal"
+            ]
+            getAttrs(morph'"${aptitude}"'Props, function(values){' >> script_workers.html
+    for i in 1 2 3 4 5; do
+        if ((i==1)); then
+            leader="if"
+        else
+            leader="} else if"
+        fi
+        echo '                '"${leader}"' (values.EPv2CurrentSelectedMorph == '"${i}"'){
+                    setAttrs({EPv2'"${aptitude}"'MorphBonus: values.EPv2Morph'"${i}"''"${aptitude}"'BonusTotal});' >> script_workers.html
+    done
+    echo '                }
+            });
+        }
+    );
+</script>' >> script_workers.html
+done
+
 while read line; do
     if [[ ! -z "${line}" ]]; then
         IFS=':' read -ra line_ary <<< "${line}"
         line_nospaces=$(echo "${line_ary[0]}" | sed "s/\s//g")
-        line_underscore=$(echo "${line_ary[0],,}" | sed "s/\s/_/g")
+        # line_underscore=$(echo "${line_ary[0],,}" | sed "s/\s/_/g")
 
         echo '
 <script type="text/worker">
