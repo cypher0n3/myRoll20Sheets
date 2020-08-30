@@ -648,55 +648,55 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
 
 /*----------- Eclipse Phase v2 Skills Display Setup -------------*/
 /*this hides the contents of each section by default*/
-.charsheet div[class^="sheet-ep2-skill-hider-section"] {
+.charsheet div[class^="sheet-EPv2skill-hider-section"] {
     display: none;
 }
 
-.charsheet div[class^="sheet-ep2-skills-display-selection-section"] {
+.charsheet div[class^="sheet-EPv2skills-display-selection-section"] {
     display: none;
 }
 
 /*this shows the Eclipse_Phase2 Skill section content when the appropriate input field is selected*/
-.charsheet .sheet-ep2-skill-hider-athletics:checked ~ .sheet-ep2-skill-hider-section-athletics,
-.charsheet .sheet-ep2-skill-hider-deceive:checked ~ .sheet-ep2-skill-hider-section-deceive,
-.charsheet .sheet-ep2-skill-hider-fray:checked ~ .sheet-ep2-skill-hider-section-fray,
-.charsheet .sheet-ep2-skill-hider-free_fall:checked ~ .sheet-ep2-skill-hider-section-free_fall,
-.charsheet .sheet-ep2-skill-hider-guns:checked ~ .sheet-ep2-skill-hider-section-guns,
-.charsheet .sheet-ep2-skill-hider-hardware_1:checked ~ .sheet-ep2-skill-hider-section-hardware_1,
-.charsheet .sheet-ep2-skill-hider-hardware_2:checked ~ .sheet-ep2-skill-hider-section-hardware_2,
-.charsheet .sheet-ep2-skill-hider-infiltrate:checked ~ .sheet-ep2-skill-hider-section-infiltrate,
-.charsheet .sheet-ep2-skill-hider-infosec:checked ~ .sheet-ep2-skill-hider-section-infosec,
-.charsheet .sheet-ep2-skill-hider-interface:checked ~ .sheet-ep2-skill-hider-section-interface,
-.charsheet .sheet-ep2-skill-hider-kinesics:checked ~ .sheet-ep2-skill-hider-section-kinesics,
-.charsheet .sheet-ep2-skill-hider-medicine_1:checked ~ .sheet-ep2-skill-hider-section-medicine_1,
-.charsheet .sheet-ep2-skill-hider-medicine_2:checked ~ .sheet-ep2-skill-hider-section-medicine_2,
-.charsheet .sheet-ep2-skill-hider-melee:checked ~ .sheet-ep2-skill-hider-section-melee,
-.charsheet .sheet-ep2-skill-hider-perceive:checked ~ .sheet-ep2-skill-hider-section-perceive,
-.charsheet .sheet-ep2-skill-hider-persuade:checked ~ .sheet-ep2-skill-hider-section-persuade,
-.charsheet .sheet-ep2-skill-hider-pilot_1:checked ~ .sheet-ep2-skill-hider-section-pilot_1,
-.charsheet .sheet-ep2-skill-hider-pilot_2:checked ~ .sheet-ep2-skill-hider-section-pilot_2,
-.charsheet .sheet-ep2-skill-hider-program:checked ~ .sheet-ep2-skill-hider-section-program,
-.charsheet .sheet-ep2-skill-hider-provoke:checked ~ .sheet-ep2-skill-hider-section-provoke,
-.charsheet .sheet-ep2-skill-hider-psi:checked ~ .sheet-ep2-skill-hider-section-psi,
-.charsheet .sheet-ep2-skill-hider-research:checked ~ .sheet-ep2-skill-hider-section-research,
-.charsheet .sheet-ep2-skill-hider-survival:checked ~ .sheet-ep2-skill-hider-section-survival,
-.charsheet .sheet-ep2-skill-hider-academics_1:checked ~ .sheet-ep2-skill-hider-section-academics_1,
-.charsheet .sheet-ep2-skill-hider-academics_2:checked ~ .sheet-ep2-skill-hider-section-academics_2,
-.charsheet .sheet-ep2-skill-hider-academics_3:checked ~ .sheet-ep2-skill-hider-section-academics_3,
-.charsheet .sheet-ep2-skill-hider-academics_4:checked ~ .sheet-ep2-skill-hider-section-academics_4,
-.charsheet .sheet-ep2-skill-hider-art_1:checked ~ .sheet-ep2-skill-hider-section-art_1,
-.charsheet .sheet-ep2-skill-hider-art_2:checked ~ .sheet-ep2-skill-hider-section-art_2,
-.charsheet .sheet-ep2-skill-hider-art_3:checked ~ .sheet-ep2-skill-hider-section-art_3,
-.charsheet .sheet-ep2-skill-hider-art_4:checked ~ .sheet-ep2-skill-hider-section-art_4,
-.charsheet .sheet-ep2-skill-hider-interest_1:checked ~ .sheet-ep2-skill-hider-section-interest_1,
-.charsheet .sheet-ep2-skill-hider-interest_2:checked ~ .sheet-ep2-skill-hider-section-interest_2,
-.charsheet .sheet-ep2-skill-hider-interest_3:checked ~ .sheet-ep2-skill-hider-section-interest_3,
-.charsheet .sheet-ep2-skill-hider-interest_4:checked ~ .sheet-ep2-skill-hider-section-interest_4,
-.charsheet .sheet-ep2-skill-hider-profession_1:checked ~ .sheet-ep2-skill-hider-section-profession_1,
-.charsheet .sheet-ep2-skill-hider-profession_2:checked ~ .sheet-ep2-skill-hider-section-profession_2,
-.charsheet .sheet-ep2-skill-hider-profession_3:checked ~ .sheet-ep2-skill-hider-section-profession_3,
-.charsheet .sheet-ep2-skill-hider-profession_4:checked ~ .sheet-ep2-skill-hider-section-profession_4,
-.charsheet .sheet-ep2-skills-display-selection-hider:checked ~ .sheet-ep2-skills-display-selection-section {
+.charsheet .sheet-EPv2skill-hider-athletics:checked ~ .sheet-EPv2skill-hider-section-athletics,
+.charsheet .sheet-EPv2skill-hider-deceive:checked ~ .sheet-EPv2skill-hider-section-deceive,
+.charsheet .sheet-EPv2skill-hider-fray:checked ~ .sheet-EPv2skill-hider-section-fray,
+.charsheet .sheet-EPv2skill-hider-free_fall:checked ~ .sheet-EPv2skill-hider-section-free_fall,
+.charsheet .sheet-EPv2skill-hider-guns:checked ~ .sheet-EPv2skill-hider-section-guns,
+.charsheet .sheet-EPv2skill-hider-hardware_1:checked ~ .sheet-EPv2skill-hider-section-hardware_1,
+.charsheet .sheet-EPv2skill-hider-hardware_2:checked ~ .sheet-EPv2skill-hider-section-hardware_2,
+.charsheet .sheet-EPv2skill-hider-infiltrate:checked ~ .sheet-EPv2skill-hider-section-infiltrate,
+.charsheet .sheet-EPv2skill-hider-infosec:checked ~ .sheet-EPv2skill-hider-section-infosec,
+.charsheet .sheet-EPv2skill-hider-interface:checked ~ .sheet-EPv2skill-hider-section-interface,
+.charsheet .sheet-EPv2skill-hider-kinesics:checked ~ .sheet-EPv2skill-hider-section-kinesics,
+.charsheet .sheet-EPv2skill-hider-medicine_1:checked ~ .sheet-EPv2skill-hider-section-medicine_1,
+.charsheet .sheet-EPv2skill-hider-medicine_2:checked ~ .sheet-EPv2skill-hider-section-medicine_2,
+.charsheet .sheet-EPv2skill-hider-melee:checked ~ .sheet-EPv2skill-hider-section-melee,
+.charsheet .sheet-EPv2skill-hider-perceive:checked ~ .sheet-EPv2skill-hider-section-perceive,
+.charsheet .sheet-EPv2skill-hider-persuade:checked ~ .sheet-EPv2skill-hider-section-persuade,
+.charsheet .sheet-EPv2skill-hider-pilot_1:checked ~ .sheet-EPv2skill-hider-section-pilot_1,
+.charsheet .sheet-EPv2skill-hider-pilot_2:checked ~ .sheet-EPv2skill-hider-section-pilot_2,
+.charsheet .sheet-EPv2skill-hider-program:checked ~ .sheet-EPv2skill-hider-section-program,
+.charsheet .sheet-EPv2skill-hider-provoke:checked ~ .sheet-EPv2skill-hider-section-provoke,
+.charsheet .sheet-EPv2skill-hider-psi:checked ~ .sheet-EPv2skill-hider-section-psi,
+.charsheet .sheet-EPv2skill-hider-research:checked ~ .sheet-EPv2skill-hider-section-research,
+.charsheet .sheet-EPv2skill-hider-survival:checked ~ .sheet-EPv2skill-hider-section-survival,
+.charsheet .sheet-EPv2skill-hider-academics_1:checked ~ .sheet-EPv2skill-hider-section-academics_1,
+.charsheet .sheet-EPv2skill-hider-academics_2:checked ~ .sheet-EPv2skill-hider-section-academics_2,
+.charsheet .sheet-EPv2skill-hider-academics_3:checked ~ .sheet-EPv2skill-hider-section-academics_3,
+.charsheet .sheet-EPv2skill-hider-academics_4:checked ~ .sheet-EPv2skill-hider-section-academics_4,
+.charsheet .sheet-EPv2skill-hider-art_1:checked ~ .sheet-EPv2skill-hider-section-art_1,
+.charsheet .sheet-EPv2skill-hider-art_2:checked ~ .sheet-EPv2skill-hider-section-art_2,
+.charsheet .sheet-EPv2skill-hider-art_3:checked ~ .sheet-EPv2skill-hider-section-art_3,
+.charsheet .sheet-EPv2skill-hider-art_4:checked ~ .sheet-EPv2skill-hider-section-art_4,
+.charsheet .sheet-EPv2skill-hider-interest_1:checked ~ .sheet-EPv2skill-hider-section-interest_1,
+.charsheet .sheet-EPv2skill-hider-interest_2:checked ~ .sheet-EPv2skill-hider-section-interest_2,
+.charsheet .sheet-EPv2skill-hider-interest_3:checked ~ .sheet-EPv2skill-hider-section-interest_3,
+.charsheet .sheet-EPv2skill-hider-interest_4:checked ~ .sheet-EPv2skill-hider-section-interest_4,
+.charsheet .sheet-EPv2skill-hider-profession_1:checked ~ .sheet-EPv2skill-hider-section-profession_1,
+.charsheet .sheet-EPv2skill-hider-profession_2:checked ~ .sheet-EPv2skill-hider-section-profession_2,
+.charsheet .sheet-EPv2skill-hider-profession_3:checked ~ .sheet-EPv2skill-hider-section-profession_3,
+.charsheet .sheet-EPv2skill-hider-profession_4:checked ~ .sheet-EPv2skill-hider-section-profession_4,
+.charsheet .sheet-EPv2skills-display-selection-hider:checked ~ .sheet-EPv2skills-display-selection-section {
     display: block;
 }
 /* Use .sheet-hider-invis to hide checkbox above section */
