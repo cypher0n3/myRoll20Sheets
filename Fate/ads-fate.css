@@ -1,0 +1,530 @@
+/* === GENERAL === */
+.charsheet {
+    min-width: 650px;
+}
+
+.sheet-boldCenter {
+    font-weight: bold;
+    text-align: center;
+}
+
+.sheet-section {
+    border: 1px solid black;
+    border-radius: 5px;
+    box-sizing: border-box;
+    float: left;
+    margin: 4px 0;
+    padding: 1px;
+    width: 100%;
+}
+
+.sheet-border-right {
+    border-right: 1px solid black;
+}
+
+.sheet-headerbar {
+    background: black;
+    border: 1px solid black;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 4px;
+    padding: 2px 4px;
+    text-align:center
+}
+
+.sheet-table {
+    border-collapse: separate;
+    border-spacing: 5px;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.sheet-table-padded .sheet-table {
+    border-spacing: 1rem 0;
+}
+
+.sheet-table-noSpacing {
+    border-spacing: 0;
+}
+
+.sheet-table-repeating {
+    border-spacing: 0;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.sheet-topBorderGray {
+    border-top: 1px solid lightgrey;
+}
+
+.sheet-table-2col {
+  display: table-cell;
+  width: 50%;
+}
+
+.sheet-table-2col-70 {
+  display: table-cell;
+  width: 70%;
+}
+
+.sheet-table-2col-30 {
+  display: table-cell;
+  width: 30%;
+}
+
+.sheet-table-2col-a {
+  display: table-cell;
+  width: auto;
+}
+
+.sheet-table-row {
+    display: table-row;
+}
+
+.sheet-table-cell-repeating-first {
+    padding-right: 5px;
+}
+
+.sheet-table-cell-repeating {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.sheet-table-cell-repeating-last {
+    padding-left: 5px;
+    padding-right: 10px;
+}
+
+.sheet-table-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.sheet-cell-a { width: auto; }
+.sheet-cell-2 { width: 2%; }
+.sheet-cell-5 { width: 5%; }
+.sheet-cell-7 { width: 7%; }
+.sheet-cell-8 { width: 8%; }
+.sheet-cell-10 { width: 10%; }
+.sheet-cell-12 { width: 12%; }
+.sheet-cell-15 { width: 15%; }
+.sheet-cell-18 { width: 18%; }
+.sheet-cell-20 { width: 20%; }
+.sheet-cell-25 { width: 25%; }
+.sheet-cell-30 { width: 30%; }
+.sheet-cell-41 { width: 41%; }
+.sheet-cell-50 { width: 50%; }
+.sheet-cell-75 { width: 75%; }
+.sheet-cell-30 { width: 30%; }
+.sheet-cell-69 { width: 69%; }
+.sheet-cell-button {width: 25px; }
+.sheet-cell-rank {width: 50px; }
+
+.sheet-cell-label {
+    background: lightgrey;
+    font-size: 15px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.sheet-cell-boldRight {
+    font-weight: bold;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.sheet-span-border {
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.sheet-span-settings {
+    display: inline-block;
+    height: 23px;
+    line-height: 23px;
+    vertical-align: middle;
+}
+
+.sheet-span-settings-label {
+    font-weight: bold;
+}
+
+.sheet-row-settings {
+    vertical-align: middle;
+}
+
+.sheet-label-settings {
+    font-size: 13px;
+    font-weight: bold;
+    height: 23px;
+    line-height: 23px;
+    vertical-align: middle;
+}
+.sheet-multiline-input {
+    border: 1px solid darkgray;
+    height:46px;
+}
+
+textarea {
+    box-sizing: border-box;
+    color: black;
+    height: 400px;
+    margin: 0;
+    resize: vertical;
+    width: 100%;
+}
+
+input[type="radio"] {
+    -ms-transform: scale(1.3); /* IE 9 */
+    -webkit-transform: scale(1.3); /* Chrome, Safari, Opera */
+    transform: scale(1.3);
+}
+
+/* Override Roll20 Button styling for something less conspicious */
+button {
+    background-color: #E8E8E8;
+    background-image: none;
+    border: 1px solid darkgray;
+    border-radius: 3px;
+    box-shadow: none;
+    color: #000000;
+    height: 16px;
+    line-height: 16px;
+    margin: 0;
+    vertical-align: middle;
+}
+
+label {
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+select {
+    color: black;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    padding-left: 3px;
+    padding-right: 3px;
+    width: 100%;
+}
+
+input[type="text"] {
+    color: black;
+    margin: 0;
+    padding: 0;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 3px;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /*-- Hide arrows on number fields --*/
+    color: black;
+    margin: 0;
+    padding: 0;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 3px;
+    vertical-align: middle;
+}
+
+/* Hide arrows on number fields -> Webkit browsers like Safari and Chrome */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.sheet-input-border input[type="text"] {
+    border: 1px solid darkgray;
+    max-width: 100%;
+    min-width: 15px;
+    width: 100%;
+}
+
+.sheet-input-border input[type="number"] {
+    border: 1px solid darkgray;
+    max-width: 100%;
+    min-width: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+.sheet-input-disabled input[type=number] {
+    background-color: lightgray;
+    color: darkblue;
+}
+
+.sheet-input-disabled input[type=text] {
+    background-color: lightgray;
+    color: darkblue;
+}
+
+.sheet-select-border select {
+    border: 1px solid darkgray;
+    max-width: 100%;
+    min-width: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+/* -- Checkbox hider stuff -- */
+.sheet-hider:checked ~ .sheet-hide-section {
+    display: none;
+}
+
+.sheet-hider:not(:checked) ~ .sheet-hide-section {
+    display: block;
+}
+
+/*this hides the checkbox*/
+.charsheet .sheet-hider-invis[type="checkbox"] {
+    display: none;
+    height: 0;
+    opacity: 0;
+    width: 0;
+}
+
+/* Hide actual checkbox */
+input.sheet-checkbox-whitegear[type="checkbox"] {
+    cursor: pointer;
+    height: 14px;
+    left: 8px;
+    margin:0;
+    opacity: 0;
+    position: relative;
+    top: 0;
+    width: 14px;
+    z-index: 1;
+}
+
+/* Fake checkbox */
+input.sheet-checkbox-whitegear[type="checkbox"] + span::before {
+    color:#ffffff;
+    content: "y";
+    font-family:"Pictos";
+    font-size: 17px;
+    height: 14px;
+    left: 0;
+    margin:-10px;
+    position: relative;
+    top: 0;
+    width: 14px;
+}
+
+input.sheet-checkbox-graygear[type="checkbox"] {
+    cursor: pointer;
+    height: 14px;
+    left: 8;
+    margin:0;
+    opacity: 0;
+    position: relative;
+    top: 0;
+    width: 14px;
+    z-index: 1;
+}
+
+/* Fake checkbox */
+input.sheet-checkbox-graygear[type="checkbox"] + span::before {
+    color:#A9A9A9;
+    content: "y";
+    font-family:"Pictos";
+    font-size: 17px;
+    height: 14px;
+    left: 0;
+    margin:-10px;
+    margin-right:+5px;
+    position: relative;
+    top: 0;
+    width: 14px;
+}
+/* -- End checkbox hider stuff -- */
+
+/*----------- Tabs Setup -------------*/
+/*this hides the contents of each tab by default*/
+.charsheet div[class^="sheet-section-tabbed"] {
+    display: none;
+}
+
+/*this shows the tab content when the appropriate input field is selected*/
+.charsheet input.sheet-tab-core:checked ~ .sheet-section-tabbed-core,
+.charsheet input.sheet-tab-combat:checked ~ .sheet-section-tabbed-combat,
+.charsheet input.sheet-tab-gear:checked ~ .sheet-section-tabbed-gear,
+.charsheet input.sheet-tab-notes:checked ~ .sheet-section-tabbed-notes,
+.charsheet input.sheet-tab-special:checked ~ .sheet-section-tabbed-special,
+.charsheet input.sheet-tabZ:checked ~ .sheet-section-tabbed-settings {
+    display: block;
+}
+
+.charsheet .sheet-tab99:checked ~ div[class^="sheet-section-tabbed"] {
+  display: block;
+}
+
+/*this hides the radio button for each tab, makes it 100px wide and 40px tall and makes sure it's above everything else*/
+.charsheet input.sheet-tab {
+    cursor: pointer;
+    height: 20px;
+    margin-left: 16px;
+    opacity: 0;
+    position: relative;
+    width: 100px;
+    z-index: 9999;
+}
+
+/*this styles the span with the tab information and slides to the left, so it appears underneath the radio button*/
+.charsheet span.sheet-tab {
+    background: lightgrey;
+    border-radius: 4px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    height: 20px;
+    line-height: 24px;
+    margin-left: -115px;/*originally 91px*/
+    text-align: center;
+    vertical-align: middle;
+    width: 80px;
+}
+
+.charsheet input.sheet-tabZ {
+    cursor: pointer;
+    height: 20px;
+    margin-left: 16px;
+    opacity: 0;
+    position: relative;
+    width: 70px;
+    z-index: 9999;
+}
+
+.charsheet span.sheet-tabZ {
+    background: lightgrey;
+    border-radius: 4px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family:"Pictos";
+    font-size: 18px;
+    font-weight: normal;
+    height: 25px;
+    line-height: 25px;
+    margin-left: -85px;/*originally 91px*/
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: 30px;
+}
+
+/*this modifies the span color once the radio button is selected so you know which tab is selected*/
+.charsheet input.sheet-tab-core:checked + span.sheet-tab-core,
+.charsheet input.sheet-tab-gear:checked + span.sheet-tab-gear,
+.charsheet input.sheet-tab-notes:checked + span.sheet-tab-notes,
+.charsheet input.sheet-tabZ:checked + span.sheet-tabZ {
+  background: #660202;
+  border-radius: 4px;
+  color: white;
+}
+/*----------- End Tab Setup -----------*/
+
+/*----------- Skills Display Setup -------------*/
+/*this hides the contents of each section by default*/
+/* .charsheet div[class^="sheet-skills-section"] {
+    display: none;
+} */
+
+/*this shows the skills section content when the appropriate input field is selected*/
+/* .charsheet .sheet-skills-list1:checked ~ .sheet-skills-section-fate_core,
+.charsheet .sheet-skills-list2:checked ~ .sheet-skills-section-fate_accelerated,
+.charsheet .sheet-skills-list-tesseris:checked ~ .sheet-skills-section-tesseris,
+.charsheet .sheet-skills-list-eclipse_phase:checked ~ .sheet-skills-section-eclipse_phase,
+.charsheet .sheet-skills-list-eclipse_phase2:checked ~ .sheet-skills-section-eclipse_phase2,
+.charsheet .sheet-skills-list-ep_ads:checked ~ .sheet-skills-section-ep_ads,
+.charsheet .sheet-skills-list-custom:checked ~ .sheet-skills-section-custom {
+    display: block;
+} */
+
+/*this hides the radio button*/
+.charsheet .sheet-skills-list-selector {
+    display: none;
+    height: 0;
+    opacity: 0;
+    width: 0;
+}
+/*----------- End Skills Display Setup -----------*/
+
+
+/*----------- Aspects Display Setup -------------*/
+/*this hides the contents of each section by default*/
+/* .charsheet div[class^="sheet-aspects-section"] {
+    display: none;
+} */
+
+/*this shows the Aspects section content when the appropriate input field is selected*/
+/* .charsheet .sheet-aspects-show:checked ~ .sheet-aspects-section{
+    display: block;
+} */
+
+/*this hides the radio button*/
+.charsheet .sheet-aspects-show {
+    display: none;
+    height: 0;
+    opacity: 0;
+    width: 0;
+}
+/*----------- End Aspects Display Setup -----------*/
+
+/*----------- Refresh and Fate Points Display Setup -------------*/
+/* .sheet-hide-refresh:checked ~ .sheet-hide-refresh-section,
+.sheet-hide-fate_points:checked ~ .sheet-hide-fate_points-section {
+    display: none;
+} */
+/*----------- End Refresh and Fate Points Display Setup -------------*/
+
+/*----------- Stunts Display Setup -------------*/
+/*this hides the contents of each section by default*/
+/* .charsheet div[class^="sheet-stunts-section"] {
+    display: none;
+} */
+
+/*this shows the Aspects section content when the appropriate input field is selected*/
+/* .charsheet .sheet-stunts-show:checked ~ .sheet-stunts-section{
+    display: block;
+} */
+
+/*this hides the radio button*/
+.charsheet .sheet-stunts-show {
+    display: none;
+    height: 0;
+    opacity: 0;
+    width: 0;
+}
+/*----------- End Stunts Display Setup -----------*/
+
+/*----------- Lock In Display Setup -------------*/
+/*this hides the contents of each section by default*/
+.charsheet div[class^="sheet-lock-in-section"] {
+    display: none;
+}
+
+/*this shows the Aspects section content when the appropriate input field is selected*/
+/* .charsheet .sheet-unlocked-checkbox:checked ~ .sheet-lock-in-section{
+    display: block;
+} */
+
+/*this hides the radio button*/
+.charsheet .sheet-unlocked-checkbox {
+    display: none;
+    height: 0;
+    opacity: 0;
+    width: 0;
+}
+/*----------- End Lock In Display Setup -----------*/
