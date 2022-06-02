@@ -1,0 +1,677 @@
+<script type="text/worker">
+    const buttonlist = ["main","combat","spells", "background"];
+    buttonlist.forEach(button => {
+        on(`clicked:${button}`, function() {
+            setAttrs({
+                tab: button
+            });
+        });
+    });
+</script>
+<div class="charsheet"> 
+  <nav> 
+    <input type="hidden" name="attr_tab"/>
+    <div class="strap"> 
+      <label for="btn-main"></label>
+      <label for="btn-combat"></label>
+      <label for="btn-spells"></label>
+      <label for="btn-background"></label>
+    </div>
+    <button type="action" name="act_main" id="btn-main"></button>
+    <button type="action" name="act_combat" id="btn-combat"></button>
+    <button type="action" name="act_spells" id="btn-spells"></button>
+    <button type="action" name="act_background" id="btn-background"></button>
+  </nav>
+  <div class="header">
+    <div class="section-bio"> 
+      <input type="text" name="attr_character_name" placeholder="Name"/>
+      <h3>Speed</h3>
+      <input type="number" name="attr_character_speed" value="3"/>
+    </div>
+    <div class="section-game-aspect"> 
+      <input type="text" name="attr_game_aspect_1" placeholder="Game Aspect 1"/>
+      <input type="text" name="attr_game_aspect_2" placeholder="Game Aspect 2"/>
+    </div>
+  </div>
+  <div class="left-content"> 
+    <div class="section-scores"> 
+      <div class="section-fate"> 
+        <h3>Fate Points </h3>
+        <input type="number" name="attr_fate_points" value="1"/>
+        <h3>Refresh</h3>
+        <input type="number" name="attr_fate_refresh" value="1"/>
+      </div>
+      <div> 
+        <h3>Stat</h3>
+        <h4>Current </h4>
+        <h4>Bonus</h4>
+        <h4>Max</h4>
+        <h4>C. Max</h4>
+      </div>
+      <div class="section-stamina"> 
+        <h3>Stamina </h3>
+        <input type="number" name="attr_stamina" value="14"/>
+        <input type="number" name="attr_stamina_max_current" value="14"/>
+        <input type="number" name="attr_stamina_max" value="14"/>
+        <input type="number" name="attr_stamina_bonus" value="0"/>
+      </div>
+      <div class="section-wounds">
+        <h3>Wounds </h3>
+        <input type="number" name="attr_wounds" value="0"/>
+        <input type="number" name="attr_wounds_max" value="0"/>
+        <input type="number" name="attr_wounds_bonus" value="0"/>
+      </div>
+      <div> 
+        <h3>Stat</h3>
+        <h4>Current</h4>
+        <h4>Base </h4>
+        <h4>Stunt</h4>
+        <h4>Misc </h4>
+        <h4>Temp</h4>
+      </div>
+      <div class="section-ego"> 
+        <h3>Ego </h3>
+        <input type="number" name="attr_ego" value="1"/>
+        <input type="number" name="attr_ego_base" value="1"/>
+        <input type="number" name="attr_ego_stunt" value="0"/>
+        <input type="number" name="attr_ego_misc" value="0"/>
+        <input type="number" name="attr_ego_temp" value="0"/>
+      </div>
+      <div class="section-dapper"> 
+        <h3>Dapper </h3>
+        <input type="number" name="attr_dapper" value="1"/>
+        <input type="number" name="attr_dapper_base" value="1"/>
+        <input type="number" name="attr_dapper_stunt" value="0"/>
+        <input type="number" name="attr_dapper_misc" value="0"/>
+        <input type="number" name="attr_dapper_temp" value="0"/>
+      </div>
+    </div>
+    <div class="section-aspects"> 
+      <h1>Aspects</h1>
+      <input type="text" placeholder="High Concept" name="attr_aspect_concept"/>
+      <input type="text" placeholder="Trouble" name="attr_aspect_trouble"/>
+      <input type="text" placeholder="Freeform" name="attr_aspect_freeform1"/>
+      <input type="text" placeholder="Freeform" name="attr_aspect_freeform2"/>
+      <fieldset class="repeating_aspect">
+        <input type="text" name="attr_aspect_name" placeholder="New Aspect"/>
+      </fieldset>
+    </div>
+    <div class="section-attributes"> 
+      <div class="section-characteristics"> 
+        <h1>Characteristics</h1>
+        <div class="container-button">
+          <button type="roll" value="[[2d6 + @{Strength}]]"> Strength
+          </button>
+          <button type="roll" value="[[2d6 + @{Strength}+2]]">
+             +2</button>
+          <button type="roll" value="[[2d6 + @{Strength}+?{Conditionals|0}]]">
+             +X</button>
+        </div>
+        <input type="number" name="attr_Strength" value="1"/>
+        <div class="container-button">
+          <button type="roll" value="[[2d6 + @{Agility}]]"> Agility
+          </button>
+          <button type="roll" value="[[2d6 + @{Agility}+2]]">
+             +2</button>
+          <button type="roll" value="[[2d6 + @{Agility}+?{Conditionals|0}]]">
+             +X</button>
+        </div>
+        <input type="number" name="attr_Agility" value="1"/>
+        <div class="container-button">
+          <button type="roll" value="[[2d6 + @{Perception}]]"> Perception
+          </button>
+          <button type="roll" value="[[2d6 + @{Perception}+2]]">
+             +2</button>
+          <button type="roll" value="[[2d6 + @{Perception}+?{Conditionals|0}]]">
+             +X</button>
+        </div>
+        <input type="number" name="attr_Perception" value="1"/>
+        <div class="container-button">
+          <button type="roll" value="[[2d6 + @{Intelligence}]]"> Intelligence
+          </button>
+          <button type="roll" value="[[2d6 + @{Intelligence}+2]]">
+             +2</button>
+          <button type="roll" value="[[2d6 + @{Intelligence}+?{Conditionals|0}]]">
+             +X</button>
+        </div>
+        <input type="number" name="attr_Intelligence" value="1"/>
+        <div class="container-button">
+          <button type="roll" value="[[2d6 + @{Willpower}]]"> Willpower
+          </button>
+          <button type="roll" value="[[2d6 + @{Willpower}+2]]">
+             +2</button>
+          <button type="roll" value="[[2d6 + @{Willpower}+?{Conditionals|0}]]">
+             +X</button>
+        </div>
+        <input type="number" name="attr_Willpower" value="1"/>
+        <div class="container-button">
+          <button type="roll" value="[[2d6 + @{Charisma}]]"> Charisma
+          </button>
+          <button type="roll" value="[[2d6 + @{Charisma}+2]]">
+             +2</button>
+          <button type="roll" value="[[2d6 + @{Charisma}+?{Conditionals|0}]]">
+             +X</button>
+        </div>
+        <input type="number" name="attr_Charisma" value="1"/>
+      </div>
+    </div>
+  </div>
+  <input class="nav-control" type="hidden" name="attr_tab" value="main"/>
+  <div class="tab-main"> 
+    <div class="section-skills">
+      <ul> 
+        <li> 
+          <h3>Skill</h3>
+          <h3>Characteristic </h3>
+          <h3>Total </h3>
+          <h3>Rank</h3>
+        </li>
+        <input type="hidden" name="attr_total_Acrobatics" value="0"/>
+        <input type="hidden" name="attr_total_Acrobatics" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{agility} + @{rank_Acrobatics}]]"> Acrobatics
+            </button>
+            <button type="roll" value="[[2d6 + @{agility} + @{rank_Acrobatics}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{agility} + @{rank_Acrobatics}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>agi</span>
+          <input name="attr_attr_Acrobatics_total" disabled="true" value="@{agility}" title="@{attr_Acrobatics_total}"/>
+          <input name="attr_total_Acrobatics" disabled="true" value="(@{agility} - @{bulk} + @{rank_Acrobatics})" type="number" title="@{total_Acrobatics}"/>
+          <input name="attr_rank_Acrobatics" type="number" value="0" title="@{rank_Acrobatics}"/>
+        </li>
+        <input type="hidden" name="attr_total_Athletics" value="0"/>
+        <input type="hidden" name="attr_total_Athletics" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{Strength} + @{rank_Athletics}]]"> Athletics
+            </button>
+            <button type="roll" value="[[2d6 + @{Strength} + @{rank_Athletics}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{Strength} + @{rank_Athletics}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>str</span>
+          <input name="attr_attr_Athletics_total" disabled="true" value="@{Strength}" title="@{attr_Athletics_total}"/>
+          <input name="attr_total_Athletics" disabled="true" value="(@{strength} - floor(@{bulk}/2) + @{rank_Athletics})" type="number" title="@{total_Athletics}"/>
+          <input name="attr_rank_Athletics" type="number" value="0" title="@{rank_Athletics}"/>
+        </li>
+        <input type="hidden" name="attr_total_Awareness" value="0"/>
+        <input type="hidden" name="attr_total_Awareness" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{Perception} + @{rank_Awareness}]]"> Awareness
+            </button>
+            <button type="roll" value="[[2d6 + @{Perception} + @{rank_Awareness}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{Perception} + @{rank_Awareness}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>per</span>
+          <input name="attr_attr_Awareness_total" disabled="true" value="@{Perception}" title="@{attr_Awareness_total}"/>
+          <input name="attr_total_Awareness" disabled="true" value="(@{perception} + @{rank_Awareness})" type="number" title="@{total_Awareness}"/>
+          <input name="attr_rank_Awareness" type="number" value="0" title="@{rank_Awareness}"/>
+        </li>
+        <input type="hidden" name="attr_total_Contacts" value="0"/>
+        <input type="hidden" name="attr_total_Contacts" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{Charisma} + @{rank_Contacts}]]"> Contacts
+            </button>
+            <button type="roll" value="[[2d6 + @{Charisma} + @{rank_Contacts}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{Charisma} + @{rank_Contacts}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>cha</span>
+          <input name="attr_attr_Contacts_total" disabled="true" value="@{Charisma}" title="@{attr_Contacts_total}"/>
+          <input name="attr_total_Contacts" disabled="true" value="(@{charisma} + @{rank_Contacts})" type="number" title="@{total_Contacts}"/>
+          <input name="attr_rank_Contacts" type="number" value="0" title="@{rank_Contacts}"/>
+        </li>
+        <input type="hidden" name="attr_total_Lore" value="0"/>
+        <input type="hidden" name="attr_total_Lore" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{Intelligence} + @{rank_Lore}]]"> Lore
+            </button>
+            <button type="roll" value="[[2d6 + @{Intelligence} + @{rank_Lore}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{Intelligence} + @{rank_Lore}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>int</span>
+          <input name="attr_attr_Lore_total" disabled="true" value="@{Intelligence}" title="@{attr_Lore_total}"/>
+          <input name="attr_total_Lore" disabled="true" value="(@{intelligence} + @{rank_Lore})" type="number" title="@{total_Lore}"/>
+          <input name="attr_rank_Lore" type="number" value="0" title="@{rank_Lore}"/>
+        </li>
+        <input type="hidden" name="attr_total_Mechanics" value="0"/>
+        <input type="hidden" name="attr_total_Mechanics" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{Intelligence} + @{rank_Mechanics}]]"> Mechanics
+            </button>
+            <button type="roll" value="[[2d6 + @{Intelligence} + @{rank_Mechanics}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{Intelligence} + @{rank_Mechanics}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>int</span>
+          <input name="attr_attr_Mechanics_total" disabled="true" value="@{Intelligence}" title="@{attr_Mechanics_total}"/>
+          <input name="attr_total_Mechanics" disabled="true" value="(@{intelligence} + @{rank_Mechanics})" type="number" title="@{total_Mechanics}"/>
+          <input name="attr_rank_Mechanics" type="number" value="0" title="@{rank_Mechanics}"/>
+        </li>
+        <input type="hidden" name="attr_total_Medicine" value="0"/>
+        <input type="hidden" name="attr_total_Medicine" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{Intelligence} + @{rank_Medicine}]]"> Medicine
+            </button>
+            <button type="roll" value="[[2d6 + @{Intelligence} + @{rank_Medicine}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{Intelligence} + @{rank_Medicine}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>int</span>
+          <input name="attr_attr_Medicine_total" disabled="true" value="@{Intelligence}" title="@{attr_Medicine_total}"/>
+          <input name="attr_total_Medicine" disabled="true" value="(@{intelligence} + @{rank_Medicine})" type="number" title="@{total_Medicine}"/>
+          <input name="attr_rank_Medicine" type="number" value="0" title="@{rank_Medicine}"/>
+        </li>
+        <input type="hidden" name="attr_total_Presence" value="0"/>
+        <input type="hidden" name="attr_total_Presence" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{Charisma} + @{rank_Presence}]]"> Presence
+            </button>
+            <button type="roll" value="[[2d6 + @{Charisma} + @{rank_Presence}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{Charisma} + @{rank_Presence}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>cha</span>
+          <input name="attr_attr_Presence_total" disabled="true" value="@{Charisma}" title="@{attr_Presence_total}"/>
+          <input name="attr_total_Presence" disabled="true" value="(@{charisma} + @{rank_Presence})" type="number" title="@{total_Presence}"/>
+          <input name="attr_rank_Presence" type="number" value="0" title="@{rank_Presence}"/>
+        </li>
+        <input type="hidden" name="attr_total_Scrutiny" value="0"/>
+        <input type="hidden" name="attr_total_Scrutiny" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{Perception} + @{rank_Scrutiny}]]"> Scrutiny
+            </button>
+            <button type="roll" value="[[2d6 + @{Perception} + @{rank_Scrutiny}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{Perception} + @{rank_Scrutiny}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>per</span>
+          <input name="attr_attr_Scrutiny_total" disabled="true" value="@{Perception}" title="@{attr_Scrutiny_total}"/>
+          <input name="attr_total_Scrutiny" disabled="true" value="(@{perception} + @{rank_Scrutiny})" type="number" title="@{total_Scrutiny}"/>
+          <input name="attr_rank_Scrutiny" type="number" value="0" title="@{rank_Scrutiny}"/>
+        </li>
+        <input type="hidden" name="attr_total_Sleight_of_Hand" value="0"/>
+        <input type="hidden" name="attr_total_Sleight_of_Hand" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{Agility} + @{rank_Sleight_of_Hand}]]"> Sleight of Hand
+            </button>
+            <button type="roll" value="[[2d6 + @{Agility} + @{rank_Sleight_of_Hand}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{Agility} + @{rank_Sleight_of_Hand}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>agi</span>
+          <input name="attr_attr_Sleight_of_Hand_total" disabled="true" value="@{Agility}" title="@{attr_Sleight_of_Hand_total}"/>
+          <input name="attr_total_Sleight_of_Hand" disabled="true" value="(@{agility} - floor(@{bulk}/2) + @{rank_Sleight_of_Hand})" type="number" title="@{total_Sleight_of_Hand}"/>
+          <input name="attr_rank_Sleight_of_Hand" type="number" value="0" title="@{rank_Sleight_of_Hand}"/>
+        </li>
+        <input type="hidden" name="attr_total_Stealth" value="0"/>
+        <input type="hidden" name="attr_total_Stealth" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{Agility} + @{rank_Stealth}]]"> Stealth
+            </button>
+            <button type="roll" value="[[2d6 + @{Agility} + @{rank_Stealth}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{Agility} + @{rank_Stealth}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>agi</span>
+          <input name="attr_attr_Stealth_total" disabled="true" value="@{Agility}" title="@{attr_Stealth_total}"/>
+          <input name="attr_total_Stealth" disabled="true" value="(@{agility} - @{bulk} + @{rank_Stealth})" type="number" title="@{total_Stealth}"/>
+          <input name="attr_rank_Stealth" type="number" value="0" title="@{rank_Stealth}"/>
+        </li>
+        <input type="hidden" name="attr_total_Survival" value="0"/>
+        <input type="hidden" name="attr_total_Survival" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{Willpower} + @{rank_Survival}]]"> Survival
+            </button>
+            <button type="roll" value="[[2d6 + @{Willpower} + @{rank_Survival}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{Willpower} + @{rank_Survival}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>wil</span>
+          <input name="attr_attr_Survival_total" disabled="true" value="@{Willpower}" title="@{attr_Survival_total}"/>
+          <input name="attr_total_Survival" disabled="true" value="(@{willpower} + @{rank_Survival})" type="number" title="@{total_Survival}"/>
+          <input name="attr_rank_Survival" type="number" value="0" title="@{rank_Survival}"/>
+        </li>
+        <input type="hidden" name="attr_total_Wrangling" value="0"/>
+        <input type="hidden" name="attr_total_Wrangling" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{Charisma} + @{rank_Wrangling}]]"> Wrangling
+            </button>
+            <button type="roll" value="[[2d6 + @{Charisma} + @{rank_Wrangling}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{Charisma} + @{rank_Wrangling}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>cha</span>
+          <input name="attr_attr_Wrangling_total" disabled="true" value="@{Charisma}" title="@{attr_Wrangling_total}"/>
+          <input name="attr_total_Wrangling" disabled="true" value="(@{charisma} + @{rank_Wrangling})" type="number" title="@{total_Wrangling}"/>
+          <input name="attr_rank_Wrangling" type="number" value="0" title="@{rank_Wrangling}"/>
+        </li>
+      </ul>
+    </div>
+    <div class="section-traits"> 
+      <h1>Traits</h1>
+      <fieldset class="repeating_traits">
+        <input type="text" name="attr_trait" placeholder="Trait"/>
+      </fieldset>
+    </div>
+    <div class="section-equipment"> 
+      <h1>Equipment</h1>
+      <div class="equipment_row">
+        <h3>Item </h3>
+        <h3>Location </h3>
+        <h3>Dapper </h3>
+        <h3>Weight</h3>
+      </div>
+      <fieldset class="repeating_equipment equipment_row">
+        <div class="equipment_row">
+          <input type="text" name="attr_equipment_name"/>
+          <input type="text" name="attr_equipment_location"/>
+          <input type="number" name="attr_equipment_dapper"/>
+          <input type="text" name="attr_equipment_weight"/>
+        </div>
+      </fieldset>
+      <div class="section-cash"> 
+        <label>Cash
+          <input type="number" name="attr_cash" value="0"/>
+        </label>
+        <label>Bank
+          <input type="number" name="attr_bank" value="0"/>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="tab-combat"> 
+    <input type="hidden" name="attr_bulk" value="0"/>
+    <div class="section-armor"> 
+      <h1>Armor </h1>
+      <div class="row-armor"> 
+        <h3>Total </h3>
+        <input name="attr_armor_total" value="0" type="number" title="@{armor_total}"/>
+        <h3>Body </h3>
+        <input name="attr_armor_body" value="0" type="number" title="@{armor_body}"/>
+        <h3>Cloak </h3>
+        <input name="attr_armor_cloak" value="0" type="number" title="@{armor_cloak}"/>
+        <h3>Misc </h3>
+        <input name="attr_armor_misc" value="0" type="number" title="@{armor_misc}"/>
+        <h3>Bulk</h3>
+        <input name="attr_bulk" value="0" type="number" title="@{bulk}"/>
+      </div>
+      <h2>Shield: </h2>
+      <input name="attr_shield" value="" title="@{shield}"/>
+      <h3>Special: </h3>
+      <input name="attr_shield_special" value="" title="@{shield_special}"/>
+      <h3>Notes:</h3>
+      <input name="attr_shield_notes" value="" title="@{shield_notes}"/>
+    </div>
+    <div class="section-weapons"> 
+      <h1>Weapons </h1>
+      <div class="row-weapon">
+        <h3>Weapon </h3>
+        <h3>DMG </h3>
+        <h3>AP </h3>
+        <h3>RoF </h3>
+        <h3>Ammo </h3>
+        <h3>Reload </h3>
+        <h3>Range</h3>
+      </div>
+      <fieldset class="repeating_weapons">
+        <div class="row-weapon">
+          <input name="attr_weapon_name" type="text" value="" title="@{weapon_name}"/>
+          <input name="attr_weapon_dmg" type="text" value="" title="@{weapon_dmg}"/>
+          <input name="attr_weapon_ap" type="text" value="" title="@{weapon_ap}"/>
+          <input name="attr_weapon_rof" type="text" value="" title="@{weapon_rof}"/>
+          <input name="attr_weapon_ammo" type="text" value="" title="@{weapon_ammo}"/>
+          <input name="attr_weapon_reload" type="text" value="" title="@{weapon_reload}"/>
+          <input name="attr_weapon_range" type="text" value="" title="@{weapon_range}"/>
+        </div>
+      </fieldset>
+    </div>
+    <div class="section-ammunitions"> 
+      <h1>Ammunitions </h1>
+      <fieldset class="repeating_ammunitions">
+        <div class="row-ammunition">
+          <h3>Type </h3>
+          <input name="attr_ammo_type" type="text" value="" title="@{ammo_type}"/>
+          <h3>For Weapon </h3>
+          <input name="attr_ammo_weapon" type="text" value="" title="@{ammo_weapon}"/>
+          <h3>Amount </h3>
+          <input name="attr_ammo_amount" value="0" type="number" title="@{ammo_amount}"/>
+          <h3>Special </h3>
+          <input name="attr_ammo_special" type="text" placeholder="Notes" title="@{ammo_special}"/>
+        </div>
+      </fieldset>
+    </div>
+    <div class="section-skills"> 
+      <ul> 
+        <li> 
+          <h3>Skill</h3>
+          <h3>Characteristic </h3>
+          <h3>Total </h3>
+          <h3>Rank</h3>
+        </li>
+        <input type="hidden" name="attr_total_Arcana" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{intelligence} - @{bulk} + @{rank_Arcana}]]"> Arcana
+            </button>
+            <button type="roll" value="[[2d6 + @{intelligence} - @{bulk} + @{rank_Arcana}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{intelligence} - @{bulk} + @{rank_Arcana}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>int</span>
+          <input name="attr_attr_Arcana_total" disabled="true" value="@{intelligence}" title="@{attr_Arcana_total}"/>
+          <input name="attr_total_Arcana" disabled="true" value="(@{intelligence} - @{bulk} + @{rank_Arcana})" type="number" title="@{total_Arcana}"/>
+          <input name="attr_rank_Arcana" type="number" value="0" title="@{rank_Arcana}"/>
+        </li>
+        <input type="hidden" name="attr_total_Archery" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{perception} + @{rank_Archery}]]"> Archery
+            </button>
+            <button type="roll" value="[[2d6 + @{perception} + @{rank_Archery}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{perception} + @{rank_Archery}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>per</span>
+          <input name="attr_attr_Archery_total" disabled="true" value="@{perception}" title="@{attr_Archery_total}"/>
+          <input name="attr_total_Archery" disabled="true" value="(@{perception} + @{rank_Archery})" type="number" title="@{total_Archery}"/>
+          <input name="attr_rank_Archery" type="number" value="0" title="@{rank_Archery}"/>
+        </li>
+        <input type="hidden" name="attr_total_Constitution" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{strength} + @{willpower} + @{rank_Constitution}]]"> Constitution
+            </button>
+            <button type="roll" value="[[2d6 + @{strength} + @{willpower} + @{rank_Constitution}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{strength} + @{willpower} + @{rank_Constitution}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>str/will</span>
+          <input name="attr_attr_Constitution_total" disabled="true" value="@{strength} + @{willpower}" title="@{attr_Constitution_total}"/>
+          <input name="attr_total_Constitution" disabled="true" value="(@{strength} + @{willpower} + @{rank_Constitution})" type="number" title="@{total_Constitution}"/>
+          <input name="attr_rank_Constitution" type="number" value="0" title="@{rank_Constitution}"/>
+        </li>
+        <input type="hidden" name="attr_total_Divinity" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{charisma} + @{rank_Divinity}]]"> Divinity
+            </button>
+            <button type="roll" value="[[2d6 + @{charisma} + @{rank_Divinity}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{charisma} + @{rank_Divinity}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>cha</span>
+          <input name="attr_attr_Divinity_total" disabled="true" value="@{charisma}" title="@{attr_Divinity_total}"/>
+          <input name="attr_total_Divinity" disabled="true" value="(@{charisma} + @{rank_Divinity})" type="number" title="@{total_Divinity}"/>
+          <input name="attr_rank_Divinity" type="number" value="0" title="@{rank_Divinity}"/>
+        </li>
+        <input type="hidden" name="attr_total_Dodge" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{agility} + @{perception} - @{bulk} + @{rank_Dodge}]]"> Dodge
+            </button>
+            <button type="roll" value="[[2d6 + @{agility} + @{perception} - @{bulk} + @{rank_Dodge}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{agility} + @{perception} - @{bulk} + @{rank_Dodge}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>agi/per</span>
+          <input name="attr_attr_Dodge_total" disabled="true" value="@{agility} + @{perception}" title="@{attr_Dodge_total}"/>
+          <input name="attr_total_Dodge" disabled="true" value="(@{agility} + @{perception} - @{bulk} + @{rank_Dodge})" type="number" title="@{total_Dodge}"/>
+          <input name="attr_rank_Dodge" type="number" value="0" title="@{rank_Dodge}"/>
+        </li>
+        <input type="hidden" name="attr_total_Heavy_Weapons" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{strength} + @{rank_Heavy_Weapons}]]"> Heavy Weapons
+            </button>
+            <button type="roll" value="[[2d6 + @{strength} + @{rank_Heavy_Weapons}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{strength} + @{rank_Heavy_Weapons}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>str</span>
+          <input name="attr_attr_Heavy_Weapons_total" disabled="true" value="@{strength}" title="@{attr_Heavy_Weapons_total}"/>
+          <input name="attr_total_Heavy_Weapons" disabled="true" value="(@{strength} + @{rank_Heavy_Weapons})" type="number" title="@{total_Heavy_Weapons}"/>
+          <input name="attr_rank_Heavy_Weapons" type="number" value="0" title="@{rank_Heavy_Weapons}"/>
+        </li>
+        <input type="hidden" name="attr_total_Melee" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{agility} + @{rank_Melee}]]"> Melee
+            </button>
+            <button type="roll" value="[[2d6 + @{agility} + @{rank_Melee}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{agility} + @{rank_Melee}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>agi</span>
+          <input name="attr_attr_Melee_total" disabled="true" value="@{agility}" title="@{attr_Melee_total}"/>
+          <input name="attr_total_Melee" disabled="true" value="(@{agility} + @{rank_Melee})" type="number" title="@{total_Melee}"/>
+          <input name="attr_rank_Melee" type="number" value="0" title="@{rank_Melee}"/>
+        </li>
+        <input type="hidden" name="attr_total_Psychic" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{willpower} + @{rank_Psychic}]]"> Psy
+            </button>
+            <button type="roll" value="[[2d6 + @{willpower} + @{rank_Psychic}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{willpower} + @{rank_Psychic}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>wil</span>
+          <input name="attr_attr_Psychic_total" disabled="true" value="@{willpower}" title="@{attr_Psychic_total}"/>
+          <input name="attr_total_Psychic" disabled="true" value="(@{willpower} + @{rank_Psychic})" type="number" title="@{total_Psychic}"/>
+          <input name="attr_rank_Psychic" type="number" value="0" title="@{rank_Psychic}"/>
+        </li>
+        <input type="hidden" name="attr_total_Resolve" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{willpower} + @{rank_Resolve}]]"> Resolve
+            </button>
+            <button type="roll" value="[[2d6 + @{willpower} + @{rank_Resolve}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{willpower} + @{rank_Resolve}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>wil</span>
+          <input name="attr_attr_Resolve_total" disabled="true" value="@{willpower}" title="@{attr_Resolve_total}"/>
+          <input name="attr_total_Resolve" disabled="true" value="(@{willpower} + @{rank_Resolve})" type="number" title="@{total_Resolve}"/>
+          <input name="attr_rank_Resolve" type="number" value="0" title="@{rank_Resolve}"/>
+        </li>
+        <input type="hidden" name="attr_total_Small_Arms" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{perception} + @{rank_Small_Arms}]]"> Small Arms
+            </button>
+            <button type="roll" value="[[2d6 + @{perception} + @{rank_Small_Arms}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{perception} + @{rank_Small_Arms}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>per</span>
+          <input name="attr_attr_Small_Arms_total" disabled="true" value="@{perception}" title="@{attr_Small_Arms_total}"/>
+          <input name="attr_total_Small_Arms" disabled="true" value="(@{perception} + @{rank_Small_Arms})" type="number" title="@{total_Small_Arms}"/>
+          <input name="attr_rank_Small_Arms" type="number" value="0" title="@{rank_Small_Arms}"/>
+        </li>
+        <input type="hidden" name="attr_total_Sorcery" value="0"/>
+        <li>
+          <div class="container-button">
+            <button type="roll" value="[[2d6 + @{willpower} - floor(@{bulk}/2) + @{rank_Sorcery}]]"> Sorcery
+            </button>
+            <button type="roll" value="[[2d6 + @{willpower} - floor(@{bulk}/2) + @{rank_Sorcery}+2]]">
+               +2</button>
+            <button type="roll" value="[[2d6 + @{willpower} - floor(@{bulk}/2) + @{rank_Sorcery}+?{Conditionals|0}]]">
+               +X</button>
+          </div><span>wil</span>
+          <input name="attr_attr_Sorcery_total" disabled="true" value="@{willpower}" title="@{attr_Sorcery_total}"/>
+          <input name="attr_total_Sorcery" disabled="true" value="(@{willpower} - floor(@{bulk}/2) + @{rank_Sorcery})" type="number" title="@{total_Sorcery}"/>
+          <input name="attr_rank_Sorcery" type="number" value="0" title="@{rank_Sorcery}"/>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="tab-spells"> 
+    <h1>Spells </h1>
+    <div class="section-spell-resources"> 
+      <h3>Total Spell Points </h3>
+      <input name="attr_spell_points_max" value="0" type="number" title="@{spell_points|max}"/>
+      <h3>Spent Spell Points </h3>
+      <input name="attr_spell_points_spent" value="0" type="number" title="@{spell_points_spent}"/>
+      <h3>Spell Points Left</h3>
+      <input name="attr_spell_points_left" value="0" type="number" title="@{spell_points_left}"/>
+    </div>
+    <fieldset class="repeating_spells">
+      <div class="container-spell">
+        <input class="__spell_name" name="attr_spell_name" placeholder="Spell Name" type="text" title="@{spell_name}"/>
+        <input name="attr_spell_range" placeholder="Range" type="text" title="@{spell_range}"/>
+        <input name="attr_spell_duration" placeholder="Duration" type="text" title="@{spell_duration}"/>
+        <input name="attr_spell_target" placeholder="Target" type="text" title="@{spell_target}"/>
+        <h2>DC </h2>
+        <input name="attr_spell_dc" value="0" type="number" title="@{spell_dc}"/>
+        <h2>SP</h2>
+        <input name="attr_spell_sp" value="0" type="number" title="@{spell_sp}"/>
+        <div class="__spell_effects">
+          <h2>Spell Effects </h2>
+          <input name="attr_spell_effect_1" placeholder="" title="@{spell_effect_1}"/>
+          <input name="attr_spell_effect_2" placeholder="" title="@{spell_effect_2}"/>
+          <input name="attr_spell_effect_3" placeholder="" title="@{spell_effect_3}"/>
+          <input name="attr_spell_effect_4" placeholder="" title="@{spell_effect_4}"/>
+          <input name="attr_spell_effect_5" placeholder="" title="@{spell_effect_5}"/>
+        </div>
+        <textarea name="attr_spell_description" placeholder="Description" title="@{spell_description}"></textarea>
+      </div>
+    </fieldset>
+  </div>
+  <div class="tab-background">
+    <div class="section-background">
+      <h1>Background </h1>
+      <h2>Birth </h2>
+      <textarea name="attr_birth" value="" title="@{birth}"></textarea>
+      <h2>Upbringing</h2>
+      <textarea name="attr_upbringing" value="" title="@{upbringing}"></textarea>
+      <h2>Motivation </h2>
+      <textarea name="attr_motivation" value="" title="@{motivation}"></textarea>
+      <h2>Passion </h2>
+      <textarea name="attr_passion" value="" title="@{passion}"></textarea>
+      <h2>Dreams </h2>
+      <textarea name="attr_dreams" value="" title="@{dreams}"></textarea>
+      <h2>Appearance </h2>
+      <textarea name="attr_appearance" value="" title="@{appearance}"></textarea>
+      <h2>Quirks </h2>
+      <textarea name="attr_quirks" value="" title="@{quirks}"></textarea>
+      <h2>What makes you special </h2>
+      <textarea name="attr_special" value="" title="@{special}"></textarea>
+    </div>
+  </div>
+</div>

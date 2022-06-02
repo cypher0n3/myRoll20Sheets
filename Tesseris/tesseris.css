@@ -1,0 +1,596 @@
+@import url("https://fonts.googleapis.com/css2?family=BioRhyme:wght@200&family=IM+Fell+Great+Primer+SC&family=Old+Standard+TT&family=Rye&display=swap");
+.ui-dialog .tab-content .charsheet .section-skills {
+  padding: 2rem;
+  color: var(--color-gold);
+}
+.ui-dialog .tab-content .charsheet .section-skills h3 {
+  color: #fd1628;
+}
+.ui-dialog .tab-content .charsheet .section-skills h3:nth-of-type(2) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/span 2;
+}
+.ui-dialog .tab-content .charsheet .section-skills ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.ui-dialog .tab-content .charsheet .section-skills ul li {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 3fr 1rem 1fr 1rem 50px 1rem 50px 1rem 50px;
+  grid-template-columns: 3fr 1fr 50px 50px 50px;
+  gap: 1rem;
+}
+.ui-dialog .tab-content .charsheet .section-skills span {
+  font-family: var(--font-label);
+  text-transform: capitalize;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.ui-dialog .tab-content .charsheet .section-skills span:nth-of-type(1) {
+  text-align: right;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  text-transform: uppercase;
+}
+.ui-dialog .tab-content .charsheet .section-skills input {
+  width: 100%;
+  text-align: center;
+  background: none;
+}
+.ui-dialog .tab-content .charsheet .section-equipment {
+  position: relative;
+  padding: 2rem;
+}
+.ui-dialog .tab-content .charsheet .section-equipment .equipment_row {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 120px 80px 80px;
+  grid-template-columns: 1fr 120px 80px 80px;
+}
+.ui-dialog .tab-content .charsheet .section-equipment .equipment_row *:not(:first-child) {
+  text-align: center;
+}
+.ui-dialog .tab-content .charsheet .section-equipment .equipment_row input {
+  width: 100%;
+}
+.ui-dialog .tab-content .charsheet .section-equipment .section-cash {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 2rem;
+  right: 0;
+}
+.ui-dialog .tab-content .charsheet .section-equipment .section-cash label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: var(--color-gold);
+}
+.ui-dialog .tab-content .charsheet .section-equipment .section-cash label input {
+  width: 60px;
+}
+
+.ui-dialog .tab-content .charsheet .section-armor .row-armor {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto;
+  -ms-grid-rows: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-auto-flow: column;
+}
+
+.ui-dialog .tab-content .charsheet .section-armor .row-armor > *:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+
+.ui-dialog .tab-content .charsheet .section-armor .row-armor > *:nth-child(2) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+}
+
+.ui-dialog .tab-content .charsheet .section-armor .row-armor > *:nth-child(3) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+}
+
+.ui-dialog .tab-content .charsheet .section-armor .row-armor > *:nth-child(4) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+}
+
+.ui-dialog .tab-content .charsheet .section-armor .row-armor > *:nth-child(5) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+}
+
+.ui-dialog .tab-content .charsheet .section-armor .row-armor > *:nth-child(6) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+}
+
+.ui-dialog .tab-content .charsheet .section-armor .row-armor > *:nth-child(7) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+}
+
+.ui-dialog .tab-content .charsheet .section-armor .row-armor > *:nth-child(8) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 4;
+}
+
+.ui-dialog .tab-content .charsheet .section-armor .row-armor > *:nth-child(9) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+}
+
+.ui-dialog .tab-content .charsheet .section-armor .row-armor > *:nth-child(10) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 5;
+}
+.ui-dialog .tab-content .charsheet .section-armor .row-armor h3 {
+  text-align: center;
+}
+.ui-dialog .tab-content .charsheet .section-armor .row-armor input {
+  width: 100%;
+}
+.ui-dialog .tab-content .charsheet .section-weapons .row-weapon {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 60px 40px 40px 60px 60px 60px;
+  grid-template-columns: 1fr 60px 40px 40px 60px 60px 60px;
+}
+.ui-dialog .tab-content .charsheet .section-weapons .row-weapon h3 {
+  text-align: center;
+}
+.ui-dialog .tab-content .charsheet .section-weapons .row-weapon input {
+  width: 100%;
+}
+.ui-dialog .tab-content .charsheet .section-ammunitions .row-ammunition {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+  grid-template-columns: auto auto auto;
+  -ms-grid-rows: auto auto auto;
+  grid-template-rows: auto auto auto;
+  grid-auto-flow: column;
+      grid-template-areas: ". . . " ". . . " "special note note";
+}
+.ui-dialog .tab-content .charsheet .section-ammunitions .row-ammunition *:nth-child(7) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: special;
+}
+.ui-dialog .tab-content .charsheet .section-ammunitions .row-ammunition *:nth-child(8) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: note;
+}
+.ui-dialog .tab-content .charsheet .section-ammunitions .row-ammunition h3 {
+  text-align: center;
+}
+.ui-dialog .tab-content .charsheet .section-ammunitions .row-ammunition input {
+  width: 100%;
+}
+
+.ui-dialog .tab-content .charsheet .section-background {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: column;
+  -ms-grid-columns: 1fr 1rem 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.ui-dialog .tab-content .charsheet .section-background h1 {
+  grid-column: 1/-1;
+}
+.ui-dialog .tab-content .charsheet .section-background h2 {
+  line-height: 1rem;
+}
+.ui-dialog .tab-content .charsheet .section-background h2:nth-of-type(2n), .ui-dialog .tab-content .charsheet .section-background textarea:nth-of-type(2n) {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+}
+.ui-dialog .tab-content .charsheet .section-background textarea {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  resize: vertical;
+  height: 8rem;
+}
+
+.ui-dialog .tab-content .charsheet .section-spell-resources {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.ui-dialog .tab-content .charsheet .container-spell {
+  display: -ms-grid;
+  display: grid;
+  margin-bottom: 2rem;
+  -ms-grid-columns: 1fr 1rem 1fr 1rem 1fr 1rem auto 1rem auto 1rem auto 1rem auto;
+  grid-template-columns: 1fr 1fr 1fr auto auto auto auto;
+  -ms-grid-rows: auto 1rem auto 1rem 1fr;
+  grid-template-rows: auto auto 1fr;
+      grid-template-areas: ". . . . . . ." ". . . . . . ." "spell-effect description description description description description description";
+  gap: 1rem;
+}
+.ui-dialog .tab-content .charsheet .container-spell input[type=text] {
+  width: 100%;
+}
+.ui-dialog .tab-content .charsheet .container-spell .__spell_name {
+  grid-column: 1/-1;
+}
+.ui-dialog .tab-content .charsheet .container-spell .__spell_effects {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: spell-effect;
+}
+.ui-dialog .tab-content .charsheet .container-spell textarea {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 11;
+  grid-area: description;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.ui-dialog .tab-content .charsheet {
+  --font-accent: "Rye", serif;
+  --font-main: "IM Fell Great Primer SC", serif;
+  --font-description: "Old Standard TT", serif;
+  --font-label: "BioRhyme", serif;
+  --color-deep: #1b0a06;
+  --color-clay: #633726;
+  --color-gold: #c39935;
+  --img-button-main: url(https://i.imgur.com/z37CxxF.png);
+  --img-button-combat: url(https://i.imgur.com/unZ50Kh.png);
+  --img-button-spells: url(https://i.imgur.com/0KQUTVR.png);
+  --img-button-background: url(https://i.imgur.com/dXu4H6o.png);
+  --img-leather-purple: url(https://i.imgur.com/1y7cVfU.png);
+  --img-leather-brown: url(https://i.imgur.com/SRXOw72.png);
+  --img-background: url(https://i.imgur.com/2f7TtaL.jpg);
+  --border-sframe1: url(https://i.imgur.com/ZlHzqa9.png);
+  --border-button: url(https://i.imgur.com/ojwoSmD.jpg);
+  --border-button-lt: url(https://i.imgur.com/MBbakBE.jpg);
+  --border-runes: url(https://i.imgur.com/FhARTnV.png);
+  font-family: var(--font-main);
+  background: var(--img-background);
+}
+.ui-dialog .tab-content .charsheet h1, .ui-dialog .tab-content .charsheet h2, .ui-dialog .tab-content .charsheet h3, .ui-dialog .tab-content .charsheet h4, .ui-dialog .tab-content .charsheet input {
+  color: var(--color-gold);
+}
+.ui-dialog .tab-content .charsheet h1 {
+  font-family: var(--font-accent);
+  font-size: 24px;
+  color: #fd1628;
+}
+.ui-dialog .tab-content .charsheet h2 {
+  font-family: var(--font-label);
+  font-size: 18px;
+}
+.ui-dialog .tab-content .charsheet :where(button) {
+  border: 2px solid transparent;
+  -o-border-image: var(--border-button) 30 stretch;
+     border-image: var(--border-button) 30 fill stretch;
+  border-image-width: 5px;
+  --tmp-1:rgb(151, 255, 229);
+  --tmp-2:#33c5ff;
+  --tmp-3: #0d2554;
+  color: #8acbe6;
+  text-shadow: 0 0 12px var(--tmp-2), 0 0 24px var(--tmp-2), 0 0 48px var(--tmp-3), 0 0 96px var(--tmp-3), 0 0 220px var(--tmp-3);
+}
+.ui-dialog .tab-content .charsheet :where(button):hover {
+  border: 2px solid transparent;
+  -o-border-image: var(--border-button-lt) 30 stretch;
+     border-image: var(--border-button-lt) 30 fill stretch;
+  border-image-width: 5px;
+  color: #dee8f6;
+  text-shadow: 0 0 4px var(--tmp-1), 0 0 12px var(--tmp-2), 0 0 24px var(--tmp-2), 0 0 48px var(--tmp-3), 0 0 96px var(--tmp-3), 0 0 220px var(--tmp-3);
+}
+.ui-dialog .tab-content .charsheet :where(button):hover:active {
+  text-shadow: 0 0 3px var(--tmp-1), 0 0 8px var(--tmp-1), 0 0 14px var(--tmp-1), 0 0 24px var(--tmp-1), 0 0 24px var(--tmp-2), 0 0 48px var(--tmp-2), 0 0 92px var(--tmp-2), 0 0 92px var(--tmp-3), 0 0 220px var(--tmp-3), 0 0 440px var(--tmp-3);
+}
+.ui-dialog .tab-content .charsheet button::before {
+  content: "" !important;
+}
+.ui-dialog .tab-content .charsheet input {
+  background: var(--color-clay);
+  outline: none;
+  border: none;
+}
+.ui-dialog .tab-content .charsheet input[type=number] {
+  background: none;
+  text-align: center;
+  font-size: 18px;
+  width: 25px;
+  padding: 0;
+}
+.ui-dialog .tab-content .charsheet input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.ui-dialog .tab-content .charsheet .container-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.ui-dialog .tab-content .charsheet .container-button button:first-of-type {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.ui-dialog .tab-content .charsheet .container-button * {
+  margin: 0;
+}
+.ui-dialog .tab-content .charsheet *[class^=section] {
+  color: var(--color-gold);
+}
+.ui-dialog .tab-content .charsheet .charsheet {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(-webkit-min-content, 35%) 1rem 1fr;
+  -ms-grid-columns: minmax(min-content, 35%) 1rem 1fr;
+  grid-template-columns: minmax(-webkit-min-content, 35%) 1fr;
+  grid-template-columns: minmax(min-content, 35%) 1fr;
+  -ms-grid-rows: auto 1rem 40px 1rem 1fr;
+  grid-template-rows: auto 40px 1fr;
+      grid-template-areas: "header header" "left-content navigation" "left-content right-content";
+  gap: 1rem;
+}
+.ui-dialog .tab-content .charsheet nav {
+  position: relative;
+  background: var(--color-deep);
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 120px 120px 120px 120px;
+  grid-template-columns: 120px 120px 120px 120px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.ui-dialog .tab-content .charsheet nav::before {
+  content: "";
+  background: var(--color-deep);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+.ui-dialog .tab-content .charsheet nav input[value=main] + .strap label[for*=main] {
+  background: var(--img-leather-purple);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.ui-dialog .tab-content .charsheet nav input[value=combat] + .strap label[for*=combat] {
+  background: var(--img-leather-purple);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.ui-dialog .tab-content .charsheet nav input[value=spells] + .strap label[for*=spells] {
+  background: var(--img-leather-purple);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.ui-dialog .tab-content .charsheet nav input[value=background] + .strap label[for*=background] {
+  background: var(--img-leather-purple);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.ui-dialog .tab-content .charsheet nav .strap {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 120px 120px 120px 120px;
+  grid-template-columns: 120px 120px 120px 120px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.ui-dialog .tab-content .charsheet nav .strap::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(105, 95, 95)), color-stop(50%, transparent), to(rgb(105, 95, 95)));
+  background: linear-gradient(to bottom, rgb(105, 95, 95) 0%, transparent 50%, rgb(105, 95, 95) 100%);
+  mix-blend-mode: multiply;
+}
+.ui-dialog .tab-content .charsheet nav .strap label {
+  background: var(--img-leather-brown);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  -webkit-transform: rotate(-35deg);
+          transform: rotate(-35deg);
+}
+.ui-dialog .tab-content .charsheet nav button {
+  content: "";
+  -o-border-image: none !important;
+     border-image: none !important;
+  border: none;
+  height: 60px;
+  aspect-ratio: 1;
+  position: relative;
+  font-family: var(--font-accent);
+  color: var(--color-gold);
+  -webkit-transform: translate(20px, -10px);
+          transform: translate(20px, -10px);
+}
+.ui-dialog .tab-content .charsheet nav button:hover {
+  -webkit-transform: translate(30px, -15px);
+          transform: translate(30px, -15px);
+  -webkit-transition: -webkit-transform 200ms ease-out, -webkit-filter 200ms ease-out;
+  transition: -webkit-transform 200ms ease-out, -webkit-filter 200ms ease-out;
+  transition: transform 200ms ease-out, filter 200ms ease-out;
+  transition: transform 200ms ease-out, filter 200ms ease-out, -webkit-transform 200ms ease-out, -webkit-filter 200ms ease-out;
+  -webkit-filter: drop-shadow(0 0 2px var(--tmp-1)) drop-shadow(0 0 4px var(--tmp-2)) drop-shadow(0 0 8px var(--tmp-2)) drop-shadow(0 0 16px var(--tmp-3));
+          filter: drop-shadow(0 0 2px var(--tmp-1)) drop-shadow(0 0 4px var(--tmp-2)) drop-shadow(0 0 8px var(--tmp-2)) drop-shadow(0 0 16px var(--tmp-3));
+}
+.ui-dialog .tab-content .charsheet nav button[name=act_main] {
+  background: var(--img-button-main);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.ui-dialog .tab-content .charsheet nav button[name=act_combat] {
+  background: var(--img-button-combat);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.ui-dialog .tab-content .charsheet nav button[name=act_spells] {
+  background: var(--img-button-spells);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.ui-dialog .tab-content .charsheet nav button[name=act_background] {
+  background: var(--img-button-background);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.ui-dialog .tab-content .charsheet [class^=tab] {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+  grid-area: right-content;
+  display: none;
+}
+.ui-dialog .tab-content .charsheet input.nav-control[value=main] ~ .tab-main {
+  display: block;
+}
+.ui-dialog .tab-content .charsheet input.nav-control[value=combat] ~ .tab-combat {
+  display: block;
+}
+.ui-dialog .tab-content .charsheet input.nav-control[value=spells] ~ .tab-spells {
+  display: block;
+}
+.ui-dialog .tab-content .charsheet input.nav-control[value=background] ~ .tab-background {
+  display: block;
+}
+.ui-dialog .tab-content .charsheet .section-bio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.ui-dialog .tab-content .charsheet .header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: header;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.ui-dialog .tab-content .charsheet .left-content {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 1;
+  grid-area: left-content;
+}
+.ui-dialog .tab-content .charsheet .section-attributes {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 2rem;
+}
+.ui-dialog .tab-content .charsheet .section-characteristics {
+  background: var(--color-deep);
+  color: var(--color-gold);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto;
+  grid-template-columns: 1fr auto;
+}
+.ui-dialog .tab-content .charsheet .section-characteristics h1 {
+  grid-column: 1/-1;
+}
+.ui-dialog .tab-content .charsheet .section-traits {
+  padding: 2rem;
+}
+.ui-dialog .tab-content .charsheet .section-traits input {
+  width: 100%;
+}
+.ui-dialog .tab-content .charsheet .section-scores {
+  border: 10px solid transparent;
+  -o-border-image: var(--border-sframe1) 30 round;
+     border-image: var(--border-sframe1) 30 fill round;
+  border-image-width: 15px;
+  border-image-outset: 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 2rem;
+}
+.ui-dialog .tab-content .charsheet .section-scores h4 {
+  line-height: 22px;
+}
+.ui-dialog .tab-content .charsheet .section-scores [class^=section] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-width: 50%;
+  text-align: center;
+}
+.ui-dialog .tab-content .charsheet .section-scores [class^=section] input {
+  -ms-grid-row-align: center;
+  -ms-grid-column-align: center;
+  place-self: center;
+  width: 100%;
+}
+.ui-dialog .tab-content .charsheet .section-scores .section-fate {
+  grid-column: 1/-1;
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  -ms-grid-rows: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-auto-flow: column;
+}
+.ui-dialog .tab-content .charsheet .section-scores .section-fate * {
+  text-align: center;
+  -ms-grid-row-align: center;
+  -ms-grid-column-align: center;
+  place-self: center;
+}
+.ui-dialog .tab-content .charsheet .section-aspects {
+  border: 10px solid transparent;
+  -o-border-image: var(--border-sframe1) 30 round;
+     border-image: var(--border-sframe1) 30 fill round;
+  border-image-width: 15px;
+  border-image-outset: 10px;
+}
+.ui-dialog .tab-content .charsheet .section-aspects input {
+  width: 100%;
+}
+.ui-dialog .tab-content .charsheet [class^=tab] {
+  border: 10px solid transparent;
+  -o-border-image: var(--border-runes) 30 round;
+     border-image: var(--border-runes) 30 round;
+  border-image-width: 15px;
+  border-image-outset: 10px;
+  margin: 1rem;
+}
