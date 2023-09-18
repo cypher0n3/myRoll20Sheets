@@ -1,0 +1,886 @@
+/* === GENERAL === */
+.charsheet {
+  min-width: 650px;
+  background-color: white;
+  color:black;
+}
+
+/* body.sheet-darkmode button,
+body.sheet-darkmode input,
+body.sheet-darkmode optgroup,
+body.sheet-darkmode select,
+body.sheet-darkmode textarea,
+body.sheet-darkmode .charsheet {
+	color: #eee
+}
+body.sheet-darkmode .btn,
+body.sheet-darkmode .btn.btn-default {
+	color: #c8c3bc;
+	text-shadow: rgba(24,26,27,.75) 0px 1px 1px;
+	background-color: #1e2021;
+	background-image: linear-gradient(#181a1b, #26292b);
+	border-color: #3e4446 #3e4446 #43494c;
+	box-shadow: rgba(24,26,27,.2) 0px 1px 0px inset,rgba(0,0,0,.05) 0px 1px 2px
+} */
+
+.sheet-boldCenter {
+  font-weight: bold;
+  text-align: center;
+}
+
+.sheet-section {
+  border: 1px solid black;
+  border-radius: 5px;
+  box-sizing: border-box;
+  float: left;
+  margin: 4px 0;
+  padding: 1px;
+  width: 100%;
+}
+
+.sheet-border-right {
+  border-right: 1px solid black;
+}
+
+.sheet-headerbar {
+  background: black;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 4px;
+  padding: 2px 4px;
+  text-align:center
+}
+
+.sheet-table {
+  border-collapse: separate;
+  border-spacing: 5px;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.sheet-table-padded .sheet-table {
+  border-spacing: 1rem 0;
+}
+
+.sheet-table-noSpacing {
+  border-spacing: 0;
+}
+
+.sheet-table-repeating {
+  border-spacing: 0;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.sheet-topBorderGray {
+  border-top: 1px solid lightgrey;
+}
+
+.sheet-table-2col {
+  display: table-cell;
+  width: 50%;
+}
+
+.sheet-table-2col-70 {
+  display: table-cell;
+  width: 70%;
+}
+
+.sheet-table-2col-30 {
+  display: table-cell;
+  width: 30%;
+}
+
+.sheet-table-2col-a {
+  display: table-cell;
+  width: auto;
+}
+
+.sheet-table-row {
+  display: table-row;
+}
+
+.sheet-table-cell-repeating-first {
+  padding-right: 5px;
+}
+
+.sheet-table-cell-repeating {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.sheet-table-cell-repeating-last {
+  padding-left: 5px;
+  padding-right: 10px;
+}
+
+.sheet-table-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.sheet-colspan-2 {
+  grid-column: span 2;
+}
+
+.sheet-cell-a { width: auto; }
+.sheet-cell-2 { width: 2%; }
+.sheet-cell-5 { width: 5%; }
+.sheet-cell-7 { width: 7%; }
+.sheet-cell-8 { width: 8%; }
+.sheet-cell-10 { width: 10%; }
+.sheet-cell-12 { width: 12%; }
+.sheet-cell-15 { width: 15%; }
+.sheet-cell-16 { width: 16%; }
+.sheet-cell-18 { width: 18%; }
+.sheet-cell-20 { width: 20%; }
+.sheet-cell-25 { width: 25%; }
+.sheet-cell-30 { width: 30%; }
+.sheet-cell-41 { width: 41%; }
+.sheet-cell-50 { width: 50%; }
+.sheet-cell-75 { width: 75%; }
+.sheet-cell-30 { width: 30%; }
+.sheet-cell-69 { width: 69%; }
+.sheet-cell-button {width: 25px; }
+.sheet-cell-rank {width: 50px; }
+
+.sheet-cell-label {
+  background: lightgrey;
+  font-size: 15px;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.sheet-cell-boldRight {
+  font-weight: bold;
+  text-align: right;
+  vertical-align: middle;
+}
+
+.sheet-span-border {
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.sheet-span-settings {
+  display: inline-block;
+  height: 23px;
+  line-height: 23px;
+  vertical-align: middle;
+}
+
+.sheet-span-settings-label {
+  font-weight: bold;
+}
+
+.sheet-row-settings {
+  vertical-align: middle;
+}
+
+.sheet-label-settings {
+  font-size: 13px;
+  font-weight: bold;
+  height: 23px;
+  line-height: 23px;
+  vertical-align: middle;
+}
+.sheet-multiline-input {
+  border: 1px solid darkgray;
+  height:46px;
+}
+
+textarea {
+  box-sizing: border-box;
+  color: black;
+  height: 400px;
+  margin: 0;
+  resize: vertical;
+  width: 100%;
+}
+
+input[type="radio"] {
+  -ms-transform: scale(1.3); /* IE 9 */
+  -webkit-transform: scale(1.3); /* Chrome, Safari, Opera */
+  transform: scale(1.3);
+}
+
+/* Override Roll20 Button styling for something less conspicuous */
+button {
+  background-color: #E8E8E8;
+  background-image: none;
+  border: 1px solid darkgray;
+  border-radius: 3px;
+  box-shadow: none;
+  color: #000000;
+  height: 16px;
+  line-height: 16px;
+  margin: 0;
+  vertical-align: middle;
+}
+
+label {
+  font-size: 12px;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
+select {
+  color: black;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  padding-left: 3px;
+  padding-right: 3px;
+  width: 100%;
+}
+
+input[type="text"] {
+  color: black;
+  margin: 0;
+  padding: 0;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 3px;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /*-- Hide arrows on number fields --*/
+  color: black;
+  margin: 0;
+  padding: 0;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 3px;
+  vertical-align: middle;
+}
+
+/* Hide arrows on number fields -> Webkit browsers like Safari and Chrome */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.sheet-input-border input[type="text"] {
+  border: 1px solid darkgray;
+  max-width: 100%;
+  min-width: 15px;
+  width: 100%;
+}
+
+.sheet-input-border input[type="number"] {
+  border: 1px solid darkgray;
+  max-width: 100%;
+  min-width: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+.sheet-input-disabled input[type=number] {
+  background-color: lightgray;
+  color: darkblue;
+}
+
+.sheet-input-disabled input[type=text] {
+  background-color: lightgray;
+  color: darkblue;
+}
+
+.sheet-select-border select {
+  border: 1px solid darkgray;
+  max-width: 100%;
+  min-width: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+/* -- Checkbox hider stuff -- */
+.sheet-hider:checked ~ .sheet-hide-section {
+  display: none;
+}
+
+.sheet-hider:not(:checked) ~ .sheet-hide-section {
+  display: block;
+}
+
+/*this hides the checkbox*/
+.charsheet .sheet-hider-invis[type="checkbox"] {
+  display: none;
+  height: 0;
+  opacity: 0;
+  width: 0;
+}
+
+/* Hide actual checkbox */
+input.sheet-checkbox-whitegear[type="checkbox"] {
+  cursor: pointer;
+  height: 14px;
+  left: 8px;
+  margin:0;
+  opacity: 0;
+  position: relative;
+  top: 0;
+  width: 14px;
+  z-index: 1;
+}
+
+/* Fake checkbox */
+input.sheet-checkbox-whitegear[type="checkbox"] + span::before {
+  color:#ffffff;
+  content: "y";
+  font-family:"Pictos";
+  font-size: 17px;
+  height: 14px;
+  left: 0;
+  margin:-10px;
+  position: relative;
+  top: 0;
+  width: 14px;
+}
+
+input.sheet-checkbox-graygear[type="checkbox"] {
+  cursor: pointer;
+  height: 14px;
+  left: 8;
+  margin:0;
+  opacity: 0;
+  position: relative;
+  top: 0;
+  width: 14px;
+  z-index: 1;
+}
+
+/* Fake checkbox */
+input.sheet-checkbox-graygear[type="checkbox"] + span::before {
+  color:#A9A9A9;
+  content: "y";
+  font-family:"Pictos";
+  font-size: 17px;
+  height: 14px;
+  left: 0;
+  margin:-10px;
+  margin-right:+5px;
+  position: relative;
+  top: 0;
+  width: 14px;
+}
+/* -- End checkbox hider stuff -- */
+
+/*----------- Tabs Setup -------------*/
+/*this hides the contents of each tab by default*/
+.charsheet div[class^="sheet-section-tabbed"] {
+  display: none;
+}
+
+/*this shows the tab content when the appropriate input field is selected*/
+.charsheet input.sheet-tab-core:checked ~ .sheet-section-tabbed-core,
+.charsheet input.sheet-tab-combat:checked ~ .sheet-section-tabbed-combat,
+.charsheet input.sheet-tab-gear:checked ~ .sheet-section-tabbed-gear,
+.charsheet input.sheet-tab-notes:checked ~ .sheet-section-tabbed-notes,
+.charsheet input.sheet-tab-special:checked ~ .sheet-section-tabbed-special,
+.charsheet input.sheet-tabZ:checked ~ .sheet-section-tabbed-settings {
+  display: block;
+}
+
+.charsheet .sheet-tab99:checked ~ div[class^="sheet-section-tabbed"] {
+  display: block;
+}
+
+/*this hides the radio button for each tab, makes it 100px wide and 40px tall and makes sure it's above everything else*/
+.charsheet input.sheet-tab {
+  cursor: pointer;
+  height: 20px;
+  margin-left: 16px;
+  opacity: 0;
+  position: relative;
+  width: 100px;
+  z-index: 9999;
+}
+
+/*this styles the span with the tab information and slides to the left, so it appears underneath the radio button*/
+.charsheet span.sheet-tab {
+  background: lightgrey;
+  border-radius: 4px;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: bold;
+  height: 20px;
+  line-height: 24px;
+  margin-left: -115px;/*originally 91px*/
+  text-align: center;
+  vertical-align: middle;
+  width: 80px;
+}
+
+.charsheet input.sheet-tabZ {
+  cursor: pointer;
+  height: 20px;
+  margin-left: 16px;
+  opacity: 0;
+  position: relative;
+  width: 70px;
+  z-index: 9999;
+}
+
+.charsheet span.sheet-tabZ {
+  background: lightgrey;
+  border-radius: 4px;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family:"Pictos";
+  font-size: 18px;
+  font-weight: normal;
+  height: 25px;
+  line-height: 25px;
+  margin-left: -85px;/*originally 91px*/
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 30px;
+}
+
+/*this modifies the span color once the radio button is selected so you know which tab is selected*/
+.charsheet input.sheet-tab-core:checked + span.sheet-tab-core,
+.charsheet input.sheet-tab-combat:checked + span.sheet-tab-combat,
+.charsheet input.sheet-tab-gear:checked + span.sheet-tab-gear,
+.charsheet input.sheet-tab-notes:checked + span.sheet-tab-notes,
+.charsheet input.sheet-tab-special:checked + span.sheet-tab-special,
+.charsheet input.sheet-tabZ:checked + span.sheet-tabZ {
+  background: #660202;
+  border-radius: 4px;
+  color: white;
+}
+/*----------- End Tab Setup -----------*/
+
+/*----------- Skills Display Setup -------------*/
+/*this hides the contents of each section by default*/
+.charsheet div[class^="sheet-skills-section"] {
+  display: none;
+}
+
+/*this shows the skills section content when the appropriate input field is selected*/
+.charsheet .sheet-skills-list1:checked ~ .sheet-skills-section-fate_core,
+.charsheet .sheet-skills-list2:checked ~ .sheet-skills-section-fate_accelerated,
+.charsheet .sheet-skills-list-tesseris:checked ~ .sheet-skills-section-tesseris,
+.charsheet .sheet-skills-list-eclipse_phase:checked ~ .sheet-skills-section-eclipse_phase,
+.charsheet .sheet-skills-list-eclipse_phase2:checked ~ .sheet-skills-section-eclipse_phase2,
+.charsheet .sheet-skills-list-ep_ads:checked ~ .sheet-skills-section-ep_ads,
+.charsheet .sheet-skills-list-custom:checked ~ .sheet-skills-section-custom {
+  display: block;
+}
+
+/*this hides the radio button*/
+.charsheet .sheet-skills-list-selector {
+  display: none;
+  height: 0;
+  opacity: 0;
+  width: 0;
+}
+/*----------- End Skills Display Setup -----------*/
+
+/*----------- Characteristics Display Setup -------------*/
+/*this hides the contents of each section by default*/
+.charsheet div[class^="sheet-characteristics-section"] {
+  display: none;
+}
+
+/*this shows the characteristics section content when the appropriate input field is selected*/
+.charsheet .sheet-characteristics-list-none:checked ~ .sheet-characteristics-section-none,
+.charsheet .sheet-characteristics-list-d20:checked ~ .sheet-characteristics-section-d20,
+.charsheet .sheet-characteristics-list-ads:checked ~ .sheet-characteristics-section-ads,
+.charsheet .sheet-characteristics-list-eclipse_phase:checked ~ .sheet-characteristics-section-eclipse_phase,
+.charsheet .sheet-characteristics-list-eclipse_phase2:checked ~ .sheet-characteristics-section-eclipse_phase2,
+.charsheet .sheet-characteristics-list-custom:checked ~ .sheet-characteristics-section-custom {
+  display: block;
+}
+
+/*this hides the radio button*/
+.charsheet .sheet-characteristics-selector {
+  display: none;
+  height: 0;
+  opacity: 0;
+  width: 0;
+}
+
+/* START - d20 Ability Scores Settings */
+.charsheet .sheet-d20-ability-scores-calc-section {
+  display: none;
+}
+
+.charsheet .sheet-d20-ability-scores-calc-section-hider:checked ~ .sheet-d20-ability-scores-calc-section {
+  display: block;
+}
+/* END - d20 Ability Scores Settings*/
+/*----------- End characteristics Display Setup -----------*/
+
+/*----------- Aspects Display Setup -------------*/
+/*this hides the contents of each section by default*/
+.charsheet div[class^="sheet-aspects-section"] {
+  display: none;
+}
+
+/*this shows the Aspects section content when the appropriate input field is selected*/
+.charsheet .sheet-aspects-show:checked ~ .sheet-aspects-section{
+  display: block;
+}
+
+/*this hides the radio button*/
+.charsheet .sheet-aspects-show {
+  display: none;
+  height: 0;
+  opacity: 0;
+  width: 0;
+}
+/*----------- End Aspects Display Setup -----------*/
+
+/*----------- Refresh and Fate Points Display Setup -------------*/
+.sheet-hide-refresh:checked ~ .sheet-hide-refresh-section,
+.sheet-hide-fate_points:checked ~ .sheet-hide-fate_points-section {
+  display: none;
+}
+/*----------- End Refresh and Fate Points Display Setup -------------*/
+
+/*----------- Stunts Display Setup -------------*/
+/*this hides the contents of each section by default*/
+.charsheet div[class^="sheet-stunts-section"] {
+  display: none;
+}
+
+/*this shows the Aspects section content when the appropriate input field is selected*/
+.charsheet .sheet-stunts-show:checked ~ .sheet-stunts-section{
+  display: block;
+}
+
+/*this hides the radio button*/
+.charsheet .sheet-stunts-show {
+  display: none;
+  height: 0;
+  opacity: 0;
+  width: 0;
+}
+/*----------- End Stunts Display Setup -----------*/
+
+/*----------- Lock In Display Setup -------------*/
+/*this hides the contents of each section by default*/
+.charsheet div[class^="sheet-lock-in-section"] {
+  display: none;
+}
+
+/*this shows the Aspects section content when the appropriate input field is selected*/
+.charsheet .sheet-unlocked-checkbox:checked ~ .sheet-lock-in-section{
+  display: block;
+}
+
+/*this hides the radio button*/
+.charsheet .sheet-unlocked-checkbox {
+  display: none;
+  height: 0;
+  opacity: 0;
+  width: 0;
+}
+/*----------- End Lock In Display Setup -----------*/
+
+/*----------- Eclipse Phase v1 Skills Display Setup -------------*/
+/*this hides the contents of each section by default*/
+.charsheet div[class^="sheet-ep-skill-hider-section"] {
+  display: none;
+}
+
+.charsheet div[class^="sheet-ep-skills-display-selection-section"] {
+  display: none;
+}
+
+/*this shows the Eclipse_Phase Skill section content when the appropriate input field is selected*/
+.charsheet .sheet-ep-skill-hider-animal_handling:checked ~ .sheet-ep-skill-hider-section-animal_handling,
+.charsheet .sheet-ep-skill-hider-beam_weapons:checked ~ .sheet-ep-skill-hider-section-beam_weapons,
+.charsheet .sheet-ep-skill-hider-blades:checked ~ .sheet-ep-skill-hider-section-blades,
+.charsheet .sheet-ep-skill-hider-climbing:checked ~ .sheet-ep-skill-hider-section-climbing,
+.charsheet .sheet-ep-skill-hider-clubs:checked ~ .sheet-ep-skill-hider-section-clubs,
+.charsheet .sheet-ep-skill-hider-control:checked ~ .sheet-ep-skill-hider-section-control,
+.charsheet .sheet-ep-skill-hider-deception:checked ~ .sheet-ep-skill-hider-section-deception,
+.charsheet .sheet-ep-skill-hider-demolitions:checked ~ .sheet-ep-skill-hider-section-demolitions,
+.charsheet .sheet-ep-skill-hider-disguise:checked ~ .sheet-ep-skill-hider-section-disguise,
+.charsheet .sheet-ep-skill-hider-exotic_melee_1:checked ~ .sheet-ep-skill-hider-section-exotic_melee_1,
+.charsheet .sheet-ep-skill-hider-exotic_melee_2:checked ~ .sheet-ep-skill-hider-section-exotic_melee_2,
+.charsheet .sheet-ep-skill-hider-exotic_ranged_1:checked ~ .sheet-ep-skill-hider-section-exotic_ranged_1,
+.charsheet .sheet-ep-skill-hider-exotic_ranged_2:checked ~ .sheet-ep-skill-hider-section-exotic_ranged_2,
+.charsheet .sheet-ep-skill-hider-flight:checked ~ .sheet-ep-skill-hider-section-flight,
+.charsheet .sheet-ep-skill-hider-fray:checked ~ .sheet-ep-skill-hider-section-fray,
+.charsheet .sheet-ep-skill-hider-free_fall:checked ~ .sheet-ep-skill-hider-section-free_fall,
+.charsheet .sheet-ep-skill-hider-freerunning:checked ~ .sheet-ep-skill-hider-section-freerunning,
+.charsheet .sheet-ep-skill-hider-gunnery:checked ~ .sheet-ep-skill-hider-section-gunnery,
+.charsheet .sheet-ep-skill-hider-hardware_1:checked ~ .sheet-ep-skill-hider-section-hardware_1,
+.charsheet .sheet-ep-skill-hider-hardware_2:checked ~ .sheet-ep-skill-hider-section-hardware_2,
+.charsheet .sheet-ep-skill-hider-impersonation:checked ~ .sheet-ep-skill-hider-section-impersonation,
+.charsheet .sheet-ep-skill-hider-infiltration:checked ~ .sheet-ep-skill-hider-section-infiltration,
+.charsheet .sheet-ep-skill-hider-infosec:checked ~ .sheet-ep-skill-hider-section-infosec,
+.charsheet .sheet-ep-skill-hider-interfacing:checked ~ .sheet-ep-skill-hider-section-interfacing,
+.charsheet .sheet-ep-skill-hider-intimidation:checked ~ .sheet-ep-skill-hider-section-intimidation,
+.charsheet .sheet-ep-skill-hider-investigation:checked ~ .sheet-ep-skill-hider-section-investigation,
+.charsheet .sheet-ep-skill-hider-kinesics:checked ~ .sheet-ep-skill-hider-section-kinesics,
+.charsheet .sheet-ep-skill-hider-kinetic_weapons:checked ~ .sheet-ep-skill-hider-section-kinetic_weapons,
+.charsheet .sheet-ep-skill-hider-medicine_1:checked ~ .sheet-ep-skill-hider-section-medicine_1,
+.charsheet .sheet-ep-skill-hider-medicine_2:checked ~ .sheet-ep-skill-hider-section-medicine_2,
+.charsheet .sheet-ep-skill-hider-navigation:checked ~ .sheet-ep-skill-hider-section-navigation,
+.charsheet .sheet-ep-skill-hider-networking_1:checked ~ .sheet-ep-skill-hider-section-networking_1,
+.charsheet .sheet-ep-skill-hider-networking_2:checked ~ .sheet-ep-skill-hider-section-networking_2,
+.charsheet .sheet-ep-skill-hider-networking_3:checked ~ .sheet-ep-skill-hider-section-networking_3,
+.charsheet .sheet-ep-skill-hider-networking_4:checked ~ .sheet-ep-skill-hider-section-networking_4,
+.charsheet .sheet-ep-skill-hider-networking_5:checked ~ .sheet-ep-skill-hider-section-networking_5,
+.charsheet .sheet-ep-skill-hider-networking_6:checked ~ .sheet-ep-skill-hider-section-networking_6,
+.charsheet .sheet-ep-skill-hider-palming:checked ~ .sheet-ep-skill-hider-section-palming,
+.charsheet .sheet-ep-skill-hider-perception:checked ~ .sheet-ep-skill-hider-section-perception,
+.charsheet .sheet-ep-skill-hider-persuasion:checked ~ .sheet-ep-skill-hider-section-persuasion,
+.charsheet .sheet-ep-skill-hider-pilot_1:checked ~ .sheet-ep-skill-hider-section-pilot_1,
+.charsheet .sheet-ep-skill-hider-pilot_2:checked ~ .sheet-ep-skill-hider-section-pilot_2,
+.charsheet .sheet-ep-skill-hider-programming:checked ~ .sheet-ep-skill-hider-section-programming,
+.charsheet .sheet-ep-skill-hider-protocol:checked ~ .sheet-ep-skill-hider-section-protocol,
+.charsheet .sheet-ep-skill-hider-psi_assault:checked ~ .sheet-ep-skill-hider-section-psi_assault,
+.charsheet .sheet-ep-skill-hider-psychosurgery:checked ~ .sheet-ep-skill-hider-section-psychosurgery,
+.charsheet .sheet-ep-skill-hider-research:checked ~ .sheet-ep-skill-hider-section-research,
+.charsheet .sheet-ep-skill-hider-scrounging:checked ~ .sheet-ep-skill-hider-section-scrounging,
+.charsheet .sheet-ep-skill-hider-seeker_weapons:checked ~ .sheet-ep-skill-hider-section-seeker_weapons,
+.charsheet .sheet-ep-skill-hider-sense:checked ~ .sheet-ep-skill-hider-section-sense,
+.charsheet .sheet-ep-skill-hider-spray_weapons:checked ~ .sheet-ep-skill-hider-section-spray_weapons,
+.charsheet .sheet-ep-skill-hider-swimming:checked ~ .sheet-ep-skill-hider-section-swimming,
+.charsheet .sheet-ep-skill-hider-throwing_weapons:checked ~ .sheet-ep-skill-hider-section-throwing_weapons,
+.charsheet .sheet-ep-skill-hider-unarmed_combat:checked ~ .sheet-ep-skill-hider-section-unarmed_combat,
+.charsheet .sheet-ep-skill-hider-academics_1:checked ~ .sheet-ep-skill-hider-section-academics_1,
+.charsheet .sheet-ep-skill-hider-academics_2:checked ~ .sheet-ep-skill-hider-section-academics_2,
+.charsheet .sheet-ep-skill-hider-academics_3:checked ~ .sheet-ep-skill-hider-section-academics_3,
+.charsheet .sheet-ep-skill-hider-academics_4:checked ~ .sheet-ep-skill-hider-section-academics_4,
+.charsheet .sheet-ep-skill-hider-art_1:checked ~ .sheet-ep-skill-hider-section-art_1,
+.charsheet .sheet-ep-skill-hider-art_2:checked ~ .sheet-ep-skill-hider-section-art_2,
+.charsheet .sheet-ep-skill-hider-art_3:checked ~ .sheet-ep-skill-hider-section-art_3,
+.charsheet .sheet-ep-skill-hider-art_4:checked ~ .sheet-ep-skill-hider-section-art_4,
+.charsheet .sheet-ep-skill-hider-interest_1:checked ~ .sheet-ep-skill-hider-section-interest_1,
+.charsheet .sheet-ep-skill-hider-interest_2:checked ~ .sheet-ep-skill-hider-section-interest_2,
+.charsheet .sheet-ep-skill-hider-interest_3:checked ~ .sheet-ep-skill-hider-section-interest_3,
+.charsheet .sheet-ep-skill-hider-interest_4:checked ~ .sheet-ep-skill-hider-section-interest_4,
+.charsheet .sheet-ep-skill-hider-language_1:checked ~ .sheet-ep-skill-hider-section-language_1,
+.charsheet .sheet-ep-skill-hider-language_2:checked ~ .sheet-ep-skill-hider-section-language_2,
+.charsheet .sheet-ep-skill-hider-language_3:checked ~ .sheet-ep-skill-hider-section-language_3,
+.charsheet .sheet-ep-skill-hider-language_4:checked ~ .sheet-ep-skill-hider-section-language_4,
+.charsheet .sheet-ep-skill-hider-profession_1:checked ~ .sheet-ep-skill-hider-section-profession_1,
+.charsheet .sheet-ep-skill-hider-profession_2:checked ~ .sheet-ep-skill-hider-section-profession_2,
+.charsheet .sheet-ep-skill-hider-profession_3:checked ~ .sheet-ep-skill-hider-section-profession_3,
+.charsheet .sheet-ep-skill-hider-profession_4:checked ~ .sheet-ep-skill-hider-section-profession_4,
+.charsheet .sheet-ep-skills-display-selection-hider:checked ~ .sheet-ep-skills-display-selection-section {
+  display: block;
+}
+/* Use .sheet-hider-invis to hide checkbox above section */
+/*----------- End Eclipse Phase v1 Skills Display Setup -----------*/
+
+/*----------- Eclipse Phase v2 Skills Display Setup -------------*/
+/*this hides the contents of each section by default*/
+.charsheet div[class^="sheet-EPv2skill-hider-section"] {
+  display: none;
+}
+
+.charsheet div[class^="sheet-EPv2skills-display-selection-section"] {
+  display: none;
+}
+
+/*this shows the Eclipse_Phase2 Skill section content when the appropriate input field is selected*/
+.charsheet .sheet-EPv2skill-hider-athletics:checked ~ .sheet-EPv2skill-hider-section-athletics,
+.charsheet .sheet-EPv2skill-hider-deceive:checked ~ .sheet-EPv2skill-hider-section-deceive,
+.charsheet .sheet-EPv2skill-hider-fray:checked ~ .sheet-EPv2skill-hider-section-fray,
+.charsheet .sheet-EPv2skill-hider-free_fall:checked ~ .sheet-EPv2skill-hider-section-free_fall,
+.charsheet .sheet-EPv2skill-hider-guns:checked ~ .sheet-EPv2skill-hider-section-guns,
+.charsheet .sheet-EPv2skill-hider-hardware_1:checked ~ .sheet-EPv2skill-hider-section-hardware_1,
+.charsheet .sheet-EPv2skill-hider-hardware_2:checked ~ .sheet-EPv2skill-hider-section-hardware_2,
+.charsheet .sheet-EPv2skill-hider-infiltrate:checked ~ .sheet-EPv2skill-hider-section-infiltrate,
+.charsheet .sheet-EPv2skill-hider-infosec:checked ~ .sheet-EPv2skill-hider-section-infosec,
+.charsheet .sheet-EPv2skill-hider-interface:checked ~ .sheet-EPv2skill-hider-section-interface,
+.charsheet .sheet-EPv2skill-hider-kinesics:checked ~ .sheet-EPv2skill-hider-section-kinesics,
+.charsheet .sheet-EPv2skill-hider-medicine_1:checked ~ .sheet-EPv2skill-hider-section-medicine_1,
+.charsheet .sheet-EPv2skill-hider-medicine_2:checked ~ .sheet-EPv2skill-hider-section-medicine_2,
+.charsheet .sheet-EPv2skill-hider-melee:checked ~ .sheet-EPv2skill-hider-section-melee,
+.charsheet .sheet-EPv2skill-hider-perceive:checked ~ .sheet-EPv2skill-hider-section-perceive,
+.charsheet .sheet-EPv2skill-hider-persuade:checked ~ .sheet-EPv2skill-hider-section-persuade,
+.charsheet .sheet-EPv2skill-hider-pilot_1:checked ~ .sheet-EPv2skill-hider-section-pilot_1,
+.charsheet .sheet-EPv2skill-hider-pilot_2:checked ~ .sheet-EPv2skill-hider-section-pilot_2,
+.charsheet .sheet-EPv2skill-hider-program:checked ~ .sheet-EPv2skill-hider-section-program,
+.charsheet .sheet-EPv2skill-hider-provoke:checked ~ .sheet-EPv2skill-hider-section-provoke,
+.charsheet .sheet-EPv2skill-hider-psi:checked ~ .sheet-EPv2skill-hider-section-psi,
+.charsheet .sheet-EPv2skill-hider-research:checked ~ .sheet-EPv2skill-hider-section-research,
+.charsheet .sheet-EPv2skill-hider-survival:checked ~ .sheet-EPv2skill-hider-section-survival,
+.charsheet .sheet-EPv2skill-hider-academics_1:checked ~ .sheet-EPv2skill-hider-section-academics_1,
+.charsheet .sheet-EPv2skill-hider-academics_2:checked ~ .sheet-EPv2skill-hider-section-academics_2,
+.charsheet .sheet-EPv2skill-hider-academics_3:checked ~ .sheet-EPv2skill-hider-section-academics_3,
+.charsheet .sheet-EPv2skill-hider-academics_4:checked ~ .sheet-EPv2skill-hider-section-academics_4,
+.charsheet .sheet-EPv2skill-hider-art_1:checked ~ .sheet-EPv2skill-hider-section-art_1,
+.charsheet .sheet-EPv2skill-hider-art_2:checked ~ .sheet-EPv2skill-hider-section-art_2,
+.charsheet .sheet-EPv2skill-hider-art_3:checked ~ .sheet-EPv2skill-hider-section-art_3,
+.charsheet .sheet-EPv2skill-hider-art_4:checked ~ .sheet-EPv2skill-hider-section-art_4,
+.charsheet .sheet-EPv2skill-hider-interest_1:checked ~ .sheet-EPv2skill-hider-section-interest_1,
+.charsheet .sheet-EPv2skill-hider-interest_2:checked ~ .sheet-EPv2skill-hider-section-interest_2,
+.charsheet .sheet-EPv2skill-hider-interest_3:checked ~ .sheet-EPv2skill-hider-section-interest_3,
+.charsheet .sheet-EPv2skill-hider-interest_4:checked ~ .sheet-EPv2skill-hider-section-interest_4,
+.charsheet .sheet-EPv2skill-hider-profession_1:checked ~ .sheet-EPv2skill-hider-section-profession_1,
+.charsheet .sheet-EPv2skill-hider-profession_2:checked ~ .sheet-EPv2skill-hider-section-profession_2,
+.charsheet .sheet-EPv2skill-hider-profession_3:checked ~ .sheet-EPv2skill-hider-section-profession_3,
+.charsheet .sheet-EPv2skill-hider-profession_4:checked ~ .sheet-EPv2skill-hider-section-profession_4,
+.charsheet .sheet-EPv2skills-display-selection-hider:checked ~ .sheet-EPv2skills-display-selection-section {
+  display: block;
+}
+/* Use .sheet-hider-invis to hide checkbox above section */
+/*----------- End Eclipse Phase v2 Skills Display Setup -----------*/
+
+
+/*----------- Special Gear Display Setup -------------*/
+/*this hides the contents of each section by default*/
+.charsheet div[class^="sheet-special-gear-section"] {
+  display: none;
+}
+
+/*this shows the selected Special Gear section content when the appropriate input field is selected*/
+.charsheet input.sheet-special-gear-epv1_morphs:checked ~ .sheet-special-gear-section-epv1_morphs,
+.charsheet input.sheet-special-gear-epv2_morphs:checked ~ .sheet-special-gear-section-epv2_morphs {
+  display: block;
+}
+
+/* Use .sheet-hider-invis to hide checkbox above section */
+/*----------- End Special Gear Display Setup -----------*/
+
+/*----------- Eclipse Phase v1 Morph Tabs Setup -------------*/
+/*this hides the contents of each tab by default*/
+.charsheet div[class^="sheet-epv1_morphs-section"] {
+  display: none;
+}
+
+/*this shows the tab content when the appropriate input field is selected*/
+.charsheet input.sheet-epv1_morphs-select-morph1:checked ~ .sheet-epv1_morphs-section-morph1,
+.charsheet input.sheet-epv1_morphs-select-morph2:checked ~ .sheet-epv1_morphs-section-morph2,
+.charsheet input.sheet-epv1_morphs-select-morph3:checked ~ .sheet-epv1_morphs-section-morph3,
+.charsheet input.sheet-epv1_morphs-select-morph4:checked ~ .sheet-epv1_morphs-section-morph4,
+.charsheet input.sheet-epv1_morphs-select-morph5:checked ~ .sheet-epv1_morphs-section-morph5 {
+  display: block;
+}
+
+/*this modifies the span color once the radio button is selected so you know which tab is selected*/
+.charsheet input.sheet-epv1_morphs-select-morph1:checked + span.sheet-epv1_morphs-tab-morph1,
+.charsheet input.sheet-epv1_morphs-select-morph2:checked + span.sheet-epv1_morphs-tab-morph2,
+.charsheet input.sheet-epv1_morphs-select-morph3:checked + span.sheet-epv1_morphs-tab-morph3,
+.charsheet input.sheet-epv1_morphs-select-morph4:checked + span.sheet-epv1_morphs-tab-morph4,
+.charsheet input.sheet-epv1_morphs-select-morph5:checked + span.sheet-epv1_morphs-tab-morph5 {
+  background: #000066;
+  border-radius: 4px;
+  color: white;
+}
+
+.charsheet input.sheet-epv1_morph-tab {
+  cursor: pointer;
+  height: 15px;
+  margin-left: 16px;
+  opacity: 0;
+  position: relative;
+  width: 100px;
+}
+
+/*this styles the span with the tab information and slides to the left, so it appears underneath the radio button*/
+.charsheet span.sheet-epv1_morph-tab {
+  background: lightgrey;
+  border-radius: 4px;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: bold;
+  height: 20px;
+  line-height: 24px;
+  margin-left: -115px;/*originally 91px*/
+  text-align: center;
+  vertical-align: middle;
+  width: 80px;
+}
+/*----------- End Eclipse Phase v1 Morph Tabs Setup -------------*/
+
+/*----------- Eclipse Phase v2 Morph Tabs Setup -------------*/
+/*this hides the contents of each tab by default*/
+.charsheet div[class^="sheet-epv2_morphs-section"] {
+  display: none;
+}
+
+/*this shows the tab content when the appropriate input field is selected*/
+.charsheet input.sheet-epv2_morphs-select-morph1:checked ~ .sheet-epv2_morphs-section-morph1,
+.charsheet input.sheet-epv2_morphs-select-morph2:checked ~ .sheet-epv2_morphs-section-morph2,
+.charsheet input.sheet-epv2_morphs-select-morph3:checked ~ .sheet-epv2_morphs-section-morph3,
+.charsheet input.sheet-epv2_morphs-select-morph4:checked ~ .sheet-epv2_morphs-section-morph4,
+.charsheet input.sheet-epv2_morphs-select-morph5:checked ~ .sheet-epv2_morphs-section-morph5 {
+  display: block;
+}
+
+/*this modifies the span color once the radio button is selected so you know which tab is selected*/
+.charsheet input.sheet-epv2_morphs-select-morph1:checked + span.sheet-epv2_morphs-tab-morph1,
+.charsheet input.sheet-epv2_morphs-select-morph2:checked + span.sheet-epv2_morphs-tab-morph2,
+.charsheet input.sheet-epv2_morphs-select-morph3:checked + span.sheet-epv2_morphs-tab-morph3,
+.charsheet input.sheet-epv2_morphs-select-morph4:checked + span.sheet-epv2_morphs-tab-morph4,
+.charsheet input.sheet-epv2_morphs-select-morph5:checked + span.sheet-epv2_morphs-tab-morph5 {
+  background: #000066;
+  border-radius: 4px;
+  color: white;
+}
+
+.charsheet input.sheet-epv2_morph-tab {
+  cursor: pointer;
+  height: 15px;
+  margin-left: 16px;
+  opacity: 0;
+  position: relative;
+  width: 100px;
+}
+
+/*this styles the span with the tab information and slides to the left, so it appears underneath the radio button*/
+.charsheet span.sheet-epv2_morph-tab {
+  background: lightgrey;
+  border-radius: 4px;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: bold;
+  height: 20px;
+  line-height: 24px;
+  margin-left: -115px;/*originally 91px*/
+  text-align: center;
+  vertical-align: middle;
+  width: 80px;
+}
+/*----------- End Eclipse Phase v2 Morph Tabs Setup -------------*/
+
+/*----------- Rep Control -------------*/
+.repcontrol_add {
+  padding: 0;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.repcontrol_edit {
+  padding: 0;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.recontrol_del {
+  padding: 0;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.repcontrol_move {
+  padding: 0;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+/*---------- End Rep Rocntrol --------*/
