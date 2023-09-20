@@ -1174,6 +1174,8 @@
   );
 </script>
 <!-- END Eclipse Phase v2 Script Workers -->
+
+<!-- START D20 Script Workers -->
 <!-- d20 Strength Calculation -->
 <script type="text/worker">
   on("ready change:d20strBase change:d20strEnch change:d20strInsight change:d20strMisc1 change:d20strMisc2 change:d20strMisc2 change:d20strMisc3 change:d20strMisc4 change:d20strMisc5",
@@ -1192,13 +1194,14 @@
         let misc5 = parseInt(values.d20strMisc5) || 0;
 
         let total = base + ench + insight + misc1 + misc2 + misc3 + misc4 + misc5;
-        let mod = Math.floor((total-10)/2)
+        let mod = Math.floor((total-10)/2);
         setAttrs({d20str: total});
-        setAttrs({d20strMod: mod})
+        setAttrs({d20strMod: mod});
       });
     }
   );
 </script>
+
 <!-- d20 Dexterity Calculation -->
 <script type="text/worker">
   on("ready change:d20dexBase change:d20dexEnch change:d20dexInsight change:d20dexMisc1 change:d20dexMisc2 change:d20dexMisc2 change:d20dexMisc3 change:d20dexMisc4 change:d20dexMisc5",
@@ -1217,13 +1220,14 @@
         let misc5 = parseInt(values.d20dexMisc5) || 0;
 
         let total = base + ench + insight + misc1 + misc2 + misc3 + misc4 + misc5;
-        let mod = Math.floor((total-10)/2)
+        let mod = Math.floor((total-10)/2);
         setAttrs({d20dex: total});
-        setAttrs({d20dexMod: mod})
+        setAttrs({d20dexMod: mod});
       });
     }
   );
 </script>
+
 <!-- d20 Constitution Calculation -->
 <script type="text/worker">
   on("ready change:d20conBase change:d20conEnch change:d20conInsight change:d20conMisc1 change:d20conMisc2 change:d20conMisc2 change:d20conMisc3 change:d20conMisc4 change:d20conMisc5",
@@ -1242,13 +1246,14 @@
         let misc5 = parseInt(values.d20conMisc5) || 0;
 
         let total = base + ench + insight + misc1 + misc2 + misc3 + misc4 + misc5;
-        let mod = Math.floor((total-10)/2)
+        let mod = Math.floor((total-10)/2);
         setAttrs({d20con: total});
-        setAttrs({d20conMod: mod})
+        setAttrs({d20conMod: mod});
       });
     }
   );
 </script>
+
 <!-- d20 Intelligence Calculation -->
 <script type="text/worker">
   on("ready change:d20intBase change:d20intEnch change:d20intInsight change:d20intMisc1 change:d20intMisc2 change:d20intMisc2 change:d20intMisc3 change:d20intMisc4 change:d20intMisc5",
@@ -1267,13 +1272,14 @@
         let misc5 = parseInt(values.d20intMisc5) || 0;
 
         let total = base + ench + insight + misc1 + misc2 + misc3 + misc4 + misc5;
-        let mod = Math.floor((total-10)/2)
+        let mod = Math.floor((total-10)/2);
         setAttrs({d20int: total});
-        setAttrs({d20intMod: mod})
+        setAttrs({d20intMod: mod});
       });
     }
   );
 </script>
+
 <!-- d20 Wisdom Calculation -->
 <script type="text/worker">
   on("ready change:d20wisBase change:d20wisEnch change:d20wisInsight change:d20wisMisc1 change:d20wisMisc2 change:d20wisMisc2 change:d20wisMisc3 change:d20wisMisc4 change:d20wisMisc5",
@@ -1292,13 +1298,14 @@
         let misc5 = parseInt(values.d20wisMisc5) || 0;
 
         let total = base + ench + insight + misc1 + misc2 + misc3 + misc4 + misc5;
-        let mod = Math.floor((total-10)/2)
+        let mod = Math.floor((total-10)/2);
         setAttrs({d20wis: total});
-        setAttrs({d20wisMod: mod})
+        setAttrs({d20wisMod: mod});
       });
     }
   );
 </script>
+
 <!-- d20 Charisma Calculation -->
 <script type="text/worker">
   on("ready change:d20chaBase change:d20chaEnch change:d20chaInsight change:d20chaMisc1 change:d20chaMisc2 change:d20chaMisc2 change:d20chaMisc3 change:d20chaMisc4 change:d20chaMisc5",
@@ -1317,16 +1324,847 @@
         let misc5 = parseInt(values.d20chaMisc5) || 0;
 
         let total = base + ench + insight + misc1 + misc2 + misc3 + misc4 + misc5;
-        let mod = Math.floor((total-10)/2)
+        let mod = Math.floor((total-10)/2);
         setAttrs({d20cha: total});
-        setAttrs({d20chaMod: mod})
+        setAttrs({d20chaMod: mod});
       });
     }
   );
 </script>
-<!-- START D20 Script Workers -->
-
 <!-- END D20 Script Workers -->
+
+<!-- START Pathfinder 1E Script Workers -->
+<!-- PF1E Acrobatics Calculation -->
+<script type="text/worker">
+  on("ready change:d20dexMod change:PF1eAcrobaticsRanks change:PF1eAcrobaticsBonus1 change:PF1eAcrobaticsBonus2 change:PF1eAcrobaticsBonus3 change:PF1eAcrobaticsBonus4 change:PF1eAcrobaticsClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eAcrobaticsTotal",
+        "d20dexMod",
+        "PF1eAcrobaticsRanks",
+        "PF1eAcrobaticsBonus1",
+        "PF1eAcrobaticsBonus2",
+        "PF1eAcrobaticsBonus3",
+        "PF1eAcrobaticsBonus4",
+        "PF1eAcrobaticsClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20dexMod) || 0;
+        let ranks = parseInt(values.PF1eAcrobaticsRanks) || 0;
+        let bonus1 = parseInt(values.PF1eAcrobaticsBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eAcrobaticsBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eAcrobaticsBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eAcrobaticsBonus4) || 0;
+        let classCheck = values.PF1eAcrobaticsClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eAcrobaticsTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Appraise Calculation -->
+<script type="text/worker">
+  on("ready change:d20intMod change:PF1eAppraiseRanks change:PF1eAppraiseBonus1 change:PF1eAppraiseBonus2 change:PF1eAppraiseBonus3 change:PF1eAppraiseBonus4 change:PF1eAppraiseClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eAppraiseTotal",
+        "d20intMod",
+        "PF1eAppraiseRanks",
+        "PF1eAppraiseBonus1",
+        "PF1eAppraiseBonus2",
+        "PF1eAppraiseBonus3",
+        "PF1eAppraiseBonus4",
+        "PF1eAppraiseClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20intMod) || 0;
+        let ranks = parseInt(values.PF1eAppraiseRanks) || 0;
+        let bonus1 = parseInt(values.PF1eAppraiseBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eAppraiseBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eAppraiseBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eAppraiseBonus4) || 0;
+        let classCheck = values.PF1eAppraiseClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eAppraiseTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Bluff Calculation -->
+<script type="text/worker">
+  on("ready change:d20chaMod change:PF1eBluffRanks change:PF1eBluffBonus1 change:PF1eBluffBonus2 change:PF1eBluffBonus3 change:PF1eBluffBonus4 change:PF1eBluffClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eBluffTotal",
+        "d20chaMod",
+        "PF1eBluffRanks",
+        "PF1eBluffBonus1",
+        "PF1eBluffBonus2",
+        "PF1eBluffBonus3",
+        "PF1eBluffBonus4",
+        "PF1eBluffClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20chaMod) || 0;
+        let ranks = parseInt(values.PF1eBluffRanks) || 0;
+        let bonus1 = parseInt(values.PF1eBluffBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eBluffBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eBluffBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eBluffBonus4) || 0;
+        let classCheck = values.PF1eBluffClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eBluffTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Climb Calculation -->
+<script type="text/worker">
+  on("ready change:d20strMod change:PF1eClimbRanks change:PF1eClimbBonus1 change:PF1eClimbBonus2 change:PF1eClimbBonus3 change:PF1eClimbBonus4 change:PF1eClimbClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eClimbTotal",
+        "d20strMod",
+        "PF1eClimbRanks",
+        "PF1eClimbBonus1",
+        "PF1eClimbBonus2",
+        "PF1eClimbBonus3",
+        "PF1eClimbBonus4",
+        "PF1eClimbClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20strMod) || 0;
+        let ranks = parseInt(values.PF1eClimbRanks) || 0;
+        let bonus1 = parseInt(values.PF1eClimbBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eClimbBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eClimbBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eClimbBonus4) || 0;
+        let classCheck = values.PF1eClimbClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eClimbTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Diplomacy Calculation -->
+<script type="text/worker">
+  on("ready change:d20chaMod change:PF1eDiplomacyRanks change:PF1eDiplomacyBonus1 change:PF1eDiplomacyBonus2 change:PF1eDiplomacyBonus3 change:PF1eDiplomacyBonus4 change:PF1eDiplomacyClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eDiplomacyTotal",
+        "d20chaMod",
+        "PF1eDiplomacyRanks",
+        "PF1eDiplomacyBonus1",
+        "PF1eDiplomacyBonus2",
+        "PF1eDiplomacyBonus3",
+        "PF1eDiplomacyBonus4",
+        "PF1eDiplomacyClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20chaMod) || 0;
+        let ranks = parseInt(values.PF1eDiplomacyRanks) || 0;
+        let bonus1 = parseInt(values.PF1eDiplomacyBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eDiplomacyBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eDiplomacyBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eDiplomacyBonus4) || 0;
+        let classCheck = values.PF1eDiplomacyClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eDiplomacyTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Disable Device Calculation -->
+<script type="text/worker">
+  on("ready change:d20dexMod change:PF1eDisableDeviceRanks change:PF1eDisableDeviceBonus1 change:PF1eDisableDeviceBonus2 change:PF1eDisableDeviceBonus3 change:PF1eDisableDeviceBonus4 change:PF1eDisableDeviceClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eDisableDeviceTotal",
+        "d20dexMod",
+        "PF1eDisableDeviceRanks",
+        "PF1eDisableDeviceBonus1",
+        "PF1eDisableDeviceBonus2",
+        "PF1eDisableDeviceBonus3",
+        "PF1eDisableDeviceBonus4",
+        "PF1eDisableDeviceClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20dexMod) || 0;
+        let ranks = parseInt(values.PF1eDisableDeviceRanks) || 0;
+        let bonus1 = parseInt(values.PF1eDisableDeviceBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eDisableDeviceBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eDisableDeviceBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eDisableDeviceBonus4) || 0;
+        let classCheck = values.PF1eDisableDeviceClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eDisableDeviceTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Disguise Calculation -->
+<script type="text/worker">
+  on("ready change:d20chaMod change:PF1eDisguiseRanks change:PF1eDisguiseBonus1 change:PF1eDisguiseBonus2 change:PF1eDisguiseBonus3 change:PF1eDisguiseBonus4 change:PF1eDisguiseClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eDisguiseTotal",
+        "d20chaMod",
+        "PF1eDisguiseRanks",
+        "PF1eDisguiseBonus1",
+        "PF1eDisguiseBonus2",
+        "PF1eDisguiseBonus3",
+        "PF1eDisguiseBonus4",
+        "PF1eDisguiseClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20chaMod) || 0;
+        let ranks = parseInt(values.PF1eDisguiseRanks) || 0;
+        let bonus1 = parseInt(values.PF1eDisguiseBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eDisguiseBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eDisguiseBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eDisguiseBonus4) || 0;
+        let classCheck = values.PF1eDisguiseClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eDisguiseTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Escape Artist Calculation -->
+<script type="text/worker">
+  on("ready change:d20dexMod change:PF1eEscapeArtistRanks change:PF1eEscapeArtistBonus1 change:PF1eEscapeArtistBonus2 change:PF1eEscapeArtistBonus3 change:PF1eEscapeArtistBonus4 change:PF1eEscapeArtistClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eEscapeArtistTotal",
+        "d20dexMod",
+        "PF1eEscapeArtistRanks",
+        "PF1eEscapeArtistBonus1",
+        "PF1eEscapeArtistBonus2",
+        "PF1eEscapeArtistBonus3",
+        "PF1eEscapeArtistBonus4",
+        "PF1eEscapeArtistClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20dexMod) || 0;
+        let ranks = parseInt(values.PF1eEscapeArtistRanks) || 0;
+        let bonus1 = parseInt(values.PF1eEscapeArtistBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eEscapeArtistBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eEscapeArtistBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eEscapeArtistBonus4) || 0;
+        let classCheck = values.PF1eEscapeArtistClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eEscapeArtistTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Fly Calculation -->
+<script type="text/worker">
+  on("ready change:d20dexMod change:PF1eFlyRanks change:PF1eFlyBonus1 change:PF1eFlyBonus2 change:PF1eFlyBonus3 change:PF1eFlyBonus4 change:PF1eFlyClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eFlyTotal",
+        "d20dexMod",
+        "PF1eFlyRanks",
+        "PF1eFlyBonus1",
+        "PF1eFlyBonus2",
+        "PF1eFlyBonus3",
+        "PF1eFlyBonus4",
+        "PF1eFlyClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20dexMod) || 0;
+        let ranks = parseInt(values.PF1eFlyRanks) || 0;
+        let bonus1 = parseInt(values.PF1eFlyBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eFlyBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eFlyBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eFlyBonus4) || 0;
+        let classCheck = values.PF1eFlyClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eFlyTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Handle Animal Calculation -->
+<script type="text/worker">
+  on("ready change:d20chaMod change:PF1eHandleAnimalRanks change:PF1eHandleAnimalBonus1 change:PF1eHandleAnimalBonus2 change:PF1eHandleAnimalBonus3 change:PF1eHandleAnimalBonus4 change:PF1eHandleAnimalClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eHandleAnimalTotal",
+        "d20chaMod",
+        "PF1eHandleAnimalRanks",
+        "PF1eHandleAnimalBonus1",
+        "PF1eHandleAnimalBonus2",
+        "PF1eHandleAnimalBonus3",
+        "PF1eHandleAnimalBonus4",
+        "PF1eHandleAnimalClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20chaMod) || 0;
+        let ranks = parseInt(values.PF1eHandleAnimalRanks) || 0;
+        let bonus1 = parseInt(values.PF1eHandleAnimalBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eHandleAnimalBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eHandleAnimalBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eHandleAnimalBonus4) || 0;
+        let classCheck = values.PF1eHandleAnimalClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eHandleAnimalTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Heal Calculation -->
+<script type="text/worker">
+  on("ready change:d20wisMod change:PF1eHealRanks change:PF1eHealBonus1 change:PF1eHealBonus2 change:PF1eHealBonus3 change:PF1eHealBonus4 change:PF1eHealClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eHealTotal",
+        "d20wisMod",
+        "PF1eHealRanks",
+        "PF1eHealBonus1",
+        "PF1eHealBonus2",
+        "PF1eHealBonus3",
+        "PF1eHealBonus4",
+        "PF1eHealClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20wisMod) || 0;
+        let ranks = parseInt(values.PF1eHealRanks) || 0;
+        let bonus1 = parseInt(values.PF1eHealBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eHealBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eHealBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eHealBonus4) || 0;
+        let classCheck = values.PF1eHealClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eHealTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Intimidate Calculation -->
+<script type="text/worker">
+  on("ready change:d20chaMod change:PF1eIntimidateRanks change:PF1eIntimidateBonus1 change:PF1eIntimidateBonus2 change:PF1eIntimidateBonus3 change:PF1eIntimidateBonus4 change:PF1eIntimidateClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eIntimidateTotal",
+        "d20chaMod",
+        "PF1eIntimidateRanks",
+        "PF1eIntimidateBonus1",
+        "PF1eIntimidateBonus2",
+        "PF1eIntimidateBonus3",
+        "PF1eIntimidateBonus4",
+        "PF1eIntimidateClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20chaMod) || 0;
+        let ranks = parseInt(values.PF1eIntimidateRanks) || 0;
+        let bonus1 = parseInt(values.PF1eIntimidateBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eIntimidateBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eIntimidateBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eIntimidateBonus4) || 0;
+        let classCheck = values.PF1eIntimidateClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eIntimidateTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Linguistics Calculation -->
+<script type="text/worker">
+  on("ready change:d20intMod change:PF1eLinguisticsRanks change:PF1eLinguisticsBonus1 change:PF1eLinguisticsBonus2 change:PF1eLinguisticsBonus3 change:PF1eLinguisticsBonus4 change:PF1eLinguisticsClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eLinguisticsTotal",
+        "d20intMod",
+        "PF1eLinguisticsRanks",
+        "PF1eLinguisticsBonus1",
+        "PF1eLinguisticsBonus2",
+        "PF1eLinguisticsBonus3",
+        "PF1eLinguisticsBonus4",
+        "PF1eLinguisticsClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20intMod) || 0;
+        let ranks = parseInt(values.PF1eLinguisticsRanks) || 0;
+        let bonus1 = parseInt(values.PF1eLinguisticsBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eLinguisticsBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eLinguisticsBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eLinguisticsBonus4) || 0;
+        let classCheck = values.PF1eLinguisticsClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eLinguisticsTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Perception Calculation -->
+<script type="text/worker">
+  on("ready change:d20wisMod change:PF1ePerceptionRanks change:PF1ePerceptionBonus1 change:PF1ePerceptionBonus2 change:PF1ePerceptionBonus3 change:PF1ePerceptionBonus4 change:PF1ePerceptionClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1ePerceptionTotal",
+        "d20wisMod",
+        "PF1ePerceptionRanks",
+        "PF1ePerceptionBonus1",
+        "PF1ePerceptionBonus2",
+        "PF1ePerceptionBonus3",
+        "PF1ePerceptionBonus4",
+        "PF1ePerceptionClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20wisMod) || 0;
+        let ranks = parseInt(values.PF1ePerceptionRanks) || 0;
+        let bonus1 = parseInt(values.PF1ePerceptionBonus1) || 0;
+        let bonus2 = parseInt(values.PF1ePerceptionBonus2) || 0;
+        let bonus3 = parseInt(values.PF1ePerceptionBonus3) || 0;
+        let bonus4 = parseInt(values.PF1ePerceptionBonus4) || 0;
+        let classCheck = values.PF1ePerceptionClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1ePerceptionTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Perform Calculation -->
+<script type="text/worker">
+  on("ready change:d20chaMod change:PF1ePerformRanks change:PF1ePerformBonus1 change:PF1ePerformBonus2 change:PF1ePerformBonus3 change:PF1ePerformBonus4 change:PF1ePerformClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1ePerformTotal",
+        "d20chaMod",
+        "PF1ePerformRanks",
+        "PF1ePerformBonus1",
+        "PF1ePerformBonus2",
+        "PF1ePerformBonus3",
+        "PF1ePerformBonus4",
+        "PF1ePerformClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20chaMod) || 0;
+        let ranks = parseInt(values.PF1ePerformRanks) || 0;
+        let bonus1 = parseInt(values.PF1ePerformBonus1) || 0;
+        let bonus2 = parseInt(values.PF1ePerformBonus2) || 0;
+        let bonus3 = parseInt(values.PF1ePerformBonus3) || 0;
+        let bonus4 = parseInt(values.PF1ePerformBonus4) || 0;
+        let classCheck = values.PF1ePerformClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1ePerformTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Ride Calculation -->
+<script type="text/worker">
+  on("ready change:d20dexMod change:PF1eRideRanks change:PF1eRideBonus1 change:PF1eRideBonus2 change:PF1eRideBonus3 change:PF1eRideBonus4 change:PF1eRideClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eRideTotal",
+        "d20dexMod",
+        "PF1eRideRanks",
+        "PF1eRideBonus1",
+        "PF1eRideBonus2",
+        "PF1eRideBonus3",
+        "PF1eRideBonus4",
+        "PF1eRideClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20dexMod) || 0;
+        let ranks = parseInt(values.PF1eRideRanks) || 0;
+        let bonus1 = parseInt(values.PF1eRideBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eRideBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eRideBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eRideBonus4) || 0;
+        let classCheck = values.PF1eRideClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eRideTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Sense Motive Calculation -->
+<script type="text/worker">
+  on("ready change:d20wisMod change:PF1eSenseMotiveRanks change:PF1eSenseMotiveBonus1 change:PF1eSenseMotiveBonus2 change:PF1eSenseMotiveBonus3 change:PF1eSenseMotiveBonus4 change:PF1eSenseMotiveClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eSenseMotiveTotal",
+        "d20wisMod",
+        "PF1eSenseMotiveRanks",
+        "PF1eSenseMotiveBonus1",
+        "PF1eSenseMotiveBonus2",
+        "PF1eSenseMotiveBonus3",
+        "PF1eSenseMotiveBonus4",
+        "PF1eSenseMotiveClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20wisMod) || 0;
+        let ranks = parseInt(values.PF1eSenseMotiveRanks) || 0;
+        let bonus1 = parseInt(values.PF1eSenseMotiveBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eSenseMotiveBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eSenseMotiveBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eSenseMotiveBonus4) || 0;
+        let classCheck = values.PF1eSenseMotiveClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eSenseMotiveTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Sleight of Hand Calculation -->
+<script type="text/worker">
+  on("ready change:d20dexMod change:PF1eSleightOfHandRanks change:PF1eSleightOfHandBonus1 change:PF1eSleightOfHandBonus2 change:PF1eSleightOfHandBonus3 change:PF1eSleightOfHandBonus4 change:PF1eSleightOfHandClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eSleightOfHandTotal",
+        "d20dexMod",
+        "PF1eSleightOfHandRanks",
+        "PF1eSleightOfHandBonus1",
+        "PF1eSleightOfHandBonus2",
+        "PF1eSleightOfHandBonus3",
+        "PF1eSleightOfHandBonus4",
+        "PF1eSleightOfHandClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20dexMod) || 0;
+        let ranks = parseInt(values.PF1eSleightOfHandRanks) || 0;
+        let bonus1 = parseInt(values.PF1eSleightOfHandBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eSleightOfHandBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eSleightOfHandBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eSleightOfHandBonus4) || 0;
+        let classCheck = values.PF1eSleightOfHandClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eSleightOfHandTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Spellcraft Calculation -->
+<script type="text/worker">
+  on("ready change:d20intMod change:PF1eSpellcraftRanks change:PF1eSpellcraftBonus1 change:PF1eSpellcraftBonus2 change:PF1eSpellcraftBonus3 change:PF1eSpellcraftBonus4 change:PF1eSpellcraftClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eSpellcraftTotal",
+        "d20intMod",
+        "PF1eSpellcraftRanks",
+        "PF1eSpellcraftBonus1",
+        "PF1eSpellcraftBonus2",
+        "PF1eSpellcraftBonus3",
+        "PF1eSpellcraftBonus4",
+        "PF1eSpellcraftClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20intMod) || 0;
+        let ranks = parseInt(values.PF1eSpellcraftRanks) || 0;
+        let bonus1 = parseInt(values.PF1eSpellcraftBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eSpellcraftBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eSpellcraftBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eSpellcraftBonus4) || 0;
+        let classCheck = values.PF1eSpellcraftClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eSpellcraftTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Stealth Calculation -->
+<script type="text/worker">
+  on("ready change:d20dexMod change:PF1eStealthRanks change:PF1eStealthBonus1 change:PF1eStealthBonus2 change:PF1eStealthBonus3 change:PF1eStealthBonus4 change:PF1eStealthClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eStealthTotal",
+        "d20dexMod",
+        "PF1eStealthRanks",
+        "PF1eStealthBonus1",
+        "PF1eStealthBonus2",
+        "PF1eStealthBonus3",
+        "PF1eStealthBonus4",
+        "PF1eStealthClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20dexMod) || 0;
+        let ranks = parseInt(values.PF1eStealthRanks) || 0;
+        let bonus1 = parseInt(values.PF1eStealthBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eStealthBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eStealthBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eStealthBonus4) || 0;
+        let classCheck = values.PF1eStealthClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eStealthTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Survival Calculation -->
+<script type="text/worker">
+  on("ready change:d20wisMod change:PF1eSurvivalRanks change:PF1eSurvivalBonus1 change:PF1eSurvivalBonus2 change:PF1eSurvivalBonus3 change:PF1eSurvivalBonus4 change:PF1eSurvivalClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eSurvivalTotal",
+        "d20wisMod",
+        "PF1eSurvivalRanks",
+        "PF1eSurvivalBonus1",
+        "PF1eSurvivalBonus2",
+        "PF1eSurvivalBonus3",
+        "PF1eSurvivalBonus4",
+        "PF1eSurvivalClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20wisMod) || 0;
+        let ranks = parseInt(values.PF1eSurvivalRanks) || 0;
+        let bonus1 = parseInt(values.PF1eSurvivalBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eSurvivalBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eSurvivalBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eSurvivalBonus4) || 0;
+        let classCheck = values.PF1eSurvivalClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eSurvivalTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Swim Calculation -->
+<script type="text/worker">
+  on("ready change:d20strMod change:PF1eSwimRanks change:PF1eSwimBonus1 change:PF1eSwimBonus2 change:PF1eSwimBonus3 change:PF1eSwimBonus4 change:PF1eSwimClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eSwimTotal",
+        "d20strMod",
+        "PF1eSwimRanks",
+        "PF1eSwimBonus1",
+        "PF1eSwimBonus2",
+        "PF1eSwimBonus3",
+        "PF1eSwimBonus4",
+        "PF1eSwimClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20strMod) || 0;
+        let ranks = parseInt(values.PF1eSwimRanks) || 0;
+        let bonus1 = parseInt(values.PF1eSwimBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eSwimBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eSwimBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eSwimBonus4) || 0;
+        let classCheck = values.PF1eSwimClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eSwimTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Use Magic Device Calculation -->
+<script type="text/worker">
+  on("ready change:d20chaMod change:PF1eUseMagicDeviceRanks change:PF1eUseMagicDeviceBonus1 change:PF1eUseMagicDeviceBonus2 change:PF1eUseMagicDeviceBonus3 change:PF1eUseMagicDeviceBonus4 change:PF1eUseMagicDeviceClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eUseMagicDeviceTotal",
+        "d20chaMod",
+        "PF1eUseMagicDeviceRanks",
+        "PF1eUseMagicDeviceBonus1",
+        "PF1eUseMagicDeviceBonus2",
+        "PF1eUseMagicDeviceBonus3",
+        "PF1eUseMagicDeviceBonus4",
+        "PF1eUseMagicDeviceClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20chaMod) || 0;
+        let ranks = parseInt(values.PF1eUseMagicDeviceRanks) || 0;
+        let bonus1 = parseInt(values.PF1eUseMagicDeviceBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eUseMagicDeviceBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eUseMagicDeviceBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eUseMagicDeviceBonus4) || 0;
+        let classCheck = values.PF1eUseMagicDeviceClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eUseMagicDeviceTotal: total});
+      });
+    }
+  );
+</script>
+
+
+<!-- END Pathfinder 1E Script Workers -->
 <!-- END Script Workers -->
 
 <title>Character Sheet</title>
@@ -6343,7 +7181,7 @@
     <!-- Custom Skills -->
     <input class="sheet-skills-list-selector sheet-skills-list-custom" type="checkbox" name="attr_skillListSelect" value="Custom" />
     <div class="sheet-skills-section-custom">
-      <div class="sheet-headerbar">Skills</div>
+      <div class="sheet-headerbar">Custom Skills</div>
       <div class="sheet-table-2col sheet-border-right" style="margin-bottom:0;">
         <div class="sheet-table">
           <div class="sheet-table-row  sheet-boldCenter">
@@ -6383,6 +7221,788 @@
         </div>
       </fieldset>
     </div><!--End Custom Skills -->
+
+    <!-- Pathfinder 1E Skills -->
+    <input class="sheet-skills-list-selector sheet-skills-list-pf1e" type="checkbox" name="attr_skillListSelect" value="PF1E" />
+    <div class="sheet-skills-section-pf1e">
+      <div class="sheet-headerbar">PF 1E Skills</div>
+      <div class="sheet-table sheet-boldCenter sheet-input-border">
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell sheet-cell-button"></div>
+          <div class="sheet-table-cell sheet-cell-a">Skill</div>
+          <div class="sheet-table-cell sheet-cell-rank" title="Total Skill Bonus">Total</div>
+          <div class="sheet-table-cell sheet-cell-rank" title="Ability Score Modifier">Abl.</div>
+          <div class="sheet-table-cell sheet-cell-rank" title="Skill Ranks">Ranks</div>
+          <div class="sheet-table-cell sheet-cell-rank" title="Misc. Skill Bonus 1">Bonus</div>
+          <div class="sheet-table-cell sheet-cell-rank" title="Misc. Skill Bonus 2">Bonus</div>
+          <div class="sheet-table-cell sheet-cell-rank" title="Misc. Skill Bonus 3">Bonus</div>
+          <div class="sheet-table-cell sheet-cell-rank" title="Misc. Skill Bonus 4">Bonus</div>
+          <div class="sheet-table-cell sheet-cell-rank" title="Class Skill?">Class?</div>
+          <div class="sheet-table-cell sheet-cell-a"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Acrobatics (DEX) Roller">
+            <button type="roll" name="pf1e-acrobatics-skill-roll" value="[[@{DiceBase}+@{PF1eAcrobaticsTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Acrobatics (DEX)" style="text-align: left;">
+            Acrobatics (DEX):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Acrobatics Total Bonus">
+            <input type="number" name="attr_PF1eAcrobaticsTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="DEX Mod">
+            <input type="number" name="attr_d20dexMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Acrobatics Ranks">
+            <input type="number" name="attr_PF1eAcrobaticsRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Acrobatics Bonus 1">
+            <input type="number" name="attr_PF1eAcrobaticsBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Acrobatics Bonus 2">
+            <input type="number" name="attr_PF1eAcrobaticsBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Acrobatics Bonus 3">
+            <input type="number" name="attr_PF1eAcrobaticsBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Acrobatics Bonus 4">
+            <input type="number" name="attr_PF1eAcrobaticsBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1eAcrobaticsClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Appraise (INT) Roller">
+            <button type="roll" name="pf1e-appraise-skill-roll" value="[[@{DiceBase}+@{PF1eAppraiseTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Appraise (INT)" style="text-align: left;">
+            Appraise (INT):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Appraise Total Bonus">
+            <input type="number" name="attr_PF1eAppraiseTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="INT Mod">
+            <input type="number" name="attr_d20intMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Appraise Ranks">
+            <input type="number" name="attr_PF1eAppraiseRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Appraise Bonus 1">
+            <input type="number" name="attr_PF1eAppraiseBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Appraise Bonus 2">
+            <input type="number" name="attr_PF1eAppraiseBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Appraise Bonus 3">
+            <input type="number" name="attr_PF1eAppraiseBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Appraise Bonus 4">
+            <input type="number" name="attr_PF1eAppraiseBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1eAppraiseClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Bluff (CHA) Roller">
+            <button type="roll" name="pf1e-bluff-skill-roll" value="[[@{DiceBase}+@{PF1eBluffTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Bluff (CHA)" style="text-align: left;">
+            Bluff (CHA):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Bluff Total Bonus">
+            <input type="number" name="attr_PF1eBluffTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="CHA Mod">
+            <input type="number" name="attr_d20chaMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Bluff Ranks">
+            <input type="number" name="attr_PF1eBluffRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Bluff Bonus 1">
+            <input type="number" name="attr_PF1eBluffBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Bluff Bonus 2">
+            <input type="number" name="attr_PF1eBluffBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Bluff Bonus 3">
+            <input type="number" name="attr_PF1eBluffBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Bluff Bonus 4">
+            <input type="number" name="attr_PF1eBluffBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1eBluffClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Climb (STR) Roller">
+            <button type="roll" name="pf1e-climb-skill-roll" value="[[@{DiceBase}+@{PF1eClimbTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Climb (STR)" style="text-align: left;">
+            Climb (STR):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Climb Total Bonus">
+            <input type="number" name="attr_PF1eClimbTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="STR Mod">
+            <input type="number" name="attr_d20strMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Climb Ranks">
+            <input type="number" name="attr_PF1eClimbRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Climb Bonus 1">
+            <input type="number" name="attr_PF1eClimbBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Climb Bonus 2">
+            <input type="number" name="attr_PF1eClimbBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Climb Bonus 3">
+            <input type="number" name="attr_PF1eClimbBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Climb Bonus 4">
+            <input type="number" name="attr_PF1eClimbBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1eClimbClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Diplomacy (CHA) Roller">
+            <button type="roll" name="pf1e-diplomacy-skill-roll" value="[[@{DiceBase}+@{PF1eDiplomacyTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Diplomacy (CHA)" style="text-align: left;">
+            Diplomacy (CHA):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Diplomacy Total Bonus">
+            <input type="number" name="attr_PF1eDiplomacyTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="CHA Mod">
+            <input type="number" name="attr_d20chaMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Diplomacy Ranks">
+            <input type="number" name="attr_PF1eDiplomacyRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Diplomacy Bonus 1">
+            <input type="number" name="attr_PF1eDiplomacyBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Diplomacy Bonus 2">
+            <input type="number" name="attr_PF1eDiplomacyBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Diplomacy Bonus 3">
+            <input type="number" name="attr_PF1eDiplomacyBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Diplomacy Bonus 4">
+            <input type="number" name="attr_PF1eDiplomacyBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1eDiplomacyClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Disable Device (DEX) Roller">
+            <button type="roll" name="pf1e-disable device-skill-roll" value="[[@{DiceBase}+@{PF1eDisableDeviceTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Disable Device (DEX)" style="text-align: left;">
+            Disable Device (DEX):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Disable Device Total Bonus">
+            <input type="number" name="attr_PF1eDisableDeviceTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="DEX Mod">
+            <input type="number" name="attr_d20dexMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Disable Device Ranks">
+            <input type="number" name="attr_PF1eDisableDeviceRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Disable Device Bonus 1">
+            <input type="number" name="attr_PF1eDisableDeviceBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Disable Device Bonus 2">
+            <input type="number" name="attr_PF1eDisableDeviceBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Disable Device Bonus 3">
+            <input type="number" name="attr_PF1eDisableDeviceBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Disable Device Bonus 4">
+            <input type="number" name="attr_PF1eDisableDeviceBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1eDisableDeviceClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Disguise (CHA) Roller">
+            <button type="roll" name="pf1e-disguise-skill-roll" value="[[@{DiceBase}+@{PF1eDisguiseTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Disguise (CHA)" style="text-align: left;">
+            Disguise (CHA):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Disguise Total Bonus">
+            <input type="number" name="attr_PF1eDisguiseTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="CHA Mod">
+            <input type="number" name="attr_d20chaMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Disguise Ranks">
+            <input type="number" name="attr_PF1eDisguiseRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Disguise Bonus 1">
+            <input type="number" name="attr_PF1eDisguiseBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Disguise Bonus 2">
+            <input type="number" name="attr_PF1eDisguiseBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Disguise Bonus 3">
+            <input type="number" name="attr_PF1eDisguiseBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Disguise Bonus 4">
+            <input type="number" name="attr_PF1eDisguiseBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1eDisguiseClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Escape Artist (DEX) Roller">
+            <button type="roll" name="pf1e-escape artist-skill-roll" value="[[@{DiceBase}+@{PF1eEscapeArtistTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Escape Artist (DEX)" style="text-align: left;">
+            Escape Artist (DEX):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Escape Artist Total Bonus">
+            <input type="number" name="attr_PF1eEscapeArtistTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="DEX Mod">
+            <input type="number" name="attr_d20dexMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Escape Artist Ranks">
+            <input type="number" name="attr_PF1eEscapeArtistRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Escape Artist Bonus 1">
+            <input type="number" name="attr_PF1eEscapeArtistBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Escape Artist Bonus 2">
+            <input type="number" name="attr_PF1eEscapeArtistBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Escape Artist Bonus 3">
+            <input type="number" name="attr_PF1eEscapeArtistBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Escape Artist Bonus 4">
+            <input type="number" name="attr_PF1eEscapeArtistBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1eEscapeArtistClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Fly (DEX) Roller">
+            <button type="roll" name="pf1e-fly-skill-roll" value="[[@{DiceBase}+@{PF1eFlyTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Fly (DEX)" style="text-align: left;">
+            Fly (DEX):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Fly Total Bonus">
+            <input type="number" name="attr_PF1eFlyTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="DEX Mod">
+            <input type="number" name="attr_d20dexMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Fly Ranks">
+            <input type="number" name="attr_PF1eFlyRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Fly Bonus 1">
+            <input type="number" name="attr_PF1eFlyBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Fly Bonus 2">
+            <input type="number" name="attr_PF1eFlyBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Fly Bonus 3">
+            <input type="number" name="attr_PF1eFlyBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Fly Bonus 4">
+            <input type="number" name="attr_PF1eFlyBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1eFlyClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Handle Animal (CHA) Roller">
+            <button type="roll" name="pf1e-handle animal-skill-roll" value="[[@{DiceBase}+@{PF1eHandleAnimalTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Handle Animal (CHA)" style="text-align: left;">
+            Handle Animal (CHA):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Handle Animal Total Bonus">
+            <input type="number" name="attr_PF1eHandleAnimalTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="CHA Mod">
+            <input type="number" name="attr_d20chaMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Handle Animal Ranks">
+            <input type="number" name="attr_PF1eHandleAnimalRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Handle Animal Bonus 1">
+            <input type="number" name="attr_PF1eHandleAnimalBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Handle Animal Bonus 2">
+            <input type="number" name="attr_PF1eHandleAnimalBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Handle Animal Bonus 3">
+            <input type="number" name="attr_PF1eHandleAnimalBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Handle Animal Bonus 4">
+            <input type="number" name="attr_PF1eHandleAnimalBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1eHandleAnimalClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Heal (WIS) Roller">
+            <button type="roll" name="pf1e-heal-skill-roll" value="[[@{DiceBase}+@{PF1eHealTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Heal (WIS)" style="text-align: left;">
+            Heal (WIS):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Heal Total Bonus">
+            <input type="number" name="attr_PF1eHealTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="WIS Mod">
+            <input type="number" name="attr_d20wisMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Heal Ranks">
+            <input type="number" name="attr_PF1eHealRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Heal Bonus 1">
+            <input type="number" name="attr_PF1eHealBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Heal Bonus 2">
+            <input type="number" name="attr_PF1eHealBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Heal Bonus 3">
+            <input type="number" name="attr_PF1eHealBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Heal Bonus 4">
+            <input type="number" name="attr_PF1eHealBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1eHealClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Intimidate (CHA) Roller">
+            <button type="roll" name="pf1e-intimidate-skill-roll" value="[[@{DiceBase}+@{PF1eIntimidateTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Intimidate (CHA)" style="text-align: left;">
+            Intimidate (CHA):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Intimidate Total Bonus">
+            <input type="number" name="attr_PF1eIntimidateTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="CHA Mod">
+            <input type="number" name="attr_d20chaMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Intimidate Ranks">
+            <input type="number" name="attr_PF1eIntimidateRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Intimidate Bonus 1">
+            <input type="number" name="attr_PF1eIntimidateBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Intimidate Bonus 2">
+            <input type="number" name="attr_PF1eIntimidateBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Intimidate Bonus 3">
+            <input type="number" name="attr_PF1eIntimidateBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Intimidate Bonus 4">
+            <input type="number" name="attr_PF1eIntimidateBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1eIntimidateClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Linguistics (INT) Roller">
+            <button type="roll" name="pf1e-linguistics-skill-roll" value="[[@{DiceBase}+@{PF1eLinguisticsTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Linguistics (INT)" style="text-align: left;">
+            Linguistics (INT):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Linguistics Total Bonus">
+            <input type="number" name="attr_PF1eLinguisticsTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="INT Mod">
+            <input type="number" name="attr_d20intMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Linguistics Ranks">
+            <input type="number" name="attr_PF1eLinguisticsRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Linguistics Bonus 1">
+            <input type="number" name="attr_PF1eLinguisticsBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Linguistics Bonus 2">
+            <input type="number" name="attr_PF1eLinguisticsBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Linguistics Bonus 3">
+            <input type="number" name="attr_PF1eLinguisticsBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Linguistics Bonus 4">
+            <input type="number" name="attr_PF1eLinguisticsBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1eLinguisticsClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Perception (WIS) Roller">
+            <button type="roll" name="pf1e-perception-skill-roll" value="[[@{DiceBase}+@{PF1ePerceptionTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Perception (WIS)" style="text-align: left;">
+            Perception (WIS):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Perception Total Bonus">
+            <input type="number" name="attr_PF1ePerceptionTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="WIS Mod">
+            <input type="number" name="attr_d20wisMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Perception Ranks">
+            <input type="number" name="attr_PF1ePerceptionRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Perception Bonus 1">
+            <input type="number" name="attr_PF1ePerceptionBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Perception Bonus 2">
+            <input type="number" name="attr_PF1ePerceptionBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Perception Bonus 3">
+            <input type="number" name="attr_PF1ePerceptionBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Perception Bonus 4">
+            <input type="number" name="attr_PF1ePerceptionBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1ePerceptionClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Perform (CHA) Roller">
+            <button type="roll" name="pf1e-perform-skill-roll" value="[[@{DiceBase}+@{PF1ePerformTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Perform (CHA)" style="text-align: left;">
+            Perform (CHA):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Perform Total Bonus">
+            <input type="number" name="attr_PF1ePerformTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="CHA Mod">
+            <input type="number" name="attr_d20chaMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Perform Ranks">
+            <input type="number" name="attr_PF1ePerformRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Perform Bonus 1">
+            <input type="number" name="attr_PF1ePerformBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Perform Bonus 2">
+            <input type="number" name="attr_PF1ePerformBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Perform Bonus 3">
+            <input type="number" name="attr_PF1ePerformBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Perform Bonus 4">
+            <input type="number" name="attr_PF1ePerformBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1ePerformClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Ride (DEX) Roller">
+            <button type="roll" name="pf1e-ride-skill-roll" value="[[@{DiceBase}+@{PF1eRideTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Ride (DEX)" style="text-align: left;">
+            Ride (DEX):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Ride Total Bonus">
+            <input type="number" name="attr_PF1eRideTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="DEX Mod">
+            <input type="number" name="attr_d20dexMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Ride Ranks">
+            <input type="number" name="attr_PF1eRideRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Ride Bonus 1">
+            <input type="number" name="attr_PF1eRideBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Ride Bonus 2">
+            <input type="number" name="attr_PF1eRideBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Ride Bonus 3">
+            <input type="number" name="attr_PF1eRideBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Ride Bonus 4">
+            <input type="number" name="attr_PF1eRideBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1eRideClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Sense Motive (WIS) Roller">
+            <button type="roll" name="pf1e-sense motive-skill-roll" value="[[@{DiceBase}+@{PF1eSenseMotiveTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Sense Motive (WIS)" style="text-align: left;">
+            Sense Motive (WIS):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Sense Motive Total Bonus">
+            <input type="number" name="attr_PF1eSenseMotiveTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="WIS Mod">
+            <input type="number" name="attr_d20wisMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Sense Motive Ranks">
+            <input type="number" name="attr_PF1eSenseMotiveRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Sense Motive Bonus 1">
+            <input type="number" name="attr_PF1eSenseMotiveBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Sense Motive Bonus 2">
+            <input type="number" name="attr_PF1eSenseMotiveBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Sense Motive Bonus 3">
+            <input type="number" name="attr_PF1eSenseMotiveBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Sense Motive Bonus 4">
+            <input type="number" name="attr_PF1eSenseMotiveBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1eSenseMotiveClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Sleight of Hand (DEX) Roller">
+            <button type="roll" name="pf1e-sleight of hand-skill-roll" value="[[@{DiceBase}+@{PF1eSleightOfHandTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Sleight of Hand (DEX)" style="text-align: left;">
+            Sleight of Hand (DEX):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Sleight of Hand Total Bonus">
+            <input type="number" name="attr_PF1eSleightOfHandTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="DEX Mod">
+            <input type="number" name="attr_d20dexMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Sleight of Hand Ranks">
+            <input type="number" name="attr_PF1eSleightOfHandRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Sleight of Hand Bonus 1">
+            <input type="number" name="attr_PF1eSleightOfHandBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Sleight of Hand Bonus 2">
+            <input type="number" name="attr_PF1eSleightOfHandBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Sleight of Hand Bonus 3">
+            <input type="number" name="attr_PF1eSleightOfHandBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Sleight of Hand Bonus 4">
+            <input type="number" name="attr_PF1eSleightOfHandBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1eSleightOfHandClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Spellcraft (INT) Roller">
+            <button type="roll" name="pf1e-spellcraft-skill-roll" value="[[@{DiceBase}+@{PF1eSpellcraftTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Spellcraft (INT)" style="text-align: left;">
+            Spellcraft (INT):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Spellcraft Total Bonus">
+            <input type="number" name="attr_PF1eSpellcraftTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="INT Mod">
+            <input type="number" name="attr_d20intMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Spellcraft Ranks">
+            <input type="number" name="attr_PF1eSpellcraftRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Spellcraft Bonus 1">
+            <input type="number" name="attr_PF1eSpellcraftBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Spellcraft Bonus 2">
+            <input type="number" name="attr_PF1eSpellcraftBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Spellcraft Bonus 3">
+            <input type="number" name="attr_PF1eSpellcraftBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Spellcraft Bonus 4">
+            <input type="number" name="attr_PF1eSpellcraftBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1eSpellcraftClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Stealth (DEX) Roller">
+            <button type="roll" name="pf1e-stealth-skill-roll" value="[[@{DiceBase}+@{PF1eStealthTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Stealth (DEX)" style="text-align: left;">
+            Stealth (DEX):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Stealth Total Bonus">
+            <input type="number" name="attr_PF1eStealthTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="DEX Mod">
+            <input type="number" name="attr_d20dexMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Stealth Ranks">
+            <input type="number" name="attr_PF1eStealthRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Stealth Bonus 1">
+            <input type="number" name="attr_PF1eStealthBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Stealth Bonus 2">
+            <input type="number" name="attr_PF1eStealthBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Stealth Bonus 3">
+            <input type="number" name="attr_PF1eStealthBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Stealth Bonus 4">
+            <input type="number" name="attr_PF1eStealthBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1eStealthClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Survival (WIS) Roller">
+            <button type="roll" name="pf1e-survival-skill-roll" value="[[@{DiceBase}+@{PF1eSurvivalTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Survival (WIS)" style="text-align: left;">
+            Survival (WIS):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Survival Total Bonus">
+            <input type="number" name="attr_PF1eSurvivalTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="WIS Mod">
+            <input type="number" name="attr_d20wisMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Survival Ranks">
+            <input type="number" name="attr_PF1eSurvivalRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Survival Bonus 1">
+            <input type="number" name="attr_PF1eSurvivalBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Survival Bonus 2">
+            <input type="number" name="attr_PF1eSurvivalBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Survival Bonus 3">
+            <input type="number" name="attr_PF1eSurvivalBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Survival Bonus 4">
+            <input type="number" name="attr_PF1eSurvivalBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1eSurvivalClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Swim (STR) Roller">
+            <button type="roll" name="pf1e-swim-skill-roll" value="[[@{DiceBase}+@{PF1eSwimTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Swim (STR)" style="text-align: left;">
+            Swim (STR):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Swim Total Bonus">
+            <input type="number" name="attr_PF1eSwimTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="STR Mod">
+            <input type="number" name="attr_d20strMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Swim Ranks">
+            <input type="number" name="attr_PF1eSwimRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Swim Bonus 1">
+            <input type="number" name="attr_PF1eSwimBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Swim Bonus 2">
+            <input type="number" name="attr_PF1eSwimBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Swim Bonus 3">
+            <input type="number" name="attr_PF1eSwimBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Swim Bonus 4">
+            <input type="number" name="attr_PF1eSwimBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1eSwimClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell" title="Use Magic Device (CHA) Roller">
+            <button type="roll" name="pf1e-use magic device-skill-roll" value="[[@{DiceBase}+@{PF1eUseMagicDeviceTotal}]]"></button>
+          </div>
+          <div class="sheet-table-cell" title="Use Magic Device (CHA)" style="text-align: left;">
+            Use Magic Device (CHA):
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="Use Magic Device Total Bonus">
+            <input type="number" name="attr_PF1eUseMagicDeviceTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled" title="CHA Mod">
+            <input type="number" name="attr_d20chaMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell" title="Use Magic Device Ranks">
+            <input type="number" name="attr_PF1eUseMagicDeviceRanks" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Use Magic Device Bonus 1">
+            <input type="number" name="attr_PF1eUseMagicDeviceBonus1" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Use Magic Device Bonus 2">
+            <input type="number" name="attr_PF1eUseMagicDeviceBonus2" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Use Magic Device Bonus 3">
+            <input type="number" name="attr_PF1eUseMagicDeviceBonus3" value="0" />
+          </div>
+          <div class="sheet-table-cell" title="Use Magic Device Bonus 4">
+            <input type="number" name="attr_PF1eUseMagicDeviceBonus4" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-button" title="Class Skill?">
+            <input type="checkbox" name="attr_PF1eUseMagicDeviceClassSkillCheckbox" value="1">
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+      </div>
+
+
+    </div><!--End Pathfinder 1E Skills -->
   </div><!-- End Skills -->
 </div><!-- End Core Tab -->
 
@@ -8918,7 +10538,7 @@
           </span>
           <span class="sheet-span-border sheet-span-settings">
             <label class="sheet-label-settings" title="Pathfinder 1E">
-              <input type="radio" class="sheets-skills-list2" name="attr_skillListSelect" value="Pathfinder 1E" /> Pathfinder 1E
+              <input type="radio" class="sheets-skills-list2" name="attr_skillListSelect" value="PF1E" /> Pathfinder 1E
             </label>
           </span>
           <span class="sheet-span-border sheet-span-settings">

@@ -475,7 +475,8 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
 .charsheet .sheet-skills-list-eclipse_phase:checked ~ .sheet-skills-section-eclipse_phase,
 .charsheet .sheet-skills-list-eclipse_phase2:checked ~ .sheet-skills-section-eclipse_phase2,
 .charsheet .sheet-skills-list-ep_ads:checked ~ .sheet-skills-section-ep_ads,
-.charsheet .sheet-skills-list-custom:checked ~ .sheet-skills-section-custom {
+.charsheet .sheet-skills-list-custom:checked ~ .sheet-skills-section-custom,
+.charsheet .sheet-skills-list-pf1e:checked ~ .sheet-skills-section-pf1e {
   display: block;
 }
 

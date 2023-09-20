@@ -1,0 +1,828 @@
+<!-- PF1E Acrobatics Calculation -->
+<script type="text/worker">
+  on("ready change:d20dexMod change:PF1eAcrobaticsRanks change:PF1eAcrobaticsBonus1 change:PF1eAcrobaticsBonus2 change:PF1eAcrobaticsBonus3 change:PF1eAcrobaticsBonus4 change:PF1eAcrobaticsClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eAcrobaticsTotal",
+        "d20dexMod",
+        "PF1eAcrobaticsRanks",
+        "PF1eAcrobaticsBonus1",
+        "PF1eAcrobaticsBonus2",
+        "PF1eAcrobaticsBonus3",
+        "PF1eAcrobaticsBonus4",
+        "PF1eAcrobaticsClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20dexMod) || 0;
+        let ranks = parseInt(values.PF1eAcrobaticsRanks) || 0;
+        let bonus1 = parseInt(values.PF1eAcrobaticsBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eAcrobaticsBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eAcrobaticsBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eAcrobaticsBonus4) || 0;
+        let classCheck = values.PF1eAcrobaticsClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eAcrobaticsTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Appraise Calculation -->
+<script type="text/worker">
+  on("ready change:d20intMod change:PF1eAppraiseRanks change:PF1eAppraiseBonus1 change:PF1eAppraiseBonus2 change:PF1eAppraiseBonus3 change:PF1eAppraiseBonus4 change:PF1eAppraiseClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eAppraiseTotal",
+        "d20intMod",
+        "PF1eAppraiseRanks",
+        "PF1eAppraiseBonus1",
+        "PF1eAppraiseBonus2",
+        "PF1eAppraiseBonus3",
+        "PF1eAppraiseBonus4",
+        "PF1eAppraiseClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20intMod) || 0;
+        let ranks = parseInt(values.PF1eAppraiseRanks) || 0;
+        let bonus1 = parseInt(values.PF1eAppraiseBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eAppraiseBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eAppraiseBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eAppraiseBonus4) || 0;
+        let classCheck = values.PF1eAppraiseClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eAppraiseTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Bluff Calculation -->
+<script type="text/worker">
+  on("ready change:d20chaMod change:PF1eBluffRanks change:PF1eBluffBonus1 change:PF1eBluffBonus2 change:PF1eBluffBonus3 change:PF1eBluffBonus4 change:PF1eBluffClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eBluffTotal",
+        "d20chaMod",
+        "PF1eBluffRanks",
+        "PF1eBluffBonus1",
+        "PF1eBluffBonus2",
+        "PF1eBluffBonus3",
+        "PF1eBluffBonus4",
+        "PF1eBluffClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20chaMod) || 0;
+        let ranks = parseInt(values.PF1eBluffRanks) || 0;
+        let bonus1 = parseInt(values.PF1eBluffBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eBluffBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eBluffBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eBluffBonus4) || 0;
+        let classCheck = values.PF1eBluffClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eBluffTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Climb Calculation -->
+<script type="text/worker">
+  on("ready change:d20strMod change:PF1eClimbRanks change:PF1eClimbBonus1 change:PF1eClimbBonus2 change:PF1eClimbBonus3 change:PF1eClimbBonus4 change:PF1eClimbClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eClimbTotal",
+        "d20strMod",
+        "PF1eClimbRanks",
+        "PF1eClimbBonus1",
+        "PF1eClimbBonus2",
+        "PF1eClimbBonus3",
+        "PF1eClimbBonus4",
+        "PF1eClimbClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20strMod) || 0;
+        let ranks = parseInt(values.PF1eClimbRanks) || 0;
+        let bonus1 = parseInt(values.PF1eClimbBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eClimbBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eClimbBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eClimbBonus4) || 0;
+        let classCheck = values.PF1eClimbClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eClimbTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Diplomacy Calculation -->
+<script type="text/worker">
+  on("ready change:d20chaMod change:PF1eDiplomacyRanks change:PF1eDiplomacyBonus1 change:PF1eDiplomacyBonus2 change:PF1eDiplomacyBonus3 change:PF1eDiplomacyBonus4 change:PF1eDiplomacyClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eDiplomacyTotal",
+        "d20chaMod",
+        "PF1eDiplomacyRanks",
+        "PF1eDiplomacyBonus1",
+        "PF1eDiplomacyBonus2",
+        "PF1eDiplomacyBonus3",
+        "PF1eDiplomacyBonus4",
+        "PF1eDiplomacyClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20chaMod) || 0;
+        let ranks = parseInt(values.PF1eDiplomacyRanks) || 0;
+        let bonus1 = parseInt(values.PF1eDiplomacyBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eDiplomacyBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eDiplomacyBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eDiplomacyBonus4) || 0;
+        let classCheck = values.PF1eDiplomacyClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eDiplomacyTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Disable Device Calculation -->
+<script type="text/worker">
+  on("ready change:d20dexMod change:PF1eDisableDeviceRanks change:PF1eDisableDeviceBonus1 change:PF1eDisableDeviceBonus2 change:PF1eDisableDeviceBonus3 change:PF1eDisableDeviceBonus4 change:PF1eDisableDeviceClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eDisableDeviceTotal",
+        "d20dexMod",
+        "PF1eDisableDeviceRanks",
+        "PF1eDisableDeviceBonus1",
+        "PF1eDisableDeviceBonus2",
+        "PF1eDisableDeviceBonus3",
+        "PF1eDisableDeviceBonus4",
+        "PF1eDisableDeviceClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20dexMod) || 0;
+        let ranks = parseInt(values.PF1eDisableDeviceRanks) || 0;
+        let bonus1 = parseInt(values.PF1eDisableDeviceBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eDisableDeviceBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eDisableDeviceBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eDisableDeviceBonus4) || 0;
+        let classCheck = values.PF1eDisableDeviceClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eDisableDeviceTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Disguise Calculation -->
+<script type="text/worker">
+  on("ready change:d20chaMod change:PF1eDisguiseRanks change:PF1eDisguiseBonus1 change:PF1eDisguiseBonus2 change:PF1eDisguiseBonus3 change:PF1eDisguiseBonus4 change:PF1eDisguiseClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eDisguiseTotal",
+        "d20chaMod",
+        "PF1eDisguiseRanks",
+        "PF1eDisguiseBonus1",
+        "PF1eDisguiseBonus2",
+        "PF1eDisguiseBonus3",
+        "PF1eDisguiseBonus4",
+        "PF1eDisguiseClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20chaMod) || 0;
+        let ranks = parseInt(values.PF1eDisguiseRanks) || 0;
+        let bonus1 = parseInt(values.PF1eDisguiseBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eDisguiseBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eDisguiseBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eDisguiseBonus4) || 0;
+        let classCheck = values.PF1eDisguiseClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eDisguiseTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Escape Artist Calculation -->
+<script type="text/worker">
+  on("ready change:d20dexMod change:PF1eEscapeArtistRanks change:PF1eEscapeArtistBonus1 change:PF1eEscapeArtistBonus2 change:PF1eEscapeArtistBonus3 change:PF1eEscapeArtistBonus4 change:PF1eEscapeArtistClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eEscapeArtistTotal",
+        "d20dexMod",
+        "PF1eEscapeArtistRanks",
+        "PF1eEscapeArtistBonus1",
+        "PF1eEscapeArtistBonus2",
+        "PF1eEscapeArtistBonus3",
+        "PF1eEscapeArtistBonus4",
+        "PF1eEscapeArtistClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20dexMod) || 0;
+        let ranks = parseInt(values.PF1eEscapeArtistRanks) || 0;
+        let bonus1 = parseInt(values.PF1eEscapeArtistBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eEscapeArtistBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eEscapeArtistBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eEscapeArtistBonus4) || 0;
+        let classCheck = values.PF1eEscapeArtistClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eEscapeArtistTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Fly Calculation -->
+<script type="text/worker">
+  on("ready change:d20dexMod change:PF1eFlyRanks change:PF1eFlyBonus1 change:PF1eFlyBonus2 change:PF1eFlyBonus3 change:PF1eFlyBonus4 change:PF1eFlyClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eFlyTotal",
+        "d20dexMod",
+        "PF1eFlyRanks",
+        "PF1eFlyBonus1",
+        "PF1eFlyBonus2",
+        "PF1eFlyBonus3",
+        "PF1eFlyBonus4",
+        "PF1eFlyClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20dexMod) || 0;
+        let ranks = parseInt(values.PF1eFlyRanks) || 0;
+        let bonus1 = parseInt(values.PF1eFlyBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eFlyBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eFlyBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eFlyBonus4) || 0;
+        let classCheck = values.PF1eFlyClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eFlyTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Handle Animal Calculation -->
+<script type="text/worker">
+  on("ready change:d20chaMod change:PF1eHandleAnimalRanks change:PF1eHandleAnimalBonus1 change:PF1eHandleAnimalBonus2 change:PF1eHandleAnimalBonus3 change:PF1eHandleAnimalBonus4 change:PF1eHandleAnimalClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eHandleAnimalTotal",
+        "d20chaMod",
+        "PF1eHandleAnimalRanks",
+        "PF1eHandleAnimalBonus1",
+        "PF1eHandleAnimalBonus2",
+        "PF1eHandleAnimalBonus3",
+        "PF1eHandleAnimalBonus4",
+        "PF1eHandleAnimalClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20chaMod) || 0;
+        let ranks = parseInt(values.PF1eHandleAnimalRanks) || 0;
+        let bonus1 = parseInt(values.PF1eHandleAnimalBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eHandleAnimalBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eHandleAnimalBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eHandleAnimalBonus4) || 0;
+        let classCheck = values.PF1eHandleAnimalClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eHandleAnimalTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Heal Calculation -->
+<script type="text/worker">
+  on("ready change:d20wisMod change:PF1eHealRanks change:PF1eHealBonus1 change:PF1eHealBonus2 change:PF1eHealBonus3 change:PF1eHealBonus4 change:PF1eHealClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eHealTotal",
+        "d20wisMod",
+        "PF1eHealRanks",
+        "PF1eHealBonus1",
+        "PF1eHealBonus2",
+        "PF1eHealBonus3",
+        "PF1eHealBonus4",
+        "PF1eHealClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20wisMod) || 0;
+        let ranks = parseInt(values.PF1eHealRanks) || 0;
+        let bonus1 = parseInt(values.PF1eHealBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eHealBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eHealBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eHealBonus4) || 0;
+        let classCheck = values.PF1eHealClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eHealTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Intimidate Calculation -->
+<script type="text/worker">
+  on("ready change:d20chaMod change:PF1eIntimidateRanks change:PF1eIntimidateBonus1 change:PF1eIntimidateBonus2 change:PF1eIntimidateBonus3 change:PF1eIntimidateBonus4 change:PF1eIntimidateClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eIntimidateTotal",
+        "d20chaMod",
+        "PF1eIntimidateRanks",
+        "PF1eIntimidateBonus1",
+        "PF1eIntimidateBonus2",
+        "PF1eIntimidateBonus3",
+        "PF1eIntimidateBonus4",
+        "PF1eIntimidateClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20chaMod) || 0;
+        let ranks = parseInt(values.PF1eIntimidateRanks) || 0;
+        let bonus1 = parseInt(values.PF1eIntimidateBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eIntimidateBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eIntimidateBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eIntimidateBonus4) || 0;
+        let classCheck = values.PF1eIntimidateClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eIntimidateTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Linguistics Calculation -->
+<script type="text/worker">
+  on("ready change:d20intMod change:PF1eLinguisticsRanks change:PF1eLinguisticsBonus1 change:PF1eLinguisticsBonus2 change:PF1eLinguisticsBonus3 change:PF1eLinguisticsBonus4 change:PF1eLinguisticsClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eLinguisticsTotal",
+        "d20intMod",
+        "PF1eLinguisticsRanks",
+        "PF1eLinguisticsBonus1",
+        "PF1eLinguisticsBonus2",
+        "PF1eLinguisticsBonus3",
+        "PF1eLinguisticsBonus4",
+        "PF1eLinguisticsClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20intMod) || 0;
+        let ranks = parseInt(values.PF1eLinguisticsRanks) || 0;
+        let bonus1 = parseInt(values.PF1eLinguisticsBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eLinguisticsBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eLinguisticsBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eLinguisticsBonus4) || 0;
+        let classCheck = values.PF1eLinguisticsClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eLinguisticsTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Perception Calculation -->
+<script type="text/worker">
+  on("ready change:d20wisMod change:PF1ePerceptionRanks change:PF1ePerceptionBonus1 change:PF1ePerceptionBonus2 change:PF1ePerceptionBonus3 change:PF1ePerceptionBonus4 change:PF1ePerceptionClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1ePerceptionTotal",
+        "d20wisMod",
+        "PF1ePerceptionRanks",
+        "PF1ePerceptionBonus1",
+        "PF1ePerceptionBonus2",
+        "PF1ePerceptionBonus3",
+        "PF1ePerceptionBonus4",
+        "PF1ePerceptionClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20wisMod) || 0;
+        let ranks = parseInt(values.PF1ePerceptionRanks) || 0;
+        let bonus1 = parseInt(values.PF1ePerceptionBonus1) || 0;
+        let bonus2 = parseInt(values.PF1ePerceptionBonus2) || 0;
+        let bonus3 = parseInt(values.PF1ePerceptionBonus3) || 0;
+        let bonus4 = parseInt(values.PF1ePerceptionBonus4) || 0;
+        let classCheck = values.PF1ePerceptionClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1ePerceptionTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Perform Calculation -->
+<script type="text/worker">
+  on("ready change:d20chaMod change:PF1ePerformRanks change:PF1ePerformBonus1 change:PF1ePerformBonus2 change:PF1ePerformBonus3 change:PF1ePerformBonus4 change:PF1ePerformClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1ePerformTotal",
+        "d20chaMod",
+        "PF1ePerformRanks",
+        "PF1ePerformBonus1",
+        "PF1ePerformBonus2",
+        "PF1ePerformBonus3",
+        "PF1ePerformBonus4",
+        "PF1ePerformClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20chaMod) || 0;
+        let ranks = parseInt(values.PF1ePerformRanks) || 0;
+        let bonus1 = parseInt(values.PF1ePerformBonus1) || 0;
+        let bonus2 = parseInt(values.PF1ePerformBonus2) || 0;
+        let bonus3 = parseInt(values.PF1ePerformBonus3) || 0;
+        let bonus4 = parseInt(values.PF1ePerformBonus4) || 0;
+        let classCheck = values.PF1ePerformClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1ePerformTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Ride Calculation -->
+<script type="text/worker">
+  on("ready change:d20dexMod change:PF1eRideRanks change:PF1eRideBonus1 change:PF1eRideBonus2 change:PF1eRideBonus3 change:PF1eRideBonus4 change:PF1eRideClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eRideTotal",
+        "d20dexMod",
+        "PF1eRideRanks",
+        "PF1eRideBonus1",
+        "PF1eRideBonus2",
+        "PF1eRideBonus3",
+        "PF1eRideBonus4",
+        "PF1eRideClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20dexMod) || 0;
+        let ranks = parseInt(values.PF1eRideRanks) || 0;
+        let bonus1 = parseInt(values.PF1eRideBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eRideBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eRideBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eRideBonus4) || 0;
+        let classCheck = values.PF1eRideClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eRideTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Sense Motive Calculation -->
+<script type="text/worker">
+  on("ready change:d20wisMod change:PF1eSenseMotiveRanks change:PF1eSenseMotiveBonus1 change:PF1eSenseMotiveBonus2 change:PF1eSenseMotiveBonus3 change:PF1eSenseMotiveBonus4 change:PF1eSenseMotiveClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eSenseMotiveTotal",
+        "d20wisMod",
+        "PF1eSenseMotiveRanks",
+        "PF1eSenseMotiveBonus1",
+        "PF1eSenseMotiveBonus2",
+        "PF1eSenseMotiveBonus3",
+        "PF1eSenseMotiveBonus4",
+        "PF1eSenseMotiveClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20wisMod) || 0;
+        let ranks = parseInt(values.PF1eSenseMotiveRanks) || 0;
+        let bonus1 = parseInt(values.PF1eSenseMotiveBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eSenseMotiveBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eSenseMotiveBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eSenseMotiveBonus4) || 0;
+        let classCheck = values.PF1eSenseMotiveClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eSenseMotiveTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Sleight of Hand Calculation -->
+<script type="text/worker">
+  on("ready change:d20dexMod change:PF1eSleightOfHandRanks change:PF1eSleightOfHandBonus1 change:PF1eSleightOfHandBonus2 change:PF1eSleightOfHandBonus3 change:PF1eSleightOfHandBonus4 change:PF1eSleightOfHandClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eSleightOfHandTotal",
+        "d20dexMod",
+        "PF1eSleightOfHandRanks",
+        "PF1eSleightOfHandBonus1",
+        "PF1eSleightOfHandBonus2",
+        "PF1eSleightOfHandBonus3",
+        "PF1eSleightOfHandBonus4",
+        "PF1eSleightOfHandClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20dexMod) || 0;
+        let ranks = parseInt(values.PF1eSleightOfHandRanks) || 0;
+        let bonus1 = parseInt(values.PF1eSleightOfHandBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eSleightOfHandBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eSleightOfHandBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eSleightOfHandBonus4) || 0;
+        let classCheck = values.PF1eSleightOfHandClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eSleightOfHandTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Spellcraft Calculation -->
+<script type="text/worker">
+  on("ready change:d20intMod change:PF1eSpellcraftRanks change:PF1eSpellcraftBonus1 change:PF1eSpellcraftBonus2 change:PF1eSpellcraftBonus3 change:PF1eSpellcraftBonus4 change:PF1eSpellcraftClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eSpellcraftTotal",
+        "d20intMod",
+        "PF1eSpellcraftRanks",
+        "PF1eSpellcraftBonus1",
+        "PF1eSpellcraftBonus2",
+        "PF1eSpellcraftBonus3",
+        "PF1eSpellcraftBonus4",
+        "PF1eSpellcraftClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20intMod) || 0;
+        let ranks = parseInt(values.PF1eSpellcraftRanks) || 0;
+        let bonus1 = parseInt(values.PF1eSpellcraftBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eSpellcraftBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eSpellcraftBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eSpellcraftBonus4) || 0;
+        let classCheck = values.PF1eSpellcraftClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eSpellcraftTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Stealth Calculation -->
+<script type="text/worker">
+  on("ready change:d20dexMod change:PF1eStealthRanks change:PF1eStealthBonus1 change:PF1eStealthBonus2 change:PF1eStealthBonus3 change:PF1eStealthBonus4 change:PF1eStealthClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eStealthTotal",
+        "d20dexMod",
+        "PF1eStealthRanks",
+        "PF1eStealthBonus1",
+        "PF1eStealthBonus2",
+        "PF1eStealthBonus3",
+        "PF1eStealthBonus4",
+        "PF1eStealthClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20dexMod) || 0;
+        let ranks = parseInt(values.PF1eStealthRanks) || 0;
+        let bonus1 = parseInt(values.PF1eStealthBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eStealthBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eStealthBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eStealthBonus4) || 0;
+        let classCheck = values.PF1eStealthClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eStealthTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Survival Calculation -->
+<script type="text/worker">
+  on("ready change:d20wisMod change:PF1eSurvivalRanks change:PF1eSurvivalBonus1 change:PF1eSurvivalBonus2 change:PF1eSurvivalBonus3 change:PF1eSurvivalBonus4 change:PF1eSurvivalClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eSurvivalTotal",
+        "d20wisMod",
+        "PF1eSurvivalRanks",
+        "PF1eSurvivalBonus1",
+        "PF1eSurvivalBonus2",
+        "PF1eSurvivalBonus3",
+        "PF1eSurvivalBonus4",
+        "PF1eSurvivalClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20wisMod) || 0;
+        let ranks = parseInt(values.PF1eSurvivalRanks) || 0;
+        let bonus1 = parseInt(values.PF1eSurvivalBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eSurvivalBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eSurvivalBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eSurvivalBonus4) || 0;
+        let classCheck = values.PF1eSurvivalClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eSurvivalTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Swim Calculation -->
+<script type="text/worker">
+  on("ready change:d20strMod change:PF1eSwimRanks change:PF1eSwimBonus1 change:PF1eSwimBonus2 change:PF1eSwimBonus3 change:PF1eSwimBonus4 change:PF1eSwimClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eSwimTotal",
+        "d20strMod",
+        "PF1eSwimRanks",
+        "PF1eSwimBonus1",
+        "PF1eSwimBonus2",
+        "PF1eSwimBonus3",
+        "PF1eSwimBonus4",
+        "PF1eSwimClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20strMod) || 0;
+        let ranks = parseInt(values.PF1eSwimRanks) || 0;
+        let bonus1 = parseInt(values.PF1eSwimBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eSwimBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eSwimBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eSwimBonus4) || 0;
+        let classCheck = values.PF1eSwimClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eSwimTotal: total});
+      });
+    }
+  );
+</script>
+<!-- PF1E Use Magic Device Calculation -->
+<script type="text/worker">
+  on("ready change:d20chaMod change:PF1eUseMagicDeviceRanks change:PF1eUseMagicDeviceBonus1 change:PF1eUseMagicDeviceBonus2 change:PF1eUseMagicDeviceBonus3 change:PF1eUseMagicDeviceBonus4 change:PF1eUseMagicDeviceClassSkillCheckbox",
+    function(){
+      const skillMods = [
+        "PF1eUseMagicDeviceTotal",
+        "d20chaMod",
+        "PF1eUseMagicDeviceRanks",
+        "PF1eUseMagicDeviceBonus1",
+        "PF1eUseMagicDeviceBonus2",
+        "PF1eUseMagicDeviceBonus3",
+        "PF1eUseMagicDeviceBonus4",
+        "PF1eUseMagicDeviceClassSkillCheckbox"
+      ]
+      getAttrs(skillMods, function(values){
+        let mod = parseInt(values.d20chaMod) || 0;
+        let ranks = parseInt(values.PF1eUseMagicDeviceRanks) || 0;
+        let bonus1 = parseInt(values.PF1eUseMagicDeviceBonus1) || 0;
+        let bonus2 = parseInt(values.PF1eUseMagicDeviceBonus2) || 0;
+        let bonus3 = parseInt(values.PF1eUseMagicDeviceBonus3) || 0;
+        let bonus4 = parseInt(values.PF1eUseMagicDeviceBonus4) || 0;
+        let classCheck = values.PF1eUseMagicDeviceClassSkillCheckbox === "1" ? true : false;
+        let classSkill = 0;
+
+        if (classCheck) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        }
+
+        let total = mod + ranks + bonus1 + bonus2 + bonus3 +bonus4 + classSkill;
+        setAttrs({PF1eUseMagicDeviceTotal: total});
+      });
+    }
+  );
+</script>
