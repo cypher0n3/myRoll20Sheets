@@ -190,9 +190,24 @@ body.sheet-darkmode .btn.btn-default {
   line-height: 23px;
   vertical-align: middle;
 }
+
 .sheet-multiline-input {
   border: 1px solid darkgray;
   height:46px;
+}
+
+.sheet-flex-area {
+  display: flex;
+  width: 100%;
+}
+
+.sheet-flex-fill {
+  flex-grow: 1;
+}
+
+.sheet-flex-left-60px {
+  width: 60px; /* Fixed width */
+  margin-left: 2px; /* Optional: add some spacing between the input and the dropdown */
 }
 
 textarea {
@@ -233,12 +248,13 @@ label {
 
 select {
   color: black;
-  height: 20px;
+  /* height: 20px; */
   margin: 0;
   padding: 0;
   padding-left: 3px;
   padding-right: 3px;
   width: 100%;
+  min-width: 50px;
 }
 
 input[type="text"] {
@@ -884,4 +900,31 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
   padding-left: 3px;
   padding-right: 3px;
 }
-/*---------- End Rep Rocntrol --------*/
+/*---------- End Rep Control --------*/
+
+/* ==== Roll Templates CSS */
+.sheet-rolltemplate-generic-skill .sheet-section {
+  border: 1px solid black;
+  border-radius: 5px;
+  box-sizing: border-box;
+  float: left;
+  margin: 4px 0;
+  padding: 1px;
+  width: 100%;
+}
+
+.sheet-rolltemplate-generic-skill .sheet-boldCenter {
+  font-weight: bold;
+  text-align: center;
+}
+
+.sheet-rolltemplate-generic-skill .sheet-headerbar {
+  background: black;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 4px;
+  padding: 2px 4px;
+  text-align:center
+}

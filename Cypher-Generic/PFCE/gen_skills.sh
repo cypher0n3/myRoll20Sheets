@@ -98,9 +98,14 @@ for skill in "${skillsList[@]}"; do
   # Remove all spaces from the string
   skillCamel=${skillCamel// /}
 
+  skillDashed=${skill// /-}
+  skillDashed=${skillDashed,,}
+
   if [[ $i -eq 1 ]]; then
-    echo "      <div class=\"sheet-table sheet-boldCenter sheet-input-border\">
+    echo "      <!-- PF1E Skills (excludes Craft, Knowledge, Perform, and Profession) -->
+      <div class=\"sheet-table sheet-boldCenter sheet-input-border\" style=\"margin-bottom: 3px;\">
         <div class=\"sheet-table-row\">
+          <div class=\"sheet-table-cell sheet-cell-5\"></div>
           <div class=\"sheet-table-cell sheet-cell-button\"></div>
           <div class=\"sheet-table-cell sheet-cell-a\">Skill</div>
           <div class=\"sheet-table-cell sheet-cell-rank\" title=\"Total Skill Bonus\">Total</div>
@@ -111,13 +116,15 @@ for skill in "${skillsList[@]}"; do
           <div class=\"sheet-table-cell sheet-cell-rank\" title=\"Misc. Skill Bonus 3\">Bonus</div>
           <div class=\"sheet-table-cell sheet-cell-rank\" title=\"Misc. Skill Bonus 4\">Bonus</div>
           <div class=\"sheet-table-cell sheet-cell-rank\" title=\"Class Skill?\">Class?</div>
-          <div class=\"sheet-table-cell sheet-cell-a\"></div>
+          <div class=\"sheet-table-cell sheet-cell-5\"></div>
         </div>" >>./pf1e_skills.html
   fi
 
-  echo "        <div class=\"sheet-table-row\">
+  echo "      <!-- PF1E Skill: ${skill} -->
+        <div class=\"sheet-table-row\">
+          <div class=\"sheet-table-cell\"></div>
           <div class=\"sheet-table-cell\" title=\"${skill} (${skillsAry[$skill]^^}) Roller\">
-            <button type=\"roll\" name=\"pf1e-${skill,,}-skill-roll\" value=\"[[@{DiceBase}+@{PF1e${skillCamel}Total}]]\"></button>
+            <button type=\"roll\" name=\"pf1e-${skillDashed}-skill-roll\" value=\"&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=${skill}}} {{skillRoll=[[@{DiceBase}+@{PF1e${skillCamel}Total}]]}}\"></button>
           </div>
           <div class=\"sheet-table-cell\" title=\"${skill} (${skillsAry[$skill]^^})\" style=\"text-align: left;\">
             ${skill} (${skillsAry[$skill]^^}):
@@ -173,7 +180,7 @@ for skill in "${skillsList[@]}"; do
         let classCheck = values.PF1e${skillCamel}ClassSkillCheckbox === \"1\" ? true : false;
         let classSkill = 0;
 
-        if (classCheck) {
+        if (classCheck && ranks > 0) {
           classSkill = 3;
         } else {
           classSkill = 0;

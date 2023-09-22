@@ -1,5 +1,7 @@
+      <!-- PF1E Skills (excludes Craft, Knowledge, and Profession) -->
       <div class="sheet-table sheet-boldCenter sheet-input-border">
         <div class="sheet-table-row">
+          <div class="sheet-table-cell sheet-cell-5"></div>
           <div class="sheet-table-cell sheet-cell-button"></div>
           <div class="sheet-table-cell sheet-cell-a">Skill</div>
           <div class="sheet-table-cell sheet-cell-rank" title="Total Skill Bonus">Total</div>
@@ -10,11 +12,13 @@
           <div class="sheet-table-cell sheet-cell-rank" title="Misc. Skill Bonus 3">Bonus</div>
           <div class="sheet-table-cell sheet-cell-rank" title="Misc. Skill Bonus 4">Bonus</div>
           <div class="sheet-table-cell sheet-cell-rank" title="Class Skill?">Class?</div>
-          <div class="sheet-table-cell sheet-cell-a"></div>
+          <div class="sheet-table-cell sheet-cell-5"></div>
         </div>
+      <!-- PF1E Skill: Acrobatics -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Acrobatics (DEX) Roller">
-            <button type="roll" name="pf1e-acrobatics-skill-roll" value="[[@{DiceBase}+@{PF1eAcrobaticsTotal}]]"></button>
+            <button type="roll" name="pf1e-acrobatics-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Acrobatics}} {{skillRoll=[[@{DiceBase}+@{PF1eAcrobaticsTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Acrobatics (DEX)" style="text-align: left;">
             Acrobatics (DEX):
@@ -45,9 +49,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Appraise -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Appraise (INT) Roller">
-            <button type="roll" name="pf1e-appraise-skill-roll" value="[[@{DiceBase}+@{PF1eAppraiseTotal}]]"></button>
+            <button type="roll" name="pf1e-appraise-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Appraise}} {{skillRoll=[[@{DiceBase}+@{PF1eAppraiseTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Appraise (INT)" style="text-align: left;">
             Appraise (INT):
@@ -78,9 +84,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Bluff -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Bluff (CHA) Roller">
-            <button type="roll" name="pf1e-bluff-skill-roll" value="[[@{DiceBase}+@{PF1eBluffTotal}]]"></button>
+            <button type="roll" name="pf1e-bluff-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Bluff}} {{skillRoll=[[@{DiceBase}+@{PF1eBluffTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Bluff (CHA)" style="text-align: left;">
             Bluff (CHA):
@@ -111,9 +119,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Climb -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Climb (STR) Roller">
-            <button type="roll" name="pf1e-climb-skill-roll" value="[[@{DiceBase}+@{PF1eClimbTotal}]]"></button>
+            <button type="roll" name="pf1e-climb-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Climb}} {{skillRoll=[[@{DiceBase}+@{PF1eClimbTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Climb (STR)" style="text-align: left;">
             Climb (STR):
@@ -144,9 +154,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Diplomacy -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Diplomacy (CHA) Roller">
-            <button type="roll" name="pf1e-diplomacy-skill-roll" value="[[@{DiceBase}+@{PF1eDiplomacyTotal}]]"></button>
+            <button type="roll" name="pf1e-diplomacy-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Diplomacy}} {{skillRoll=[[@{DiceBase}+@{PF1eDiplomacyTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Diplomacy (CHA)" style="text-align: left;">
             Diplomacy (CHA):
@@ -177,9 +189,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Disable Device -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Disable Device (DEX) Roller">
-            <button type="roll" name="pf1e-disable device-skill-roll" value="[[@{DiceBase}+@{PF1eDisableDeviceTotal}]]"></button>
+            <button type="roll" name="pf1e-disable-device-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Disable Device}} {{skillRoll=[[@{DiceBase}+@{PF1eDisableDeviceTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Disable Device (DEX)" style="text-align: left;">
             Disable Device (DEX):
@@ -210,9 +224,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Disguise -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Disguise (CHA) Roller">
-            <button type="roll" name="pf1e-disguise-skill-roll" value="[[@{DiceBase}+@{PF1eDisguiseTotal}]]"></button>
+            <button type="roll" name="pf1e-disguise-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Disguise}} {{skillRoll=[[@{DiceBase}+@{PF1eDisguiseTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Disguise (CHA)" style="text-align: left;">
             Disguise (CHA):
@@ -243,9 +259,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Escape Artist -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Escape Artist (DEX) Roller">
-            <button type="roll" name="pf1e-escape artist-skill-roll" value="[[@{DiceBase}+@{PF1eEscapeArtistTotal}]]"></button>
+            <button type="roll" name="pf1e-escape-artist-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Escape Artist}} {{skillRoll=[[@{DiceBase}+@{PF1eEscapeArtistTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Escape Artist (DEX)" style="text-align: left;">
             Escape Artist (DEX):
@@ -276,9 +294,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Fly -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Fly (DEX) Roller">
-            <button type="roll" name="pf1e-fly-skill-roll" value="[[@{DiceBase}+@{PF1eFlyTotal}]]"></button>
+            <button type="roll" name="pf1e-fly-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Fly}} {{skillRoll=[[@{DiceBase}+@{PF1eFlyTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Fly (DEX)" style="text-align: left;">
             Fly (DEX):
@@ -309,9 +329,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Handle Animal -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Handle Animal (CHA) Roller">
-            <button type="roll" name="pf1e-handle animal-skill-roll" value="[[@{DiceBase}+@{PF1eHandleAnimalTotal}]]"></button>
+            <button type="roll" name="pf1e-handle-animal-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Handle Animal}} {{skillRoll=[[@{DiceBase}+@{PF1eHandleAnimalTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Handle Animal (CHA)" style="text-align: left;">
             Handle Animal (CHA):
@@ -342,9 +364,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Heal -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Heal (WIS) Roller">
-            <button type="roll" name="pf1e-heal-skill-roll" value="[[@{DiceBase}+@{PF1eHealTotal}]]"></button>
+            <button type="roll" name="pf1e-heal-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Heal}} {{skillRoll=[[@{DiceBase}+@{PF1eHealTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Heal (WIS)" style="text-align: left;">
             Heal (WIS):
@@ -375,9 +399,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Intimidate -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Intimidate (CHA) Roller">
-            <button type="roll" name="pf1e-intimidate-skill-roll" value="[[@{DiceBase}+@{PF1eIntimidateTotal}]]"></button>
+            <button type="roll" name="pf1e-intimidate-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Intimidate}} {{skillRoll=[[@{DiceBase}+@{PF1eIntimidateTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Intimidate (CHA)" style="text-align: left;">
             Intimidate (CHA):
@@ -408,9 +434,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Linguistics -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Linguistics (INT) Roller">
-            <button type="roll" name="pf1e-linguistics-skill-roll" value="[[@{DiceBase}+@{PF1eLinguisticsTotal}]]"></button>
+            <button type="roll" name="pf1e-linguistics-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Linguistics}} {{skillRoll=[[@{DiceBase}+@{PF1eLinguisticsTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Linguistics (INT)" style="text-align: left;">
             Linguistics (INT):
@@ -441,9 +469,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Perception -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Perception (WIS) Roller">
-            <button type="roll" name="pf1e-perception-skill-roll" value="[[@{DiceBase}+@{PF1ePerceptionTotal}]]"></button>
+            <button type="roll" name="pf1e-perception-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Perception}} {{skillRoll=[[@{DiceBase}+@{PF1ePerceptionTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Perception (WIS)" style="text-align: left;">
             Perception (WIS):
@@ -474,9 +504,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Perform -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Perform (CHA) Roller">
-            <button type="roll" name="pf1e-perform-skill-roll" value="[[@{DiceBase}+@{PF1ePerformTotal}]]"></button>
+            <button type="roll" name="pf1e-perform-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Perform}} {{skillRoll=[[@{DiceBase}+@{PF1ePerformTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Perform (CHA)" style="text-align: left;">
             Perform (CHA):
@@ -507,9 +539,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Ride -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Ride (DEX) Roller">
-            <button type="roll" name="pf1e-ride-skill-roll" value="[[@{DiceBase}+@{PF1eRideTotal}]]"></button>
+            <button type="roll" name="pf1e-ride-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Ride}} {{skillRoll=[[@{DiceBase}+@{PF1eRideTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Ride (DEX)" style="text-align: left;">
             Ride (DEX):
@@ -540,9 +574,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Sense Motive -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Sense Motive (WIS) Roller">
-            <button type="roll" name="pf1e-sense motive-skill-roll" value="[[@{DiceBase}+@{PF1eSenseMotiveTotal}]]"></button>
+            <button type="roll" name="pf1e-sense-motive-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Sense Motive}} {{skillRoll=[[@{DiceBase}+@{PF1eSenseMotiveTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Sense Motive (WIS)" style="text-align: left;">
             Sense Motive (WIS):
@@ -573,9 +609,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Sleight of Hand -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Sleight of Hand (DEX) Roller">
-            <button type="roll" name="pf1e-sleight of hand-skill-roll" value="[[@{DiceBase}+@{PF1eSleightOfHandTotal}]]"></button>
+            <button type="roll" name="pf1e-sleight-of-hand-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Sleight of Hand}} {{skillRoll=[[@{DiceBase}+@{PF1eSleightOfHandTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Sleight of Hand (DEX)" style="text-align: left;">
             Sleight of Hand (DEX):
@@ -606,9 +644,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Spellcraft -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Spellcraft (INT) Roller">
-            <button type="roll" name="pf1e-spellcraft-skill-roll" value="[[@{DiceBase}+@{PF1eSpellcraftTotal}]]"></button>
+            <button type="roll" name="pf1e-spellcraft-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Spellcraft}} {{skillRoll=[[@{DiceBase}+@{PF1eSpellcraftTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Spellcraft (INT)" style="text-align: left;">
             Spellcraft (INT):
@@ -639,9 +679,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Stealth -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Stealth (DEX) Roller">
-            <button type="roll" name="pf1e-stealth-skill-roll" value="[[@{DiceBase}+@{PF1eStealthTotal}]]"></button>
+            <button type="roll" name="pf1e-stealth-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Stealth}} {{skillRoll=[[@{DiceBase}+@{PF1eStealthTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Stealth (DEX)" style="text-align: left;">
             Stealth (DEX):
@@ -672,9 +714,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Survival -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Survival (WIS) Roller">
-            <button type="roll" name="pf1e-survival-skill-roll" value="[[@{DiceBase}+@{PF1eSurvivalTotal}]]"></button>
+            <button type="roll" name="pf1e-survival-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Survival}} {{skillRoll=[[@{DiceBase}+@{PF1eSurvivalTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Survival (WIS)" style="text-align: left;">
             Survival (WIS):
@@ -705,9 +749,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Swim -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Swim (STR) Roller">
-            <button type="roll" name="pf1e-swim-skill-roll" value="[[@{DiceBase}+@{PF1eSwimTotal}]]"></button>
+            <button type="roll" name="pf1e-swim-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Swim}} {{skillRoll=[[@{DiceBase}+@{PF1eSwimTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Swim (STR)" style="text-align: left;">
             Swim (STR):
@@ -738,9 +784,11 @@
           </div>
           <div class="sheet-table-cell"></div>
         </div>
+      <!-- PF1E Skill: Use Magic Device -->
         <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
           <div class="sheet-table-cell" title="Use Magic Device (CHA) Roller">
-            <button type="roll" name="pf1e-use magic device-skill-roll" value="[[@{DiceBase}+@{PF1eUseMagicDeviceTotal}]]"></button>
+            <button type="roll" name="pf1e-use-magic-device-skill-roll" value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Use Magic Device}} {{skillRoll=[[@{DiceBase}+@{PF1eUseMagicDeviceTotal}]]}}"></button>
           </div>
           <div class="sheet-table-cell" title="Use Magic Device (CHA)" style="text-align: left;">
             Use Magic Device (CHA):
