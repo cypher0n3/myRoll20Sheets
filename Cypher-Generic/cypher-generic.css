@@ -145,8 +145,9 @@ body.sheet-darkmode .btn.btn-default {
 .sheet-cell-75 { width: 75%; }
 .sheet-cell-30 { width: 30%; }
 .sheet-cell-69 { width: 69%; }
-.sheet-cell-button {width: 25px; }
-.sheet-cell-rank {width: 50px; }
+.sheet-cell-button { width: 25px; }
+.sheet-cell-rank { width: 50px; }
+.sheet-cell-60px { width: 60px; }
 
 .sheet-cell-label {
   background: lightgrey;
@@ -284,6 +285,17 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
+.sheet-big-input {
+  border: 1px solid darkgray;
+  font-size: 20px;
+  height: 40px;
+  padding: 10px;
+  box-sizing: border-box;
+  line-height: 24px; /* Example for a textarea, not needed for a single line input */
+  margin-bottom: 3px !important;
+  text-align: center;
+}
+
 .sheet-input-border input[type="text"] {
   border: 1px solid darkgray;
   max-width: 100%;
@@ -323,6 +335,52 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .sheet-hider:not(:checked) ~ .sheet-hide-section {
+  display: block;
+}
+
+.sheet-shower:checked ~ .sheet-show-section {
+  display: block;
+}
+
+.sheet-shower:not(:checked) ~ .sheet-show-section {
+  display: none;
+}
+
+.sheet-flex-show:checked ~ .sheet-flex-area {
+  display: flex;
+}
+
+.sheet-flex-show:not(:checked) ~ .sheet-flex-area {
+  display: none;
+}
+
+.sheet-flex-hider:checked ~ .sheet-flex-area {
+  display: none;
+}
+
+.sheet-flex-hider:not(:checked) ~ .sheet-flex-area {
+  display: flex;
+}
+
+.sheet-hp-section,
+.sheet-stamina-section,
+.sheet-wounds-section,
+.sheet-d20init-section,
+.sheet-dnd35-saves-section,
+.sheet-dnd5-saves-section,
+.sheet-static-ac-section,
+.sheet-rolled-ac-section {
+  display: none;
+}
+
+.sheet-show-hp:checked ~ .sheet-hp-section,
+.sheet-show-stamina:checked ~ .sheet-stamina-section,
+.sheet-show-wounds:checked ~ .sheet-wounds-section,
+.sheet-show-d20init:checked ~ .sheet-d20init-section,
+.sheet-show-dnd35-saves:checked ~ .sheet-dnd35-saves-section,
+.sheet-show-dnd5-saves:checked ~ .sheet-dnd5-saves-section,
+.sheet-show-static-ac:checked ~ .sheet-static-ac-section,
+.sheet-show-rolled-ac:checked ~ .sheet-rolled-ac-section {
   display: block;
 }
 
@@ -538,7 +596,38 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
   display: block;
 }
 /* END - d20 Ability Scores Settings*/
+
+.charsheet .sheet-dnd35-saves-calc-section {
+  display: none;
+}
+
+.charsheet .sheet-dnd35-saves-calc-hider:checked ~ .sheet-dnd35-saves-calc-section {
+  display: block;
+}
 /*----------- End characteristics Display Setup -----------*/
+
+/*----------- General Input Fields Display Setup -------------*/
+.sheet-race-cell,
+.sheet-bkg-cell,
+.sheet-class-cell,
+.sheet-alignment-cell,
+.sheet-xp-cell,
+.sheet-level-cell,
+.sheet-prof-cell {
+  display: none;
+}
+
+.charsheet input.sheet-show-race:checked ~ .sheet-race-cell,
+.charsheet input.sheet-show-bkg:checked ~ .sheet-bkg-cell,
+.charsheet input.sheet-show-class:checked ~ .sheet-class-cell,
+.charsheet input.sheet-show-alignment:checked ~ .sheet-alignment-cell,
+.charsheet input.sheet-show-xp:checked ~ .sheet-xp-cell,
+.charsheet input.sheet-show-level:checked ~ .sheet-level-cell,
+.charsheet input.sheet-show-prof:checked ~ .sheet-prof-cell {
+  display: table-cell;
+}
+
+/*----------- End Input Fields Display Setup -------------*/
 
 /*----------- Aspects Display Setup -------------*/
 /*this hides the contents of each section by default*/
@@ -547,7 +636,7 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
 }
 
 /*this shows the Aspects section content when the appropriate input field is selected*/
-.charsheet .sheet-aspects-show:checked ~ .sheet-aspects-section{
+.charsheet .sheet-aspects-show:checked ~ .sheet-aspects-section {
   display: block;
 }
 
@@ -903,11 +992,15 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
 /*---------- End Rep Control --------*/
 
 /* ==== Roll Templates CSS */
+.sheet-rolltemplate-generic-skill p {
+  margin-bottom: 3px;
+}
+
 .sheet-rolltemplate-generic-skill .sheet-section {
+  background-color: white;
   border: 1px solid black;
   border-radius: 5px;
   box-sizing: border-box;
-  float: left;
   margin: 4px 0;
   padding: 1px;
   width: 100%;
@@ -926,5 +1019,5 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
   font-weight: bold;
   margin-bottom: 4px;
   padding: 2px 4px;
-  text-align:center
+  text-align:center;
 }

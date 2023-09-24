@@ -1331,6 +1331,85 @@
     }
   );
 </script>
+
+<!-- d20 Fort Save Calculation -->
+<script type="text/worker">
+  on("ready change:d20conMod change:d20FortBase change:d20FortBonus1 change:d20FortBonus2 change:d20FortBonus3 change:d20FortBonus4",
+    function(){
+      const modsList = [
+        "d20conMod",
+        "d20FortBase",
+        "d20FortBonus1",
+        "d20FortBonus2",
+        "d20FortBonus3",
+        "d20FortBonus4",
+      ]
+      getAttrs(modsList, function(values){
+        let base = parseInt(values.d20FortBase) || 0;
+        let mod = parseInt(values.d20conMod) || 0;
+        let bonus1 = parseInt(values.d20FortBonus1) || 0;
+        let bonus2 = parseInt(values.d20FortBonus2) || 0;
+        let bonus3 = parseInt(values.d20FortBonus3) || 0;
+        let bonus4 = parseInt(values.d20FortBonus4) || 0;
+
+        let total = base + mod + bonus1 + bonus2 + bonus3 + bonus4;
+        setAttrs({d20FortTotal: total});
+      });
+    }
+  );
+</script>
+<!-- d20 Ref Save Calculation -->
+<script type="text/worker">
+  on("ready change:d20dexMod change:d20RefBase change:d20RefBonus1 change:d20RefBonus2 change:d20RefBonus3 change:d20RefBonus4",
+    function(){
+      const modsList = [
+        "d20dexMod",
+        "d20RefBase",
+        "d20RefBonus1",
+        "d20RefBonus2",
+        "d20RefBonus3",
+        "d20RefBonus4",
+      ]
+      getAttrs(modsList, function(values){
+        let base = parseInt(values.d20RefBase) || 0;
+        let mod = parseInt(values.d20dexMod) || 0;
+        let bonus1 = parseInt(values.d20RefBonus1) || 0;
+        let bonus2 = parseInt(values.d20RefBonus2) || 0;
+        let bonus3 = parseInt(values.d20RefBonus3) || 0;
+        let bonus4 = parseInt(values.d20RefBonus4) || 0;
+
+        let total = base + mod + bonus1 + bonus2 + bonus3 + bonus4;
+        setAttrs({d20RefTotal: total});
+      });
+    }
+  );
+</script>
+<!-- d20 Will Save Calculation -->
+<script type="text/worker">
+  on("ready change:d20wisMod change:d20WillBase change:d20WillBonus1 change:d20WillBonus2 change:d20WillBonus3 change:d20WillBonus4",
+    function(){
+      const modsList = [
+        "d20wisMod",
+        "d20WillBase",
+        "d20WillBonus1",
+        "d20WillBonus2",
+        "d20WillBonus3",
+        "d20WillBonus4",
+      ]
+      getAttrs(modsList, function(values){
+        let base = parseInt(values.d20WillBase) || 0;
+        let mod = parseInt(values.d20wisMod) || 0;
+        let bonus1 = parseInt(values.d20WillBonus1) || 0;
+        let bonus2 = parseInt(values.d20WillBonus2) || 0;
+        let bonus3 = parseInt(values.d20WillBonus3) || 0;
+        let bonus4 = parseInt(values.d20WillBonus4) || 0;
+
+        let total = base + mod + bonus1 + bonus2 + bonus3 + bonus4;
+        setAttrs({d20WillTotal: total});
+      });
+    }
+  );
+</script>
 <!-- END D20 Script Workers -->
 
 <!-- START Pathfinder 1E Script Workers -->
@@ -2236,6 +2315,27 @@
   );
 </script>
 <!-- END Pathfinder 1E Script Workers -->
+
+<!-- Combat Section Hider -->
+<script type="text/worker">
+  on("ready change:UseD20Init change:UseHP change:UseWounds change:d20ACselector",
+    function(){
+      const attrList = [
+        "UseD20Init",
+        "UseHP",
+        "UseWounds",
+        "d20ACselector",
+      ];
+      getAttrs(attrList, function(values){
+        console.log('Attribute Values:', values);
+        let isTrue = Object.values(values).some(val => val !== '0' && val !== 'None');
+        console.log('isTrue:', isTrue);
+
+        setAttrs({CombatTopHider: isTrue ? '0' : 'Hide'});
+      });
+    }
+  )
+</script>
 <!-- END Script Workers -->
 
 <title>Character Sheet</title>
@@ -2263,24 +2363,76 @@
   <!-- General Section -->
   <div class="sheet-section">
     <div class="sheet-headerbar">General</div>
-      <div class="sheet-table sheet-input-border">
-        <div class="sheet-table-row" style="text-align:center; font-weight:bold; font-size: 14px">
+      <div class="sheet-table sheet-input-border sheet-boldCenter">
+        <div class="sheet-table-row" style="font-size: 14px">
           <div class="sheet-table-cell sheet-cell-41">Character Name</div>
           <div class="sheet-table-cell sheet-cell-a">Player Name</div>
           <div class="sheet-table-cell sheet-cell-10">Gender</div>
           <input type="checkbox" class="sheet-hide-refresh sheet-hider-invis" name="attr_UseRefreshSelector" value="No" checked />
-          <div class="sheet-table-cell sheet-cell-15 sheet-hide-refresh-section" title="FATE refresh">Refresh</div>
+          <div class="sheet-table-cell sheet-cell-rank sheet-hide-refresh-section" title="FATE refresh">Refresh</div>
           <input type="checkbox" class="sheet-hide-fate_points sheet-hider-invis" name="attr_UseFatePointsSelector" value="No" checked />
-          <div class="sheet-table-cell sheet-cell-15 sheet-hide-fate_points-section" title="Fate/Moxie/Action Points">Fate Points</div>
+          <div class="sheet-table-cell sheet-cell-rank sheet-hide-fate_points-section" title="Fate/Moxie/Action Points">FP</div>
         </div>
         <div class="sheet-table-row">
           <div class="sheet-table-cell"><input type="text" name="attr_CharName" value="No Name" /></div>
           <div class="sheet-table-cell"><input type="text" name="attr_PlayerName" /></div>
           <div class="sheet-table-cell"><input type="text" name="attr_Gender" /></div>
           <input type="checkbox" class="sheet-hide-refresh sheet-hider-invis" name="attr_UseRefreshSelector" value="No" checked />
-          <div class="sheet-table-cell sheet-cell-15 sheet-hide-refresh-section"><input type="number" name="attr_Refresh" value="3" /></div>
+          <div class="sheet-table-cell sheet-hide-refresh-section">
+            <input type="number" name="attr_Refresh" value="3" />
+          </div>
           <input type="checkbox" class="sheet-hide-fate_points sheet-hider-invis" name="attr_UseFatePointsSelector" value="No" checked />
-          <div class="sheet-table-cell sheet-cell-15 sheet-hide-fate_points-section"><input type="number" name="attr_FatePoints" value="3" /></div>
+          <div class="sheet-table-cell sheet-hide-fate_points-section">
+            <input type="number" name="attr_FatePoints" value="3" />
+          </div>
+        </div>
+      </div>
+      <div class="sheet-table sheet-input-border sheet-boldCenter">
+        <div class="sheet-table-row" style="font-size: 14px">
+          <input type="checkbox" class="sheet-show-race sheet-hider-invis" name="attr_UseRaceCheckbox" value="Yes" />
+          <div class="sheet-table-cell sheet-cell-a sheet-race-cell">Race</div>
+          <input type="checkbox" class="sheet-show-bkg sheet-hider-invis" name="attr_UseBkgCheckbox" value="Yes" />
+          <div class="sheet-table-cell sheet-cell-a sheet-bkg-cell">Background</div>
+          <input type="checkbox" class="sheet-show-class sheet-hider-invis" name="attr_UseClassCheckbox" value="Yes" />
+          <div class="sheet-table-cell sheet-cell-a sheet-class-cell">Classes</div>
+          <input type="checkbox" class="sheet-show-alignment sheet-hider-invis" name="attr_UseAlignmentCheckbox" value="Yes" />
+          <div class="sheet-table-cell sheet-cell-rank sheet-alignment-cell" title="Alignment">Align</div>
+          <input type="checkbox" class="sheet-show-xp sheet-hider-invis" name="attr_UseXPCheckbox" value="Yes" />
+          <div class="sheet-table-cell sheet-cell-rank sheet-xp-cell" title="Experience Points">XP</div>
+          <input type="checkbox" class="sheet-show-level sheet-hider-invis" name="attr_UseLevelCheckbox" value="Yes" />
+          <div class="sheet-table-cell sheet-cell-rank sheet-level-cell" title="Level">Level</div>
+          <input type="checkbox" class="sheet-show-prof sheet-hider-invis" name="attr_UseProficiencyBonus" value="Yes" />
+          <div class="sheet-table-cell sheet-cell-rank sheet-prof-cell" title="D&D 5e Proficiency Bonus">Prof.</div>
+        </div>
+        <div class="sheet-table-row">
+          <input type="checkbox" class="sheet-show-race sheet-hider-invis" name="attr_UseRaceCheckbox" value="Yes" />
+          <div class="sheet-table-cell sheet-race-cell">
+            <input type="text" name="attr_race" placeholder="Human" />
+          </div>
+          <input type="checkbox" class="sheet-show-bkg sheet-hider-invis" name="attr_UseBkgCheckbox" value="Yes" />
+          <div class="sheet-table-cell sheet-bkg-cell">
+            <input type="text" name="attr_background" placeholder="Background" />
+          </div>
+          <input type="checkbox" class="sheet-show-class sheet-hider-invis" name="attr_UseClassCheckbox" value="Yes" />
+          <div class="sheet-table-cell sheet-class-cell">
+            <input type="text" name="attr_class" placeholder="Classes" />
+          </div>
+          <input type="checkbox" class="sheet-show-alignment sheet-hider-invis" name="attr_UseAlignmentCheckbox" value="Yes" />
+          <div class="sheet-table-cell sheet-alignment-cell">
+            <input type="text" name="attr_alignment" title="Alignment" style="text-align: center;" placeholder="TN" />
+          </div>
+          <input type="checkbox" class="sheet-show-xp sheet-hider-invis" name="attr_UseXPCheckbox" value="Yes" />
+          <div class="sheet-table-cell sheet-xp-cell">
+            <input type="number" name="attr_xp" title="XP" placeholder="0"/>
+          </div>
+          <input type="checkbox" class="sheet-show-level sheet-hider-invis" name="attr_UseLevelCheckbox" value="Yes" />
+          <div class="sheet-table-cell sheet-level-cell">
+            <input type="number" name="attr_level" title="Level" placeholder="1" />
+          </div>
+          <input type="checkbox" class="sheet-show-prof sheet-hider-invis" name="attr_UseProficiencyBonus" value="Yes" />
+          <div class="sheet-table-cell sheet-prof-cell">
+            <input type="number" name="attr_prof-bonus" title="D&D 5e Proficiency Bonus" value="2" />
+          </div>
         </div>
       </div>
 
@@ -8176,7 +8328,186 @@
 </div><!-- End Core Tab -->
 
 <div class="sheet-section-tabbed-combat"><!-- Combat Tab -->
-
+  <input type="checkbox" class="sheet-flex-hider sheet-hider-invis" name="attr_CombatTopHider" value="Hide"/>
+  <div class="sheet-section sheet-flex-area sheet-boldCenter">
+    <!-- HP Section -->
+    <input type="checkbox" class="sheet-show-hp sheet-hider-invis" name="attr_UseHP" value="Yes"/>
+    <div class="sheet-flex-fill sheet-hp-section">
+      <div class="sheet-headerbar">Current HP</div>
+      <input type="number" class="sheet-big-input" name="attr_HP" placeholder="0">
+      <div class="sheet-headerbar">Max HP</div>
+      <input type="number" class="sheet-big-input" name="attr_maxHP" placeholder="0">
+    </div>
+    <!-- Stamina Section -->
+    <input type="checkbox" class="sheet-show-stamina sheet-hider-invis" name="attr_UseStamina" value="Yes"/>
+    <div class="sheet-flex-fill sheet-stamina-section">
+      Stamina Stuff
+    </div>
+    <!-- Wounds Section -->
+    <input type="checkbox" class="sheet-show-wounds sheet-hider-invis" name="attr_UseWounds" value="Yes"/>
+    <div class="sheet-flex-fill sheet-wounds-section">
+      Wounds Stuff
+    </div>
+    <!-- d20 Static AC Section -->
+    <input type="checkbox" class="sheet-show-static-ac sheet-hider-invis" name="attr_d20ACselector" value="Static"/>
+    <div class="sheet-flex-fill sheet-static-ac-section">
+      Static AC Stuff
+    </div>
+    <!-- d20 Rolled AC Section -->
+    <input type="checkbox" class="sheet-show-rolled-ac sheet-hider-invis" name="attr_d20ACselector" value="Rolled"/>
+    <div class="sheet-flex-fill sheet-rolled-ac-section">
+      Rolled AC Stuff
+    </div>
+    <!-- d20 Initiative Section -->
+    <input type="checkbox" class="sheet-show-d20init sheet-hider-invis" name="attr_UseD20Init" value="Yes"/>
+    <div class="sheet-flex-fill sheet-d20init-section">
+      Initiative Stuff
+    </div>
+  </div>
+  <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_d20SavesSelector" value="None" />
+  <div class="sheet-section sheet-hide-section">
+    <input type="checkbox" class="sheet-show-dnd35-saves sheet-hider-invis" name="attr_d20SavesSelector" value="3.5e" />
+    <div class="sheet-dnd35-saves-section">
+      <div class="sheet-headerbar">d20 BAB & Saves
+        <input type="checkbox" class="sheet-checkbox-graygear" name="attr_dnd35savesCalcHider" style="float:right" checked />
+        <span style="vertical-align:middle; position:relative; float:right; margin-right:-20px; margin-top:-2px"></span>
+      </div>
+      <div class="sheet-table sheet-boldCenter sheet-input-border">
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell sheet-cell-a"></div>
+          <div class="sheet-table-cell sheet-cell-a">
+            BAB:
+            <input type="number" name="attr_d20bab" value="0" />
+          </div>
+          <div class="sheet-table-cell sheet-cell-a sheet-input-disabled">
+            <button type="roll" name="d20-fort-roller"
+              value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Fortitude Save}} {{skillRoll=[[@{DiceBase}+@{d20FortTotal}]]}}">
+            </button>
+            Fort:
+            <input type="number" name="attr_d20FortTotal" value="0" readonly />
+          </div>
+          <div class="sheet-table-cell sheet-cell-a sheet-input-disabled">
+            <button type="roll" name="d20-ref-roller"
+              value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Reflex Save}} {{skillRoll=[[@{DiceBase}+@{d20RefTotal}]]}}">
+            </button>
+            Ref:
+            <input type="number" name="attr_d20RefTotal" value="0" readonly />
+          </div>
+          <div class="sheet-table-cell sheet-cell-a sheet-input-disabled">
+            <button type="roll" name="d20-will-roller"
+              value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Will Save}} {{skillRoll=[[@{DiceBase}+@{d20WillTotal}]]}}">
+            </button>
+            Will:
+            <input type="number" name="attr_d20WillTotal" value="0" readonly />
+          </div>
+          <div class="sheet-table-cell sheet-cell-a"></div>
+        </div>
+      </div>
+      <input type="checkbox" class="sheet-dnd35-saves-calc-hider sheet-hider-invis" name="attr_dnd35savesCalcHider" checked/>
+      <div class="sheet-dnd35-saves-calc-section">
+        <div class="sheet-headerbar">Saves Calcuations</div>
+        <div class="sheet-table sheet-input-border sheet-boldCenter">
+          <div class="sheet-table-row">
+            <div class="sheet-table-cell sheet-cell-a"></div>
+            <div class="sheet-table-cell sheet-cell-60px"></div>
+            <div class="sheet-table-cell sheet-cell-60px">Total</div>
+            <div class="sheet-table-cell sheet-cell-60px">Base</div>
+            <div class="sheet-table-cell sheet-cell-60px">Mod</div>
+            <div class="sheet-table-cell sheet-cell-60px">Bonus 1</div>
+            <div class="sheet-table-cell sheet-cell-60px">Bonus 2</div>
+            <div class="sheet-table-cell sheet-cell-60px">Bonus 3</div>
+            <div class="sheet-table-cell sheet-cell-60px">Bonus 4</div>
+            <div class="sheet-table-cell sheet-cell-a"></div>
+          </div>
+          <div class="sheet-table-row">
+            <div class="sheet-table-cell"></div>
+            <div class="sheet-table-cell">Fort:</div>
+            <div class="sheet-table-cell sheet-input-disabled" title="Fortitude Save Total">
+              <input type="number" name="attr_d20FortTotal" value="0" readonly />
+            </div>
+            <div class="sheet-table-cell">
+              <input type="number" name="attr_d20FortBase" value="0" />
+            </div>
+            <div class="sheet-table-cell sheet-input-disabled">
+              <input type="number" name="attr_d20conMod" value="0" readonly/>
+            </div>
+            <div class="sheet-table-cell">
+              <input type="number" name="attr_d20FortBonus1" value="0" />
+            </div>
+            <div class="sheet-table-cell">
+              <input type="number" name="attr_d20FortBonus2" value="0" />
+            </div>
+            <div class="sheet-table-cell">
+              <input type="number" name="attr_d20FortBonus3" value="0" />
+            </div>
+            <div class="sheet-table-cell">
+              <input type="number" name="attr_d20FortBonus4" value="0" />
+            </div>
+            <div class="sheet-table-cell"></div>
+          </div>
+          <div class="sheet-table-row">
+            <div class="sheet-table-cell"></div>
+            <div class="sheet-table-cell">Ref:</div>
+            <div class="sheet-table-cell sheet-input-disabled" title="Reflex Save Total">
+              <input type="number" name="attr_d20RefTotal" value="0" readonly />
+            </div>
+            <div class="sheet-table-cell">
+              <input type="number" name="attr_d20RefBase" value="0" />
+            </div>
+            <div class="sheet-table-cell sheet-input-disabled">
+              <input type="number" name="attr_d20dexMod" value="0" readonly/>
+            </div>
+            <div class="sheet-table-cell">
+              <input type="number" name="attr_d20RefBonus1" value="0" />
+            </div>
+            <div class="sheet-table-cell">
+              <input type="number" name="attr_d20RefBonus2" value="0" />
+            </div>
+            <div class="sheet-table-cell">
+              <input type="number" name="attr_d20RefBonus3" value="0" />
+            </div>
+            <div class="sheet-table-cell">
+              <input type="number" name="attr_d20RefBonus4" value="0" />
+            </div>
+            <div class="sheet-table-cell"></div>
+          </div>
+          <div class="sheet-table-row">
+            <div class="sheet-table-cell"></div>
+            <div class="sheet-table-cell">Will:</div>
+            <div class="sheet-table-cell sheet-input-disabled" title="Will Save Total">
+              <input type="number" name="attr_d20WillTotal" value="0" readonly />
+            </div>
+            <div class="sheet-table-cell">
+              <input type="number" name="attr_d20WillBase" value="0" />
+            </div>
+            <div class="sheet-table-cell sheet-input-disabled">
+              <input type="number" name="attr_d20wisMod" value="0" readonly/>
+            </div>
+            <div class="sheet-table-cell">
+              <input type="number" name="attr_d20WillBonus1" value="0" />
+            </div>
+            <div class="sheet-table-cell">
+              <input type="number" name="attr_d20WillBonus2" value="0" />
+            </div>
+            <div class="sheet-table-cell">
+              <input type="number" name="attr_d20WillBonus3" value="0" />
+            </div>
+            <div class="sheet-table-cell">
+              <input type="number" name="attr_d20WillBonus4" value="0" />
+            </div>
+            <div class="sheet-table-cell"></div>
+          </div>
+        </div>
+        <p style="text-align:center; font-style: italic">
+          Use gear icon in "d20 BAB & Saves" header to hide this calc section.
+        </p>
+      </div>
+    </div>
+    <input type="checkbox" class="sheet-show-dnd5-saves sheet-hider-invis" name="attr_d20SavesSelector" value="5e" />
+    <div class="sheet-dnd5-saves-section">
+      5e saves here
+    </div>
+  </div>
 </div><!-- End Combat Tab -->
 
 <div class="sheet-section-tabbed-gear"><!-- Gear Tab -->
@@ -10570,7 +10901,7 @@
   <div class="sheet-lock-in-section"><!-- Section that will be hidden when set to 'lock in'. -->
     <div class="sheet-table">
       <!-- Quick Settings Selector -->
-      <div class="sheet-table-row sheet-table-row-settings">
+      <div class="sheet-table-row">
         <div class="sheet-table-cell sheet-cell-25 sheet-cell-label" title="Sets multiple settings at once.">Quick Settings</div>
         <div class="sheet-table-cell sheet-cell-75">
           <span class="sheet-span-border sheet-span-settings">
@@ -10616,6 +10947,55 @@
         </div>
       </div><!-- End Quick Settings Selector -->
 
+      <!-- General Input Fields -->
+      <div class="sheet-table-row sheet-table-row-settings">
+        <div class="sheet-table-cell sheet-cell-25 sheet-cell-label" title="Additional fields to show in General section">General Fields</div>
+        <div class="sheet-table-cell sheet-cell-75">
+          <span class="sheet-span-border sheet-span-settings">
+            <label class="sheet-label-settings">
+              <input type="checkbox" class="sheet-show-race" name="attr_UseRaceCheckbox" value="Yes" />
+              Race
+            </label>
+          </span>
+          <span class="sheet-span-border sheet-span-settings">
+            <label class="sheet-label-settings">
+              <input type="checkbox" class="sheet-show-bkg" name="attr_UseBkgCheckbox" value="Yes" />
+              Background
+            </label>
+          </span>
+          <span class="sheet-span-border sheet-span-settings">
+            <label class="sheet-label-settings">
+              <input type="checkbox" class="sheet-show-class" name="attr_UseClassCheckbox" value="Yes" />
+              Class
+            </label>
+          </span>
+          <span class="sheet-span-border sheet-span-settings">
+            <label class="sheet-label-settings">
+              <input type="checkbox" class="sheet-show-alignment" name="attr_UseAlignmentCheckbox" value="Yes" />
+              Alignment
+            </label>
+          </span>
+          <span class="sheet-span-border sheet-span-settings">
+            <label class="sheet-label-settings">
+              <input type="checkbox" class="sheet-show-xp" name="attr_UseXPCheckbox" value="Yes" />
+              XP
+            </label>
+          </span>
+          <span class="sheet-span-border sheet-span-settings">
+            <label class="sheet-label-settings">
+              <input type="checkbox" class="sheet-show-level" name="attr_UseLevelCheckbox" value="Yes" />
+              Level
+            </label>
+          </span>
+          <span class="sheet-span-border sheet-span-settings" title="Use D&D 5e Proficiency Bonus">
+            <label class="sheet-label-settings">
+              <input type="checkbox" class="sheet-show-proficiency-bonus" name="attr_UseProficiencyBonus" value="Yes" />
+              Prof
+            </label>
+          </span>
+        </div>
+      </div> <!-- END General Input Fields -->
+
       <!-- Dice Base Selector -->
       <div class="sheet-table-row sheet-table-row-settings">
         <div class="sheet-table-cell sheet-cell-25 sheet-cell-label">Dice Base</div>
@@ -10654,7 +11034,7 @@
         </div>
       </div><!-- End Dice Base Selector -->
 
-      <!-- characteristics Selector -->
+      <!-- Characteristics Selector -->
       <div class="sheet-table-row sheet-table-row-settings">
         <div class="sheet-table-cell sheet-cell-25 sheet-cell-label" title="characteristics/Ability Scores list to use.">Characteristics List</div>
         <div class="sheet-table-cell sheet-cell-a">
@@ -10747,6 +11127,7 @@
           </span>
         </div>
       </div><!-- End Aspects & Stunts Selector -->
+
       <!-- Fate Points & Refresh Selector -->
       <div class="sheet-table-row sheet-table-row-settings">
         <div class="sheet-table-cell sheet-cell-25 sheet-cell-label">Fate Points & Refresh</div>
@@ -10771,6 +11152,105 @@
           </span>
         </div>
       </div><!-- End Aspects & Stunts Selector -->
+
+      <!-- Combat Options -->
+      <div class="sheet-table-row sheet-table-row-settings">
+        <div class="sheet-table-cell sheet-cell-25 sheet-cell-label">Combat</div>
+        <div class="sheet-table-cell sheet-cell-a">
+          <span class="sheet-span-border sheet-span-settings">
+            <label class="sheet-label-settings">
+              <input type="checkbox" class="sheet-show-level" name="attr_UseD20Init" value="Yes" />
+              d20 Initiative
+            </label>
+          </span>
+          <span class="sheet-span-border sheet-span-settings">
+            <label class="sheet-label-settings">
+              <input type="checkbox" class="sheet-show-level" name="attr_UseHP" value="Yes" />
+              HP
+            </label>
+          </span>
+          <span class="sheet-span-border sheet-span-settings">
+            <label class="sheet-label-settings">
+              <input type="checkbox" class="sheet-show-level" name="attr_UseStamina" value="Yes" />
+              Stamina
+            </label>
+          </span>
+          <span class="sheet-span-border sheet-span-settings">
+            <label class="sheet-label-settings">
+              <input type="checkbox" class="sheet-show-level" name="attr_UseWounds" value="Yes" />
+              Wounds
+            </label>
+          </span>
+        </div>
+      </div> <!-- End Combat Options -->
+
+      <!-- Combat: d20 Options -->
+      <div class="sheet-table-row sheet-table-row-settings">
+        <div class="sheet-table-cell sheet-cell-25 sheet-cell-label">Combat: d20 Options</div>
+        <div class="sheet-table-cell sheet-cell-a">
+          <span title="d20 Armor Class?">
+            <b>AC Type?</b>
+            <span class="sheet-span-border sheet-span-settings">
+              <label class="sheet-label-settings">
+                <input type="radio" name="attr_d20ACselector" value="Static" />
+                Static
+              </label>
+            </span>
+            <span class="sheet-span-border sheet-span-settings">
+              <label class="sheet-label-settings">
+                <input type="radio" name="attr_d20ACselector" value="Rolled" />
+                Rolled
+              </label>
+            </span>
+            <span class="sheet-span-border sheet-span-settings">
+              <label class="sheet-label-settings">
+                <input type="radio" name="attr_d20ACselector" value="None" checked/>
+                None
+              </label>
+            </span>
+          </span><br>
+          <span title="Saves">
+            <b>Save type?</b>
+            <span class="sheet-span-border sheet-span-settings" title="D&D 3.5e / Pathfinder 1e style (Fort, Reflex, Wil)">
+              <label class="sheet-label-settings">
+                <input type="radio" name="attr_d20SavesSelector" value="3.5e" />
+                3.5e/PF1e
+              </label>
+            </span>
+            <span class="sheet-span-border sheet-span-settings" title="D&D 5e style (Ability Score saves)">
+              <label class="sheet-label-settings">
+                <input type="radio" name="attr_d20SavesSelector" value="5e" />
+                5e
+              </label>
+            </span>
+            <span class="sheet-span-border sheet-span-settings">
+              <label class="sheet-label-settings">
+                <input type="radio" name="attr_d20SavesSelector" value="None" checked/>
+                None
+              </label>
+            </span>
+          </span>
+        </div>
+      </div> <!-- End Combat: d20 Options -->
+
+      <div class="sheet-table-row sheet-table-row-settings">
+        <div class="sheet-table-cell sheet-cell-25 sheet-cell-label">Spellcasting</div>
+        <div class="sheet-table-cell sheet-cell-a">
+          <span class="sheet-span-border sheet-span-settings" title="D&D 3.5 / Pathfinder 1e style">
+            <label class="sheet-label-settings">
+              <input type="radio" name="attr_SpellsSelector" value="3.5e" />
+              3.5e/PF1e
+            </label>
+          </span>
+          <span class="sheet-span-border sheet-span-settings" title="No spells">
+            <label class="sheet-label-settings">
+              <input type="radio" name="attr_SpellsSelector" value="None" checked/>
+              None
+            </label>
+          </span>
+        </div>
+      </div>
+
       <!-- Special Gear Selector -->
       <div class="sheet-table-row sheet-table-row-settings">
         <div class="sheet-table-cell sheet-cell-25 sheet-cell-label">Special Gear</div>
@@ -10783,7 +11263,21 @@
           </span>
         </div>
       </div><!-- End Special Gear Selector -->
-    </div>
+
+      <!-- Special Sections Selector -->
+      <div class="sheet-table-row sheet-table-row-settings">
+        <div class="sheet-table-cell sheet-cell-25 sheet-cell-label">Special Sections</div>
+        <div class="sheet-table-cell sheet-cell-a">
+          <span class="sheet-span-border sheet-span-settings" title="d20 Character builder">
+            <label class="sheet-label-settings">
+              <input type="checkbox" class="sheet-show-d20CharBuilder" name="attr_UseD20CharBuilder" value="Yes" />
+              d20 Character Builder
+            </label>
+          </span>
+        </div>
+      </div>
+    </div> <!-- End Special Sections Selector -->
+
     <br>
     <div class="sheet-headerbar">Lock In Settings</div>
     <div class="sheet-table sheet-input-border">
@@ -10808,7 +11302,6 @@
 <rolltemplate class="sheet-rolltemplate-generic-skill">
   <div class="sheet-section sheet-boldCenter">
     <div class="sheet-headerbar">{{CharName}}</div>
-    <p>{{skillName}}:</p>
-    <p>{{skillRoll}}</p>
+    <p>{{skillName}}: {{skillRoll}}</p>
   </div>
 </rolltemplate>
