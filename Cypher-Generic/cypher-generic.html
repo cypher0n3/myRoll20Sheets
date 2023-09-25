@@ -1,5 +1,43 @@
 <!DOCTYPE html>
 <!-- Script Workers -->
+<!-- Quick Settings -->
+<script type="text/worker">
+  on("ready change:QuickSetting", function(){
+      const getList = ["QuickSetting"];
+
+      getAttrs(getList, function(values){
+        if (values.QuickSetting === "PFCE") {
+          setAttrs({
+            UseRaceCheckbox: "Yes",
+            UseBkgCheckbox: "0",
+            UseClassCheckbox: "Yes",
+            UseAlignmentCheckbox: "Yes",
+            UseXPCheckbox: "Yes",
+            UseLevelCheckbox: "Yes",
+            UseProficiencyBonus: "0",
+            DiceBase: "2d10",
+            CharSelect: "d20",
+            skillListSelect: "PF1E",
+            AspectsSelector: "No",
+            StuntsSelector: "No",
+            UseFatePointsSelector: "Yes",
+            UseRefreshSelector: "No",
+            UseD20Init: "Yes",
+            UseHP: "Yes",
+            UseStamina: "0",
+            UseWounds: "0",
+            d20ACselector: "Rolled",
+            d20SavesSelector: "3.5e",
+            SpellsSelector: "3.5e",
+            "SpecialGear-EPv1_Morphs": "0",
+            "SpecialGear-EPv2_Morphs": "0",
+            UseD20CharBuilder: "Yes"
+          });
+        }
+      });
+  });
+</script>
+
 <!-- Eclipse Phase v2 Script Workers -->
 <script type="text/worker">
   on("ready change:EPv2CurrentSelectedMorph change:EPv2Morph1Name change:EPv2Morph2Name change:EPv2Morph3Name change:EPv2Morph4Name change:EPv2Morph5Name change:EPv2Morph1Dur change:EPv2Morph2Dur change:EPv2Morph3Dur change:EPv2Morph4Dur change:EPv2Morph5Dur change:EPv2Morph1DR change:EPv2Morph2DR change:EPv2Morph3DR change:EPv2Morph4DR change:EPv2Morph5DR",
@@ -2471,7 +2509,7 @@
       <div class="sheet-table sheet-input-border sheet-boldCenter">
         <div class="sheet-table-row" style="font-size: 14px">
           <input type="checkbox" class="sheet-show-race sheet-hider-invis" name="attr_UseRaceCheckbox" value="Yes" />
-          <div class="sheet-table-cell sheet-cell-a sheet-race-cell">Race</div>
+          <div class="sheet-table-cell sheet-cell-120px sheet-race-cell">Race</div>
           <input type="checkbox" class="sheet-show-bkg sheet-hider-invis" name="attr_UseBkgCheckbox" value="Yes" />
           <div class="sheet-table-cell sheet-cell-a sheet-bkg-cell">Background</div>
           <input type="checkbox" class="sheet-show-class sheet-hider-invis" name="attr_UseClassCheckbox" value="Yes" />
@@ -2746,7 +2784,7 @@
       <div class="sheet-section">
         <div class="sheet-headerbar">Ability Scores
           <input type="checkbox" class="sheet-checkbox-graygear sheet-d20-ability-scores-calc-section-hider" name="attr_d20-Ability-Scores-Calc-Section-Hider" style="float:right" checked />
-          <span style="vertical-align:middle; position:relative; float:right; margin-right:-20px; margin-top:-2px" />
+          <span style="vertical-align:middle; position:relative; float:right; margin-right:-20px; margin-top:-2px" > </span>
         </div>
         <div class="sheet-table sheet-input-border">
           <div class="sheet-table-row sheet-boldCenter">
@@ -3030,7 +3068,7 @@
               <div class="sheet-table-cell"></div>
             </div>
           </div>
-          <textarea class="sheet-multiline-input" name="attr_d20abilityScoreNotes" placeholder="Ability score notes"></textarea>
+          <textarea class="sheet-multiline-input sheet-input-border" name="attr_d20abilityScoreNotes" placeholder="Ability score notes"></textarea>
           <p style="text-align:center; font-style: italic">
             Use gear icon in "Ability Scores" header to hide the calc section.
           </p>
@@ -3535,7 +3573,7 @@
     <input class="sheet-skills-list-selector sheet-skills-list-eclipse_phase" type="checkbox" name="attr_skillListSelect" value="Eclipse_Phase" />
     <div class="sheet-skills-section-eclipse_phase">
       <div class="sheet-headerbar">Eclipse Phase v1 Skills
-        <input type="checkbox" class="sheet-checkbox-graygear sheet-ep-skills-display-selection-hider" name="attr_EP-Skills-Display-Selection-Hider" style="float:right" checked /><span style="vertical-align:middle; position:relative; float:right; margin-right:-20px; margin-top:-2px"/>
+        <input type="checkbox" class="sheet-checkbox-graygear sheet-ep-skills-display-selection-hider" name="attr_EP-Skills-Display-Selection-Hider" style="float:right" checked /><span style="vertical-align:middle; position:relative; float:right; margin-right:-20px; margin-top:-2px"> </span>
       </div>
       <div class="sheet-table sheet-input-border">
         <div class="sheet-table-row sheet-boldCenter">
@@ -6065,7 +6103,7 @@
     <input class="sheet-skills-list-selector sheet-skills-list-eclipse_phase2" type="checkbox" name="attr_skillListSelect" value="Eclipse_Phase2" checked />
     <div class="sheet-skills-section-eclipse_phase2">
       <div class="sheet-headerbar">Eclipse Phase v2 Skills
-        <input type="checkbox" class="sheet-checkbox-graygear sheet-EPv2skills-display-selection-hider" name="attr_EPv2Skills-Display-Selection-Hider" style="float:right" checked /><span style="vertical-align:middle; position:relative; float:right; margin-right:-20px; margin-top:-2px"/>
+        <input type="checkbox" class="sheet-checkbox-graygear sheet-EPv2skills-display-selection-hider" name="attr_EPv2Skills-Display-Selection-Hider" style="float:right" checked /><span style="vertical-align:middle; position:relative; float:right; margin-right:-20px; margin-top:-2px"> </span>
       </div>
       <div class="sheet-table sheet-input-border">
         <div class="sheet-table-row sheet-boldCenter">
@@ -6101,7 +6139,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillAthleticsAptDisplay" value="@{EP2SkillAthleticsApt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillAthleticsBase" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillAthleticsMorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillAthleticsMorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillAthleticsMorphBonusDisplay" value="@{EP2SkillAthleticsMorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillAthleticsMiscBonus" value="0" /></div>
@@ -6135,7 +6173,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillDeceiveAptDisplay" value="@{EP2SkillDeceiveApt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillDeceiveBase" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillDeceiveMorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillDeceiveMorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillDeceiveMorphBonusDisplay" value="@{EP2SkillDeceiveMorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillDeceiveMiscBonus" value="0" /></div>
@@ -6169,7 +6207,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillFrayAptDisplay" value="@{EP2SkillFrayApt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillFrayBase" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillFrayMorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillFrayMorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillFrayMorphBonusDisplay" value="@{EP2SkillFrayMorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillFrayMiscBonus" value="0" /></div>
@@ -6203,7 +6241,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillFreeFallAptDisplay" value="@{EP2SkillFreeFallApt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillFreeFallBase" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillFreeFallMorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillFreeFallMorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillFreeFallMorphBonusDisplay" value="@{EP2SkillFreeFallMorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillFreeFallMiscBonus" value="0" /></div>
@@ -6237,7 +6275,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillGunsAptDisplay" value="@{EP2SkillGunsApt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillGunsBase" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillGunsMorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillGunsMorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillGunsMorphBonusDisplay" value="@{EP2SkillGunsMorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillGunsMiscBonus" value="0" /></div>
@@ -6271,7 +6309,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillHardware1AptDisplay" value="@{EP2SkillHardware1Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillHardware1Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillHardware1MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillHardware1MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillHardware1MorphBonusDisplay" value="@{EP2SkillHardware1MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillHardware1MiscBonus" value="0" /></div>
@@ -6305,7 +6343,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillHardware2AptDisplay" value="@{EP2SkillHardware2Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillHardware2Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillHardware2MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillHardware2MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillHardware2MorphBonusDisplay" value="@{EP2SkillHardware2MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillHardware2MiscBonus" value="0" /></div>
@@ -6339,7 +6377,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillInfiltrateAptDisplay" value="@{EP2SkillInfiltrateApt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillInfiltrateBase" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillInfiltrateMorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillInfiltrateMorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillInfiltrateMorphBonusDisplay" value="@{EP2SkillInfiltrateMorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillInfiltrateMiscBonus" value="0" /></div>
@@ -6373,7 +6411,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillInfosecAptDisplay" value="@{EP2SkillInfosecApt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillInfosecBase" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillInfosecMorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillInfosecMorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillInfosecMorphBonusDisplay" value="@{EP2SkillInfosecMorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillInfosecMiscBonus" value="0" /></div>
@@ -6407,7 +6445,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillInterfaceAptDisplay" value="@{EP2SkillInterfaceApt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillInterfaceBase" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillInterfaceMorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillInterfaceMorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillInterfaceMorphBonusDisplay" value="@{EP2SkillInterfaceMorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillInterfaceMiscBonus" value="0" /></div>
@@ -6441,7 +6479,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillKinesicsAptDisplay" value="@{EP2SkillKinesicsApt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillKinesicsBase" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillKinesicsMorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillKinesicsMorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillKinesicsMorphBonusDisplay" value="@{EP2SkillKinesicsMorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillKinesicsMiscBonus" value="0" /></div>
@@ -6475,7 +6513,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillMedicine1AptDisplay" value="@{EP2SkillMedicine1Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillMedicine1Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillMedicine1MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillMedicine1MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillMedicine1MorphBonusDisplay" value="@{EP2SkillMedicine1MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillMedicine1MiscBonus" value="0" /></div>
@@ -6509,7 +6547,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillMedicine2AptDisplay" value="@{EP2SkillMedicine2Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillMedicine2Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillMedicine2MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillMedicine2MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillMedicine2MorphBonusDisplay" value="@{EP2SkillMedicine2MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillMedicine2MiscBonus" value="0" /></div>
@@ -6543,7 +6581,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillMeleeAptDisplay" value="@{EP2SkillMeleeApt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillMeleeBase" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillMeleeMorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillMeleeMorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillMeleeMorphBonusDisplay" value="@{EP2SkillMeleeMorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillMeleeMiscBonus" value="0" /></div>
@@ -6577,7 +6615,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillPerceiveAptDisplay" value="@{EP2SkillPerceiveApt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillPerceiveBase" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillPerceiveMorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillPerceiveMorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillPerceiveMorphBonusDisplay" value="@{EP2SkillPerceiveMorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillPerceiveMiscBonus" value="0" /></div>
@@ -6611,7 +6649,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillPersuadeAptDisplay" value="@{EP2SkillPersuadeApt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillPersuadeBase" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillPersuadeMorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillPersuadeMorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillPersuadeMorphBonusDisplay" value="@{EP2SkillPersuadeMorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillPersuadeMiscBonus" value="0" /></div>
@@ -6645,7 +6683,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillPilot1AptDisplay" value="@{EP2SkillPilot1Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillPilot1Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillPilot1MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillPilot1MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillPilot1MorphBonusDisplay" value="@{EP2SkillPilot1MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillPilot1MiscBonus" value="0" /></div>
@@ -6679,7 +6717,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillPilot2AptDisplay" value="@{EP2SkillPilot2Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillPilot2Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillPilot2MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillPilot2MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillPilot2MorphBonusDisplay" value="@{EP2SkillPilot2MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillPilot2MiscBonus" value="0" /></div>
@@ -6713,7 +6751,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillProgramAptDisplay" value="@{EP2SkillProgramApt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillProgramBase" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillProgramMorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillProgramMorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillProgramMorphBonusDisplay" value="@{EP2SkillProgramMorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillProgramMiscBonus" value="0" /></div>
@@ -6747,7 +6785,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillProvokeAptDisplay" value="@{EP2SkillProvokeApt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillProvokeBase" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillProvokeMorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillProvokeMorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillProvokeMorphBonusDisplay" value="@{EP2SkillProvokeMorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillProvokeMiscBonus" value="0" /></div>
@@ -6781,7 +6819,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillPsiAptDisplay" value="@{EP2SkillPsiApt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillPsiBase" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillPsiMorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillPsiMorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillPsiMorphBonusDisplay" value="@{EP2SkillPsiMorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillPsiMiscBonus" value="0" /></div>
@@ -6815,7 +6853,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillResearchAptDisplay" value="@{EP2SkillResearchApt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillResearchBase" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillResearchMorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillResearchMorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillResearchMorphBonusDisplay" value="@{EP2SkillResearchMorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillResearchMiscBonus" value="0" /></div>
@@ -6849,7 +6887,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillSurvivalAptDisplay" value="@{EP2SkillSurvivalApt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillSurvivalBase" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillSurvivalMorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillSurvivalMorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillSurvivalMorphBonusDisplay" value="@{EP2SkillSurvivalMorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillSurvivalMiscBonus" value="0" /></div>
@@ -6883,7 +6921,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillAcademics1AptDisplay" value="@{EP2SkillAcademics1Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillAcademics1Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillAcademics1MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillAcademics1MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillAcademics1MorphBonusDisplay" value="@{EP2SkillAcademics1MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillAcademics1MiscBonus" value="0" /></div>
@@ -6917,7 +6955,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillAcademics2AptDisplay" value="@{EP2SkillAcademics2Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillAcademics2Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillAcademics2MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillAcademics2MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillAcademics2MorphBonusDisplay" value="@{EP2SkillAcademics2MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillAcademics2MiscBonus" value="0" /></div>
@@ -6951,7 +6989,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillAcademics3AptDisplay" value="@{EP2SkillAcademics3Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillAcademics3Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillAcademics3MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillAcademics3MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillAcademics3MorphBonusDisplay" value="@{EP2SkillAcademics3MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillAcademics3MiscBonus" value="0" /></div>
@@ -6985,7 +7023,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillAcademics4AptDisplay" value="@{EP2SkillAcademics4Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillAcademics4Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillAcademics4MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillAcademics4MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillAcademics4MorphBonusDisplay" value="@{EP2SkillAcademics4MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillAcademics4MiscBonus" value="0" /></div>
@@ -7019,7 +7057,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillArt1AptDisplay" value="@{EP2SkillArt1Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillArt1Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillArt1MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillArt1MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillArt1MorphBonusDisplay" value="@{EP2SkillArt1MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillArt1MiscBonus" value="0" /></div>
@@ -7053,7 +7091,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillArt2AptDisplay" value="@{EP2SkillArt2Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillArt2Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillArt2MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillArt2MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillArt2MorphBonusDisplay" value="@{EP2SkillArt2MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillArt2MiscBonus" value="0" /></div>
@@ -7087,7 +7125,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillArt3AptDisplay" value="@{EP2SkillArt3Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillArt3Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillArt3MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillArt3MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillArt3MorphBonusDisplay" value="@{EP2SkillArt3MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillArt3MiscBonus" value="0" /></div>
@@ -7121,7 +7159,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillArt4AptDisplay" value="@{EP2SkillArt4Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillArt4Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillArt4MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillArt4MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillArt4MorphBonusDisplay" value="@{EP2SkillArt4MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillArt4MiscBonus" value="0" /></div>
@@ -7155,7 +7193,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillInterest1AptDisplay" value="@{EP2SkillInterest1Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillInterest1Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillInterest1MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillInterest1MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillInterest1MorphBonusDisplay" value="@{EP2SkillInterest1MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillInterest1MiscBonus" value="0" /></div>
@@ -7189,7 +7227,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillInterest2AptDisplay" value="@{EP2SkillInterest2Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillInterest2Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillInterest2MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillInterest2MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillInterest2MorphBonusDisplay" value="@{EP2SkillInterest2MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillInterest2MiscBonus" value="0" /></div>
@@ -7223,7 +7261,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillInterest3AptDisplay" value="@{EP2SkillInterest3Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillInterest3Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillInterest3MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillInterest3MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillInterest3MorphBonusDisplay" value="@{EP2SkillInterest3MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillInterest3MiscBonus" value="0" /></div>
@@ -7257,7 +7295,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillInterest4AptDisplay" value="@{EP2SkillInterest4Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillInterest4Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillInterest4MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillInterest4MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillInterest4MorphBonusDisplay" value="@{EP2SkillInterest4MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillInterest4MiscBonus" value="0" /></div>
@@ -7291,7 +7329,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillProfession1AptDisplay" value="@{EP2SkillProfession1Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillProfession1Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillProfession1MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillProfession1MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillProfession1MorphBonusDisplay" value="@{EP2SkillProfession1MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillProfession1MiscBonus" value="0" /></div>
@@ -7325,7 +7363,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillProfession2AptDisplay" value="@{EP2SkillProfession2Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillProfession2Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillProfession2MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillProfession2MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillProfession2MorphBonusDisplay" value="@{EP2SkillProfession2MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillProfession2MiscBonus" value="0" /></div>
@@ -7359,7 +7397,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillProfession3AptDisplay" value="@{EP2SkillProfession3Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillProfession3Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillProfession3MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillProfession3MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillProfession3MorphBonusDisplay" value="@{EP2SkillProfession3MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillProfession3MiscBonus" value="0" /></div>
@@ -7393,7 +7431,7 @@
               <div class="sheet-table-cell sheet-cell-rank" title="Bonus from total aptitude"><input type="number" name="attr_EP2SkillProfession4AptDisplay" value="@{EP2SkillProfession4Apt}" readonly /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Ego ranks in skill"><input type="number" name="attr_EP2SkillProfession4Base" value="0" /></div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from morph">
-                <input type="hidden" name="attr_EP2SkillProfession4MorphBonus" value="0"\>
+                <input type="hidden" name="attr_EP2SkillProfession4MorphBonus" value="0"/>
                 <input type="number" name="attr_EP2SkillProfession4MorphBonusDisplay" value="@{EP2SkillProfession4MorphBonus}" readonly/>
               </div>
               <div class="sheet-table-cell sheet-cell-rank" title="Skill bonus from other source"><input type="number" name="attr_EP2SkillProfession4MiscBonus" value="0" /></div>
@@ -8750,6 +8788,7 @@
             <div class="sheet-table-cell"></div>
           </div>
         </div>
+        <textarea class="sheet-multiline-input sheet-input-border" style="height: 50px;" name="attr_35savesNotes" placeholder="Notes"></textarea>
         <p style="text-align:center; font-style: italic">
           Use gear icon in "d20 BAB & Saves" header to hide this calc section.
         </p>
@@ -8765,7 +8804,10 @@
 <div class="sheet-section-tabbed-gear"><!-- Gear Tab -->
   <!-- TEST Section -->
   <div class="sheet-section">
-    <div class="sheet-headerbar">TEST <input type="checkbox" class="sheet-checkbox-graygear" name="attr_TestHider" style="float:right" checked /><span style="position:relative;float:right;margin-right:-20px"/></div>
+    <div class="sheet-headerbar">
+      TEST
+      <input type="checkbox" class="sheet-checkbox-graygear" name="attr_TestHider" style="float:right" checked />
+      <span style="position:relative;float:right;margin-right:-20px"></span></div>
     <div class="sheet-table sheet-input-border">
       <div class="sheet-table-row">
         <div class="sheet-table-cell sheet-cell-a"><input type="text" value="Cell 1,1" name="attr_testCell-1-1" /></div>
@@ -11171,7 +11213,7 @@
               <input type="radio" name="attr_QuickSetting" value="DnD_5e" /> DnD 5e
             </label>
           </span>
-          <span class="sheet-span-border sheet-span-settings">
+          <span class="sheet-span-border sheet-span-settings" title="Pathfinder Cypher Edition">
             <label class="sheet-label-settings">
               <input type="radio" name="attr_QuickSetting" value="PFCE" /> PFCE
             </label>

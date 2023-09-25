@@ -204,7 +204,7 @@ body.sheet-darkmode .btn.btn-default {
 
 .sheet-multiline-input {
   border: 1px solid darkgray;
-  height: 46px;
+  height: 60px !important;
 }
 
 .sheet-flex-area {
@@ -224,7 +224,7 @@ body.sheet-darkmode .btn.btn-default {
 textarea {
   box-sizing: border-box;
   color: black;
-  height: 200px;
+  height: 100px;
   margin: 0;
   resize: vertical;
   width: 100%;
@@ -301,7 +301,6 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 40px;
   padding: 10px;
   box-sizing: border-box;
-  line-height: 24px; /* Example for a textarea, not needed for a single line input */
   margin-bottom: 3px !important;
   text-align: center;
 }
