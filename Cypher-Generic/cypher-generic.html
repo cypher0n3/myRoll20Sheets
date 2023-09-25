@@ -1410,6 +1410,87 @@
     }
   );
 </script>
+
+<!-- d20 AC Calculation -->
+<script type="text/worker">
+  on("ready change:acArmor change:acShield change:acNatural change:acBonus1 change:acBonus2 change:acBonus3 change:d20ACselector change:acUseWis change:acMaxDex change:d20dexMod change:d20wisMod",
+    function(){
+      const getList = [
+        "acArmor",
+        "acShield",
+        "acNatural",
+        "acBonus1",
+        "acBonus2",
+        "acBonus3",
+        "d20ACselector",
+        "acUseWis",
+        "d20dexMod",
+        "d20wisMod",
+        "acMaxDex",
+      ];
+
+      getAttrs(getList, function(values){
+        let base = 0;
+        if (values.d20ACselector === 'Static') {
+          base = 10;
+        }
+
+        let dex = parseInt(values.d20dexMod, 10) || 0;
+        let maxDex = parseInt(values.acMaxDex, 10) || 0;
+        let dexBonus = dex <= maxDex ? dex : maxDex;
+
+        let wis = parseInt(values.d20wisMod, 10) || 0;
+        let wisBonus = parseInt(values.acUseWis, 10) !== 0 ? wis : 0;
+
+        let totalMod = dexBonus + wisBonus;
+
+        let armor = parseInt(values.acArmor, 10) || 0;
+        let shield = parseInt(values.acShield, 10) || 0;
+        let natural = parseInt(values.acNatural, 10) || 0;
+        let bonus1 = parseInt(values.acBonus1, 10) || 0;
+        let bonus2 = parseInt(values.acBonus2, 10) || 0;
+        let bonus3 = parseInt(values.acBonus3, 10) || 0;
+
+        let total = base + totalMod + armor + shield + natural + bonus1 + bonus2 + bonus3;
+        let flatfooted = total - dexBonus;
+        let touch = total - armor - shield - natural;
+
+        setAttrs({
+          acBase: base,
+          acMod: totalMod,
+          acFlatFooted: flatfooted,
+          acTouch: touch,
+          acTotal: total,
+        });
+      });
+    }
+  );
+</script>
+
+<!-- d20 Init Calculation -->
+<script type="text/worker">
+  on("ready change:d20dexMod change:d20InitBonus1 change:d20InitBonus2",
+    function(){
+      const getList = [
+        "d20dexMod",
+        "d20InitBonus1",
+        "d20InitBonus2",
+      ];
+
+      getAttrs(getList, function(values){
+        let dex = parseInt(values.d20dexMod, 10) || 0;
+        let bonus1 = parseInt(values.d20InitBonus1, 10) || 0;
+        let bonus2 = parseInt(values.d20InitBonus2, 10) || 0;
+
+        let total = dex + bonus1 + bonus2
+
+        setAttrs({
+          d20InitTotal: total,
+        });
+      });
+    }
+  );
+</script>
 <!-- END D20 Script Workers -->
 
 <!-- START Pathfinder 1E Script Workers -->
@@ -2669,17 +2750,43 @@
         </div>
         <div class="sheet-table sheet-input-border">
           <div class="sheet-table-row sheet-boldCenter">
-            <!-- Here to keep tables lined up correctly -->
-            <!-- <div class="sheet-table-cell sheet-cell-20">
-              <input type="number" style="border:1px solid transparent; background-color:transparent; color:white" />
-            </div> -->
             <div class="sheet-table-cell sheet-cell-a"></div>
-            <div class="sheet-table-cell sheet-cell-16" title="Strength">Strength</div>
-            <div class="sheet-table-cell sheet-cell-16" title="Dexterity">Dexterity</div>
-            <div class="sheet-table-cell sheet-cell-16" title="Constitution">Constitution</div>
-            <div class="sheet-table-cell sheet-cell-16" title="Intelligence">Intelligence</div>
-            <div class="sheet-table-cell sheet-cell-16" title="Wisdom">Wisdom</div>
-            <div class="sheet-table-cell sheet-cell-16" title="Charisma">Charisma</div>
+            <div class="sheet-table-cell sheet-cell-16" title="Strength">
+              <button type="roll" name="d20-str-roller"
+                value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Strength}} {{skillRoll=[[@{DiceBase}+@{d20strMod}]]}}">
+              </button>
+              STR
+            </div>
+            <div class="sheet-table-cell sheet-cell-16" title="Dexterity">
+              <button type="roll" name="d20-dex-roller"
+                value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Dexterity}} {{skillRoll=[[@{DiceBase}+@{d20dexMod}]]}}">
+              </button>
+              DEX
+            </div>
+            <div class="sheet-table-cell sheet-cell-16" title="Constitution">
+              <button type="roll" name="d20-con-roller"
+                value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Constitution}} {{skillRoll=[[@{DiceBase}+@{d20conMod}]]}}">
+              </button>
+              CON
+            </div>
+            <div class="sheet-table-cell sheet-cell-16" title="Intelligence">
+              <button type="roll" name="d20-int-roller"
+                value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Intelligence}} {{skillRoll=[[@{DiceBase}+@{d20intMod}]]}}">
+              </button>
+              INT
+            </div>
+            <div class="sheet-table-cell sheet-cell-16" title="Wisdom">
+              <button type="roll" name="d20-wis-roller"
+                value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Wisdom}} {{skillRoll=[[@{DiceBase}+@{d20wisMod}]]}}">
+              </button>
+              WIS
+            </div>
+            <div class="sheet-table-cell sheet-cell-16" title="Charisma">
+              <button type="roll" name="d20-cha-roller"
+                value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Charisma}} {{skillRoll=[[@{DiceBase}+@{d20chaMod}]]}}">
+              </button>
+              CHA
+            </div>
             <div class="sheet-table-cell sheet-cell-a"></div>
           </div>
           <div class="sheet-table-row sheet-boldCenter sheet-input-disabled">
@@ -8328,40 +8435,185 @@
 </div><!-- End Core Tab -->
 
 <div class="sheet-section-tabbed-combat"><!-- Combat Tab -->
-  <input type="checkbox" class="sheet-flex-hider sheet-hider-invis" name="attr_CombatTopHider" value="Hide"/>
-  <div class="sheet-section sheet-flex-area sheet-boldCenter">
-    <!-- HP Section -->
-    <input type="checkbox" class="sheet-show-hp sheet-hider-invis" name="attr_UseHP" value="Yes"/>
-    <div class="sheet-flex-fill sheet-hp-section">
-      <div class="sheet-headerbar">Current HP</div>
-      <input type="number" class="sheet-big-input" name="attr_HP" placeholder="0">
-      <div class="sheet-headerbar">Max HP</div>
-      <input type="number" class="sheet-big-input" name="attr_maxHP" placeholder="0">
+  <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_CombatTopHider" value="Hide"/>
+  <div class="sheet-section sheet-hide-section">
+    <div class="sheet-flex-area sheet-boldCenter">
+      <!-- HP Section -->
+      <input type="checkbox" class="sheet-show-hp sheet-hider-invis" name="attr_UseHP" value="Yes"/>
+      <div class="sheet-flex-fill sheet-hp-section sheet-big-input">
+        <div class="sheet-headerbar">Current HP</div>
+        <input type="number" name="attr_HP" placeholder="0">
+        <div class="sheet-headerbar">Max HP</div>
+        <input type="number" name="attr_maxHP" placeholder="0">
+      </div>
+      <!-- Stamina Section -->
+      <input type="checkbox" class="sheet-show-stamina sheet-hider-invis" name="attr_UseStamina" value="Yes"/>
+      <div class="sheet-flex-fill sheet-stamina-section">
+        Stamina Stuff
+      </div>
+      <!-- Wounds Section -->
+      <input type="checkbox" class="sheet-show-wounds sheet-hider-invis" name="attr_UseWounds" value="Yes"/>
+      <div class="sheet-flex-fill sheet-wounds-section">
+        Wounds Stuff
+      </div>
+      <!-- d20 Static AC Section -->
+      <input type="checkbox" class="sheet-show-static-ac sheet-hider-invis" name="attr_d20ACselector" value="Static"/>
+      <div class="sheet-flex-fill sheet-static-ac-section">
+        Static AC Stuff
+      </div>
+
+      <!-- d20 Rolled AC Section -->
+      <input type="checkbox" class="sheet-show-rolled-ac sheet-hider-invis" name="attr_d20ACselector" value="Rolled"/>
+      <div class="sheet-flex-fill sheet-rolled-ac-section" style="max-width: 280px;">
+        <div class="sheet-headerbar">
+          Armor Class
+          <input type="checkbox" class="sheet-checkbox-graygear" name="attr_RolledACcalcHider" style="float:right" checked />
+          <span style="vertical-align:middle; position:relative; float:right; margin-right:-20px; margin-top:-2px"></span>
+        </div>
+        <div class="sheet-big-input sheet-input-disabled">
+          <span>
+            <button type="roll" name="d20-ac-roller" style="height: 24px; line-height: 24px; font-size: 24px;"
+              value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Armor Class}} {{skillRoll=[[@{DiceBase}+@{acTotal}]]}}">
+            </button>
+          </span>
+          <input type="number" name="attr_acTotal" value="0" readonly>
+        </div>
+        <div class="sheet-table sheet-input-border sheet-input-disabled">
+          <div class="sheet-table-row" title="Flat-Footed AC">
+            <div class="sheet-table-cell sheet-cell-a"></div>
+            <div class="sheet-table-cell sheet-cell-button">
+              <button type="roll" name="d20-ac-flat-footed-roller"
+                value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Touch AC}} {{skillRoll=[[@{DiceBase}+@{acFlatFooted}]]}}">
+              </button>
+            </div>
+            <div class="sheet-table-cell sheet-cell-100px">Flat-Footed:</div>
+            <div class="sheet-table-cell sheet-cell-rank">
+              <input type="number" name="attr_acFlatFooted" value="0" readonly>
+            </div>
+            <div class="sheet-table-cell sheet-cell-a"></div>
+          </div>
+          <div class="sheet-table-row" title="Touch AC">
+            <div class="sheet-table-cell"></div>
+            <div class="sheet-table-cell">
+              <button type="roll" name="d20-ac-touch-roller"
+                value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Touch AC}} {{skillRoll=[[@{DiceBase}+@{acTouch}]]}}">
+              </button>
+            </div>
+            <div class="sheet-table-cell">Touch:</div>
+            <div class="sheet-table-cell">
+              <input type="number" name="attr_acTouch" value="0" readonly>
+            </div>
+            <div class="sheet-table-cell"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- d20 Initiative Section -->
+      <input type="checkbox" class="sheet-show-d20init sheet-hider-invis" name="attr_UseD20Init" value="Yes"/>
+      <div class="sheet-flex-fill sheet-d20init-section" style="max-width: 280px;">
+        <div class="sheet-headerbar">
+          Initiative
+        </div>
+        <div class="sheet-big-input sheet-input-disabled">
+          <span>
+            <button type="roll" name="d20-init-roller" style="height: 24px; line-height: 24px; font-size: 24px;"
+              value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Initiative}} {{skillRoll=[[@{DiceBase}+@{d20InitTotal}+0.@{d20dex} &{tracker}]]}}">
+            </button>
+          </span>
+          <input type="number" name="attr_d20InitTotal" value="0" readonly>
+        </div>
+        <div class="sheet-table sheet-input-border">
+          <div class="sheet-table-row">
+            <div class="sheet-table-cell sheet-cell-a"></div>
+            <div class="sheet-table-cell sheet-cell-60px">Bonus 1:</div>
+            <div class="sheet-table-cell sheet-cell-rank">
+              <input type="number" name="attr_d20InitBonus1" value="0">
+            </div>
+            <div class="sheet-table-cell sheet-cell-a"></div>
+          </div>
+          <div class="sheet-table-row">
+            <div class="sheet-table-cell"></div>
+            <div class="sheet-table-cell">Bonus 2:</div>
+            <div class="sheet-table-cell">
+              <input type="number" name="attr_d20InitBonus2" value="0">
+            </div>
+            <div class="sheet-table-cell"></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- Stamina Section -->
-    <input type="checkbox" class="sheet-show-stamina sheet-hider-invis" name="attr_UseStamina" value="Yes"/>
-    <div class="sheet-flex-fill sheet-stamina-section">
-      Stamina Stuff
-    </div>
-    <!-- Wounds Section -->
-    <input type="checkbox" class="sheet-show-wounds sheet-hider-invis" name="attr_UseWounds" value="Yes"/>
-    <div class="sheet-flex-fill sheet-wounds-section">
-      Wounds Stuff
-    </div>
-    <!-- d20 Static AC Section -->
-    <input type="checkbox" class="sheet-show-static-ac sheet-hider-invis" name="attr_d20ACselector" value="Static"/>
-    <div class="sheet-flex-fill sheet-static-ac-section">
-      Static AC Stuff
-    </div>
-    <!-- d20 Rolled AC Section -->
-    <input type="checkbox" class="sheet-show-rolled-ac sheet-hider-invis" name="attr_d20ACselector" value="Rolled"/>
-    <div class="sheet-flex-fill sheet-rolled-ac-section">
-      Rolled AC Stuff
-    </div>
-    <!-- d20 Initiative Section -->
-    <input type="checkbox" class="sheet-show-d20init sheet-hider-invis" name="attr_UseD20Init" value="Yes"/>
-    <div class="sheet-flex-fill sheet-d20init-section">
-      Initiative Stuff
+    <input type="checkbox" class="sheet-show-rolled-ac-calc sheet-hider-invis" name="attr_RolledACcalcHider" checked />
+    <div class="sheet-rolled-AC-calc-section">
+      <div class="sheet-headerbar">Armor Class Calc</div>
+      <div class="sheet-table sheet-input-border sheet-boldCenter">
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell sheet-cell-a"></div>
+          <div class="sheet-table-cell sheet-cell-60px">Total</div>
+          <div class="sheet-table-cell sheet-cell-60px">Base</div>
+          <div class="sheet-table-cell sheet-cell-60px">Abl</div>
+          <div class="sheet-table-cell sheet-cell-60px">Armor</div>
+          <div class="sheet-table-cell sheet-cell-60px">Shield</div>
+          <div class="sheet-table-cell sheet-cell-60px" title="Natural Armor">Natural</div>
+          <div class="sheet-table-cell sheet-cell-60px">Bonus 1</div>
+          <div class="sheet-table-cell sheet-cell-60px">Bonus 2</div>
+          <div class="sheet-table-cell sheet-cell-60px">Bonus 3</div>
+          <div class="sheet-table-cell sheet-cell-a"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
+          <div class="sheet-table-cell sheet-input-disabled">
+            <input type="number" name="attr_acTotal" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled">
+            <input type="number" name="attr_acBase" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell sheet-input-disabled">
+            <input type="number" name="attr_acMod" value="0" readonly/>
+          </div>
+          <div class="sheet-table-cell">
+            <input type="number" name="attr_acArmor" value="0"/>
+          </div>
+          <div class="sheet-table-cell">
+            <input type="number" name="attr_acShield" value="0"/>
+          </div>
+          <div class="sheet-table-cell" title="Natural Armor">
+            <input type="number" name="attr_acNatural" value="0"/>
+          </div>
+          <div class="sheet-table-cell">
+            <input type="number" name="attr_acBonus1" value="0"/>
+          </div>
+          <div class="sheet-table-cell">
+            <input type="number" name="attr_acBonus2" value="0"/>
+          </div>
+          <div class="sheet-table-cell">
+            <input type="number" name="attr_acBonus3" value="0"/>
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+      </div>
+      <div class="sheet-table sheet-boldCenter sheet-input-border">
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell sheet-cell-a"></div>
+          <div class="sheet-table-cell sheet-cell-60px">Max Dex:</div>
+          <div class="sheet-table-cell sheet-cell-rank">
+            <input type="number" name="attr_acMaxDex" value="0"/>
+          </div>
+          <div class="sheet-table-cell sheet-cell-a"></div>
+          <div class="sheet-table-cell sheet-cell-a sheet-label" title="Add Wisdom modifier?">
+            <span class="sheet-span-border sheet-span-settings" style="vertical-align: middle;">
+              <label>
+                <input type="checkbox" name="attr_acUseWis" value="1" style="vertical-align: middle;"/>
+                Add Wisdom Mod
+              </label>
+            </span>
+          </div>
+          <div class="sheet-table-cell sheet-cell-a"></div>
+        </div>
+      </div>
+      <textarea class="sheet-multiline-input sheet-input-border" style="height: 50px;" name="attr_ACnotes" placeholder="Armor notes"></textarea>
+      <p style="text-align:center; font-style: italic">
+        Use gear icon in "Armor Class" header to hide this calc section.
+      </p>
     </div>
   </div>
   <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_d20SavesSelector" value="None" />
@@ -8375,25 +8627,25 @@
       <div class="sheet-table sheet-boldCenter sheet-input-border">
         <div class="sheet-table-row">
           <div class="sheet-table-cell sheet-cell-a"></div>
-          <div class="sheet-table-cell sheet-cell-a">
+          <div class="sheet-table-cell sheet-cell-100px">
             BAB:
             <input type="number" name="attr_d20bab" value="0" />
           </div>
-          <div class="sheet-table-cell sheet-cell-a sheet-input-disabled">
+          <div class="sheet-table-cell sheet-cell-120px sheet-input-disabled">
             <button type="roll" name="d20-fort-roller"
               value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Fortitude Save}} {{skillRoll=[[@{DiceBase}+@{d20FortTotal}]]}}">
             </button>
             Fort:
             <input type="number" name="attr_d20FortTotal" value="0" readonly />
           </div>
-          <div class="sheet-table-cell sheet-cell-a sheet-input-disabled">
+          <div class="sheet-table-cell sheet-cell-120px sheet-input-disabled">
             <button type="roll" name="d20-ref-roller"
               value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Reflex Save}} {{skillRoll=[[@{DiceBase}+@{d20RefTotal}]]}}">
             </button>
             Ref:
             <input type="number" name="attr_d20RefTotal" value="0" readonly />
           </div>
-          <div class="sheet-table-cell sheet-cell-a sheet-input-disabled">
+          <div class="sheet-table-cell sheet-cell-120px sheet-input-disabled">
             <button type="roll" name="d20-will-roller"
               value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Will Save}} {{skillRoll=[[@{DiceBase}+@{d20WillTotal}]]}}">
             </button>
@@ -11259,7 +11511,10 @@
             <label class="sheet-label-settings"><input type="checkbox" name="attr_SpecialGear-EPv1_Morphs" value="EPv1_Morphs-Yes" /> EPv1 Morphs </label>
           </span>
           <span class="sheet-span-border sheet-span-settings" title="Eclipse Phase v2 Morphs">
-            <label class="sheet-label-settings"><input type="checkbox" name="attr_SpecialGear-EPv2_Morphs" value="EPv2_Morphs-Yes" checked /> EPv2 Morphs </label>
+            <label class="sheet-label-settings">
+              <input type="checkbox" name="attr_SpecialGear-EPv2_Morphs" value="EPv2_Morphs-Yes" checked />
+              EPv2 Morphs
+            </label>
           </span>
         </div>
       </div><!-- End Special Gear Selector -->

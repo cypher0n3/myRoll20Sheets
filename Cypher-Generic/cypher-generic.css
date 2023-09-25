@@ -148,6 +148,8 @@ body.sheet-darkmode .btn.btn-default {
 .sheet-cell-button { width: 25px; }
 .sheet-cell-rank { width: 50px; }
 .sheet-cell-60px { width: 60px; }
+.sheet-cell-100px { width: 100px; }
+.sheet-cell-120px { width: 120px; }
 
 .sheet-cell-label {
   background: lightgrey;
@@ -184,6 +186,14 @@ body.sheet-darkmode .btn.btn-default {
   vertical-align: middle;
 }
 
+.sheet-label {
+  font-size: 11px;
+  /* font-weight: bold;
+  height: 23px;
+  line-height: 23px; */
+  vertical-align: auto;
+}
+
 .sheet-label-settings {
   font-size: 13px;
   font-weight: bold;
@@ -194,7 +204,7 @@ body.sheet-darkmode .btn.btn-default {
 
 .sheet-multiline-input {
   border: 1px solid darkgray;
-  height:46px;
+  height: 46px;
 }
 
 .sheet-flex-area {
@@ -214,7 +224,7 @@ body.sheet-darkmode .btn.btn-default {
 textarea {
   box-sizing: border-box;
   color: black;
-  height: 400px;
+  height: 200px;
   margin: 0;
   resize: vertical;
   width: 100%;
@@ -285,7 +295,7 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-.sheet-big-input {
+.sheet-big-input input[type="number"] {
   border: 1px solid darkgray;
   font-size: 20px;
   height: 40px;
@@ -369,7 +379,13 @@ input[type="number"]::-webkit-outer-spin-button {
 .sheet-dnd35-saves-section,
 .sheet-dnd5-saves-section,
 .sheet-static-ac-section,
-.sheet-rolled-ac-section {
+.sheet-rolled-ac-section,
+.sheet-rolled-AC-calc-section,
+.sheet-d20-calc-section {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 3px;
+  padding-right: 3px;
   display: none;
 }
 
@@ -380,7 +396,9 @@ input[type="number"]::-webkit-outer-spin-button {
 .sheet-show-dnd35-saves:checked ~ .sheet-dnd35-saves-section,
 .sheet-show-dnd5-saves:checked ~ .sheet-dnd5-saves-section,
 .sheet-show-static-ac:checked ~ .sheet-static-ac-section,
-.sheet-show-rolled-ac:checked ~ .sheet-rolled-ac-section {
+.sheet-show-rolled-ac:checked ~ .sheet-rolled-ac-section,
+.sheet-show-rolled-ac-calc:checked ~ .sheet-rolled-AC-calc-section,
+.sheet-show-d20-init-calc:checked ~ .sheet-d20-init-calc-section {
   display: block;
 }
 
