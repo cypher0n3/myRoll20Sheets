@@ -148,6 +148,7 @@ body.sheet-darkmode .btn.btn-default {
 .sheet-cell-button { width: 25px; }
 .sheet-cell-rank { width: 50px; }
 .sheet-cell-60px { width: 60px; }
+.sheet-cell-86px { width: 86px; }
 .sheet-cell-100px { width: 100px; }
 .sheet-cell-120px { width: 120px; }
 
@@ -202,11 +203,6 @@ body.sheet-darkmode .btn.btn-default {
   vertical-align: middle;
 }
 
-.sheet-multiline-input {
-  border: 1px solid darkgray;
-  height: 60px !important;
-}
-
 .sheet-flex-area {
   display: flex;
   width: 100%;
@@ -228,6 +224,12 @@ textarea {
   margin: 0;
   resize: vertical;
   width: 100%;
+}
+
+.sheet-multiline-input {
+  border: 1px solid darkgray;
+  height: 60px;
+  resize: vertical;
 }
 
 input[type="radio"] {
@@ -355,6 +357,14 @@ input[type="number"]::-webkit-outer-spin-button {
   display: none;
 }
 
+.sheet-shower-inline:checked ~ .sheet-show-inline-section {
+  display: inline-block;
+}
+
+.sheet-shower-inline:not(:checked) ~ .sheet-show-inline-section {
+  display: none;
+}
+
 .sheet-flex-show:checked ~ .sheet-flex-area {
   display: flex;
 }
@@ -379,7 +389,10 @@ input[type="number"]::-webkit-outer-spin-button {
 .sheet-dnd5-saves-section,
 .sheet-static-ac-section,
 .sheet-rolled-ac-section,
-.sheet-rolled-AC-calc-section,
+.sheet-ac-calc-section,
+.sheet-static-cmd-section,
+.sheet-rolled-cmd-section,
+.sheet-cmd-calc-section,
 .sheet-d20-calc-section {
   padding-top: 0;
   padding-bottom: 0;
@@ -396,9 +409,20 @@ input[type="number"]::-webkit-outer-spin-button {
 .sheet-show-dnd5-saves:checked ~ .sheet-dnd5-saves-section,
 .sheet-show-static-ac:checked ~ .sheet-static-ac-section,
 .sheet-show-rolled-ac:checked ~ .sheet-rolled-ac-section,
-.sheet-show-rolled-ac-calc:checked ~ .sheet-rolled-AC-calc-section,
+.sheet-show-ac-calc:checked ~ .sheet-ac-calc-section,
+.sheet-show-static-cmd:checked ~ .sheet-static-cmd-section,
+.sheet-show-rolled-cmd:checked ~ .sheet-rolled-cmd-section,
+.sheet-show-cmd-calc:checked ~ .sheet-cmd-calc-section,
 .sheet-show-d20-init-calc:checked ~ .sheet-d20-init-calc-section {
   display: block;
+}
+
+.sheet-hide-cmb:checked ~ .sheet-cmb-section {
+  display: none;
+}
+
+.sheet-hide-cmb:not(:checked) ~ .sheet-cmb-section {
+  display: table-row;
 }
 
 /*this hides the checkbox*/
@@ -476,6 +500,7 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
 .charsheet input.sheet-tab-gear:checked ~ .sheet-section-tabbed-gear,
 .charsheet input.sheet-tab-notes:checked ~ .sheet-section-tabbed-notes,
 .charsheet input.sheet-tab-special:checked ~ .sheet-section-tabbed-special,
+.charsheet input.sheet-tab-spells:checked ~ .sheet-section-tabbed-spells,
 .charsheet input.sheet-tabZ:checked ~ .sheet-section-tabbed-settings {
   display: block;
 }
@@ -487,7 +512,7 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
 /*this hides the radio button for each tab, makes it 100px wide and 40px tall and makes sure it's above everything else*/
 .charsheet input.sheet-tab {
   cursor: pointer;
-  height: 20px;
+  height: 25px;
   margin-left: 16px;
   opacity: 0;
   position: relative;
@@ -504,12 +529,14 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
   display: inline-block;
   font-size: 13px;
   font-weight: bold;
-  height: 20px;
+  height: 25px;
   line-height: 24px;
   margin-left: -115px;/*originally 91px*/
   text-align: center;
   vertical-align: middle;
   width: 80px;
+  align-items: center;
+  padding-top: 2px;
 }
 
 .charsheet input.sheet-tabZ {
@@ -538,6 +565,7 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
   text-align: center;
   vertical-align: middle;
   width: 30px;
+  padding-top: 2px;
 }
 
 /*this modifies the span color once the radio button is selected so you know which tab is selected*/
@@ -546,6 +574,7 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
 .charsheet input.sheet-tab-gear:checked + span.sheet-tab-gear,
 .charsheet input.sheet-tab-notes:checked + span.sheet-tab-notes,
 .charsheet input.sheet-tab-special:checked + span.sheet-tab-special,
+.charsheet input.sheet-tab-spells:checked + span.sheet-tab-spells,
 .charsheet input.sheet-tabZ:checked + span.sheet-tabZ {
   background: #660202;
   border-radius: 4px;

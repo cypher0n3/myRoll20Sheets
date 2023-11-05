@@ -28,10 +28,11 @@
             UseWounds: "0",
             d20ACselector: "Rolled",
             d20SavesSelector: "3.5e",
-            SpellsSelector: "3.5e",
+            SpellsSelector: "PF1e-SpellPoints",
             "SpecialGear-EPv1_Morphs": "0",
             "SpecialGear-EPv2_Morphs": "0",
-            UseD20CharBuilder: "Yes"
+            UseD20CharBuilder: "Yes",
+            pf1eCMBCMDselector: "Rolled",
           });
         }
       });
@@ -1449,9 +1450,35 @@
   );
 </script>
 
-<!-- d20 AC Calculation -->
+<!-- d20 AC & CMD Calculation -->
 <script type="text/worker">
-  on("ready change:acArmor change:acShield change:acNatural change:acBonus1 change:acBonus2 change:acBonus3 change:d20ACselector change:acUseWis change:acMaxDex change:d20dexMod change:d20wisMod",
+  on([
+    "ready",
+    "change:acArmor",
+    "change:acShield",
+    "change:acNatural",
+    "change:acBonus1",
+    "change:acBonus2",
+    "change:acBonus3",
+    "change:d20ACselector",
+    "change:acUseWis",
+    "change:acMaxDex",
+    "change:d20dexMod",
+    "change:d20wisMod",
+    "change:d20strMod",
+    "change:pf1eCMBCMDselector",
+    "change:d20Size",
+    "change:acCircumstanceBonus",
+    "change:acDeflectionBonus",
+    "change:acDodgeBonus",
+    "change:acInsightBonus",
+    "change:acLuckBonus",
+    "change:acMoraleBonus",
+    "change:acProfaneBonus",
+    "change:acSacredBonus",
+    "change:cmdBonus",
+    "change:d20bab",
+  ].join(" "),
     function(){
       const getList = [
         "acArmor",
@@ -1464,13 +1491,69 @@
         "acUseWis",
         "d20dexMod",
         "d20wisMod",
+        "d20strMod",
         "acMaxDex",
+        "pf1eCMBCMDselector",
+        "d20Size",
+        "acCircumstanceBonus",
+        "acDeflectionBonus",
+        "acDodgeBonus",
+        "acInsightBonus",
+        "acLuckBonus",
+        "acMoraleBonus",
+        "acProfaneBonus",
+        "acSacredBonus",
+        "cmdBonus",
+        "d20bab",
       ];
 
       getAttrs(getList, function(values){
-        let base = 0;
+        let acBase = 0;
         if (values.d20ACselector === 'Static') {
-          base = 10;
+          acBase = 10;
+        }
+        let cmdBase = 0;
+        if (values.pf1eCMBCMDselector === 'Static') {
+          cmdBase = 10;
+        }
+        let acCalcSectionTitle = 'Armor Class Calc';
+        if (values.pf1eCMBCMDselector !== 'None') {
+          acCalcSectionTitle = 'Armor Class (AC) and Combat Maneuver Defense (CMD) Bonuses'
+        }
+
+        let acSizeMod = 0;
+        let cmdSizeMod = 0;
+        if (values.d20Size === 'Fine') {
+          cmdSizeMod = -8;
+          acSizeMod = 8;
+        }
+        if (values.d20Size === 'Diminutive') {
+          cmdSizeMod = -4;
+          acSizeMod = 4;
+        }
+        if (values.d20Size === 'Tiny') {
+          cmdSizeMod = -2;
+          acSizeMod = 2;
+        }
+        if (values.d20Size === 'Small') {
+          cmdSizeMod = -1;
+          acSizeMod = 1;
+        }
+        if (values.d20Size === 'Large') {
+          cmdSizeMod = 1;
+          acSizeMod = -1;
+        }
+        if (values.d20Size === 'Huge') {
+          cmdSizeMod = 2;
+          acSizeMod = -2;
+        }
+        if (values.d20Size === 'Gargantuan') {
+          cmdSizeMod = 4;
+          acSizeMod = -4;
+        }
+        if (values.d20Size === 'Colossal') {
+          cmdSizeMod = 8;
+          acSizeMod = -8;
         }
 
         let dex = parseInt(values.d20dexMod, 10) || 0;
@@ -1480,25 +1563,128 @@
         let wis = parseInt(values.d20wisMod, 10) || 0;
         let wisBonus = parseInt(values.acUseWis, 10) !== 0 ? wis : 0;
 
-        let totalMod = dexBonus + wisBonus;
+        let acTotalMod = dexBonus + wisBonus;
+
+        let str = parseInt(values.d20strMod, 10) || 0;
+
+        let cmdTotalMod = dexBonus + str;
 
         let armor = parseInt(values.acArmor, 10) || 0;
         let shield = parseInt(values.acShield, 10) || 0;
         let natural = parseInt(values.acNatural, 10) || 0;
-        let bonus1 = parseInt(values.acBonus1, 10) || 0;
-        let bonus2 = parseInt(values.acBonus2, 10) || 0;
-        let bonus3 = parseInt(values.acBonus3, 10) || 0;
+        let acBonus1 = parseInt(values.acBonus1, 10) || 0;
+        let acBonus2 = parseInt(values.acBonus2, 10) || 0;
+        let acBonus3 = parseInt(values.acBonus3, 10) || 0;
+        let circumstance = parseInt(values.acCircumstanceBonus, 10) || 0;
+        let deflection = parseInt(values.acDeflectionBonus, 10) || 0;
+        let dodge = parseInt(values.acDodgeBonus, 10) || 0;
+        let insight = parseInt(values.acInsightBonus, 10) || 0;
+        let luck = parseInt(values.acLuckBonus, 10) || 0;
+        let morale = parseInt(values.acMoraleBonus, 10) || 0;
+        let profane = parseInt(values.acProfaneBonus, 10) || 0;
+        let sacred = parseInt(values.acSacredBonus, 10) || 0;
+        let cmdBonus = parseInt(values.cmdBonus, 10) || 0;
+        let bab = parseInt(values.d20bab, 10) || 0;
 
-        let total = base + totalMod + armor + shield + natural + bonus1 + bonus2 + bonus3;
-        let flatfooted = total - dexBonus;
-        let touch = total - armor - shield - natural;
+        let acTotal = acBase + acTotalMod + armor + shield + natural + acBonus1 + acBonus2 + acBonus3 +
+          circumstance + deflection + dodge + insight + luck + morale + profane + sacred + acSizeMod;
+        let acFlatfooted = acTotal - dexBonus;
+        let touchAC = acTotal - armor - shield - natural;
+
+        let cmdTotal = cmdBase + bab + cmdTotalMod + circumstance + deflection + dodge + insight + luck +
+          morale + profane + sacred + cmdBonus + acSizeMod;
+        let cmdFlatFooted = cmdTotal - dexBonus;
 
         setAttrs({
-          acBase: base,
-          acMod: totalMod,
-          acFlatFooted: flatfooted,
-          acTouch: touch,
-          acTotal: total,
+          acBase: acBase,
+          acMod: acTotalMod,
+          acFlatFooted: acFlatfooted,
+          acTouch: touchAC,
+          acTotal: acTotal,
+          cmdTotal: cmdTotal,
+          cmdFlatFooted: cmdFlatFooted,
+          acCalcSectionTitle: acCalcSectionTitle,
+        });
+      });
+    }
+  );
+</script>
+
+<!-- PF1e CMB Enable Script -->
+<script type="text/worker">
+  on("ready change:pf1eCMBCMDselector",
+    function(){
+      const getList = [
+        "pf1eCMBCMDselector",
+      ];
+
+      getAttrs(getList, function(values) {
+        if (values.pf1eCMBCMDselector === 'None') {
+          setAttrs({
+            hideCMB: "checked",
+          })
+        } else {
+          setAttrs({
+            hideCMB: 0,
+          })
+        }
+      })
+    })
+</script>
+
+<!-- PF1e CMB Calculation -->
+<script type="text/worker">
+  on("ready change:d20dexMod change:d20strMod change:d20Size change:d20bab",
+    function(){
+      const getList = [
+        "d20dexMod",
+        "d20strMod",
+        "d20Size",
+        "d20bab",
+      ];
+
+      getAttrs(getList, function(values){
+        let dex = parseInt(values.d20dexMod, 10) || 0;
+        let str = parseInt(values.d20strMod, 10) || 0;
+        let bab = parseInt(values.d20bab, 10) || 0;
+
+        let sizeMod = 0;
+        let useDex = false;
+        if (values.d20Size === 'Fine') {
+          sizeMod = -8;
+          useDex = true;
+        }
+        if (values.d20Size === 'Diminutive') {
+          sizeMod = -4;
+          useDex = true;
+        }
+        if (values.d20Size === 'Tiny') {
+          sizeMod = -2;
+          useDex = true;
+        }
+        if (values.d20Size === 'Small') {
+          sizeMod = -1;
+        }
+        if (values.d20Size === 'Large') {
+          sizeMod = 1;
+        }
+        if (values.d20Size === 'Huge') {
+          sizeMod = 2;
+        }
+        if (values.d20Size === 'Gargantuan') {
+          sizeMod = 4;
+        }
+        if (values.d20Size === 'Colossal') {
+          sizeMod = 8;
+        }
+
+        let total = str + bab + sizeMod
+        if (useDex) {
+          total = dex + bab + sizeMod
+        }
+
+        setAttrs({
+          cmbTotal: total,
         });
       });
     }
@@ -2457,8 +2643,6 @@
 </script>
 <!-- END Script Workers -->
 
-<title>Character Sheet</title>
-
 <!-- Tab Setup -->
 <input type="radio" class="sheet-tab sheet-tab-core" name="attr_tab-select" value="1" title="Core" />
 <span class="sheet-tab sheet-tab-core">CORE</span>
@@ -2468,6 +2652,9 @@
 
 <input type="radio" class="sheet-tab sheet-tab-gear" name="attr_tab-select" value="2" title="Gear" />
 <span class="sheet-tab sheet-tab-gear">GEAR</span>
+
+<input type="radio" class="sheet-tab sheet-tab-spells" name="attr_tab-select" value="Spells" title="Spells" />
+<span class="sheet-tab sheet-show-inline-section sheet-tab-spells">SPELLS</span>
 
 <input type="radio" class="sheet-tab sheet-tab-special" name="attr_tab-select" value="Special" title="Special Gear, etc." />
 <span class="sheet-tab sheet-tab-special">SPECIAL</span>
@@ -2574,12 +2761,14 @@
       <div class="sheet-table">
         <div class="sheet-table-row sheet-input-border sheet-select-border">
           <div class="sheet-table-cell" style="font-weight:bold; width:95px">Current Morph: </div>
-          <div class="sheet-table-cell sheet-cell-15"><select name="attr_EPv1-Current-Selected-Morph">
-            <option value="EPv1-Morph1" selected>Morph 1</option>
-            <option value="EPv1-Morph2">Morph 2</option>
-            <option value="EPv1-Morph3">Morph 3</option>
-            <option value="EPv1-Morph4">Morph 4</option>
-            <option value="EPv1-Morph5">Morph 5</option></select>
+          <div class="sheet-table-cell sheet-cell-15">
+            <select name="attr_EPv1-Current-Selected-Morph">
+              <option value="EPv1-Morph1" selected>Morph 1</option>
+              <option value="EPv1-Morph2">Morph 2</option>
+              <option value="EPv1-Morph3">Morph 3</option>
+              <option value="EPv1-Morph4">Morph 4</option>
+              <option value="EPv1-Morph5">Morph 5</option>
+            </select>
           </div>
           <div class="sheet-table-cell sheet-cell-a sheet-input-disabled"><input type="text" name="attr_EPv1-Morphs-Current-Morph-Name" placeholder="Morph name/type" /></div>
         </div>
@@ -8470,30 +8659,38 @@
       </fieldset>
     </div><!--End Pathfinder 1E Skills -->
   </div><!-- End Skills -->
+  <div class="sheet-section">
+    <div class="sheet-headerbar">Core Notes</div>
+    <textarea class="sheet-multiline-input sheet-input-border" name="attr_CoreNotes" placeholder="Core notes"></textarea>
+  </div>
 </div><!-- End Core Tab -->
 
 <div class="sheet-section-tabbed-combat"><!-- Combat Tab -->
   <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_CombatTopHider" value="Hide"/>
   <div class="sheet-section sheet-hide-section">
     <div class="sheet-flex-area sheet-boldCenter">
+
       <!-- HP Section -->
       <input type="checkbox" class="sheet-show-hp sheet-hider-invis" name="attr_UseHP" value="Yes"/>
-      <div class="sheet-flex-fill sheet-hp-section sheet-big-input">
+      <div class="sheet-flex-fill sheet-hp-section sheet-big-input" style="min-width: 100px">
         <div class="sheet-headerbar">Current HP</div>
         <input type="number" name="attr_HP" placeholder="0">
         <div class="sheet-headerbar">Max HP</div>
         <input type="number" name="attr_maxHP" placeholder="0">
       </div>
+
       <!-- Stamina Section -->
       <input type="checkbox" class="sheet-show-stamina sheet-hider-invis" name="attr_UseStamina" value="Yes"/>
       <div class="sheet-flex-fill sheet-stamina-section">
         Stamina Stuff
       </div>
+
       <!-- Wounds Section -->
       <input type="checkbox" class="sheet-show-wounds sheet-hider-invis" name="attr_UseWounds" value="Yes"/>
       <div class="sheet-flex-fill sheet-wounds-section">
         Wounds Stuff
       </div>
+
       <!-- d20 Static AC Section -->
       <input type="checkbox" class="sheet-show-static-ac sheet-hider-invis" name="attr_d20ACselector" value="Static"/>
       <div class="sheet-flex-fill sheet-static-ac-section">
@@ -8502,10 +8699,10 @@
 
       <!-- d20 Rolled AC Section -->
       <input type="checkbox" class="sheet-show-rolled-ac sheet-hider-invis" name="attr_d20ACselector" value="Rolled"/>
-      <div class="sheet-flex-fill sheet-rolled-ac-section" style="max-width: 280px;">
+      <div class="sheet-flex-fill sheet-rolled-ac-section" style="max-width: 220px;">
         <div class="sheet-headerbar">
           Armor Class
-          <input type="checkbox" class="sheet-checkbox-graygear" name="attr_RolledACcalcHider" style="float:right" checked />
+          <input type="checkbox" class="sheet-checkbox-graygear" name="attr_ACcalcHider" style="float:right" checked />
           <span style="vertical-align:middle; position:relative; float:right; margin-right:-20px; margin-top:-2px"></span>
         </div>
         <div class="sheet-big-input sheet-input-disabled">
@@ -8546,9 +8743,46 @@
         </div>
       </div>
 
+      <!-- d20 PF1e Static CMD Section -->
+      <input type="checkbox" class="sheet-show-static-cmd sheet-hider-invis" name="attr_pf1eCMBCMDselector" value="Static"/>
+      <div class="sheet-flex-fill sheet-static-cmd-section">
+        Static AC Stuff
+      </div>
+
+      <!-- d20 PF1e Rolled CMD Section -->
+      <input type="checkbox" class="sheet-show-rolled-cmd sheet-hider-invis" name="attr_pf1eCMBCMDselector" value="Rolled"/>
+      <div class="sheet-flex-fill sheet-rolled-cmd-section" style="max-width: 190px;">
+        <div class="sheet-headerbar" title="Combat Maneuver Defense">
+          CMD
+          <input type="checkbox" class="sheet-checkbox-graygear" name="attr_ACcalcHider" style="float:right" checked />
+          <span style="vertical-align:middle; position:relative; float:right; margin-right:-20px; margin-top:-2px"></span>
+        </div>
+        <div class="sheet-big-input sheet-input-disabled">
+          <span>
+            <button type="roll" name="d20-cmd-roller" style="height: 24px; line-height: 24px; font-size: 24px;"
+              value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=CMD}} {{skillRoll=[[@{DiceBase}+@{cmdTotal}]]}}">
+            </button>
+          </span>
+          <input type="number" name="attr_cmdTotal" value="0" readonly>
+        </div>
+        <div class="sheet-input-border">
+          <div class="sheet-input-disabled" style="display: flex; align-items: center; justify-content: center; margin-top: 4px">
+            <button type="roll" name="d20-ac-flat-footed-roller" style="margin-right: 5px"
+              value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Flat-Footed CMD}} {{skillRoll=[[@{DiceBase}+@{cmdFlatFooted}]]}}">
+            </button>
+            <span style="font-weight: bold; margin-right: 5px">Flat-Footed:</span>
+            <input type="number" name="attr_cmdFlatFooted" value="0" readonly>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: center; margin-top: 4px">
+            <span style="font-weight: bold; margin-right: 5px">Bonus:</span>
+            <input type="number" name="attr_cmdBonus" value="0">
+          </div>
+        </div>
+      </div>
+
       <!-- d20 Initiative Section -->
       <input type="checkbox" class="sheet-show-d20init sheet-hider-invis" name="attr_UseD20Init" value="Yes"/>
-      <div class="sheet-flex-fill sheet-d20init-section" style="max-width: 280px;">
+      <div class="sheet-flex-fill sheet-d20init-section" style="max-width: 190px">
         <div class="sheet-headerbar">
           Initiative
         </div>
@@ -8580,14 +8814,15 @@
         </div>
       </div>
     </div>
-    <input type="checkbox" class="sheet-show-rolled-ac-calc sheet-hider-invis" name="attr_RolledACcalcHider" checked />
-    <div class="sheet-rolled-AC-calc-section">
-      <div class="sheet-headerbar">Armor Class Calc</div>
+
+    <!-- AC Calc Section -->
+    <input type="checkbox" class="sheet-show-ac-calc sheet-hider-invis" name="attr_ACcalcHider" checked />
+    <div class="sheet-ac-calc-section">
+      <input type="hidden" name="attr_acCalcSectionTitle" />
+      <div class="sheet-headerbar"><span name="attr_acCalcSectionTitle"></span></div>
       <div class="sheet-table sheet-input-border sheet-boldCenter">
         <div class="sheet-table-row">
           <div class="sheet-table-cell sheet-cell-a"></div>
-          <div class="sheet-table-cell sheet-cell-60px">Total</div>
-          <div class="sheet-table-cell sheet-cell-60px">Base</div>
           <div class="sheet-table-cell sheet-cell-60px">Abl</div>
           <div class="sheet-table-cell sheet-cell-60px">Armor</div>
           <div class="sheet-table-cell sheet-cell-60px">Shield</div>
@@ -8599,12 +8834,6 @@
         </div>
         <div class="sheet-table-row">
           <div class="sheet-table-cell"></div>
-          <div class="sheet-table-cell sheet-input-disabled">
-            <input type="number" name="attr_acTotal" value="0" readonly/>
-          </div>
-          <div class="sheet-table-cell sheet-input-disabled">
-            <input type="number" name="attr_acBase" value="0" readonly/>
-          </div>
           <div class="sheet-table-cell sheet-input-disabled">
             <input type="number" name="attr_acMod" value="0" readonly/>
           </div>
@@ -8629,7 +8858,77 @@
           <div class="sheet-table-cell"></div>
         </div>
       </div>
+      <!-- circumstance, deflection, dodge, insight, luck, morale, profane, and sacred bonuses -->
       <div class="sheet-table sheet-boldCenter sheet-input-border">
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell sheet-cell-a"></div>
+          <div class="sheet-table-cell sheet-cell-86px">Circumstance</div>
+          <div class="sheet-table-cell sheet-cell-60px">Deflection</div>
+          <div class="sheet-table-cell sheet-cell-rank">Dodge</div>
+          <div class="sheet-table-cell sheet-cell-rank">Insight</div>
+          <div class="sheet-table-cell sheet-cell-rank">Luck</div>
+          <div class="sheet-table-cell sheet-cell-rank">Morale</div>
+          <div class="sheet-table-cell sheet-cell-rank">Profane</div>
+          <div class="sheet-table-cell sheet-cell-rank">Sacred</div>
+          <div class="sheet-table-cell sheet-cell-a"></div>
+        </div>
+        <div class="sheet-table-row">
+          <div class="sheet-table-cell"></div>
+          <div class="sheet-table-cell">
+            <input type="number" name="attr_acCircumstanceBonus" value="0"/>
+          </div>
+          <div class="sheet-table-cell">
+            <input type="number" name="attr_acDeflectionBonus" value="0"/>
+          </div>
+          <div class="sheet-table-cell">
+            <input type="number" name="attr_acDodgeBonus" value="0"/>
+          </div>
+          <div class="sheet-table-cell">
+            <input type="number" name="attr_acInsightBonus" value="0"/>
+          </div>
+          <div class="sheet-table-cell">
+            <input type="number" name="attr_acLuckBonus" value="0"/>
+          </div>
+          <div class="sheet-table-cell">
+            <input type="number" name="attr_acMoraleBonus" value="0"/>
+          </div>
+          <div class="sheet-table-cell">
+            <input type="number" name="attr_acProfaneBonus" value="0"/>
+          </div>
+          <div class="sheet-table-cell">
+            <input type="number" name="attr_acSacredBonus" value="0"/>
+          </div>
+          <div class="sheet-table-cell"></div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: center; margin-top: 4px;">
+        <div class="sheet-input-border" style="align-items: center; font-weight: bold; margin-right: 10px"
+          title="Max dex from Armor">
+          Max Dex:
+          <input type="number" name="attr_acMaxDex" value="0"/>
+        </div>
+        <div style="align-items: center; font-weight: bold; margin-right: 10px" title="Size">
+          Size:
+          <select name="attr_d20Size" style="width: 110px">
+            <option value="Fine">Fine</option>
+            <option value="Diminutive">Diminutive</option>
+            <option value="Tiny">Tiny</option>
+            <option value="Small">Small</option>
+            <option value="Medium" selected>Medium</option>
+            <option value="Large">Large</option>
+            <option value="Huge">Huge</option>
+            <option value="Gargantuan">Gargantuan</option>
+            <option value="Colossal">Colossal</option>
+          </select>
+        </div>
+        <div class="sheet-label sheet-span-border sheet-span-settings">
+          <label style="align-items: center;">
+            <input type="checkbox" name="attr_acUseWis" value="1"/>
+            Add Wisdom Mod
+          </label>
+        </div>
+      </div>
+      <!-- <div class="sheet-table sheet-boldCenter sheet-input-border">
         <div class="sheet-table-row">
           <div class="sheet-table-cell sheet-cell-a"></div>
           <div class="sheet-table-cell sheet-cell-60px">Max Dex:</div>
@@ -8637,6 +8936,10 @@
             <input type="number" name="attr_acMaxDex" value="0"/>
           </div>
           <div class="sheet-table-cell sheet-cell-a"></div>
+          <div class="sheet-table-cell sheet-cell-rank" title="Size">Size</div>
+          <div class="sheet-table-cell sheet-cell-100px" title="Size">
+
+          </div>
           <div class="sheet-table-cell sheet-cell-a sheet-label" title="Add Wisdom modifier?">
             <span class="sheet-span-border sheet-span-settings" style="vertical-align: middle;">
               <label>
@@ -8647,7 +8950,7 @@
           </div>
           <div class="sheet-table-cell sheet-cell-a"></div>
         </div>
-      </div>
+      </div> -->
       <textarea class="sheet-multiline-input sheet-input-border" style="height: 50px;" name="attr_ACnotes" placeholder="Armor notes"></textarea>
       <p style="text-align:center; font-style: italic">
         Use gear icon in "Armor Class" header to hide this calc section.
@@ -8799,11 +9102,111 @@
       5e saves here
     </div>
   </div>
+  <div class="sheet-section">
+    <div class="sheet-headerbar">Basic Attacks</div>
+    <div class="sheet-table sheet-input-border sheet-boldCenter">
+      <div class="sheet-table-row">
+        <div class="sheet-table-cell sheet-table-a"></div>
+        <div class="sheet-table-cell sheet-cell-button">
+          <button type="roll" name="d20-str-atk-roller"
+            value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Str Atk}} {{skillRoll=[[@{DiceBase}+@{d20bab}+@{d20strMod}+@{d20strAtkBonus1}+@{d20strAtkBonus2}]]}}">
+          </button>
+        </div>
+        <div class="sheet-table-cell sheet-cell-60px">
+          Str Atk:
+        </div>
+        <div class="sheet-table-cell sheet-cell-60px" title="Str Mod">
+          Mod:
+        </div>
+        <div class="sheet-table-cell sheet-cell-rank sheet-input-disabled" title="Str Mod">
+          <input type="number" name="attr_d20strMod" value="0" readonly/>
+        </div>
+        <div class="sheet-table-cell sheet-cell-60px">
+          Bonus 1:
+        </div>
+        <div class="sheet-table-cell sheet-cell-rank">
+          <input type="number" name="attr_d20strAtkBonus1" value="0"/>
+        </div>
+        <div class="sheet-table-cell sheet-cell-60px">
+          Bonus 2:
+        </div>
+        <div class="sheet-table-cell sheet-cell-rank">
+          <input type="number" name="attr_d20strAtkBonus2" value="0"/>
+        </div>
+        <div class="sheet-table-cell sheet-cell-a"></div>
+      </div>
+      <div class="sheet-table-row">
+        <div class="sheet-table-cell"></div>
+        <div class="sheet-table-cell">
+          <button type="roll" name="d20-dex-atk-roller"
+            value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Dex Atk}} {{skillRoll=[[@{DiceBase}+@{d20bab}+@{d20dexMod}+@{d20dexAtkBonus1}+@{d20dexAtkBonus2}]]}}">
+          </button>
+        </div>
+        <div class="sheet-table-cell">
+          Dex Atk:
+        </div>
+        <div class="sheet-table-cell" title="Dex Mod">
+          Mod:
+        </div>
+        <div class="sheet-table-cell sheet-input-disabled" title="Dex Mod">
+          <input type="number" name="attr_d20dexMod" value="0" readonly/>
+        </div>
+        <div class="sheet-table-cell">
+          Bonus 1:
+        </div>
+        <div class="sheet-table-cell">
+          <input type="number" name="attr_d20dexAtkBonus1" value="0"/>
+        </div>
+        <div class="sheet-table-cell">
+          Bonus 2:
+        </div>
+        <div class="sheet-table-cell">
+          <input type="number" name="attr_d20dexAtkBonus2" value="0"/>
+        </div>
+        <div class="sheet-table-cell"></div>
+      </div>
+      <input type="checkbox" class="sheet-hide-cmb sheet-hider-invis" name="attr_hideCMB" value="checked" checked />
+      <div class="sheet-table-row sheet-cmb-section">
+        <div class="sheet-table-cell"></div>
+        <div class="sheet-table-cell">
+          <button type="roll" name="pf1e-cmb-roller"
+            value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=CMB}} {{skillRoll=[[@{DiceBase}+@{cmbTotal}+@{cmbBonus1}+@{cmbBonus2}]]}}">
+          </button>
+        </div>
+        <div class="sheet-table-cell">
+          CMB:
+        </div>
+        <div class="sheet-table-cell" title="BAB + Str + Size Mod">
+          Base:
+        </div>
+        <div class="sheet-table-cell sheet-input-disabled" title="BAB + Str + Size Mod">
+          <input type="number" name="attr_cmbTotal" value="0" readonly/>
+        </div>
+        <div class="sheet-table-cell">
+          Bonus 1:
+        </div>
+        <div class="sheet-table-cell">
+          <input type="number" name="attr_cmbBonus1" value="0"/>
+        </div>
+        <div class="sheet-table-cell">
+          Bonus 2:
+        </div>
+        <div class="sheet-table-cell">
+          <input type="number" name="attr_cmbBonus2" value="0"/>
+        </div>
+        <div class="sheet-table-cell"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sheet-section">
+    <div class="sheet-headerbar">Combat Notes</div>
+    <textarea class="sheet-multiline-input sheet-input-border" name="attr_CombatNotes" placeholder="Combat notes"></textarea>
+  </div>
 </div><!-- End Combat Tab -->
 
 <div class="sheet-section-tabbed-gear"><!-- Gear Tab -->
   <!-- TEST Section -->
-  <div class="sheet-section">
+  <!-- <div class="sheet-section">
     <div class="sheet-headerbar">
       TEST
       <input type="checkbox" class="sheet-checkbox-graygear" name="attr_TestHider" style="float:right" checked />
@@ -8822,8 +9225,16 @@
         <div class="sheet-table-cell sheet-cell-a"><input type="text" value="Cell 2,3" name="attr_testCell2-3" /></div>
       </div>
     </div>
-  </div><!-- End TEST Section -->
+  </div>End TEST Section -->
+  <div class="sheet-section">
+    <div class="sheet-headerbar">Gear Notes</div>
+    <textarea class="sheet-input-border sheet-multiline-input" name="attr_GearNotes" placeholder="Gear notes"></textarea>
+  </div>
 </div><!-- End Gear Tab -->
+
+<div class="sheet-section-tabbed-spells"><!-- Spells Tab -->
+
+</div><!-- End Spells Tab -->
 
 <div class="sheet-section-tabbed-special"><!-- Special Gear Tab -->
   <!-- Eclipse Phase v1 Morphs Section -->
@@ -11253,6 +11664,12 @@
           </span>
           <span class="sheet-span-border sheet-span-settings">
             <label class="sheet-label-settings">
+              <input type="checkbox" class="sheet-show-d20size" name="attr_UseD20SizeCheckbox" value="Yes" />
+              d20 Size
+            </label>
+          </span>
+          <span class="sheet-span-border sheet-span-settings">
+            <label class="sheet-label-settings">
               <input type="checkbox" class="sheet-show-bkg" name="attr_UseBkgCheckbox" value="Yes" />
               Background
             </label>
@@ -11482,7 +11899,7 @@
       <div class="sheet-table-row sheet-table-row-settings">
         <div class="sheet-table-cell sheet-cell-25 sheet-cell-label">Combat: d20 Options</div>
         <div class="sheet-table-cell sheet-cell-a">
-          <span title="d20 Armor Class?">
+          <div title="d20 Armor Class?">
             <b>AC Type?</b>
             <span class="sheet-span-border sheet-span-settings">
               <label class="sheet-label-settings">
@@ -11502,8 +11919,8 @@
                 None
               </label>
             </span>
-          </span><br>
-          <span title="Saves">
+          </div>
+          <div title="Saves">
             <b>Save type?</b>
             <span class="sheet-span-border sheet-span-settings" title="D&D 3.5e / Pathfinder 1e style (Fort, Reflex, Wil)">
               <label class="sheet-label-settings">
@@ -11523,7 +11940,28 @@
                 None
               </label>
             </span>
-          </span>
+          </div>
+          <div title="PF1e CMB/CMD">
+            <b>PF1e CMB/CMD?</b>
+            <span class="sheet-span-border sheet-span-settings" title="Use static PF1e CMB/CMD">
+              <label class="sheet-label-settings">
+                <input type="radio" name="attr_pf1eCMBCMDselector" value="Static" />
+                Static
+              </label>
+            </span>
+            <span class="sheet-span-border sheet-span-settings" title="Use static PF1e CMB/CMD">
+              <label class="sheet-label-settings">
+                <input type="radio" name="attr_pf1eCMBCMDselector" value="Rolled" />
+                Rolled
+              </label>
+            </span>
+            <span class="sheet-span-border sheet-span-settings" title="Don't use PF1e CMB/CMD'">
+              <label class="sheet-label-settings">
+                <input type="radio" name="attr_pf1eCMBCMDselector" value="None" checked/>
+                None
+              </label>
+            </span>
+          </div>
         </div>
       </div> <!-- End Combat: d20 Options -->
 
@@ -11534,6 +11972,12 @@
             <label class="sheet-label-settings">
               <input type="radio" name="attr_SpellsSelector" value="3.5e" />
               3.5e/PF1e
+            </label>
+          </span>
+          <span class="sheet-span-border sheet-span-settings" title="Pathfinder 1e style with Spell Points">
+            <label class="sheet-label-settings">
+              <input type="radio" name="attr_SpellsSelector" value="PF1e-SpellPoints" />
+              PF1e w/SP
             </label>
           </span>
           <span class="sheet-span-border sheet-span-settings" title="No spells">
