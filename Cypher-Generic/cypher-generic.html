@@ -1588,12 +1588,12 @@
 
         let acTotal = acBase + acTotalMod + armor + shield + natural + acBonus1 + acBonus2 + acBonus3 +
           circumstance + deflection + dodge + insight + luck + morale + profane + sacred + acSizeMod;
-        let acFlatfooted = acTotal - dexBonus;
+        let acFlatfooted = acTotal - dexBonus - dodge;
         let touchAC = acTotal - armor - shield - natural;
 
         let cmdTotal = cmdBase + bab + cmdTotalMod + circumstance + deflection + dodge + insight + luck +
-          morale + profane + sacred + cmdBonus + acSizeMod;
-        let cmdFlatFooted = cmdTotal - dexBonus;
+          morale + profane + sacred + cmdBonus + cmdSizeMod;
+        let cmdFlatFooted = cmdTotal - dexBonus - dodge;
 
         setAttrs({
           acBase: acBase,
@@ -2522,7 +2522,7 @@
         "PF1eUseMagicDeviceBonus2",
         "PF1eUseMagicDeviceBonus3",
         "PF1eUseMagicDeviceBonus4",
-        "PF1eUseMagicDeviceClassSkillCheckbox"
+        "PF1eUseMagicDeviceClassSkillCheckbox",
       ]
       getAttrs(skillMods, function(values){
         let mod = parseInt(values.d20chaMod) || 0;
@@ -2549,7 +2549,21 @@
 
 <!-- PF1E Repeating Skills Calculation -->
 <script type="text/worker">
-  on("ready change:d20strMod change:d20dexMod change:d20conMod change:d20intMod change:d20wisMod change:d20chaMod change:repeating_PF1e-Skill:PF1eRepeatingSkillRanks change:repeating_PF1e-Skill:PF1eRepeatingSkillBonus1 change:repeating_PF1e-Skill:PF1eRepeatingSkillBonus2 change:repeating_PF1e-Skill:PF1eRepeatingSkillBonus3 change:repeating_PF1e-Skill:PF1eRepeatingSkillBonus4 change:repeating_PF1e-Skill:PF1eRepeatingSkillClassSkillCheckbox",
+  on([
+    "ready",
+    "change:d20strMod",
+    "change:d20dexMod",
+    "change:d20conMod",
+    "change:d20intMod",
+    "change:d20wisMod",
+    "change:d20chaMod",
+    "change:repeating_PF1e-Skill:PF1eRepeatingSkillRanks",
+    "change:repeating_PF1e-Skill:PF1eRepeatingSkillBonus1",
+    "change:repeating_PF1e-Skill:PF1eRepeatingSkillBonus2",
+    "change:repeating_PF1e-Skill:PF1eRepeatingSkillBonus3",
+    "change:repeating_PF1e-Skill:PF1eRepeatingSkillBonus4",
+    "change:repeating_PF1e-Skill:PF1eRepeatingSkillClassSkillCheckbox"
+  ],
     function(event) {
       try {
         let rowID = event.sourceAttribute.split("_")[2];
@@ -2618,6 +2632,311 @@
       }
     }
   );
+</script>
+
+<!-- PF1E Spell Points Calculation-->
+<script type="text/worker">
+  on([
+      "ready",
+      "change:spPool1Max",
+      "change:spPool2Max",
+      "change:spPool3Max",
+      "change:spPool1Spent",
+      "change:spPool2Spent",
+      "change:spPool3Spent",
+    ].join(" "), function() {
+      const getList = [
+        "spPool1Max",
+        "spPool2Max",
+        "spPool3Max",
+        "spPool1Spent",
+        "spPool2Spent",
+        "spPool3Spent",
+      ];
+
+      getAttrs(getList, function(values) {
+        let pool1max = parseInt(values.spPool1Max) || 0;
+        let pool2max = parseInt(values.spPool2Max) || 0;
+        let pool3max = parseInt(values.spPool3Max) || 0;
+        let pool1spent = parseInt(values.spPool1Spent) || 0;
+        let pool2spent = parseInt(values.spPool2Spent) || 0;
+        let pool3spent = parseInt(values.spPool3Spent) || 0;
+
+        let reserve1Base = Math.floor(pool1max / 2);
+        let reserve2Base = Math.floor(pool2max / 2);
+        let reserve3Base = Math.floor(pool3max / 2);
+
+        let current1Base = Math.ceil(pool1max / 2);
+        let current2Base = Math.ceil(pool2max / 2);
+        let current3Base = Math.ceil(pool3max / 2);
+
+        let current1 = current1Base - pool1spent;
+        let current2 = current2Base - pool2spent;
+        let current3 = current3Base - pool3spent;
+
+        let reserve1 = reserve1Base;
+        let reserve2 = reserve2Base;
+        let reserve3 = reserve3Base;
+
+        if (current1 < 0) {
+          reserve1 += current1;
+          current1 = 0;
+        }
+        if (current2 < 0) {
+          reserve2 += current2;
+          current2 = 0;
+        }
+        if (current3 < 0) {
+          reserve3 += current3;
+          current3 = 0;
+        }
+
+        let exhaustion1 = reserve1 < reserve1Base ? 1 : 0;
+        let exhaustion2 = reserve2 < reserve2Base ? 1 : 0;
+        let exhaustion3 = reserve3 < reserve3Base ? 1 : 0;
+
+        setAttrs({
+          spPool1Current: current1,
+          spPool2Current: current2,
+          spPool3Current: current3,
+          spPool1Reserve: reserve1,
+          spPool2Reserve: reserve2,
+          spPool3Reserve: reserve3,
+          spPool1ReserveMax: reserve1Base,
+          spPool2ReserveMax: reserve2Base,
+          spPool3ReserveMax: reserve3Base,
+          spPool1Exhaustion: exhaustion1,
+          spPool2Exhaustion: exhaustion2,
+          spPool3Exhaustion: exhaustion3,
+        });
+      });
+    }
+  );
+</script>
+
+<!-- PF1E Spell Points Manual Spending Buttons -->
+<script type="text/worker">
+  on([
+    "clicked:pf1eSP1Spend",
+    "clicked:pf1eSP2Spend",
+    "clicked:pf1eSP3Spend",
+  ].join(" "), function(eventInfo) {
+    const getList = [
+      "spPool1Spent",
+      "spPool2Spent",
+      "spPool3Spent",
+    ];
+
+    getAttrs(getList, function(values) {
+      let val = parseInt(eventInfo.htmlAttributes.value) || 0;
+      let target = "";
+      let spent = 0;
+
+      if (eventInfo.htmlAttributes.name === "act_pf1eSP1Spend") {
+        target = "spPool1Spent";
+        spent = parseInt(values.spPool1Spent) || 0;
+      }
+      if (eventInfo.htmlAttributes.name === "act_pf1eSP2Spend") {
+        target = "spPool2Spent";
+        spent = parseInt(values.spPool2Spent) || 0;
+      }
+      if (eventInfo.htmlAttributes.name === "act_pf1eSP3Spend") {
+        target = "spPool3Spent";
+        spent = parseInt(values.spPool3Spent) || 0;
+      }
+
+      spent += val;
+
+      setAttrs({
+        [target]: spent,
+      });
+    });
+  });
+</script>
+
+<!-- PF1E Spell Points Recover Half Button -->
+<script type="text/worker">
+  on([
+    "clicked:pf1eRecoverHalfSP",
+  ].join(" "), function() {
+    const getList = [
+      "spPool1Spent",
+      "spPool2Spent",
+      "spPool3Spent",
+    ];
+
+    getAttrs(getList, function(values) {
+      let spentPool1 = parseInt(values.spPool1Spent) || 0;
+      let spentPool2 = parseInt(values.spPool2Spent) || 0;
+      let spentPool3 = parseInt(values.spPool3Spent) || 0;
+
+      spentPool1 = spentPool1 - Math.ceil(spentPool1 / 2) || 0;
+      spentPool2 = spentPool2 - Math.ceil(spentPool2 / 2) || 0;
+      spentPool3 = spentPool3 - Math.ceil(spentPool3 / 2) || 0;
+
+      setAttrs({
+        spPool1Spent: spentPool1,
+        spPool2Spent: spentPool2,
+        spPool3Spent: spentPool3,
+      });
+    });
+  });
+</script>
+
+<!-- PF1E Spell Points Recover Full Button -->
+<script type="text/worker">
+  on([
+    "clicked:pf1eRecoverFullSP",
+  ].join(" "), function() {
+    const repSect = "repeating_pf1eSPspells";
+
+    getSectionIDs(repSect, function(ids) {
+      ids.forEach(function(id) {
+        let casts = repSect + '_' + id + '_pf1eSPspellRepCasts';
+        setAttrs({[casts]: 0,});
+      });
+    });
+
+    setAttrs({
+      spPool1Spent: 0,
+      spPool2Spent: 0,
+      spPool3Spent: 0,
+    });
+  });
+</script>
+
+<!-- PF1E Spell Points Repeating Spells Name and Cast Cost Calculation -->
+<script type="text/worker">
+  on([
+    "ready",
+    "change:repeating_pf1eSPspells:pf1eSPspellRepName",
+    "change:repeating_pf1eSPspells:pf1eSPspellRepLvl",
+    "change:repeating_pf1eSPspells:pf1eSPspellRepPool",
+    "change:repeating_pf1eSPspells:pf1eSPspellRepCastCost",
+    "change:repeating_pf1eSPspells:pf1eSPspellRepPrepType",
+    "change:repeating_pf1eSPspells:pf1eSPspellRepCasts",
+  ].join(" "), function(eventInfo) {
+    let rowID = eventInfo.sourceAttribute.split("_")[2];
+    const getList = [
+      "repeating_pf1eSPspells_" + rowID + "_pf1eSPspellRepName",
+      "repeating_pf1eSPspells_" + rowID + "_pf1eSPspellRepLvl",
+      "repeating_pf1eSPspells_" + rowID + "_pf1eSPspellRepPool",
+      "repeating_pf1eSPspells_" + rowID + "_pf1eSPspellRepCastCost",
+      "repeating_pf1eSPspells_" + rowID + "_pf1eSPspellRepPrepType",
+      "repeating_pf1eSPspells_" + rowID + "_pf1eSPspellRepCasts",
+    ];
+    getAttrs(getList, function(values) {
+      let name = values["repeating_pf1eSPspells_" + rowID + "_pf1eSPspellRepName"];
+      let lvl = parseInt(values["repeating_pf1eSPspells_" + rowID + "_pf1eSPspellRepLvl"]) || 0;
+      let pool = values["repeating_pf1eSPspells_" + rowID + "_pf1eSPspellRepPool"];
+      let castCost = parseInt(values["repeating_pf1eSPspells_" + rowID + "_pf1eSPspellRepCastCost"]) || 0;
+      let prep = values["repeating_pf1eSPspells_" + rowID + "_pf1eSPspellRepPrepType"];
+      let casts = parseInt(values["repeating_pf1eSPspells_" + rowID + "_pf1eSPspellRepCasts"]) || 0;
+
+      if (lvl === 0) {
+        castCost = 0;
+      } else {
+        castCost = lvl + 1;
+        if (prep === "prep") {
+          castCost += (lvl * casts);
+        } else {
+          castCost += casts;
+        }
+      }
+
+      let displayName = lvl.toString() + ": " + name + ' (' + castCost.toString() + 'sp)';
+
+      let attrCastCost = `repeating_pf1eSPspells_${rowID}_pf1eSPspellRepCastCost`;
+      let attrDisplayName = `repeating_pf1eSPspells_${rowID}_pf1eSPspellRepDisplaySpan`;
+
+      setAttrs({
+        [attrDisplayName]: displayName,
+        [attrCastCost]: castCost,
+      });
+    });
+  });
+</script>
+
+<!-- PF1E Spell Point Repeating Spells Cast Spell Button -->
+<script type="text/worker">
+  on([
+    // "change:repeating_pf1eSPspells:pf1eSPspellRepCasts",
+    "change:pf1eSPspellRepCastTrigger",
+  ].join(" "), function(eventInfo) {
+    let rowID = eventInfo.sourceAttribute.split("_")[2];
+    const getList = [
+      "repeating_pf1eSPspells_" + rowID + "_pf1eSPspellRepPool",
+      "repeating_pf1eSPspells_" + rowID + "_pf1eSPspellRepCastCost",
+      "repeating_pf1eSPspells_" + rowID + "_pf1eSPspellRepCasts",
+      "spPool1Spent",
+      "spPool2Spent",
+      "spPool3Spent",
+    ];
+
+    getAttrs(getList, function(values) {
+      let pool = parseInt(values["repeating_pf1eSPspells_" + rowID + "_pf1eSPspellRepPool"]) || 1;
+      let castCost = parseInt(values["repeating_pf1eSPspells_" + rowID + "_pf1eSPspellRepCastCost"]) || 0;
+      let casts = parseInt(values["repeating_pf1eSPspells_" + rowID + "_pf1eSPspellRepCasts"]) || 0;
+
+      let target = "spPool1Spent";
+      let spent = parseInt(values.spPool1Spent) || 0;
+      if (pool === 2) {
+        target = "spPool2Spent";
+        spent = parseInt(values.spPool2Spent) || 0;
+      } else if (pool === 3) {
+        target = "spPool3Spent";
+        spent = parseInt(values.spPool3Spent) || 0;
+      }
+      spent += castCost;
+
+      // let castsTarget = `repeating_pf1eSPspells_${rowID}_pf1eSPspellRepCasts`;
+      // casts += 1;
+
+      setAttrs({
+        [target]: spent,
+        // [castsTarget]: casts,
+      });
+    });
+  });
+</script>
+
+
+<!-- PF1E Spell Points Pool Names Calculation-->
+<script type="text/worker">
+  on([
+    "ready",
+    "change:pf1eSPPool1Name",
+    "change:pf1eSPPool2Name",
+    "change:pf1eSPPool3Name",
+  ].join(" "), function() {
+    const getList = [
+      "pf1eSPPool1Name",
+      "pf1eSPPool2Name",
+      "pf1eSPPool3Name",
+    ];
+
+    getAttrs(getList, function(values) {
+      let pool1Name = "SP Pool 1";
+      let pool2Name = "SP Pool 2";
+      let pool3Name = "SP Pool 3";
+
+      if (values.pf1eSPPool1Name && values.pf1eSPPool1Name.length > 0) {
+        pool1Name = "SP Pool 1: " + values.pf1eSPPool1Name;
+      }
+      if (values.pf1eSPPool2Name && values.pf1eSPPool2Name.length > 0) {
+        pool2Name = "SP Pool 2: " + values.pf1eSPPool2Name;
+      }
+      if (values.pf1eSPPool3Name && values.pf1eSPPool3Name.length > 0) {
+        pool3Name = "SP Pool 3: " + values.pf1eSPPool3Name;
+      }
+
+      setAttrs({
+        pf1eSPpool1DisplayName: pool1Name,
+        pf1eSPpool2DisplayName: pool2Name,
+        pf1eSPpool3DisplayName: pool3Name
+      });
+    });
+  });
 </script>
 <!-- END Pathfinder 1E Script Workers -->
 
@@ -8718,7 +9037,7 @@
             <div class="sheet-table-cell sheet-cell-a"></div>
             <div class="sheet-table-cell sheet-cell-button">
               <button type="roll" name="d20-ac-flat-footed-roller"
-                value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Touch AC}} {{skillRoll=[[@{DiceBase}+@{acFlatFooted}]]}}">
+                value="&{template:generic-skill} {{CharName=@{CharName}}} {{skillName=Flat-Footed AC}} {{skillRoll=[[@{DiceBase}+@{acFlatFooted}]]}}">
               </button>
             </div>
             <div class="sheet-table-cell sheet-cell-100px">Flat-Footed:</div>
@@ -8922,35 +9241,12 @@
           </select>
         </div>
         <div class="sheet-label sheet-span-border sheet-span-settings">
-          <label style="align-items: center;">
+          <label style="align-items: center; padding-top: 3px">
             <input type="checkbox" name="attr_acUseWis" value="1"/>
             Add Wisdom Mod
           </label>
         </div>
       </div>
-      <!-- <div class="sheet-table sheet-boldCenter sheet-input-border">
-        <div class="sheet-table-row">
-          <div class="sheet-table-cell sheet-cell-a"></div>
-          <div class="sheet-table-cell sheet-cell-60px">Max Dex:</div>
-          <div class="sheet-table-cell sheet-cell-rank">
-            <input type="number" name="attr_acMaxDex" value="0"/>
-          </div>
-          <div class="sheet-table-cell sheet-cell-a"></div>
-          <div class="sheet-table-cell sheet-cell-rank" title="Size">Size</div>
-          <div class="sheet-table-cell sheet-cell-100px" title="Size">
-
-          </div>
-          <div class="sheet-table-cell sheet-cell-a sheet-label" title="Add Wisdom modifier?">
-            <span class="sheet-span-border sheet-span-settings" style="vertical-align: middle;">
-              <label>
-                <input type="checkbox" name="attr_acUseWis" value="1" style="vertical-align: middle;"/>
-                Add Wisdom Mod
-              </label>
-            </span>
-          </div>
-          <div class="sheet-table-cell sheet-cell-a"></div>
-        </div>
-      </div> -->
       <textarea class="sheet-multiline-input sheet-input-border" style="height: 50px;" name="attr_ACnotes" placeholder="Armor notes"></textarea>
       <p style="text-align:center; font-style: italic">
         Use gear icon in "Armor Class" header to hide this calc section.
@@ -9233,7 +9529,288 @@
 </div><!-- End Gear Tab -->
 
 <div class="sheet-section-tabbed-spells"><!-- Spells Tab -->
-
+  <!-- PF1e Spellcasting with Spell Points -->
+  <input type="checkbox" class="sheet-show-pf1e-sp sheet-hider-invis" name="attr_SpellsSelector" value="PF1e-SpellPoints" />
+  <div class="sheet-section sheet-section-pf1e-sp">
+    <div class="sheet-headerbar">PF1e Spell Point Spellcasting</div>
+    <div class="sheet-flex-row">
+      <div class="sheet-section" style="margin: 0 2px;">
+        <div class="sheet-headerbar" title="Spell Point Pool 1">
+          <input type="hidden" name="attr_pf1eSPpool1DisplayName" value="SP Pool 1" />
+          <span name="attr_pf1eSPpool1DisplayName"></span>
+          <input type="checkbox" class="sheet-checkbox-graygear" name="attr_pf1eSPpool1ConfigHider" style="float:right" checked/>
+          <span style="vertical-align:middle; position:relative; float:right; margin-right:-20px; margin-top:-2px"></span>
+        </div>
+        <div class="sheet-flex-row sheet-boldCenter sheet-input-border" style="margin-bottom: 4px;">
+          <div class="sheet-flex-col" title="Max Spell Points">
+            Max SP
+            <input type="number" name="attr_spPool1Max" value="0" />
+          </div>
+          <div class="sheet-flex-col sheet-input-disabled" title="Current Spell Points">
+            Current
+            <input type="number" name="attr_spPool1Current" value="0" readonly />
+          </div>
+          <div class="sheet-flex-col sheet-input-disabled" title="Reserve Spell Points">
+            Reserve
+            <input type="number" name="attr_spPool1Reserve" value="0" readonly />
+          </div>
+          <input type="hidden" name="attr_spPool1Spent" value="0" readonly />
+          <input type="hidden" name="attr_spPool1ReserveMax" value="0" readonly />
+          <input type="hidden" name="attr_spPool1Exhaustion" value="0" readonly />
+        </div>
+        <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_pf1eSPpool1ConfigHider" checked/>
+        <div class="sheet-hide-section sheet-section sheet-boldCenter sheet-input-border">
+          <div class="sheet-flex-row">
+            <span style="padding-top: 2px; padding-right: 8px;">Spend:</span>
+            <button type="action" class="btn sheet-roll-button" name="act_pf1eSP1Spend" value="1">
+              1sp
+            </button>
+            <button type="action" class="btn sheet-roll-button" name="act_pf1eSP1Spend" value="3">
+              3sp
+            </button>
+            <button type="action" class="btn sheet-roll-button" name="act_pf1eSP1Spend" value="5">
+              5sp
+            </button>
+          </div>
+          <div class="sheet-flex-row">
+            <span style="padding-top: 2px">Restore:</span>
+            <button type="action" class="btn sheet-roll-button" name="act_pf1eSP1Spend" value="-1">
+              1sp
+            </button>
+            <button type="action" class="btn sheet-roll-button" name="act_pf1eSP1Spend" value="-3">
+              3sp
+            </button>
+            <button type="action" class="btn sheet-roll-button" name="act_pf1eSP1Spend" value="-5">
+              5sp
+            </button>
+          </div>
+          <div class="sheet-flex-row">
+            <span style="padding-top: 2px; margin-right: 5px;">Name:</span>
+            <input type="text" name="attr_pf1eSPPool1Name" placeholder="Pool Name (usually class name)"/>
+          </div>
+        </div>
+      </div>
+      <div class="sheet-section" style="margin: 0 2px;">
+        <div class="sheet-headerbar" title="Spell Point Pool 2">
+          <input type="hidden" name="attr_pf1eSPpool2DisplayName" value="SP Pool 2" />
+          <span name="attr_pf1eSPpool2DisplayName"></span>
+          <input type="checkbox" class="sheet-checkbox-graygear" name="attr_pf1eSPpool2ConfigHider" style="float:right" checked/>
+          <span style="vertical-align:middle; position:relative; float:right; margin-right:-20px; margin-top:-2px"></span>
+        </div>
+        <div class="sheet-flex-row sheet-boldCenter sheet-input-border" style="margin-bottom: 4px;">
+          <div class="sheet-flex-col" title="Max Spell Points">
+            Max SP
+            <input type="number" name="attr_spPool2Max" value="0" />
+          </div>
+          <div class="sheet-flex-col sheet-input-disabled" title="Current Spell Points">
+            Current
+            <input type="number" name="attr_spPool2Current" value="0" readonly />
+          </div>
+          <div class="sheet-flex-col sheet-input-disabled" title="Reserve Spell Points">
+            Reserve
+            <input type="number" name="attr_spPool2Reserve" value="0" readonly />
+          </div>
+          <input type="hidden" name="attr_spPool2Spent" value="0" readonly />
+          <input type="hidden" name="attr_spPool2ReserveMax" value="0" readonly />
+          <input type="hidden" name="attr_spPool2Exhaustion" value="0" readonly />
+        </div>
+        <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_pf1eSPpool2ConfigHider" checked/>
+        <div class="sheet-hide-section sheet-section sheet-boldCenter sheet-input-border">
+          <div class="sheet-flex-row">
+            <span style="padding-top: 2px; padding-right: 8px;">Spend:</span>
+            <button type="action" class="btn sheet-roll-button" name="act_pf1eSP2Spend" value="1">
+              1sp
+            </button>
+            <button type="action" class="btn sheet-roll-button" name="act_pf1eSP2Spend" value="3">
+              3sp
+            </button>
+            <button type="act" class="btn sheet-roll-button" name="act_pf1eSP2Spend" value="5">
+              5sp
+            </button>
+          </div>
+          <div class="sheet-flex-row">
+            <span style="padding-top: 2px">Restore:</span>
+            <button type="action" class="btn sheet-roll-button" name="act_pf1eSP2Spend" value="-1">
+              1sp
+            </button>
+            <button type="action" class="btn sheet-roll-button" name="act_pf1eSP2Spend" value="-3">
+              3sp
+            </button>
+            <button type="act" class="btn sheet-roll-button" name="act_pf1eSP2Spend" value="-5">
+              5sp
+            </button>
+          </div>
+          <div class="sheet-flex-row">
+            <span style="padding-top: 2px; margin-right: 5px;">Name:</span>
+            <input type="text" name="attr_pf1eSPPool2Name" placeholder="Pool Name (usually class name)"/>
+          </div>
+        </div>
+      </div>
+      <div class="sheet-section" style="margin: 0 2px;">
+        <div class="sheet-headerbar" title="Spell Point Pool 3">
+          <input type="hidden" name="attr_pf1eSPpool3DisplayName" value="SP Pool 3" />
+          <span name="attr_pf1eSPpool3DisplayName"></span>
+          <input type="checkbox" class="sheet-checkbox-graygear" name="attr_pf1eSPpool3ConfigHider" style="float:right" checked/>
+          <span style="vertical-align:middle; position:relative; float:right; margin-right:-20px; margin-top:-2px"></span>
+        </div>
+        <div class="sheet-flex-row sheet-boldCenter sheet-input-border" style="margin-bottom: 4px;">
+          <div class="sheet-flex-col" title="Max Spell Points">
+            Max SP
+            <input type="number" name="attr_spPool3Max" value="0" />
+          </div>
+          <div class="sheet-flex-col sheet-input-disabled" title="Current Spell Points">
+            Current
+            <input type="number" name="attr_spPool3Current" value="0" readonly />
+          </div>
+          <div class="sheet-flex-col sheet-input-disabled" title="Reserve Spell Points">
+            Reserve
+            <input type="number" name="attr_spPool3Reserve" value="0" readonly />
+          </div>
+          <input type="hidden" name="attr_spPool3Spent" value="0" readonly />
+          <input type="hidden" name="attr_spPool3ReserveMax" value="0" readonly />
+          <input type="hidden" name="attr_spPool3Exhaustion" value="0" readonly />
+        </div>
+        <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_pf1eSPpool3ConfigHider" checked/>
+        <div class="sheet-hide-section sheet-section sheet-boldCenter sheet-input-border">
+          <div class="sheet-flex-row">
+            <span style="padding-top: 2px; padding-right: 8px;">Spend:</span>
+            <button type="action" class="btn sheet-roll-button" name="act_pf1eSP3Spend" value="1">
+              1sp
+            </button>
+            <button type="action" class="btn sheet-roll-button" name="act_pf1eSP3Spend" value="3">
+              3sp
+            </button>
+            <button type="action" class="btn sheet-roll-button" name="act_pf1eSP3Spend" value="5">
+              5sp
+            </button>
+          </div>
+          <div class="sheet-flex-row">
+            <span style="padding-top: 2px">Restore:</span>
+            <button type="action" class="btn sheet-roll-button" name="act_pf1eSP3Spend" value="-1">
+              1sp
+            </button>
+            <button type="action" class="btn sheet-roll-button" name="act_pf1eSP3Spend" value="-3">
+              3sp
+            </button>
+            <button type="action" class="btn sheet-roll-button" name="act_pf1eSP3Spend" value="-5">
+              5sp
+            </button>
+          </div>
+          <div class="sheet-flex-row">
+            <span style="padding-top: 2px; margin-right: 5px;">Name:</span>
+            <input type="text" name="attr_pf1eSPPool3Name" placeholder="Pool Name (usually class name)"/>
+          </div>
+        </div>
+      </div>
+      <div class="sheet-section" style="margin: 0 2px; max-width: 100px; min-width: 60px;">
+        <div class="sheet-headerbar">Recover</div>
+        <div class="sheet-flex-col sheet-boldCenter">
+          <div class="sheet-flex-row" style="margin: 2px 0;" title="Recover half your spell points in all pools">
+            <button type="action" class="sheet-roll-button" name="act_pf1eRecoverHalfSP">
+              Half
+            </button>
+          </div>
+          <div class="sheet-flex-row" style="margin: 2px 0;"
+            title="Recover all spell points in all pools and reset number of times cast for all spells">
+            <button type="action" class="sheet-roll-button" name="act_pf1eRecoverFullSP">
+              Full
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sheet-headerbar">Spells</div>
+    <fieldset class="repeating_pf1eSPspells">
+      <div class="sheet-section sheet-input-border" style="display: inline-block; max-width: 250px;">
+        <div class="sheet-flex-row">
+          <button type="roll" name="roll_pf1eSPspellRepRoller"
+          value="[[@{DiceBase}+@{cmbTotal}+@{cmbBonus1}+@{cmbBonus2}]] [[1]]&{spellCastTrigger}">
+          </button>
+          <input type="hidden" name="attr_pf1eSPspellRepCastTrigger" value="0"/>
+          <input type="hidden" name="attr_pf1eSPspellRepDisplaySpan" value=""/>
+          <span name="attr_pf1eSPspellRepDisplaySpan" title="Key => Spell Lv: Spell Name (Cost to Cast)"
+            style="font-weight: bold; font-size: 14px; vertical-align: middle; margin-left: 5px; padding-top: 2px"></span>
+          <input type="checkbox" class="sheet-checkbox-graygear" name="attr_pf1eSPspellRepHider" style="margin-left: auto; margin-right: -6px"/>
+          <span style="vertical-align:middle; position:relative; float:right; margin-right: -3px; margin-top:-2px"> </span>
+        </div>
+        <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_pf1eSPspellRepHider"/>
+        <div class="sheet-hide-section">
+          <div class="sheet-flex-row">
+            <input type="text" name="attr_pf1eSPspellRepName" placeholder="Spell name" value="" />
+          </div>
+          <div class="sheet-flex-row">
+            <span class="sheet-label-settings" style="margin-right: 3px">Lv:</span>
+            <select name="attr_pf1eSPspellRepLvl" style="width: 35px; margin-right: 8px" title="Spell Level">
+              <option value="0">0</option>
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
+            <span class="sheet-label-settings" style="margin-right: 3px">Pool:</span>
+            <select name="attr_pf1eSPspellRepPool" style="margin-right: 8px"
+              title="Spell Point pool to cast from">
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+            <span class="sheet-label-settings" style="margin-right: 3px"
+              title="Spell Point Cost to Cast">
+              Cost:
+            </span>
+            <span class="sheet-input-disabled" style="width: 20px" title="Spell Point Cost to Cast">
+              <input type="number" name="attr_pf1eSPspellRepCastCost" value="0" readonly />
+            </span>
+          </div>
+          <div class="sheet-flex-row">
+            <span class="sheet-label-settings" style="margin-right: 3px">Type:</span>
+            <select name="attr_pf1eSPspellRepPrepType" style="margin-right: 8px" title="Spell preparation type: Prepared or Spontaneous">
+              <option value="prep">Prepared</option>
+              <option value="spon">Spontaneous</option>
+            </select>
+            <span class="sheet-label-settings" style="margin-right: 3px" title="Times cast today">Casts:</span>
+            <span class="sheet-input-disabled" style="width: 20px" title="Times Cast Today">
+              <input type="number" name="attr_pf1eSPspellRepCasts" value="0" readonly />
+            </span>
+          </div>
+          <div class="sheet-flex-row sheet-input-border">
+            <select name="attr_pf1eSPspellRepRoll1Type" style="margin-right: 8px" title="Damage, Healing, or Other">
+              <option value="">None</option>
+              <option value="Damage">Dmg</option>
+              <option value="Healing">Heal</option>
+              <option value="Other">Other</option>
+            </select>
+            <span class="sheet-label-settings" style="margin-right: 3px">Roll:</span>
+            <input type="text" name="pf1eSPspellRepRoll1Roll" placeholder="1d6+0" value="" title="Damage or healing roll"/>
+            <input type="text" name="pf1eSPspellRepRoll1DmgType" placeholder="Fire" value="" title="Damage or healing type"/>
+          </div>
+          <div class="sheet-flex-row">
+            <select name="attr_pf1eSPspellRepRoll2Type" style="margin-right: 8px" title="Damage, Healing, or Other">
+              <option value="">None</option>
+              <option value="Damage">Dmg</option>
+              <option value="Healing">Heal</option>
+              <option value="Other">Other</option>
+            </select>
+            <span class="sheet-label-settings" style="margin-right: 3px">Roll:</span>
+            <input type="text" name="pf1eSPspellRepRoll2Roll" placeholder="1d6+0" value="" title="Damage or healing roll"/>
+            <input type="text" name="pf1eSPspellRepRoll2DmgType" placeholder="Fire" value="" title="Damage or healing type"/>
+          </div>
+          <textarea class="sheet-multiline-input sheet-input-border" name="attr_pf1eSPspellRepDesc"
+            placeholder="Spell Description"></textarea>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <div class="sheet-section">
+    <div class="sheet-headerbar">Spells Notes</div>
+    <textarea class="sheet-multiline-input sheet-input-border" name="attr_pf1eSPspellsNotes"
+      placeholder="Spell Description"></textarea>
+  </div>
 </div><!-- End Spells Tab -->
 
 <div class="sheet-section-tabbed-special"><!-- Special Gear Tab -->
@@ -9285,7 +9862,7 @@
       </div>
       <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP-Morph1-Appearance-Hider" checked />
       <div class="sheet-hide-section">
-        <textarea class="sheet-multiline-input sheet-input-border" name="attr_attr_EP-Morph1-Appearance-Details" placeholder="Morph 1 Appearance/Description"></textarea>
+        <textarea class="sheet-multiline-input sheet-input-border" name="attr_EP-Morph1-Appearance-Details" placeholder="Morph 1 Appearance/Description"></textarea>
       </div>
       <br>
       <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 1 Aptitude Bonuses</div>
@@ -9436,7 +10013,7 @@
       </div>
       <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP-Morph2-Appearance-Hider" checked />
       <div class="sheet-hide-section">
-        <textarea class="sheet-multiline-input sheet-input-border" name="attr_attr_EP-Morph2-Appearance-Details" placeholder="Morph 2 Appearance/Description"></textarea>
+        <textarea class="sheet-multiline-input sheet-input-border" name="attr_EP-Morph2-Appearance-Details" placeholder="Morph 2 Appearance/Description"></textarea>
       </div>
       <br>
       <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 2 Aptitude Bonuses</div>
@@ -9587,7 +10164,7 @@
       </div>
       <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP-Morph3-Appearance-Hider" checked />
       <div class="sheet-hide-section">
-        <textarea class="sheet-multiline-input sheet-input-border" name="attr_attr_EP-Morph3-Appearance-Details" placeholder="Morph 3 Appearance/Description"></textarea>
+        <textarea class="sheet-multiline-input sheet-input-border" name="attr_EP-Morph3-Appearance-Details" placeholder="Morph 3 Appearance/Description"></textarea>
       </div>
       <br>
       <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 3 Aptitude Bonuses</div>
@@ -9738,7 +10315,7 @@
       </div>
       <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP-Morph4-Appearance-Hider" checked />
       <div class="sheet-hide-section">
-        <textarea class="sheet-multiline-input sheet-input-border" name="attr_attr_EP-Morph4-Appearance-Details" placeholder="Morph 4 Appearance/Description"></textarea>
+        <textarea class="sheet-multiline-input sheet-input-border" name="attr_EP-Morph4-Appearance-Details" placeholder="Morph 4 Appearance/Description"></textarea>
       </div>
       <br>
       <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 4 Aptitude Bonuses</div>
@@ -9889,7 +10466,7 @@
       </div>
       <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EP-Morph5-Appearance-Hider" checked />
       <div class="sheet-hide-section">
-        <textarea class="sheet-multiline-input sheet-input-border" name="attr_attr_EP-Morph5-Appearance-Details" placeholder="Morph 5 Appearance/Description"></textarea>
+        <textarea class="sheet-multiline-input sheet-input-border" name="attr_EP-Morph5-Appearance-Details" placeholder="Morph 5 Appearance/Description"></textarea>
       </div>
       <br>
       <div class="sheet-boldCenter sheet-topBorderGray" style="padding-top:3px">Morph 5 Aptitude Bonuses</div>
@@ -10070,7 +10647,7 @@
       </div>
       <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2Morph1Appearance-Hider" checked />
       <div class="sheet-hide-section">
-        <textarea class="sheet-multiline-input sheet-input-border" name="attr_attr_EPv2Morph1-Appearance-Details" placeholder="Morph 1 Appearance/Description"></textarea>
+        <textarea class="sheet-multiline-input sheet-input-border" name="attr_EPv2Morph1-Appearance-Details" placeholder="Morph 1 Appearance/Description"></textarea>
       </div>
       <br>
       <div><!-- Eclipse Phase v2 Morph 1 Aptitude and Pool Bonuses -->
@@ -10380,7 +10957,7 @@
       </div>
       <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2Morph2Appearance-Hider" checked />
       <div class="sheet-hide-section">
-        <textarea class="sheet-multiline-input sheet-input-border" name="attr_attr_EPv2Morph2-Appearance-Details" placeholder="Morph 2 Appearance/Description"></textarea>
+        <textarea class="sheet-multiline-input sheet-input-border" name="attr_EPv2Morph2-Appearance-Details" placeholder="Morph 2 Appearance/Description"></textarea>
       </div>
       <br>
       <div><!-- Eclipse Phase v2 Morph 2 Aptitude and Pool Bonuses -->
@@ -10690,7 +11267,7 @@
       </div>
       <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2Morph3Appearance-Hider" checked />
       <div class="sheet-hide-section">
-        <textarea class="sheet-multiline-input sheet-input-border" name="attr_attr_EPv2Morph3-Appearance-Details" placeholder="Morph 3 Appearance/Description"></textarea>
+        <textarea class="sheet-multiline-input sheet-input-border" name="attr_EPv2Morph3-Appearance-Details" placeholder="Morph 3 Appearance/Description"></textarea>
       </div>
       <br>
       <div><!-- Eclipse Phase v2 Morph 3 Aptitude and Pool Bonuses -->
@@ -11000,7 +11577,7 @@
       </div>
       <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2Morph4Appearance-Hider" checked />
       <div class="sheet-hide-section">
-        <textarea class="sheet-multiline-input sheet-input-border" name="attr_attr_EPv2Morph4-Appearance-Details" placeholder="Morph 4 Appearance/Description"></textarea>
+        <textarea class="sheet-multiline-input sheet-input-border" name="attr_EPv2Morph4-Appearance-Details" placeholder="Morph 4 Appearance/Description"></textarea>
       </div>
       <br>
       <div><!-- Eclipse Phase v2 Morph 4 Aptitude and Pool Bonuses -->
@@ -11310,7 +11887,7 @@
       </div>
       <input type="checkbox" class="sheet-hider sheet-hider-invis" name="attr_EPv2Morph5Appearance-Hider" checked />
       <div class="sheet-hide-section">
-        <textarea class="sheet-multiline-input sheet-input-border" name="attr_attr_EPv2Morph5-Appearance-Details" placeholder="Morph 5 Appearance/Description"></textarea>
+        <textarea class="sheet-multiline-input sheet-input-border" name="attr_EPv2Morph5-Appearance-Details" placeholder="Morph 5 Appearance/Description"></textarea>
       </div>
       <br>
       <div><!-- Eclipse Phase v2 Morph 5 Aptitude and Pool Bonuses -->
@@ -11974,7 +12551,7 @@
               3.5e/PF1e
             </label>
           </span>
-          <span class="sheet-span-border sheet-span-settings" title="Pathfinder 1e style with Spell Points">
+          <span class="sheet-span-border sheet-span-settings" title="Pathfinder 1e spellcasting with Spell Points">
             <label class="sheet-label-settings">
               <input type="radio" name="attr_SpellsSelector" value="PF1e-SpellPoints" />
               PF1e w/SP

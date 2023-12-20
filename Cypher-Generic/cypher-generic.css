@@ -217,10 +217,10 @@ body.sheet-darkmode .btn.btn-default {
   margin-left: 2px; /* Optional: add some spacing between the input and the dropdown */
 }
 
-textarea {
+.charsheet textarea {
   box-sizing: border-box;
   color: black;
-  height: 100px;
+  height: 60px;
   margin: 0;
   resize: vertical;
   width: 100%;
@@ -267,7 +267,7 @@ select {
   padding-left: 3px;
   padding-right: 3px;
   width: 100%;
-  min-width: 50px;
+  min-width: 35px;
 }
 
 input[type="text"] {
@@ -349,11 +349,13 @@ input[type="number"]::-webkit-outer-spin-button {
   display: block;
 }
 
-.sheet-shower:checked ~ .sheet-show-section {
+.sheet-shower:checked ~ .sheet-show-section,
+.sheet-show-pf1e-sp:checked ~ .sheet-section-pf1e-sp {
   display: block;
 }
 
-.sheet-shower:not(:checked) ~ .sheet-show-section {
+.sheet-shower:not(:checked) ~ .sheet-show-section,
+.sheet-show-pf1e-sp:not(:checked) ~ .sheet-section-pf1e-sp {
   display: none;
 }
 
@@ -486,6 +488,12 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
   top: 0;
   width: 14px;
 }
+
+.charsheet span.sheet-checkbox-graygear-span {
+  background-color: #000000;
+  border-color: #333333;
+  border-radius: 3px;
+}
 /* -- End checkbox hider stuff -- */
 
 /*----------- Tabs Setup -------------*/
@@ -581,6 +589,51 @@ input.sheet-checkbox-graygear[type="checkbox"] + span::before {
   color: white;
 }
 /*----------- End Tab Setup -----------*/
+
+/*----------- Generic stuff -----------*/
+.charsheet .sheet-flex-row {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex: 1;
+  justify-content: space-between;
+  vertical-align: middle;
+  margin: 3px;
+}
+
+.charsheet .sheet-flex-col {
+  display: flex; /* This enables flexbox */
+  flex-direction: column; /* This stacks the content vertically */
+  justify-content: center; /* This centers the content vertically */
+  align-items: center; /* This centers the content horizontally */
+  vertical-align: middle;
+  flex: 1; /* This allows each sub-div to grow and fill the container */
+}
+
+.charsheet .sheet-roll-button {
+  font-weight: bold;
+}
+/*----------- End Generic stuff -----------*/
+
+/*----------- Repeating PF1e Spell Point Spells -----------*/
+.charsheet .repeating_pf1eSPspells + .repcontrol_move {
+  position: relative;
+  top: 0; /* Adjust to move up (negative value) or down (positive value) */
+  right: 0; /* Adjust to move left (positive value) or right (negative value) */
+  z-index: 10; /* Make sure the controls are above other elements */
+  color: green;
+}
+
+.charsheet .repeating_pf1eSPspells .repcontrol_delete {
+  color: green; /* Change the color of the delete button, for example */
+  /* Further styling properties */
+}
+
+.charsheet .repeating_pf1eSPspells .repcontrol_move {
+  color: blue; /* Change the color of the move button, for example */
+  /* Further styling properties */
+}
+/*----------- END Repeating PF1e Spell Point Spells -----------*/
 
 /*----------- Skills Display Setup -------------*/
 /*this hides the contents of each section by default*/
